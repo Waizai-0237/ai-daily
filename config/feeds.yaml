@@ -1,0 +1,13 @@
+feeds:
+  - name: TechCrunch AI
+    url: https://techcrunch.com/category/artificial-intelligence/feed/
+    category: 产业
+  - name: The Verge AI
+    url: https://www.theverge.com/rss/ai-artificial-intelligence/index.xml
+    category: 产业
+  - name: Hugging Face Blog
+    url: https://huggingface.co/blog/feed.xml
+    category: 开源
+  - name: 机器之心
+    url: https://www.jiqizhixin.com/rss
+    category: 中文
