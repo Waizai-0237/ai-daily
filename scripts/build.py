@@ -61,7 +61,7 @@ def parse_time(entry):
 
 
 def fetch_articles(feeds):
-    now = dt.datetime.now(dt.timezone.utc)
+    now = dt.datetime.now(dt.timezone(dt.timedelta(hours=8)))
     cutoff = now - dt.timedelta(hours=LOOKBACK_HOURS)
     items = []
     for f in feeds:
