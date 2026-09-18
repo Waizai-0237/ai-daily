@@ -2,33 +2,37 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AI 行业日报</title>
 <style>
-:root{--bg:#0f1115;--card:#181b22;--fg:#e8eaed;--muted:#9aa0a6;--line:#272b34;--acc:#4f8cff}
+:root{--bg:#0b0f19;--card-bg:rgba(22,28,45,0.7);--fg:#f8fafc;--muted:#94a3b8;--line:rgba(255,255,255,0.08);--acc:#38bdf8;--acc-purple:#8b5cf6}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
-header{padding:20px 16px 8px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(15,17,21,.95);backdrop-filter:blur(8px);z-index:9}
-h1{margin:0 0 4px;font-size:20px}
-.meta{margin:0 0 12px;color:var(--muted);font-size:12px}
-.filters{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px}
-.filters button{flex:0 0 auto;background:transparent;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:13px}
-.filters button.active{background:var(--acc);color:#fff;border-color:var(--acc)}
-main{padding:12px 12px 60px;max-width:760px;margin:0 auto}
-.day h2{font-size:13px;color:var(--muted);font-weight:500;margin:18px 4px 8px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:10px}
-.card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
-.cat{font-size:11px;color:var(--acc);border:1px solid var(--acc);border-radius:4px;padding:1px 6px}
-.imp{color:#f5b942;font-size:12px;letter-spacing:1px}
-.card h3{margin:0 0 8px;font-size:16px;line-height:1.4}
-.card h3 a{color:var(--fg);text-decoration:none}
-.card h3 a:active{color:var(--acc)}
-.summary{margin:0 0 8px;color:#c8ccd2;font-size:14px}
-.why{margin:0 0 10px;font-size:13px;color:#8fd18f}
-.card-foot{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:11px}
-.src{color:var(--muted);margin-right:auto}
-.tag{background:#22262f;color:var(--muted);border-radius:4px;padding:2px 7px}
+body{margin:0;background:linear-gradient(135deg, #0b0f19 0%, #111827 100%);color:var(--fg);font:15px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;min-height:100vh}
+header{padding:24px 16px 12px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(11,15,25,0.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:9}
+h1{margin:0 0 6px;font-size:22px;background:linear-gradient(90deg, #38bdf8, #8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:700;letter-spacing:0.5px}
+.meta{margin:0 0 16px;color:var(--muted);font-size:12px;font-family:ui-monospace,SFMono-Regular,monospace}
+.filters{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.filters button{flex:0 0 auto;background:rgba(30,41,59,0.6);color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 16px;font-size:13px;transition:all .3s ease}
+.filters button.active{background:linear-gradient(90deg, #3b82f6, #8b5cf6);color:#fff;border-color:transparent;box-shadow:0 2px 12px rgba(139,92,246,0.3)}
+main{padding:16px 12px 80px;max-width:760px;margin:0 auto}
+.day h2{font-size:13px;color:var(--acc);font-weight:600;margin:24px 4px 12px;letter-spacing:1px;text-transform:uppercase}
+.card{position:relative;background:var(--card-bg);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:transform .2s ease, box-shadow .2s ease;overflow:hidden}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 30px -10px rgba(56,189,248,0.15);border-color:rgba(56,189,248,0.3)}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg, transparent, rgba(56,189,248,0.5), transparent);opacity:0;transition:opacity .3s ease}
+.card:hover::before{opacity:1}
+.card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.cat{font-size:11px;color:var(--acc);background:rgba(56,189,248,0.1);border:1px solid rgba(56,189,248,0.2);border-radius:4px;padding:2px 8px;font-weight:500}
+.imp{color:#fbbf24;font-size:12px;letter-spacing:2px}
+.card h3{margin:0 0 10px;font-size:16px;line-height:1.45;font-weight:600}
+.card h3 a{color:var(--fg);text-decoration:none;transition:color .2s ease}
+.card h3 a:hover{color:var(--acc)}
+.summary{margin:0 0 12px;color:#cbd5e1;font-size:14px;line-height:1.65}
+.why{margin:0 0 14px;font-size:13px;color:#a7f3d0;background:rgba(16,185,129,0.08);padding:8px 12px;border-radius:8px;border-left:2px solid #10b981}
+.card-foot{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:11px}
+.src{color:var(--muted);margin-right:auto;font-family:ui-monospace,SFMono-Regular,monospace}
+.tag{background:rgba(139,92,246,0.1);color:#c4b5fd;border:1px solid rgba(139,92,246,0.2);border-radius:4px;padding:2px 8px}
 </style></head><body>
 <header>
 <h1>AI 行业日报</h1>
-<p class="meta">更新于 2026-09-18 09:12 · 共 26 条 · 保留 14 天</p>
+<p class="meta">更新于 2026-09-18 10:45 · 共 26 条 · 保留 14 天</p>
 <div class="filters"><button class="active" data-cat="all">全部</button>
 <button data-cat="产业">产业</button></div>
 </header><main>
