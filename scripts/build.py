@@ -211,7 +211,7 @@ def render(articles, now):
 
 
 def main():
-    now = dt.datetime.now(dt.timezone.utc).astimezone()
+    now = dt.datetime.now(dt.timezone(dt.timedelta(hours=8)))
     feeds = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8"))["feeds"]
     store = load_json(DATA_PATH, {})
 
