@@ -128,33 +128,26 @@ HEAD = """<!DOCTYPE html><html lang="zh-CN"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AI 行业日报</title>
 <style>
-:root{--bg:#0b0f19;--card-bg:rgba(22,28,45,0.7);--fg:#f8fafc;--muted:#94a3b8;--line:rgba(255,255,255,0.08);--acc:#38bdf8;--acc-purple:#8b5cf6}
-*{box-sizing:border-box}
-body{margin:0;background:linear-gradient(135deg, #0b0f19 0%, #111827 100%);color:var(--fg);font:15px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;min-height:100vh}
-header{padding:24px 16px 12px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(11,15,25,0.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:9}
-h1{margin:0 0 6px;font-size:22px;background:linear-gradient(90deg, #38bdf8, #8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:700;letter-spacing:0.5px}
-.meta{margin:0 0 16px;color:var(--muted);font-size:12px;font-family:ui-monospace,SFMono-Regular,monospace}
-.filters{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
-.filters::-webkit-scrollbar{display:none}
-.filters button{flex:0 0 auto;background:rgba(30,41,59,0.6);color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 16px;font-size:13px;transition:all .3s ease}
-.filters button.active{background:linear-gradient(90deg, #3b82f6, #8b5cf6);color:#fff;border-color:transparent;box-shadow:0 2px 12px rgba(139,92,246,0.3)}
-main{padding:16px 12px 80px;max-width:760px;margin:0 auto}
-.day h2{font-size:13px;color:var(--acc);font-weight:600;margin:24px 4px 12px;letter-spacing:1px;text-transform:uppercase}
-.card{position:relative;background:var(--card-bg);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:transform .2s ease, box-shadow .2s ease;overflow:hidden}
-.card:hover{transform:translateY(-3px);box-shadow:0 10px 30px -10px rgba(56,189,248,0.15);border-color:rgba(56,189,248,0.3)}
-.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg, transparent, rgba(56,189,248,0.5), transparent);opacity:0;transition:opacity .3s ease}
-.card:hover::before{opacity:1}
-.card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.cat{font-size:11px;color:var(--acc);background:rgba(56,189,248,0.1);border:1px solid rgba(56,189,248,0.2);border-radius:4px;padding:2px 8px;font-weight:500}
-.imp{color:#fbbf24;font-size:12px;letter-spacing:2px}
-.card h3{margin:0 0 10px;font-size:16px;line-height:1.45;font-weight:600}
-.card h3 a{color:var(--fg);text-decoration:none;transition:color .2s ease}
-.card h3 a:hover{color:var(--acc)}
-.summary{margin:0 0 12px;color:#cbd5e1;font-size:14px;line-height:1.65}
-.why{margin:0 0 14px;font-size:13px;color:#a7f3d0;background:rgba(16,185,129,0.08);padding:8px 12px;border-radius:8px;border-left:2px solid #10b981}
-.card-foot{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:11px}
-.src{color:var(--muted);margin-right:auto;font-family:ui-monospace,SFMono-Regular,monospace}
-.tag{background:rgba(139,92,246,0.1);color:#c4b5fd;border:1px solid rgba(139,92,246,0.2);border-radius:4px;padding:2px 8px}
+body{margin:0;background:#f5f6f8;color:#14182b;font-family:"Microsoft YaHei",sans-serif;line-height:1.7}
+header{background:#1a2040;color:white;padding:40px 20px}
+header .content{max-width:850px;margin:0 auto}
+header h1{margin:0 0 10px;font-size:24px}
+header p{margin:8px 0;color:#d7dcf0;font-size:14px}
+main{max-width:850px;margin:30px auto;padding:0 20px}
+h2{font-size:18px;color:#1a2040;margin:24px 0 16px;border-bottom:2px solid #e4e7ee;padding-bottom:8px}
+.card{background:white;border:1px solid #e4e7ee;border-radius:10px;padding:22px;margin-bottom:18px;transition:transform .2s ease, box-shadow .2s ease}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,32,64,0.08)}
+.meta{color:#5f6478;font-size:14px;margin-bottom:8px}
+.stars{color:#f5a623;letter-spacing:2px}
+.card h3{margin:8px 0 12px;font-size:17px;color:#14182b}
+.card h3 a{color:#14182b;text-decoration:none}
+.card h3 a:hover{color:#1d39c4}
+.card p{margin:8px 0}
+.important{color:#5f6478;background:#f9f9fb;padding:8px 12px;border-radius:6px;font-size:14px}
+.insight{padding:10px 14px;background:#f0f3ff;border-left:3px solid #1d39c4;font-size:14px;color:#1a2040}
+.src{font-size:13px;color:#5f6478}
+.src a{color:#1d39c4;text-decoration:none}
+.tag{display:inline-block;background:#eef1f8;color:#5f6478;border-radius:4px;padding:2px 8px;font-size:12px;margin-right:6px;margin-top:8px}
 </style></head><body>"""
 
 SCRIPT = """<script>
@@ -185,28 +178,32 @@ def render(articles, now):
             d = now
         groups.setdefault(d.strftime("%Y-%m-%d"), []).append(a)
 
+    weekday = ['星期一','星期二','星期三','星期四','星期五','星期六','星期日'][now.weekday()]
+    
     p = [HEAD, f"""<header>
-<h1>AI 行业日报</h1>
-<p class="meta">更新于 {now.strftime('%Y-%m-%d %H:%M')} · 共 {len(articles)} 条 · 保留 {KEEP_DAYS} 天</p>
-<div class="filters"><button class="active" data-cat="all">全部</button>
-{''.join(f'<button data-cat="{esc(c)}">{esc(c)}</button>' for c in cats)}</div>
+<div class="content">
+<h1>AI 行业每日简报 · {now.strftime('%Y-%m-%d')}</h1>
+<p>{weekday}</p>
+<p>今日共收录 {len(articles)} 条行业动态，涵盖 {', '.join(cats)} 等领域。</p>
+</div>
 </header><main>"""]
 
     for day, items in sorted(groups.items(), reverse=True):
-        p.append(f'<section class="day"><h2>{day}</h2>')
+        p.append(f'<h2>{day} 必读</h2>')
         for a in items:
             imp = max(1, min(5, int(a.get("importance") or 3)))
-            stars = "★"*imp + "☆"*(5-imp)
+            stars = "★" * imp
             tags = "".join(f'<span class="tag">{esc(t)}</span>' for t in (a.get("tags") or []))
-            p.append(f"""<article class="card" data-cat="{esc(a.get('category','综合'))}">
-<div class="card-head"><span class="cat">{esc(a.get('category','综合'))}</span><span class="imp">{stars}</span></div>
+            p.append(f"""<article class="card">
+<div class="meta">{esc(a.get('category','综合'))} · <span class="stars">{stars}</span></div>
 <h3><a href="{esc(a['link'])}" target="_blank" rel="noopener">{esc(a.get('title',''))}</a></h3>
-<p class="summary">{esc(a.get('summary',''))}</p>
-<p class="why">💡 {esc(a.get('why',''))}</p>
-<div class="card-foot"><span class="src">{esc(a.get('source',''))}</span>{tags}</div>
+<p>{esc(a.get('summary',''))}</p>
+<p class="important"><strong>为何重要：</strong>{esc(a.get('why',''))}</p>
+<p class="insight"><strong>落地启发：</strong>关注该动态对业务或技术栈的潜在影响。</p>
+<div>{tags}</div>
+<p class="src" style="margin-top:12px;">来源：<a href="{esc(a['link'])}" target="_blank" rel="noopener">{esc(a.get('source',''))}</a></p>
 </article>""")
-        p.append("</section>")
-    p.append("</main>"); p.append(SCRIPT)
+    p.append("</main>")
     return "\n".join(p)
 
 
