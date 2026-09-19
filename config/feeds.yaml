@@ -1,13 +1,19 @@
 feeds:
-  - name: TechCrunch AI
-    url: https://techcrunch.com/category/artificial-intelligence/feed/
-    category: 产业
-  - name: The Verge AI
-    url: https://www.theverge.com/rss/ai-artificial-intelligence/index.xml
-    category: 产业
-  - name: Hugging Face Blog
-    url: https://huggingface.co/blog/feed.xml
-    category: 开源
-  - name: 机器之心
-    url: https://www.jiqizhixin.com/rss
+  - name: OpenAI Blog
+    url: https://openai.com/blog/rss.xml
+    category: 大厂
+  - name: Google AI Blog
+    url: https://blog.google/technology/ai/rss/
+    category: 大厂
+  - name: 量子位
+    url: https://www.qbitai.com/feed
     category: 中文
+  - name: 36氪
+    url: https://36kr.com/feed
+    category: 中文
+  - name: VentureBeat AI
+    url: https://venturebeat.com/category/ai/feed/
+    category: 产业
+  - name: Hacker News AI (英文社区)
+    url: https://hnrss.org/newest?q=AI+OR+LLM+OR+GPT&points=100
+    category: 社区
