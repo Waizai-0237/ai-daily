@@ -839,5 +839,22 @@
       "前沿模型"
     ],
     "why": "州级AI安全监管先行，或影响全美政策走向"
+  },
+  "f0cf279d8dbb2229": {
+    "id": "f0cf279d8dbb2229",
+    "title": "Tilly Norwood’s press tour is going about as well as you’d expect for an AI",
+    "link": "https://techcrunch.com/2026/09/18/tilly-norwoods-press-tour-is-going-about-as-well-as-youd-expect-for-an-ai/",
+    "source": "TechCrunch AI",
+    "category": "产业",
+    "raw": "In one particularly odd interview, Norwood seems to malfunction and begin speaking Chinese.",
+    "published": "2026-09-19T00:12:07+00:00",
+    "summary": "TechCrunch AI报道，AI虚拟人物Tilly Norwood的媒体巡演效果不佳，在一次采访中她似乎出现故障，突然开始说中文。这凸显了当前AI角色在公开互动中的不稳定性和不可控性，也引发对AI拟人化产品可靠性的讨论。",
+    "importance": 2,
+    "tags": [
+      "AI虚拟人",
+      "媒体采访",
+      "技术故障"
+    ],
+    "why": "AI拟人化产品公开翻车，暴露可靠性短板"
   }
 }
