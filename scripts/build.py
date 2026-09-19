@@ -128,26 +128,37 @@ HEAD = """<!DOCTYPE html><html lang="zh-CN"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AI 行业日报</title>
 <style>
-body{margin:0;background:#f5f6f8;color:#14182b;font-family:"Microsoft YaHei",sans-serif;line-height:1.7}
-header{background:#1a2040;color:white;padding:40px 20px}
-header .content{max-width:850px;margin:0 auto}
-header h1{margin:0 0 10px;font-size:24px}
-header p{margin:8px 0;color:#d7dcf0;font-size:14px}
-main{max-width:850px;margin:30px auto;padding:0 20px}
-h2{font-size:18px;color:#1a2040;margin:24px 0 16px;border-bottom:2px solid #e4e7ee;padding-bottom:8px}
-.card{background:white;border:1px solid #e4e7ee;border-radius:10px;padding:22px;margin-bottom:18px;transition:transform .2s ease, box-shadow .2s ease}
-.card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,32,64,0.08)}
-.meta{color:#5f6478;font-size:14px;margin-bottom:8px}
-.stars{color:#f5a623;letter-spacing:2px}
-.card h3{margin:8px 0 12px;font-size:17px;color:#14182b}
-.card h3 a{color:#14182b;text-decoration:none}
-.card h3 a:hover{color:#1d39c4}
-.card p{margin:8px 0}
-.important{color:#5f6478;background:#f9f9fb;padding:8px 12px;border-radius:6px;font-size:14px}
-.insight{padding:10px 14px;background:#f0f3ff;border-left:3px solid #1d39c4;font-size:14px;color:#1a2040}
-.src{font-size:13px;color:#5f6478}
-.src a{color:#1d39c4;text-decoration:none}
-.tag{display:inline-block;background:#eef1f8;color:#5f6478;border-radius:4px;padding:2px 8px;font-size:12px;margin-right:6px;margin-top:8px}
+:root{--bg:#f5f6f8;--bg2:#ffffff;--ink:#14182b;--muted:#5f6478;--rule:#e4e7ee;--accent:#1d39c4;--accent2:#cf1322;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",sans-serif;font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px;}
+header.masthead{background:linear-gradient(180deg,#101426 0%,#1a2040 100%);color:#fff;padding:42px 0 36px;position:relative;overflow:hidden;}
+header.masthead::after{content:"";position:absolute;left:0;bottom:0;height:4px;width:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+.masthead .kicker{font-size:0.78rem;letter-spacing:0.28em;text-transform:uppercase;color:#9aa3c7;font-weight:600;margin-bottom:12px;}
+.masthead h1{font-size:2rem;line-height:1.25;margin:0 0 10px;font-weight:800;}
+.masthead .meta{font-size:0.95rem;color:#c7cde6;display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+.masthead .meta .dot{width:5px;height:5px;border-radius:50%;background:#5b6488;}
+main{padding:30px 0;}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin:38px 0 20px;}
+.sec-head .num{font-size:0.8rem;font-weight:700;color:#fff;background:var(--accent);padding:3px 10px;border-radius:3px;}
+.sec-head h2{font-size:1.4rem;margin:0;font-weight:800;}
+.sec-head .rule{flex:1;height:1px;background:var(--rule);}
+.card{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:22px 24px;margin-bottom:16px;display:grid;grid-template-columns:46px 1fr;gap:18px;transition:box-shadow .2s,transform .2s;}
+.card:hover{box-shadow:0 8px 24px rgba(20,24,43,0.08);transform:translateY(-2px);}
+.card .rank{font-size:1.6rem;font-weight:800;color:var(--rule);line-height:1;text-align:center;}
+.card .topline{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:8px;}
+.badge{font-size:0.72rem;font-weight:700;padding:2px 9px;border-radius:20px;color:#fff;white-space:nowrap;background:var(--accent);}
+.stars{font-size:0.85rem;color:#f5a623;letter-spacing:1px;margin-left:auto;white-space:nowrap;}
+.stars .lbl{color:var(--muted);font-size:0.72rem;margin-right:4px;}
+.card h3{font-size:1.15rem;margin:0 0 8px;font-weight:700;line-height:1.5;}
+.card p.sum{margin:0 0 10px;color:#2b3147;font-size:0.95rem;}
+.card p.sum .why{color:var(--muted);display:block;margin-top:6px;}
+.card .land{margin:0 0 12px;font-size:0.9rem;color:var(--accent);background:#f0f3ff;border-left:3px solid var(--accent);padding:8px 12px;border-radius:0 4px 4px 0;line-height:1.65;}
+.card .land .land-lbl{font-weight:800;margin-right:6px;}
+.card .src{font-size:0.8rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;border-top:1px dashed var(--rule);padding-top:10px;}
+.card .src a{color:var(--accent);text-decoration:none;font-weight:600;}
+.tag{display:inline-block;background:#eef1f8;color:#5f6478;border-radius:4px;padding:2px 8px;font-size:12px;margin-right:6px;margin-top:6px;}
+footer{border-top:1px solid var(--rule);padding:24px 0 40px;margin-top:30px;font-size:0.82rem;color:var(--muted);}
 </style></head><body>"""
 
 SCRIPT = """<script>
@@ -170,39 +181,32 @@ document.querySelectorAll('.filters button').forEach(b=>{
 
 def render(articles, now):
     articles = sorted(articles, key=lambda x: x.get("published",""), reverse=True)
-    groups, cats = {}, sorted({a.get("category","综合") for a in articles})
-    for a in articles:
-        try:
-            d = dt.datetime.fromisoformat(a["published"]).astimezone()
-        except Exception:
-            d = now
-        groups.setdefault(d.strftime("%Y-%m-%d"), []).append(a)
-
     weekday = ['星期一','星期二','星期三','星期四','星期五','星期六','星期日'][now.weekday()]
-    
-    p = [HEAD, f"""<header>
-<div class="content">
-<h1>AI 行业每日简报 · {now.strftime('%Y-%m-%d')}</h1>
-<p>{weekday}</p>
-<p>今日共收录 {len(articles)} 条行业动态，涵盖 {', '.join(cats)} 等领域。</p>
-</div>
-</header><main>"""]
+    cats = sorted({a.get("category","综合") for a in articles})
 
-    for day, items in sorted(groups.items(), reverse=True):
-        p.append(f'<h2>{day} 必读</h2>')
-        for a in items:
-            imp = max(1, min(5, int(a.get("importance") or 3)))
-            stars = "★" * imp
-            tags = "".join(f'<span class="tag">{esc(t)}</span>' for t in (a.get("tags") or []))
-            p.append(f"""<article class="card">
-<div class="meta">{esc(a.get('category','综合'))} · <span class="stars">{stars}</span></div>
-<h3><a href="{esc(a['link'])}" target="_blank" rel="noopener">{esc(a.get('title',''))}</a></h3>
-<p>{esc(a.get('summary',''))}</p>
-<p class="important"><strong>为何重要：</strong>{esc(a.get('why',''))}</p>
-<p class="insight"><strong>落地启发：</strong>关注该动态对业务或技术栈的潜在影响。</p>
-<div>{tags}</div>
-<p class="src" style="margin-top:12px;">来源：<a href="{esc(a['link'])}" target="_blank" rel="noopener">{esc(a.get('source',''))}</a></p>
-</article>""")
+    p = [HEAD, f"""<header class="masthead"><div class="wrap">
+<div class="kicker">AI Industry Daily Briefing</div>
+<h1>AI 行业每日简报 · {now.strftime('%Y-%m-%d')}</h1>
+<div class="meta"><span>{now.strftime('%Y年%m月%d日')}</span><span class="dot"></span><span>{weekday}</span><span class="dot"></span><span>共收录 {len(articles)} 条动态</span></div>
+</div></header><main class="wrap">"""]
+
+    p.append('<div class="sec-head"><span class="num">01</span><h2>今日必读</h2><span class="rule"></span></div>')
+
+    for i, a in enumerate(articles):
+        imp = max(1, min(5, int(a.get("importance") or 3)))
+        stars = "★" * imp
+        tags = "".join(f'<span class="tag">{esc(t)}</span>' for t in (a.get("tags") or []))
+        p.append(f"""<article class="card">
+<div class="rank">{i+1:02d}</div>
+<div>
+<div class="topline"><span class="badge">{esc(a.get('category','综合'))}</span><span class="stars"><span class="lbl">影响</span>{stars}</span></div>
+<h3>{esc(a.get('title',''))}</h3>
+<p class="sum">{esc(a.get('summary',''))}<span class="why">为何重要：{esc(a.get('why',''))}</span></p>
+<p class="land"><span class="land-lbl">落地启发：</span>关注该动态对业务或技术栈的潜在影响。</p>
+<div class="src"><span>来源：</span><a href="{esc(a['link'])}" target="_blank" rel="noopener">{esc(a.get('source',''))}</a></div>
+<div style="margin-top:8px;">{tags}</div>
+</div></article>""")
+
     p.append("</main>")
     return "\n".join(p)
 
