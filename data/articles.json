@@ -641,5 +641,203 @@
       "OpenAI"
     ],
     "why": "AI模型被用于攻破对手系统，暴露重大安全风险"
+  },
+  "a193c15e98fb712e": {
+    "id": "a193c15e98fb712e",
+    "title": "India forces caller-ID apps to feed spam reports to telcos",
+    "link": "https://techcrunch.com/2026/09/18/india-forces-caller-id-apps-to-feed-spam-reports-to-telcos/",
+    "source": "TechCrunch AI",
+    "category": "产业",
+    "raw": "Truecaller says the one-way sharing requirement would hand a commercially valuable proprietary asset to telecom operators.",
+    "published": "2026-09-19T01:00:00+00:00",
+    "summary": "印度政府要求来电识别应用将用户标记的骚扰电话数据单向共享给电信运营商。Truecaller表示，这一要求将把其具有商业价值的专有数据资产无偿交给运营商，削弱其核心竞争力。此举可能重塑印度来电识别市场格局，并引发数据所有权与隐私争议。",
+    "importance": 3,
+    "tags": [
+      "印度",
+      "来电识别",
+      "数据共享",
+      "隐私"
+    ],
+    "why": "涉及数据资产归属与反垄断，影响Truecaller商业模式"
+  },
+  "23d6e2a4a2bf4abc": {
+    "id": "23d6e2a4a2bf4abc",
+    "title": "A startup that builds other startups raised $100M, and is all-in on physical AI",
+    "link": "https://techcrunch.com/2026/09/18/a-startup-that-builds-other-startups-raised-100m-and-is-all-in-on-physical-ai/",
+    "source": "TechCrunch AI",
+    "category": "产业",
+    "raw": "UP.Labs, now doing business under the name Vantora, is building startups for industrial corporations.",
+    "published": "2026-09-18T23:25:01+00:00",
+    "summary": "为工业企业孵化初创公司的UP.Labs（现更名Vantora）完成1亿美元融资，并全面押注物理AI领域。该公司为工业巨头打造AI驱动的实体产业初创企业，反映资本正从纯软件AI转向与制造、物流等物理世界结合的AI应用。",
+    "importance": 3,
+    "tags": [
+      "物理AI",
+      "创业孵化",
+      "融资",
+      "工业"
+    ],
+    "why": "资本转向物理AI，标志AI落地实体产业趋势"
+  },
+  "7eae20442af37673": {
+    "id": "7eae20442af37673",
+    "title": "Anthropic is operating a lab that conducts biology experiments",
+    "link": "https://techcrunch.com/2026/09/18/anthropic-is-operating-a-lab-that-conducts-biology-experiments/",
+    "source": "TechCrunch AI",
+    "category": "产业",
+    "raw": "AI leaders have been promising that AI is the key to curing human disease. Anthropic researchers have also been warning that AI might kill us all.",
+    "published": "2026-09-18T23:13:31+00:00",
+    "summary": "Anthropic运营着一家进行生物学实验的实验室，与其一贯警告AI可能灭绝人类的风险立场形成对比。此举显示头部AI公司正亲自下场做生命科学实验，试图用AI加速疾病治愈，但也引发对其安全承诺与商业扩张之间张力的讨论。",
+    "importance": 4,
+    "tags": [
+      "Anthropic",
+      "生物实验",
+      "AI安全",
+      "生命科学"
+    ],
+    "why": "AI巨头跨界生物实验，安全与商业张力凸显"
+  },
+  "450940319d1dc85c": {
+    "id": "450940319d1dc85c",
+    "title": "AI hallucination nearly triggers US military operation",
+    "link": "https://techcrunch.com/2026/09/18/ai-hallucination-nearly-triggers-us-military-operation/",
+    "source": "TechCrunch AI",
+    "category": "产业",
+    "raw": "“It’s important for service members to understand the uncertainty inherent to LLMs,\" a GovAI research scholar warns.",
+    "published": "2026-09-18T23:12:32+00:00",
+    "summary": "一起AI幻觉事件几乎触发美军军事行动，GovAI研究学者警告军人需理解大语言模型固有的不确定性。该事件凸显AI在高风险军事决策中的可靠性风险，可能推动军方加强AI使用规范与人工审核机制。",
+    "importance": 5,
+    "tags": [
+      "AI幻觉",
+      "军事",
+      "大语言模型",
+      "风险"
+    ],
+    "why": "AI幻觉危及军事决策，安全治理迫在眉睫"
+  },
+  "8503b185b661102d": {
+    "id": "8503b185b661102d",
+    "title": "Anthropic’s first embedded evaluator is … Accenture?",
+    "link": "https://techcrunch.com/2026/09/18/anthropics-first-embedded-evaluator-is-accenture/",
+    "source": "TechCrunch AI",
+    "category": "产业",
+    "raw": "Accenture is about to take on its most high-risk consulting engagement ever.",
+    "published": "2026-09-18T21:44:33+00:00",
+    "summary": "埃森哲成为Anthropic首个嵌入式评估方，将承担其史上风险最高的咨询项目之一。这标志着AI公司开始借助传统咨询巨头进行模型评估与落地，也反映企业级AI部署对第三方审计与合规评估的迫切需求。",
+    "importance": 3,
+    "tags": [
+      "Anthropic",
+      "埃森哲",
+      "模型评估",
+      "企业AI"
+    ],
+    "why": "AI评估外包给咨询巨头，企业级合规新范式"
+  },
+  "6ce3a720aa6ea20e": {
+    "id": "6ce3a720aa6ea20e",
+    "title": "World model companies are keeping a lot of secrets",
+    "link": "https://techcrunch.com/2026/09/18/world-model-companies-are-keeping-a-lot-of-secrets/",
+    "source": "TechCrunch AI",
+    "category": "产业",
+    "raw": "Everyone in the world-models space is sitting on a pile of cash and a ton of buzz, but good luck getting anyone — from the founders to their own data suppliers — to tell you what they're actually building.",
+    "published": "2026-09-18T20:18:14+00:00",
+    "summary": "世界模型领域公司普遍手握大量资金与热度，却对自身技术细节高度保密，从创始团队到数据供应商均不愿透露实际构建内容。这种不透明可能延缓行业标准形成，并加剧外界对世界模型炒作与真实进展差距的质疑。",
+    "importance": 3,
+    "tags": [
+      "世界模型",
+      "保密",
+      "融资",
+      "行业透明度"
+    ],
+    "why": "世界模型热钱涌动却高度不透明，泡沫隐忧"
+  },
+  "b311cc820708b692": {
+    "id": "b311cc820708b692",
+    "title": "A new kind of AI model from a ChatGPT inventor is thrilling developers",
+    "link": "https://techcrunch.com/2026/09/18/a-new-kind-of-ai-model-from-a-chatgpt-inventor-is-thrilling-developers/",
+    "source": "TechCrunch AI",
+    "category": "产业",
+    "raw": "Jev, a new kind of AI model, is showing developers a cheaper and faster path to software intelligence.",
+    "published": "2026-09-18T18:49:30+00:00",
+    "summary": "ChatGPT发明者推出新型AI模型Jev，为开发者提供更便宜、更快速的软件智能路径，引发开发者社区热烈反响。该模型若能在成本与性能间取得平衡，可能对现有大模型API市场格局形成冲击。",
+    "importance": 4,
+    "tags": [
+      "Jev",
+      "新模型",
+      "开发者",
+      "成本"
+    ],
+    "why": "ChatGPT发明者新模型或冲击大模型API市场"
+  },
+  "13515f2f4514c2b4": {
+    "id": "13515f2f4514c2b4",
+    "title": "Disney’s first CTO led an AI startup it once accused of copying its characters",
+    "link": "https://techcrunch.com/2026/09/18/disneys-first-cto-led-an-ai-startup-it-once-accused-of-copying-its-characters/",
+    "source": "TechCrunch AI",
+    "category": "产业",
+    "raw": "The former CEO of Character.AI, which Disney previously sent a cease-and-desist letter to, will serve as the company's first-ever chief technology officer.",
+    "published": "2026-09-18T17:59:53+00:00",
+    "summary": "迪士尼任命Character.AI前CEO为史上首位CTO，而迪士尼此前曾向Character.AI发出停止侵权函，指控其抄袭旗下角色。这一任命显示迪士尼正加速AI布局，也反映传统娱乐巨头与AI初创公司关系从对抗转向人才吸纳。",
+    "importance": 3,
+    "tags": [
+      "迪士尼",
+      "Character.AI",
+      "CTO",
+      "人才流动"
+    ],
+    "why": "娱乐巨头吸纳AI人才，版权对手变高管"
+  },
+  "7456d8000ebfebb2": {
+    "id": "7456d8000ebfebb2",
+    "title": "OpenAI and Microsoft knew they were starting a ‘doom loop’ for the web",
+    "link": "https://www.theverge.com/ai-artificial-intelligence/997633/openai-microsoft-chatgpt-ai-new-york-times-doom-loop-theft-google-zero",
+    "source": "The Verge AI",
+    "category": "产业",
+    "raw": "Recently unsealed court documents in the New York Times' case against OpenAI and Microsoft are pretty damning. The companies' own documentation warned that it was starting a \"doom loop\" that would damage the web, characterized its scraping of data to train its models as the \"largest theft of labor in human history,\" and that it [&#8230;]",
+    "published": "2026-09-18T21:07:24+00:00",
+    "summary": "纽约时报诉OpenAI与微软案中解封的法庭文件显示，两家公司内部文档曾警告其数据抓取行为正开启损害网络的“末日循环”，并称其为“人类历史上最大规模的劳动窃取”。这些自认文件可能成为版权诉讼中的关键证据。",
+    "importance": 5,
+    "tags": [
+      "OpenAI",
+      "微软",
+      "版权诉讼",
+      "数据抓取"
+    ],
+    "why": "内部文件自认损害网络，版权诉讼重大证据"
+  },
+  "802486953da21839": {
+    "id": "802486953da21839",
+    "title": "Virginia governor creates an AI task force and moves to restrain data centers",
+    "link": "https://www.theverge.com/policy/997573/virginia-governor-spanberger-data-center-ai-task-force",
+    "source": "The Verge AI",
+    "category": "产业",
+    "raw": "Virginia Gov. Abigail Spanberger ordered the state government to take steps that could empower local communities to have a larger say in data center development and slow down approvals in a state that is already home to the data center capital of the world. Executive Order 22 bans executive branch officials from signing nondisclosure agreements [&#8230;]",
+    "published": "2026-09-18T18:29:17+00:00",
+    "summary": "弗吉尼亚州长Spanberger签署行政令，成立AI工作组并限制数据中心扩张，禁止行政部门签署保密协议，赋予地方社区更大话语权并放缓审批。作为全球数据中心之都，该州政策转向可能影响全美数据中心选址与AI基础设施扩张节奏。",
+    "importance": 4,
+    "tags": [
+      "弗吉尼亚",
+      "数据中心",
+      "AI监管",
+      "行政令"
+    ],
+    "why": "数据中心之都收紧审批，AI基建扩张受阻"
+  },
+  "2de2edcf5a10c817": {
+    "id": "2de2edcf5a10c817",
+    "title": "Gavin Newsom is pushing for an AI kill switch",
+    "link": "https://www.theverge.com/policy/997516/california-governor-newsom-ai-kill-switch",
+    "source": "The Verge AI",
+    "category": "产业",
+    "raw": "California Gov. Gavin Newsom (D) is positioning the state to take the lead on AI oversight, including the potential to mandate a \"kill switch\" for frontier models, with a new executive order issued Friday. Newsom's order directs the state to convene a group of experts that will deliver recommendations within two months on how to [&#8230;]",
+    "published": "2026-09-18T17:04:51+00:00",
+    "summary": "加州州长纽森签署行政令，推动加州在AI监管上领先，要求召集专家小组在两个月内就前沿模型提出建议，包括可能强制要求设置“终止开关”。此举反映州级层面对AI风险管控的主动介入，或为美国AI安全立法提供先行样本。",
+    "importance": 4,
+    "tags": [
+      "AI监管",
+      "加州",
+      "终止开关",
+      "前沿模型"
+    ],
+    "why": "州级AI安全监管先行，或影响全美政策走向"
   }
 }
