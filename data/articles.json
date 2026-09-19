@@ -1278,5 +1278,107 @@
       "监管"
     ],
     "why": "AI说服力增强引发操纵与伦理担忧"
+  },
+  "9a0a6abfb04b7dba": {
+    "id": "9a0a6abfb04b7dba",
+    "title": "“留给人类阻止AI的时间不多了”",
+    "link": "https://www.qbitai.com/2026/09/492755.html",
+    "source": "量子位",
+    "category": "中文",
+    "raw": "AI有可能终结我们所有人",
+    "published": "2026-09-19T11:53:12+00:00",
+    "summary": "量子位报道称有观点警告“留给人类阻止AI的时间不多了”，并直言AI有可能终结人类。此类末日论调在AI安全圈持续升温，反映业界对前沿模型能力快速提升的担忧，也推动各国加快AI监管与对齐研究。",
+    "importance": 4,
+    "tags": [
+      "AI安全",
+      "末日论",
+      "监管"
+    ],
+    "why": "AI风险议题持续升温，关乎行业走向"
+  },
+  "cb3db4aa992b1f12": {
+    "id": "cb3db4aa992b1f12",
+    "title": "马斯克批量收购破产公司ing…世界首富脑子是不一样",
+    "link": "https://www.qbitai.com/2026/09/492661.html",
+    "source": "量子位",
+    "category": "中文",
+    "raw": "老马想买倒闭公司数据为哪般",
+    "published": "2026-09-19T11:48:06+00:00",
+    "summary": "量子位报道马斯克正批量收购破产公司，外界猜测其意在获取这些公司的数据资产。此举若属实，可能为xAI或特斯拉的AI训练补充稀缺数据，也折射出数据正成为AI竞争的核心资源，引发对数据垄断的讨论。",
+    "importance": 3,
+    "tags": [
+      "马斯克",
+      "数据收购",
+      "AI训练"
+    ],
+    "why": "数据争夺战升级，反映AI竞争新焦点"
+  },
+  "fe3cb8211525145b": {
+    "id": "fe3cb8211525145b",
+    "title": "27B模型分分钟交付网页，Qwen 3.8还是太能了",
+    "link": "https://www.qbitai.com/2026/09/492573.html",
+    "source": "量子位",
+    "category": "中文",
+    "raw": "设计、前端一口气全干了，结果后端没来上班",
+    "published": "2026-09-19T11:43:12+00:00",
+    "summary": "量子位报道27B参数模型Qwen可快速交付网页，设计、前端一并完成，但后端未能生成。这展示了中等规模开源模型在代码生成上的实用能力，也暴露其在完整工程链路中的短板，为开发者选型提供参考。",
+    "importance": 3,
+    "tags": [
+      "Qwen",
+      "代码生成",
+      "开源模型"
+    ],
+    "why": "展示开源模型代码能力边界与实用性"
+  },
+  "c0c2394a1a90b810": {
+    "id": "c0c2394a1a90b810",
+    "title": "Nature：AI重生到1900，这一世抢先爱因斯坦提出光量子",
+    "link": "https://www.qbitai.com/2026/09/492550.html",
+    "source": "量子位",
+    "category": "中文",
+    "raw": "AI能否提出相对论？",
+    "published": "2026-09-19T11:36:11+00:00",
+    "summary": "Nature刊文探讨让AI“重生”到1900年，看其能否抢先爱因斯坦提出光量子假说。该实验旨在检验AI能否做出原创科学发现，而非仅复述已知知识，对评估AI科研潜力与科学史研究均有启发意义。",
+    "importance": 4,
+    "tags": [
+      "Nature",
+      "科学发现",
+      "AI研究"
+    ],
+    "why": "检验AI原创科研能力，具方法论意义"
+  },
+  "643a84217e1595c2": {
+    "id": "643a84217e1595c2",
+    "title": "AI-generated posters don’t have to be horrible",
+    "link": "https://john.hartnup.uk/2026/06/07/ai-event-posters.html",
+    "source": "Hacker News AI (英文社区)",
+    "category": "社区",
+    "raw": "<p>Article URL: <a href=\"https://john.hartnup.uk/2026/06/07/ai-event-posters.html\">https://john.hartnup.uk/2026/06/07/ai-event-posters.html</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=49764791\">https://news.ycombinator.com/item?id=49764791</a></p>\n<p>Points: 772</p>\n<p># Comments: 465</p>",
+    "published": "2026-09-19T09:20:58+00:00",
+    "summary": "Hacker News热帖讨论AI生成活动海报不必丑陋，作者分享如何通过提示与设计方法产出高质量海报，获772点、465条评论。这反映AI图像生成正从“能用”走向“好用”，设计工作流与审美把控成为关键。",
+    "importance": 3,
+    "tags": [
+      "AI设计",
+      "图像生成",
+      "提示工程"
+    ],
+    "why": "AI设计实用化，社区高度关注"
+  },
+  "1fc5f06ab4e0688a": {
+    "id": "1fc5f06ab4e0688a",
+    "title": "GPT-6 Astra Solves a WWI German Radio Cipher",
+    "link": "https://www.prinzai.com/p/gpt-6-astra-solves-a-wwi-german-radio",
+    "source": "Hacker News AI (英文社区)",
+    "category": "社区",
+    "raw": "<p>Article URL: <a href=\"https://www.prinzai.com/p/gpt-6-astra-solves-a-wwi-german-radio\">https://www.prinzai.com/p/gpt-6-astra-solves-a-wwi-german-radio</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=49763987\">https://news.ycombinator.com/item?id=49763987</a></p>\n<p>Points: 257</p>\n<p># Comments: 133</p>",
+    "published": "2026-09-19T06:41:44+00:00",
+    "summary": "Hacker News热帖称GPT-6 Astra成功破译一战德军无线电密码，获257点、133条评论。若属实，显示前沿模型在密码分析与历史文献解读上的能力跃升，也引发对AI被用于情报与安全领域的双重用途担忧。",
+    "importance": 4,
+    "tags": [
+      "GPT-6",
+      "密码破译",
+      "AI能力"
+    ],
+    "why": "展示前沿模型推理能力与安全双重用途"
   }
 }
