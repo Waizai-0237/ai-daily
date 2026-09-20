@@ -1380,5 +1380,40 @@
       "AI能力"
     ],
     "why": "展示前沿模型推理能力与安全双重用途"
+  },
+  "dc8b1f74b838358e": {
+    "id": "dc8b1f74b838358e",
+    "title": "Microsoft director: AI scraping 'the largest theft of labor in human history'",
+    "link": "https://www.tomshardware.com/tech-industry/artificial-intelligence/microsoft-director-called-ai-scraping-the-largest-theft-of-labor-in-human-history-while-openai-head-brands-chatgpt-an-existential-threat-to-publishers-revelations-come-from-legal-briefs-filed-in-nyt-lawsuit",
+    "source": "Hacker News AI (英文社区)",
+    "category": "社区",
+    "raw": "<p>Article URL: <a href=\"https://www.tomshardware.com/tech-industry/artificial-intelligence/microsoft-director-called-ai-scraping-the-largest-theft-of-labor-in-human-history-while-openai-head-brands-chatgpt-an-existential-threat-to-publishers-revelations-come-from-legal-briefs-filed-in-nyt-lawsuit\">https://www.tomshardware.com/tech-industry/artificial-intelligence/microsoft-director-called-ai-scraping-the-largest-theft-of-labor-in-human-history-while-openai-head-brands-chatgpt-an-existential-threat-to-publishers-revelations-come-from-legal-briefs-filed-in-nyt-lawsuit</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=49768921\">https://news.ycombinator.com/item?id=49768921</a></p>\n<p>Points: 122</p>\n<p># Comments: 35</p>",
+    "published": "2026-09-19T18:21:30+00:00",
+    "summary": "据纽约时报诉讼法律文件披露，微软一名总监将AI抓取内容称为“人类历史上最大的劳动力盗窃”，而OpenAI高管则把ChatGPT形容为对出版商“生存性的威胁”。这些内部表态暴露了AI巨头在版权争议中的矛盾立场，可能成为NYT诉讼的关键证据，并加剧内容方与AI公司之间的紧张关系。",
+    "importance": 4,
+    "tags": [
+      "版权诉讼",
+      "AI抓取",
+      "OpenAI",
+      "内容生态"
+    ],
+    "why": "巨头内部承认侵权风险，或影响NYT诉讼走向"
+  },
+  "35721eb82dbc85d4": {
+    "id": "35721eb82dbc85d4",
+    "title": "I think you should almost never use AI to write",
+    "link": "https://erichgrunewald.substack.com/p/why-you-should-almost-never-use-ai",
+    "source": "Hacker News AI (英文社区)",
+    "category": "社区",
+    "raw": "<p>Article URL: <a href=\"https://erichgrunewald.substack.com/p/why-you-should-almost-never-use-ai\">https://erichgrunewald.substack.com/p/why-you-should-almost-never-use-ai</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=49767937\">https://news.ycombinator.com/item?id=49767937</a></p>\n<p>Points: 216</p>\n<p># Comments: 118</p>",
+    "published": "2026-09-19T16:35:24+00:00",
+    "summary": "一篇Substack文章主张人们几乎不应使用AI写作，认为AI生成文本会削弱个人表达、思考能力与写作技艺，并可能损害读者信任。该观点在Hacker News引发216点、118条评论的热议，反映出技术社区对AI写作工具泛滥的反思与争议。",
+    "importance": 2,
+    "tags": [
+      "AI写作",
+      "内容创作",
+      "技术伦理"
+    ],
+    "why": "引发对AI写作价值与边界的社区讨论"
   }
 }
