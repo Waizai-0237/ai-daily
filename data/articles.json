@@ -1487,5 +1487,107 @@
       "实战能力"
     ],
     "why": "AI深入业务带来新安全挑战，人才标准亟待更新"
+  },
+  "75b23aa6601d1412": {
+    "id": "75b23aa6601d1412",
+    "title": "刚刚，剪映发了个大的：AI生视频和AI剪辑的壁，被打破了！",
+    "link": "https://www.qbitai.com/2026/09/492973.html",
+    "source": "量子位",
+    "category": "中文",
+    "raw": "剪映Hub+剪映助手，好用",
+    "published": "2026-09-20T14:30:26+00:00",
+    "summary": "剪映推出Hub与剪映助手，打通AI生视频与AI剪辑之间的壁垒，实现从素材生成到成片剪辑的一体化流程。这意味着创作者可在同一工具内完成文生视频、智能剪辑与后期处理，降低多工具切换成本，对短视频生产效率和内容生态影响显著。",
+    "importance": 4,
+    "tags": [
+      "剪映",
+      "AI视频",
+      "智能剪辑"
+    ],
+    "why": "AI生视频与剪辑融合，重塑短视频生产流程"
+  },
+  "8ece108decc67cbc": {
+    "id": "8ece108decc67cbc",
+    "title": "华为首发企业AI白皮书：AI让员工更快了，怎样让整个企业受益？",
+    "link": "https://www.qbitai.com/2026/09/493068.html",
+    "source": "量子位",
+    "category": "中文",
+    "raw": "AI越来越能干，企业该怎么用",
+    "published": "2026-09-20T14:23:52+00:00",
+    "summary": "华为首发企业AI白皮书，指出AI能提升员工个体效率，但企业整体受益需依赖组织流程、数据治理与AI平台的系统性重构。白皮书为企业落地AI提供方法论参考，强调从单点工具应用走向全企业协同，对推动B端AI规模化部署具有指导意义。",
+    "importance": 4,
+    "tags": [
+      "华为",
+      "企业AI",
+      "白皮书"
+    ],
+    "why": "企业AI从工具走向组织级落地的风向标"
+  },
+  "489c0985eaa20dac": {
+    "id": "489c0985eaa20dac",
+    "title": "一张3090就能跑！全栈国产模型，把AI办公搬到企业本地",
+    "link": "https://www.qbitai.com/2026/09/492946.html",
+    "source": "量子位",
+    "category": "中文",
+    "raw": "AI办公这块蛋糕，中国电信可能要先切走一块了。",
+    "published": "2026-09-20T12:22:41+00:00",
+    "summary": "中国电信推出全栈国产模型方案，仅需一张3090显卡即可运行，将AI办公能力部署到企业本地，兼顾数据安全与低成本。此举瞄准企业私有化AI办公市场，依托国产软硬件生态，有望在政企客户中率先落地，推动本地化AI办公普及。",
+    "importance": 4,
+    "tags": [
+      "中国电信",
+      "国产模型",
+      "本地部署"
+    ],
+    "why": "低成本国产方案加速企业本地AI办公落地"
+  },
+  "6b0f29268c2ffa5f": {
+    "id": "6b0f29268c2ffa5f",
+    "title": "Pirate Face Rescues LLM Models from Deletion",
+    "link": "https://pirateface.co/",
+    "source": "Hacker News AI (英文社区)",
+    "category": "社区",
+    "raw": "<p>Article URL: <a href=\"https://pirateface.co/\">https://pirateface.co/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=49776699\">https://news.ycombinator.com/item?id=49776699</a></p>\n<p>Points: 119</p>\n<p># Comments: 37</p>",
+    "published": "2026-09-20T15:16:07+00:00",
+    "summary": "Hacker News社区讨论Pirate Face项目，该项目致力于从删除风险中拯救大语言模型，可能涉及模型权重备份、开源模型存档与防下架机制。话题引发119点热度与37条评论，反映社区对开源模型可持续性与审查风险的持续担忧。",
+    "importance": 3,
+    "tags": [
+      "开源模型",
+      "模型存档",
+      "社区讨论"
+    ],
+    "why": "开源模型存续与审查风险引发社区关注"
+  },
+  "de5be036637110d4": {
+    "id": "de5be036637110d4",
+    "title": "AI and the Destruction of the Creative Commons",
+    "link": "https://www.chesterwisniewski.com/post/2026-09-13-ai-is-destroying-the-creative-commons/",
+    "source": "Hacker News AI (英文社区)",
+    "category": "社区",
+    "raw": "<p>Article URL: <a href=\"https://www.chesterwisniewski.com/post/2026-09-13-ai-is-destroying-the-creative-commons/\">https://www.chesterwisniewski.com/post/2026-09-13-ai-is-destroying-the-creative-commons/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=49774329\">https://news.ycombinator.com/item?id=49774329</a></p>\n<p>Points: 210</p>\n<p># Comments: 231</p>",
+    "published": "2026-09-20T10:07:51+00:00",
+    "summary": "一篇热文探讨AI对知识共享生态的破坏，认为生成式AI大量抓取并再创作公共版权内容，削弱了创作者回馈共享的动机，可能导致Creative Commons模式萎缩。文章获210点、231条评论，凸显AI训练数据与版权伦理争议持续升温。",
+    "importance": 4,
+    "tags": [
+      "版权",
+      "知识共享",
+      "AI伦理"
+    ],
+    "why": "AI训练数据冲击知识共享生态，争议升温"
+  },
+  "0544fa4ad3f51ae3": {
+    "id": "0544fa4ad3f51ae3",
+    "title": "Can you tell which images are AI-generated?",
+    "link": "https://slop-sense.labtoagi.com/games/is-this-image-ai/",
+    "source": "Hacker News AI (英文社区)",
+    "category": "社区",
+    "raw": "<p>Article URL: <a href=\"https://slop-sense.labtoagi.com/games/is-this-image-ai/\">https://slop-sense.labtoagi.com/games/is-this-image-ai/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=49770847\">https://news.ycombinator.com/item?id=49770847</a></p>\n<p>Points: 102</p>\n<p># Comments: 76</p>",
+    "published": "2026-09-19T23:02:34+00:00",
+    "summary": "一个在线小游戏让用户辨别图片是否由AI生成，测试人类对AI图像的识别能力。该互动工具获102点热度与76条评论，反映公众对AI生成内容泛滥、真假难辨的普遍焦虑，也侧面说明当前AI图像检测与内容溯源仍是难题。",
+    "importance": 3,
+    "tags": [
+      "AI图像",
+      "内容鉴别",
+      "互动测试"
+    ],
+    "why": "AI图像真假难辨，检测与溯源成难题"
   }
 }
