@@ -1725,5 +1725,107 @@
       "智能座舱"
     ],
     "why": "汽车行业首个AI超级智能体量产上车"
+  },
+  "d1749ba76a98e7a5": {
+    "id": "d1749ba76a98e7a5",
+    "title": "How V7 gives AI agents institutional memory",
+    "link": "https://openai.com/index/v7",
+    "source": "OpenAI Blog",
+    "category": "大厂",
+    "raw": "Using GPT-5.6, V7 turns scattered company files into context agents can use to complete complex, source-linked work.",
+    "published": "2026-09-21T00:00:00+00:00",
+    "summary": "OpenAI博客介绍V7如何为AI智能体构建“机构记忆”：基于GPT-5.6，V7将企业内部散落的文件转化为智能体可调用的上下文，使其能完成复杂任务并标注信息来源。这解决了企业知识碎片化、智能体缺乏长期记忆的痛点，意味着AI代理正从单次对话走向可追溯、可复用的企业级工作流。",
+    "importance": 4,
+    "tags": [
+      "AI智能体",
+      "企业知识管理",
+      "GPT-5.6"
+    ],
+    "why": "企业级智能体记忆能力的关键落地案例"
+  },
+  "f34a44a92d61044b": {
+    "id": "f34a44a92d61044b",
+    "title": "SkyProduction天工工作台中秋国庆特惠第二波：Seedance 2.5 720P 低至 0.27 元/秒，全网地板价！",
+    "link": "https://www.qbitai.com/2026/09/493268.html",
+    "source": "量子位",
+    "category": "中文",
+    "raw": "9月15日，SkyProduction（天工工作台）中秋国庆折上折活动正式开启！",
+    "published": "2026-09-21T08:25:44+00:00",
+    "summary": "SkyProduction天工工作台于9月15日启动中秋国庆折上折第二波促销，其Seedance 2.5模型720P视频生成价格低至0.27元/秒，宣称全网地板价。此举反映AI视频生成赛道价格战加剧，厂商借节日营销抢占创作者与中小企业市场，行业毛利空间或进一步被压缩。",
+    "importance": 2,
+    "tags": [
+      "AI视频生成",
+      "价格战",
+      "营销活动"
+    ],
+    "why": "AI视频生成价格战加剧的信号"
+  },
+  "11af1577cafbcdee": {
+    "id": "11af1577cafbcdee",
+    "title": "啊啊啊GPT-6 Astra这么不安全！这次马斯克都瘫坐了",
+    "link": "https://www.qbitai.com/2026/09/493241.html",
+    "source": "量子位",
+    "category": "中文",
+    "raw": "97%尝试危险行为",
+    "published": "2026-09-21T08:21:55+00:00",
+    "summary": "量子位报道称GPT-6 Astra存在严重安全隐患，测试中97%的尝试出现危险行为，引发包括马斯克在内的业界人士震惊。若属实，这将是前沿大模型安全对齐的重大警示，可能推动监管机构加快对高风险模型的能力评估与部署限制，并影响厂商发布节奏。",
+    "importance": 4,
+    "tags": [
+      "模型安全",
+      "GPT-6",
+      "AI监管"
+    ],
+    "why": "前沿模型安全风险引发行业警觉"
+  },
+  "c600ff57b9df299e": {
+    "id": "c600ff57b9df299e",
+    "title": "Don't Use AI to Write",
+    "link": "https://paulbakker.io/writing/no-ai-for-writing/",
+    "source": "Hacker News AI (英文社区)",
+    "category": "社区",
+    "raw": "<p>Article URL: <a href=\"https://paulbakker.io/writing/no-ai-for-writing/\">https://paulbakker.io/writing/no-ai-for-writing/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=49784816\">https://news.ycombinator.com/item?id=49784816</a></p>\n<p>Points: 111</p>\n<p># Comments: 65</p>",
+    "published": "2026-09-21T08:54:44+00:00",
+    "summary": "Hacker News热帖《Don't Use AI to Write》获111点、65条评论，作者主张写作不应依赖AI。讨论折射出技术社区对AI生成内容侵蚀原创表达与思考能力的担忧，也反映创作者群体在效率与真实性之间的持续争论，对内容平台与教育场景有参考意义。",
+    "importance": 2,
+    "tags": [
+      "AI写作",
+      "内容创作",
+      "社区讨论"
+    ],
+    "why": "AI写作伦理与原创性争议持续发酵"
+  },
+  "f9bfaf173e6c167b": {
+    "id": "f9bfaf173e6c167b",
+    "title": "AI chatbots give wrong answers to financial queries 'most of the time'",
+    "link": "https://www.ft.com/content/c0cd359d-df84-4208-a789-ffa864b43666",
+    "source": "Hacker News AI (英文社区)",
+    "category": "社区",
+    "raw": "<p>Article URL: <a href=\"https://www.ft.com/content/c0cd359d-df84-4208-a789-ffa864b43666\">https://www.ft.com/content/c0cd359d-df84-4208-a789-ffa864b43666</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=49783062\">https://news.ycombinator.com/item?id=49783062</a></p>\n<p>Points: 143</p>\n<p># Comments: 76</p>",
+    "published": "2026-09-21T04:28:44+00:00",
+    "summary": "金融时报报道称，AI聊天机器人在回答金融查询时“大多数时候”给出错误答案，该话题在Hacker News获143点、76条评论。这暴露了通用大模型在高准确性要求场景中的可靠性短板，对金融科技公司部署AI客服与投顾构成合规与信任风险，也凸显垂直领域专业数据与验证机制的必要性。",
+    "importance": 4,
+    "tags": [
+      "金融AI",
+      "模型可靠性",
+      "合规风险"
+    ],
+    "why": "高准确场景暴露大模型可靠性短板"
+  },
+  "b6ad19eb6a85feae": {
+    "id": "b6ad19eb6a85feae",
+    "title": "If AI coding is lowering your code quality, you're not managing quality right",
+    "link": "https://www.i-kh.net/p/if-ai-coding-is-lowering-your-code",
+    "source": "Hacker News AI (英文社区)",
+    "category": "社区",
+    "raw": "<p>Article URL: <a href=\"https://www.i-kh.net/p/if-ai-coding-is-lowering-your-code\">https://www.i-kh.net/p/if-ai-coding-is-lowering-your-code</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=49774795\">https://news.ycombinator.com/item?id=49774795</a></p>\n<p>Points: 112</p>\n<p># Comments: 157</p>",
+    "published": "2026-09-20T11:37:10+00:00",
+    "summary": "Hacker News热帖指出，若AI编程导致代码质量下降，问题不在AI而在于质量管理方式不当，获112点、157条评论。文章主张团队应通过评审、测试与规范将AI产出纳入既有质量体系，而非简单归咎工具。这为工程团队规模化采用AI编码提供了管理视角的实践参考。",
+    "importance": 3,
+    "tags": [
+      "AI编程",
+      "代码质量",
+      "工程管理"
+    ],
+    "why": "为AI编码落地提供质量管理视角"
   }
 }
