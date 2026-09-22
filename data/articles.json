@@ -2105,5 +2105,175 @@
       "前沿AI"
     ],
     "why": "本地运行前沿AI受热议，开源与隐私路线升温"
+  },
+  "da8758f6c8ac5964": {
+    "id": "da8758f6c8ac5964",
+    "title": "陆川手搓历史现场，王珞丹熬夜抽卡，阿里全模态开始兜底生产",
+    "link": "https://www.qbitai.com/2026/09/494429.html",
+    "source": "量子位",
+    "category": "中文",
+    "raw": "阿里：三年之内会出现一个原生的全模态统一生成模型，未来体验将不再受限于模态边界。",
+    "published": "2026-09-22T15:59:35+00:00",
+    "summary": "阿里提出全模态统一生成模型路线，判断三年内将出现原生全模态统一生成模型，未来AI体验不再受文本、图像、音视频等模态边界限制。该表态指向多模态融合的下一阶段，若落地将重塑内容生产与交互方式，对模型厂商和创作者生态均有影响。",
+    "importance": 4,
+    "tags": [
+      "阿里",
+      "全模态",
+      "生成模型"
+    ],
+    "why": "头部厂商给出全模态统一模型的时间表，方向性信号强"
+  },
+  "fd4042635219e9ed": {
+    "id": "fd4042635219e9ed",
+    "title": "Agent时代，CPU的价值该重估了",
+    "link": "https://www.qbitai.com/2026/09/494430.html",
+    "source": "量子位",
+    "category": "中文",
+    "raw": "CPU与GPU趋近1∶1",
+    "published": "2026-09-22T15:46:54+00:00",
+    "summary": "文章指出进入Agent时代后，CPU价值需重新评估，因智能体任务涉及大量调度、工具调用与逻辑编排，CPU与GPU的算力配比正趋近1∶1。这意味着数据中心与芯片采购逻辑可能生变，CPU厂商在AI基础设施中的角色被重新定价。",
+    "importance": 4,
+    "tags": [
+      "Agent",
+      "CPU",
+      "算力"
+    ],
+    "why": "Agent负载改变算力结构，CPU配比或成新变量"
+  },
+  "c97a1c2e4febd8a2": {
+    "id": "c97a1c2e4febd8a2",
+    "title": "直播预告：未来两三年，哪些工业AI场景会率先爆发？",
+    "link": "https://www.qbitai.com/2026/09/494420.html",
+    "source": "量子位",
+    "category": "中文",
+    "raw": "从真实工厂到产品复制，再到生态和下一批机会，两位嘉宾会把工业AI从「能用」走向「规模化」的关键问题一层层拆开。",
+    "published": "2026-09-22T14:28:59+00:00",
+    "summary": "直播预告聚焦工业AI落地，两位嘉宾将从真实工厂场景出发，讨论产品复制、生态构建及下一批机会，拆解工业AI从「能用」走向「规模化」的关键问题。议题覆盖技术到商业化的完整链条，对制造业与AI从业者具参考价值。",
+    "importance": 2,
+    "tags": [
+      "工业AI",
+      "规模化",
+      "落地"
+    ],
+    "why": "工业AI规模化路径是当前商业化焦点"
+  },
+  "1643cd352c0ff1da": {
+    "id": "1643cd352c0ff1da",
+    "title": "讲真，我没看出这图是AI做的，更没想到是国产AI做的",
+    "link": "https://www.qbitai.com/2026/09/494263.html",
+    "source": "量子位",
+    "category": "中文",
+    "raw": "商汤U1 Pro，正式发布",
+    "published": "2026-09-22T13:57:10+00:00",
+    "summary": "商汤正式发布U1 Pro，作者称难以分辨图像由AI生成，且意外于其出自国产模型。该发布体现国产图像生成在真实感与细节上的进步，若效果稳定，将在创意设计、营销素材等场景对海外模型形成竞争。",
+    "importance": 3,
+    "tags": [
+      "商汤",
+      "图像生成",
+      "国产AI"
+    ],
+    "why": "国产图像模型真实感提升，竞争格局值得观察"
+  },
+  "39871c9b22d0efec": {
+    "id": "39871c9b22d0efec",
+    "title": "WebArena作者Shuyan Zhou入职Meta超级智能实验室",
+    "link": "https://www.qbitai.com/2026/09/493653.html",
+    "source": "量子位",
+    "category": "中文",
+    "raw": "梦想是做能帮妈妈订机票的AI浏览器。",
+    "published": "2026-09-22T11:58:53+00:00",
+    "summary": "WebArena作者Shuyan Zhou入职Meta超级智能实验室，其目标之一是做出能帮妈妈订机票的AI浏览器。该动向反映顶尖Agent与Web交互研究者正被大厂吸纳，浏览器级智能体或成为下一阶段产品竞争焦点。",
+    "importance": 3,
+    "tags": [
+      "Meta",
+      "AI浏览器",
+      "人才流动"
+    ],
+    "why": "Agent人才流向大厂，浏览器智能体成新战场"
+  },
+  "e50a7a8bbd4639f4": {
+    "id": "e50a7a8bbd4639f4",
+    "title": "6天烧光2000多万，拿下开源第一！小米史无前例「炼丹直播」收官",
+    "link": "https://www.qbitai.com/2026/09/494179.html",
+    "source": "量子位",
+    "category": "中文",
+    "raw": "Hugging Face CEO：「太棒了」",
+    "published": "2026-09-22T11:50:28+00:00",
+    "summary": "小米进行为期6天的「炼丹直播」，据称烧掉2000多万元并拿下开源第一，Hugging Face CEO公开称赞。该事件以高调方式展示小米在大模型训练上的投入与开源策略，有助于提升其AI技术品牌与社区影响力。",
+    "importance": 3,
+    "tags": [
+      "小米",
+      "开源",
+      "大模型"
+    ],
+    "why": "高投入开源训练引发社区关注，品牌效应明显"
+  },
+  "6156bdf8e9b02550": {
+    "id": "6156bdf8e9b02550",
+    "title": "基元律动韩凯：从多模型调度到反馈闭环，探索Agent持续进化",
+    "link": "https://www.qbitai.com/2026/09/494120.html",
+    "source": "量子位",
+    "category": "中文",
+    "raw": "9月22日，在2026杭州云栖大会企业级Agent实践峰会上，基元律动联合创始人兼CTO韩凯发表演讲《从Harness到RSI飞轮》。",
+    "published": "2026-09-22T10:06:34+00:00",
+    "summary": "基元律动联合创始人兼CTO韩凯在2026杭州云栖大会企业级Agent实践峰会演讲《从Harness到RSI飞轮》，分享从多模型调度到反馈闭环的实践，探讨Agent如何持续进化。内容聚焦企业级Agent工程化与自我改进机制。",
+    "importance": 2,
+    "tags": [
+      "Agent",
+      "企业级",
+      "云栖大会"
+    ],
+    "why": "企业级Agent的持续进化机制是落地关键"
+  },
+  "5f3c2399f98ea4e1": {
+    "id": "5f3c2399f98ea4e1",
+    "title": "别让一部片子倒在交付前：SkyProduction 抢先首发短剧质检",
+    "link": "https://www.qbitai.com/2026/09/494043.html",
+    "source": "量子位",
+    "category": "中文",
+    "raw": "上传成片和字幕，系统自动从字幕、音画、内容底线三个维度逐集跑一遍，输出可下载、可回填的质检报告。",
+    "published": "2026-09-22T10:01:53+00:00",
+    "summary": "SkyProduction首发短剧质检功能，用户上传成片和字幕，系统自动从字幕、音画、内容底线三个维度逐集检查，输出可下载、可回填的质检报告。该工具针对短剧交付痛点，有望降低人工审核成本、提升上线效率。",
+    "importance": 2,
+    "tags": [
+      "短剧",
+      "质检",
+      "AI工具"
+    ],
+    "why": "短剧工业化交付需求催生垂直AI质检工具"
+  },
+  "0f1ff99a4515acfc": {
+    "id": "0f1ff99a4515acfc",
+    "title": "OpenAI GPT–6 Astra breaks Enigma message that has resisted solution since 2005",
+    "link": "https://www.cryptocellar.org/bgac/the-mvueh-break.html",
+    "source": "Hacker News AI (英文社区)",
+    "category": "社区",
+    "raw": "<p>Article URL: <a href=\"https://www.cryptocellar.org/bgac/the-mvueh-break.html\">https://www.cryptocellar.org/bgac/the-mvueh-break.html</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=49801324\">https://news.ycombinator.com/item?id=49801324</a></p>\n<p>Points: 312</p>\n<p># Comments: 270</p>",
+    "published": "2026-09-22T13:52:15+00:00",
+    "summary": "Hacker News热帖称OpenAI GPT-6 Astra破解了自2005年以来未被解出的Enigma密文，帖文获312点、270条评论。若属实，将展示大模型在密码分析等复杂推理任务上的能力边界，也引发对模型能力宣传真实性的讨论。",
+    "importance": 4,
+    "tags": [
+      "OpenAI",
+      "GPT-6",
+      "密码破解"
+    ],
+    "why": "大模型破解长期未解密文，能力与真实性引热议"
+  },
+  "dce74d6d29e9ae53": {
+    "id": "dce74d6d29e9ae53",
+    "title": "AI Has No Wisdom and Neither Will You",
+    "link": "https://alexn.org/blog/2026/09/22/ai-has-no-wisdom-and-neither-will-you/",
+    "source": "Hacker News AI (英文社区)",
+    "category": "社区",
+    "raw": "<p>Article URL: <a href=\"https://alexn.org/blog/2026/09/22/ai-has-no-wisdom-and-neither-will-you/\">https://alexn.org/blog/2026/09/22/ai-has-no-wisdom-and-neither-will-you/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=49799965\">https://news.ycombinator.com/item?id=49799965</a></p>\n<p>Points: 333</p>\n<p># Comments: 463</p>",
+    "published": "2026-09-22T12:11:09+00:00",
+    "summary": "Hacker News热文《AI Has No Wisdom and Neither Will You》获333点、463条评论，作者主张AI缺乏智慧，人类也不应指望借其获得智慧。文章触及AI能力边界与认知依赖问题，在社区引发关于智能本质与人类判断力的广泛争论。",
+    "importance": 3,
+    "tags": [
+      "AI哲学",
+      "智慧",
+      "社区讨论"
+    ],
+    "why": "反思AI能力边界，引发高热度认知讨论"
   }
 }
