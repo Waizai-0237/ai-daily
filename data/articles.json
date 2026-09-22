@@ -1827,5 +1827,130 @@
       "工程管理"
     ],
     "why": "为AI编码落地提供质量管理视角"
+  },
+  "a7ca59844a94ccd6": {
+    "id": "a7ca59844a94ccd6",
+    "title": "Advisory Group on Mathematics and Artificial Intelligence",
+    "link": "https://openai.com/index/advisory-group-on-mathematics-and-ai",
+    "source": "OpenAI Blog",
+    "category": "大厂",
+    "raw": "OpenAI is working with an independent Advisory Group on Mathematics and Artificial Intelligence to guide the review and communication of emerging AI results.",
+    "published": "2026-09-21T12:00:00+00:00",
+    "summary": "OpenAI宣布与独立的数学与人工智能咨询小组合作，由该小组指导新兴AI成果的审查与对外沟通工作。此举意在借助外部数学专家力量，提升AI研究结果的可验证性与公信力，回应外界对模型能力评估透明度的关切。",
+    "importance": 3,
+    "tags": [
+      "OpenAI",
+      "AI治理",
+      "数学",
+      "评估"
+    ],
+    "why": "头部实验室引入外部学术监督，或成评估新范式"
+  },
+  "d37f5b2c59270d01": {
+    "id": "d37f5b2c59270d01",
+    "title": "Higgsfield AI ships new video features in a day with GPT-6 Astra",
+    "link": "https://openai.com/index/higgsfield-from-prompt-to-production-with-astra",
+    "source": "OpenAI Blog",
+    "category": "大厂",
+    "raw": "With GPT-6 Astra, Higgsfield AI makes video ad creation easier for small businesses and brings new creative tools to market faster.",
+    "published": "2026-09-21T12:00:00+00:00",
+    "summary": "Higgsfield AI借助GPT-6 Astra在一天内上线全新视频功能，让中小企业更轻松制作视频广告，并加快创意工具推向市场的速度。案例显示新一代模型显著压缩产品开发周期，降低视频营销创作门槛。",
+    "importance": 3,
+    "tags": [
+      "GPT-6",
+      "视频生成",
+      "广告营销",
+      "产品迭代"
+    ],
+    "why": "展示新模型将创意工具开发周期压缩至一天"
+  },
+  "2c9792fbb14ae5db": {
+    "id": "2c9792fbb14ae5db",
+    "title": "Building standards for the next phase of AI",
+    "link": "https://openai.com/index/building-standards-next-phase-ai",
+    "source": "OpenAI Blog",
+    "category": "大厂",
+    "raw": "OpenAI outlines a path to shared global AI standards, calling for coordinated evaluation, reporting, and governance to improve safety.",
+    "published": "2026-09-21T10:00:00+00:00",
+    "summary": "OpenAI发布文章阐述构建下一阶段AI标准的路径，呼吁全球协同开展模型评估、结果报告与治理机制建设，以提升AI安全性。该倡议试图在监管碎片化背景下推动形成可互操作的统一标准框架。",
+    "importance": 4,
+    "tags": [
+      "AI标准",
+      "全球治理",
+      "安全评估",
+      "政策"
+    ],
+    "why": "头部厂商主动推动全球AI标准，影响监管走向"
+  },
+  "530db518a73a5717": {
+    "id": "530db518a73a5717",
+    "title": "Expanding OpenAI Academy with new learning paths",
+    "link": "https://openai.com/index/expanding-openai-academy-with-new-learning-paths",
+    "source": "OpenAI Blog",
+    "category": "大厂",
+    "raw": "Explore new OpenAI Academy learning paths for employees, developers, leaders, educators, and students to build and demonstrate practical AI skills.",
+    "published": "2026-09-21T07:00:00+00:00",
+    "summary": "OpenAI Academy新增多条学习路径，面向员工、开发者、管理者、教育工作者与学生，帮助其构建并展示实用AI技能。此举意在扩大AI人才培训覆盖面，加速AI能力在各类组织中的落地应用。",
+    "importance": 2,
+    "tags": [
+      "AI教育",
+      "人才培养",
+      "OpenAI Academy"
+    ],
+    "why": "AI技能培训扩张，反映人才缺口与生态竞争"
+  },
+  "015dbc4f82687be4": {
+    "id": "015dbc4f82687be4",
+    "title": "AI coding has made CI a bottleneck, so we reworked ours to keep up",
+    "link": "https://linear.app/now/ci-bottleneck-reworked",
+    "source": "Hacker News AI (英文社区)",
+    "category": "社区",
+    "raw": "<p>Article URL: <a href=\"https://linear.app/now/ci-bottleneck-reworked\">https://linear.app/now/ci-bottleneck-reworked</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=49792067\">https://news.ycombinator.com/item?id=49792067</a></p>\n<p>Points: 129</p>\n<p># Comments: 125</p>",
+    "published": "2026-09-21T19:23:33+00:00",
+    "summary": "Linear发文称AI编程大幅提速后，持续集成（CI）流程反而成为瓶颈，公司因此重构自身CI体系以跟上开发节奏。该案例揭示AI辅助编码普及后，工程基础设施需同步升级，否则将制约整体交付效率。",
+    "importance": 3,
+    "tags": [
+      "AI编程",
+      "CI/CD",
+      "工程效率",
+      "基础设施"
+    ],
+    "why": "揭示AI编码普及后基础设施成为新瓶颈"
+  },
+  "7a6e8b4d08073145": {
+    "id": "7a6e8b4d08073145",
+    "title": "Amazon blocks Meta’s new Muse AI agent from shopping on amazon.com",
+    "link": "https://www.forbes.com/sites/jonmarkman/2026/09/21/amazon-blocks-metas-new-muse-ai-agent-from-shopping-on-amazoncom/",
+    "source": "Hacker News AI (英文社区)",
+    "category": "社区",
+    "raw": "<p>Article URL: <a href=\"https://www.forbes.com/sites/jonmarkman/2026/09/21/amazon-blocks-metas-new-muse-ai-agent-from-shopping-on-amazoncom/\">https://www.forbes.com/sites/jonmarkman/2026/09/21/amazon-blocks-metas-new-muse-ai-agent-from-shopping-on-amazoncom/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=49789982\">https://news.ycombinator.com/item?id=49789982</a></p>\n<p>Points: 140</p>\n<p># Comments: 148</p>",
+    "published": "2026-09-21T17:00:23+00:00",
+    "summary": "亚马逊阻止Meta新推出的Muse AI代理在amazon.com上购物，引发社区热议。事件凸显电商平台与AI代理之间的访问控制与利益冲突，围绕代理购物、平台规则及数据开放的博弈正在升温。",
+    "importance": 4,
+    "tags": [
+      "AI代理",
+      "电商",
+      "平台封锁",
+      "Meta"
+    ],
+    "why": "平台与AI代理冲突，预示代理电商规则之争"
+  },
+  "f77d182c064f348e": {
+    "id": "f77d182c064f348e",
+    "title": "macOS 27: Workaround to avoid downloading AI models and save storage",
+    "link": "https://www.reddit.com/r/MacOSBeta/comments/1vlnf13/workaround_to_avoid_downloading_ai_models_and/",
+    "source": "Hacker News AI (英文社区)",
+    "category": "社区",
+    "raw": "<p>Article URL: <a href=\"https://www.reddit.com/r/MacOSBeta/comments/1vlnf13/workaround_to_avoid_downloading_ai_models_and/\">https://www.reddit.com/r/MacOSBeta/comments/1vlnf13/workaround_to_avoid_downloading_ai_models_and/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=49787535\">https://news.ycombinator.com/item?id=49787535</a></p>\n<p>Points: 208</p>\n<p># Comments: 98</p>",
+    "published": "2026-09-21T14:10:49+00:00",
+    "summary": "有用户在Reddit分享macOS 27的变通方法，可避免系统自动下载AI模型、节省存储空间，相关讨论在Hacker News获208点热度。这反映用户对系统级AI功能占用磁盘与隐私的普遍担忧。",
+    "importance": 2,
+    "tags": [
+      "macOS",
+      "本地AI",
+      "存储",
+      "用户隐私"
+    ],
+    "why": "用户抵触系统强制AI下载，隐私与存储受关注"
   }
 }
