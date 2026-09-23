@@ -2275,5 +2275,130 @@
       "社区讨论"
     ],
     "why": "反思AI能力边界，引发高热度认知讨论"
+  },
+  "b6b1e4118cdbb529": {
+    "id": "b6b1e4118cdbb529",
+    "title": "Better prompt caching for GPT-6",
+    "link": "https://openai.com/index/better-prompt-caching-for-gpt-6",
+    "source": "OpenAI Blog",
+    "category": "大厂",
+    "raw": "Learn how GPT-6 improves prompt caching with higher cache hit rates, new diagnostics, explicit breakpoints, and controls that reduce latency and costs.",
+    "published": "2026-09-22T21:00:00+00:00",
+    "summary": "OpenAI 发布 GPT-6 的提示缓存优化方案，通过提升缓存命中率、新增诊断工具、显式断点与细粒度控制，帮助开发者降低推理延迟与调用成本。该能力对高频调用、长上下文场景尤为关键，可显著改善生产环境的响应速度与单位经济性。",
+    "importance": 3,
+    "tags": [
+      "OpenAI",
+      "提示缓存",
+      "推理成本",
+      "延迟优化"
+    ],
+    "why": "缓存优化直接影响大模型应用的成本与响应速度"
+  },
+  "3d48e529ad7a20b1": {
+    "id": "3d48e529ad7a20b1",
+    "title": "Introducing GPT-6 Sol and Luna",
+    "link": "https://openai.com/index/introducing-gpt-6-sol-and-luna",
+    "source": "OpenAI Blog",
+    "category": "大厂",
+    "raw": "Meet GPT-6 Sol and Luna, two models that bring frontier intelligence to everyday work with different balances of capability and cost.",
+    "published": "2026-09-22T18:00:00+00:00",
+    "summary": "OpenAI 推出 GPT-6 Sol 与 Luna 两款模型，定位为将前沿智能带入日常工作场景，二者在能力与成本之间提供不同权衡，供用户按任务复杂度选择。此举延续了分层模型策略，意在覆盖从高难度推理到高性价比批量处理的多元需求。",
+    "importance": 4,
+    "tags": [
+      "OpenAI",
+      "GPT-6",
+      "模型发布",
+      "分层策略"
+    ],
+    "why": "新模型分层发布影响开发者选型与竞争格局"
+  },
+  "ce45d8dc0f6c9cea": {
+    "id": "ce45d8dc0f6c9cea",
+    "title": "Parallel cut research time and cost in half with GPT‑6 Astra",
+    "link": "https://openai.com/index/parallel-cuts-time-and-cost-with-astra",
+    "source": "OpenAI Blog",
+    "category": "大厂",
+    "raw": "GPT‑6 Astra allowed Parallel’s agents to research and synthesize labor-market data in half the time and at half the cost vs. prior models.",
+    "published": "2026-09-22T12:00:00+00:00",
+    "summary": "Parallel 公司借助 GPT-6 Astra 驱动其智能体，将劳动力市场数据的研究与综合时间、成本均削减一半，相较此前模型效率显著提升。该案例展示了新一代模型在真实企业级研究型智能体工作流中的降本增效价值。",
+    "importance": 3,
+    "tags": [
+      "GPT-6 Astra",
+      "智能体",
+      "企业案例",
+      "降本增效"
+    ],
+    "why": "真实企业案例验证新模型的生产力提升幅度"
+  },
+  "b4fb82cc1313a309": {
+    "id": "b4fb82cc1313a309",
+    "title": "Priorities and principles for effective third party assessments",
+    "link": "https://openai.com/index/priorities-principles-third-party-assessments",
+    "source": "OpenAI Blog",
+    "category": "大厂",
+    "raw": "OpenAI outlines priorities and principles for rigorous, secure, and independent third-party AI safety assessments of frontier models and safeguards.",
+    "published": "2026-09-22T00:00:00+00:00",
+    "summary": "OpenAI 发布关于有效第三方评估的优先级与原则，主张对前沿模型及安全防护开展严格、安全且独立的第三方 AI 安全评估。此举回应监管与公众对前沿模型风险的关切，试图为行业建立可参照的评估规范与协作框架。",
+    "importance": 3,
+    "tags": [
+      "AI安全",
+      "第三方评估",
+      "前沿模型",
+      "治理"
+    ],
+    "why": "安全评估标准关系前沿模型监管走向"
+  },
+  "3d17012b428851c0": {
+    "id": "3d17012b428851c0",
+    "title": "LLM Ass Bench",
+    "link": "https://www.assbench.com/",
+    "source": "Hacker News AI (英文社区)",
+    "category": "社区",
+    "raw": "<p>Article URL: <a href=\"https://www.assbench.com/\">https://www.assbench.com/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=49807688\">https://news.ycombinator.com/item?id=49807688</a></p>\n<p>Points: 138</p>\n<p># Comments: 39</p>",
+    "published": "2026-09-22T20:34:19+00:00",
+    "summary": "Hacker News 上出现名为 LLM Ass Bench 的评测项目，引发社区 138 点热度与 39 条讨论。该榜单以非传统方式对主流大模型进行对比评测，反映社区对现有基准测试局限性的调侃与对更贴近实际体验评测的需求。",
+    "importance": 2,
+    "tags": [
+      "LLM评测",
+      "基准测试",
+      "社区讨论"
+    ],
+    "why": "反映社区对现有模型评测体系的质疑"
+  },
+  "64bb0df64d4d61c4": {
+    "id": "64bb0df64d4d61c4",
+    "title": "Pentagon says overreliance on AI contributed to missile strike on Iran school",
+    "link": "https://www.bloomberg.com/graphics/2026-iran-school-attack/",
+    "source": "Hacker News AI (英文社区)",
+    "category": "社区",
+    "raw": "<p><a href=\"https://archive.ph/0V37g\" rel=\"nofollow\">https://archive.ph/0V37g</a></p>\n<hr />\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=49806430\">https://news.ycombinator.com/item?id=49806430</a></p>\n<p>Points: 394</p>\n<p># Comments: 210</p>",
+    "published": "2026-09-22T19:03:38+00:00",
+    "summary": "美国国防部表示，对 AI 的过度依赖是导致对伊朗一所学校发动导弹袭击的因素之一。该事件在 Hacker News 获得 394 点与 210 条评论，凸显军事场景中 AI 辅助决策的可靠性风险与责任归属问题，可能推动更严格的军用 AI 审查。",
+    "importance": 5,
+    "tags": [
+      "军用AI",
+      "AI风险",
+      "过度依赖",
+      "责任归属"
+    ],
+    "why": "AI误判致平民伤亡，军用AI治理重大警示"
+  },
+  "dfc615803e71af47": {
+    "id": "dfc615803e71af47",
+    "title": "GPT-6 Sol and Luna",
+    "link": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+    "source": "Hacker News AI (英文社区)",
+    "category": "社区",
+    "raw": "<p>Article URL: <a href=\"https://openai.com/index/introducing-gpt-6-sol-and-luna/\">https://openai.com/index/introducing-gpt-6-sol-and-luna/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=49805509\">https://news.ycombinator.com/item?id=49805509</a></p>\n<p>Points: 1140</p>\n<p># Comments: 592</p>",
+    "published": "2026-09-22T18:00:34+00:00",
+    "summary": "OpenAI 发布 GPT-6 Sol 与 Luna 的官方页面在 Hacker News 引发高度关注，获得 1140 点与 592 条评论，成为当日社区最热话题。高热度显示开发者与研究者对新一代模型的能力边界、定价与可用性极为关注。",
+    "importance": 4,
+    "tags": [
+      "GPT-6",
+      "OpenAI",
+      "社区热议",
+      "模型发布"
+    ],
+    "why": "社区热度极高，反映新模型受广泛关注"
   }
 }
