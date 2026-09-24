@@ -2706,5 +2706,125 @@
       "企业AI"
     ],
     "why": "支付巨头自建AI知识平台，企业应用范例"
+  },
+  "01d4e543c9419cea": {
+    "id": "01d4e543c9419cea",
+    "title": "Sam Altman’s remarks at the United Nations Security Council",
+    "link": "https://openai.com/index/sam-altman-un-security-council-remarks",
+    "source": "OpenAI Blog",
+    "category": "大厂",
+    "raw": "OpenAI CEO Sam Altman discusses AI safety, human control, and international cooperation in remarks to the United Nations Security Council.",
+    "published": "2026-09-23T12:00:00+00:00",
+    "summary": "OpenAI CEO Sam Altman在联合国安理会发表讲话，围绕AI安全、人类对AI的控制权以及国际合作展开论述。这是AI企业高管首次在安理会层面系统阐述治理立场，意味着AI安全议题正式进入全球最高安全议事框架，可能推动各国在监管协调与风险管控上形成共识。",
+    "importance": 5,
+    "tags": [
+      "AI安全",
+      "联合国",
+      "国际合作",
+      "治理"
+    ],
+    "why": "AI治理登上最高国际安全议事平台"
+  },
+  "f7558dc5c9de5bb5": {
+    "id": "f7558dc5c9de5bb5",
+    "title": "Harvey turns legal context into stronger drafts with GPT-6 Astra",
+    "link": "https://openai.com/index/harvey-from-context-to-confidence-with-astra",
+    "source": "OpenAI Blog",
+    "category": "大厂",
+    "raw": "GPT-6 Astra produces more structured, context-aware legal documents, freeing lawyers to focus on strategy.",
+    "published": "2026-09-23T12:00:00+00:00",
+    "summary": "法律AI公司Harvey借助GPT-6 Astra生成结构更清晰、更贴合上下文的法律文书，让律师从繁琐起草中解放出来，专注策略性工作。这显示前沿大模型正深入高门槛专业服务领域，有望重塑法律行业的文档生产流程与人机分工模式。",
+    "importance": 3,
+    "tags": [
+      "法律AI",
+      "GPT-6",
+      "专业服务"
+    ],
+    "why": "大模型切入高价值法律文书场景"
+  },
+  "7357353a1f1d61a6": {
+    "id": "7357353a1f1d61a6",
+    "title": "How invideo improves color grading 3x with GPT‑6 Astra",
+    "link": "https://openai.com/index/invideo-builds-with-gpt-6-astra",
+    "source": "OpenAI Blog",
+    "category": "大厂",
+    "raw": "With GPT‑6 Astra, invideo plans edits with greater precision, improves color correction and grading threefold, and produces 50 custom effects in one day.",
+    "published": "2026-09-23T12:00:00+00:00",
+    "summary": "视频创作平台invideo利用GPT-6 Astra提升剪辑规划精度，将调色与色彩校正效率提高三倍，并能在一天内产出50个定制特效。案例表明多模态大模型正显著压缩视频后期制作周期，降低创意内容生产的成本与门槛。",
+    "importance": 3,
+    "tags": [
+      "视频生成",
+      "GPT-6",
+      "内容创作"
+    ],
+    "why": "AI显著提升视频后期生产效率"
+  },
+  "1d5a9cc2d9509da8": {
+    "id": "1d5a9cc2d9509da8",
+    "title": "Introducing MentalHealthBench",
+    "link": "https://openai.com/index/introducing-mentalhealthbench",
+    "source": "OpenAI Blog",
+    "category": "大厂",
+    "raw": "MentalHealthBench is an expert-informed benchmark for evaluating helpful and safe AI responses across realistic mental health conversations.",
+    "published": "2026-09-23T10:00:00+00:00",
+    "summary": "OpenAI推出MentalHealthBench，这是一个由专家参与构建的基准，用于评估AI在真实心理健康对话中回答的有用性与安全性。该基准填补了敏感领域评测空白，为AI心理健康应用提供可量化标准，有助于降低高风险场景中的误导与伤害风险。",
+    "importance": 4,
+    "tags": [
+      "心理健康",
+      "AI评测",
+      "安全基准"
+    ],
+    "why": "为敏感心理健康场景建立评测标准"
+  },
+  "73fafdf6f45f6a41": {
+    "id": "73fafdf6f45f6a41",
+    "title": "Airbnb widens access to GPT-6 Astra and OpenAI frontier models",
+    "link": "https://openai.com/index/airbnb-gpt-6-astra",
+    "source": "OpenAI Blog",
+    "category": "大厂",
+    "raw": "Learn how Airbnb is expanding access to GPT-6 Astra and OpenAI frontier models to help engineering teams solve bugs, design systems, and ship faster.",
+    "published": "2026-09-23T01:00:00+00:00",
+    "summary": "Airbnb扩大对GPT-6 Astra及OpenAI前沿模型的接入范围，帮助工程团队排查缺陷、设计系统并加快交付。此举反映头部科技公司正把前沿模型深度嵌入研发流程，推动AI从辅助工具转变为工程生产力基础设施。",
+    "importance": 3,
+    "tags": [
+      "Airbnb",
+      "GPT-6",
+      "研发效率"
+    ],
+    "why": "前沿模型融入企业核心研发流程"
+  },
+  "8a86c97089bb6492": {
+    "id": "8a86c97089bb6492",
+    "title": "Google Beam expands with new regions, partners, and customers",
+    "link": "https://blog.google/innovation-and-ai/technology/research/google-beam-expansion/",
+    "source": "Google AI Blog",
+    "category": "大厂",
+    "raw": "Google Beam promotional animation",
+    "published": "2026-09-23T18:00:00+00:00",
+    "summary": "Google Beam宣布拓展新的区域、合作伙伴与客户，进一步扩大其服务覆盖范围。尽管细节有限，但区域与生态伙伴的扩张通常意味着产品进入规模化落地阶段，值得关注其在相关市场的竞争格局与商业化进展。",
+    "importance": 2,
+    "tags": [
+      "Google Beam",
+      "生态扩张",
+      "商业化"
+    ],
+    "why": "产品进入区域与伙伴规模化扩张阶段"
+  },
+  "384f5fffc350cbc0": {
+    "id": "384f5fffc350cbc0",
+    "title": "成立九年，中科类脑把积累装进Token工厂",
+    "link": "https://www.qbitai.com/2026/09/496615.html",
+    "source": "量子位",
+    "category": "中文",
+    "raw": "",
+    "published": "2026-09-24T00:48:02+00:00",
+    "summary": "成立九年的中科类脑将多年技术积累封装为Token工厂，切入大模型算力与推理服务赛道。这体现国内AI企业从算法研究向基础设施与商业化服务转型的趋势，也反映Token经济正成为算力变现的重要路径。",
+    "importance": 3,
+    "tags": [
+      "中科类脑",
+      "Token工厂",
+      "算力服务"
+    ],
+    "why": "老牌AI企业转型Token服务变现"
   }
 }
