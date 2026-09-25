@@ -282,30 +282,31 @@ main{{padding:30px 0;}}
 <div class="sec-head"><span class="num">01</span><h2>今日必读</h2></div>
 """
     for i, item in enumerate(must_read):
-                    try:
-                imp = int(item.get("importance", 3))
-            except:
-                imp = 3
-            stars = "★" * max(1, min(5, imp))
+        try:
+            imp = int(item.get("importance", 3))
+        except:
+            imp = 3
+        stars = "★" * max(1, min(5, imp))
+        
         html += f"""<article class="card"><div class="rank">{i+1:02d}</div><div>
-<h3>{item.get('title','')}</h3>
-<p>{item.get('summary','')}</p>
-<p><strong>为何重要：</strong>{item.get('why','')}</p>
-<p class="land"><strong>落地启发：</strong>{item.get('actionable_insight','')}</p>
-<div class="src">来源：<a href="{item.get('link','#')}" target="_blank">{item.get('source','')}</a> | 影响：{stars}</div>
-</div></article>"""
+        <h3>{item.get('title','')}</h3>
+        <p>{item.get('summary','')}</p>
+        <p><strong>为何重要：</strong>{item.get('why','')}</p>
+        <p class="land"><strong>落地启发：</strong>{item.get('actionable_insight','')}</p>
+        <div class="src">来源：<a href="{item.get('link','#')}" target="_blank">{item.get('source','')}</a> | 影响：{stars}</div>
+        </div></article>"""
 
     html += '<div class="sec-head"><span class="num">02</span><h2>今日简报</h2></div>'
     for i, item in enumerate(briefs):
         html += f"""<div class="brief"><div class="num">{i+1:02d}</div><div>
-<strong>{item.get('title','')}</strong><br>
-{item.get('summary','')} <a href="{item.get('link','#')}" target="_blank">[{item.get('source','')}]</a>
-</div></div>"""
+        <strong>{item.get('title','')}</strong><br>
+        {item.get('summary','')} <a href="{item.get('link','#')}" target="_blank">[{item.get('source','')}]</a>
+        </div></div>"""
 
     html += '<div class="sec-head"><span class="num">03</span><h2>今日趋势点评</h2></div><div class="trend">'
     for t in trends:
         html += f"""<div class="angle"><div class="h">{t.get('heading','')}</div><p>{t.get('content','')}</p></div>"""
-    html += '</div></main></body></html>'
+        html += '</div></main></body></html>'
     return html
 
 
