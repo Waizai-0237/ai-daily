@@ -208,8 +208,19 @@ document.querySelectorAll('.filters button').forEach(b=>{
 
 
 def render(summary_data, now):
-    if not summary_data or "must_read" not in summary_data:
+    if not isinstance(summary_data, dict):
         return "<h1>今天没有抓取到足够的信息，请稍后重试。</h1>"
+    
+    must_read = summary_data.get("must_read", [])
+    if not isinstance(must_read, list): must_read = []
+    
+    briefs = summary_data.get("briefs", [])
+    if not isinstance(briefs, list): briefs = []
+    
+    trends = summary_data.get("trends", [])
+    if not isinstance(trends, list): trends = []
+    
+    headline = summary_data.get("headline", "今日无重要动态")
 
     must_read = summary_data.get("must_read", [])
     briefs = summary_data.get("briefs", [])
@@ -271,7 +282,11 @@ main{{padding:30px 0;}}
 <div class="sec-head"><span class="num">01</span><h2>今日必读</h2></div>
 """
     for i, item in enumerate(must_read):
-        stars = "★" * item.get("importance", 3)
+                    try:
+                imp = int(item.get("importance", 3))
+            except:
+                imp = 3
+            stars = "★" * max(1, min(5, imp))
         html += f"""<article class="card"><div class="rank">{i+1:02d}</div><div>
 <h3>{item.get('title','')}</h3>
 <p>{item.get('summary','')}</p>
