@@ -124,28 +124,27 @@ def fetch_articles(feeds):
 
 
 def summarize(items):
-    out = {}
-    for i in range(0, len(items), 10):
-        batch = items[i:i+10]
-        payload = [{"id": x["id"], "title": x["title"],
-                    "source": x["source"], "content": x["raw"]} for x in batch]
-        try:
-            r = client.chat.completions.create(
-                model=MODEL,
-                messages=[
-                    {"role": "system", "content": "你是严谨的行业分析师，只输出合法 JSON。"},
-                    {"role": "user", "content": PROMPT + json.dumps(payload, ensure_ascii=False)},
-                ],
-                temperature=0.3,
-                response_format={"type": "json_object"},
-            )
-            data = json.loads(r.choices[0].message.content)
-            for a in data.get("articles", []):
-                if isinstance(a, dict) and "id" in a:
-                    out[a["id"]] = a
-        except Exception as e:
-            print(f"[warn] LLM batch {i}: {e}")
-    return out
+    if not items:
+        return {}
+        
+    # 每次最多传给 AI 40 条新闻，避免超出 Token 限制（如果今天抓了 200 条，会分批处理然后合并）
+    payload = [{"id": x["id"], "title": x["title"], "source": x["source"], "content": x["raw"][:300]} for x in items[:40]]
+    
+    try:
+        r = client.chat.completions.create(
+            model=MODEL,
+            messages=[
+                {"role": "system", "content": "你是严谨的行业分析师，只输出合法 JSON。"},
+                {"role": "user", "content": PROMPT + json.dumps(payload, ensure_ascii=False)},
+            ],
+            temperature=0.3,
+            response_format={"type": "json_object"},
+        )
+        data = json.loads(r.choices[0].message.content)
+        return data
+    except Exception as e:
+        print(f"[warn] LLM summarize error: {e}")
+        return {}
 
 
 def esc(s):
@@ -208,63 +207,112 @@ document.querySelectorAll('.filters button').forEach(b=>{
 </script></body></html>"""
 
 
-def render(articles, now):
-    articles = sorted(articles, key=lambda x: x.get("published",""), reverse=True)
-    weekday = ['星期一','星期二','星期三','星期四','星期五','星期六','星期日'][now.weekday()]
-    cats = sorted({a.get("category","综合") for a in articles})
+def render(summary_data, now):
+    if not summary_data or "must_read" not in summary_data:
+        return "<h1>今天没有抓取到足够的信息，请稍后重试。</h1>"
 
-    p = [HEAD, f"""<header class="masthead"><div class="wrap">
-<div class="kicker">AI Industry Daily Briefing</div>
+    must_read = summary_data.get("must_read", [])
+    briefs = summary_data.get("briefs", [])
+    trends = summary_data.get("trends", [])
+    headline = summary_data.get("headline", "今日无重要动态")
+
+    # 统计星级数量
+    star5 = sum(1 for x in must_read if x.get("importance") == 5)
+    star4 = sum(1 for x in must_read if x.get("importance") == 4)
+    star3 = len(briefs)
+
+    html = f"""<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业每日简报 · {now.strftime('%Y-%m-%d')}</title>
+<style>
+:root{{--bg:#f5f6f8;--bg2:#ffffff;--ink:#14182b;--muted:#5f6478;--rule:#e4e7ee;--accent:#1d39c4;--accent2:#cf1322;}}
+*{{box-sizing:border-box;}}
+body{{margin:0;background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75;}}
+.wrap{{max-width:880px;margin:0 auto;padding:0 20px;}}
+header.masthead{{background:linear-gradient(180deg,#101426 0%,#1a2040 100%);color:#fff;padding:40px 0;position:relative;}}
+header.masthead::after{{content:"";position:absolute;left:0;bottom:0;height:4px;width:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));}}
+.masthead h1{{font-size:2rem;margin:0 0 10px;font-weight:800;}}
+.masthead .meta{{font-size:0.95rem;color:#c7cde6;display:flex;gap:12px;flex-wrap:wrap;}}
+.masthead .lede{{margin-top:15px;font-size:0.98rem;color:#d7dcf0;border-left:3px solid var(--accent2);padding-left:14px;}}
+main{{padding:30px 0;}}
+.strip{{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}}
+.strip .cell{{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:18px;text-align:center;}}
+.strip .cell .n{{font-size:1.8rem;font-weight:800;color:var(--accent);}}
+.strip .cell .n.red{{color:var(--accent2);}}
+.strip .cell .n.gray{{color:var(--muted);}}
+.sec-head{{display:flex;align-items:baseline;gap:12px;margin:34px 0 18px;}}
+.sec-head .num{{font-size:0.8rem;font-weight:700;color:#fff;background:var(--accent);padding:3px 10px;border-radius:3px;}}
+.sec-head h2{{font-size:1.4rem;margin:0;font-weight:800;}}
+.card{{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px;margin-bottom:16px;display:grid;grid-template-columns:46px 1fr;gap:18px;}}
+.rank{{font-size:1.6rem;font-weight:800;color:var(--rule);text-align:center;}}
+.card h3{{font-size:1.15rem;margin:0 0 8px;}}
+.card .land{{margin:10px 0;font-size:0.9rem;color:var(--accent);background:#f0f3ff;border-left:3px solid var(--accent);padding:8px 12px;}}
+.card .src{{font-size:0.8rem;color:var(--muted);border-top:1px dashed var(--rule);padding-top:8px;margin-top:10px;}}
+.brief{{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:14px;margin-bottom:10px;display:flex;gap:12px;}}
+.brief .num{{font-weight:800;color:var(--accent);width:26px;}}
+.trend{{background:linear-gradient(135deg,#1a2040 0%,#222a52 100%);color:#eef0fa;border-radius:12px;padding:26px;margin-top:20px;}}
+.trend h3{{color:#fff;margin:0 0 14px;}}
+.trend .angle{{margin-bottom:16px;}}
+.trend .angle .h{{font-size:0.8rem;color:#8ea0e8;font-weight:700;margin-bottom:6px;}}
+@media(max-width:640px){{.strip{{grid-template-columns:repeat(2,1fr);}}.card{{grid-template-columns:1fr;}}.rank{{text-align:left;}}}}
+</style></head><body>
+<header class="masthead"><div class="wrap">
 <h1>AI 行业每日简报 · {now.strftime('%Y-%m-%d')}</h1>
-<div class="meta"><span>{now.strftime('%Y年%m月%d日')}</span><span class="dot"></span><span>{weekday}</span><span class="dot"></span><span>共收录 {len(articles)} 条动态</span></div>
-</div></header><main class="wrap">"""]
+<div class="meta"><span>{now.strftime('%Y年%m月%d日')}</span><span>·</span><span>{['星期一','星期二','星期三','星期四','星期五','星期六','星期日'][now.weekday()]}</span></div>
+<p class="lede">{headline}</p>
+</div></header>
+<main class="wrap">
+<div class="strip">
+<div class="cell"><div class="n red">{star5}</div><div>5 星事件</div></div>
+<div class="cell"><div class="n">{star4}</div><div>4 星事件</div></div>
+<div class="cell"><div class="n">{star3}</div><div>3 星事件</div></div>
+<div class="cell"><div class="n gray">{len(must_read)+len(briefs)}</div><div>今日简报条数</div></div>
+</div>
+<div class="sec-head"><span class="num">01</span><h2>今日必读</h2></div>
+"""
+    for i, item in enumerate(must_read):
+        stars = "★" * item.get("importance", 3)
+        html += f"""<article class="card"><div class="rank">{i+1:02d}</div><div>
+<h3>{item.get('title','')}</h3>
+<p>{item.get('summary','')}</p>
+<p><strong>为何重要：</strong>{item.get('why','')}</p>
+<p class="land"><strong>落地启发：</strong>{item.get('actionable_insight','')}</p>
+<div class="src">来源：<a href="{item.get('link','#')}" target="_blank">{item.get('source','')}</a> | 影响：{stars}</div>
+</div></article>"""
 
-    p.append('<div class="sec-head"><span class="num">01</span><h2>今日必读</h2><span class="rule"></span></div>')
+    html += '<div class="sec-head"><span class="num">02</span><h2>今日简报</h2></div>'
+    for i, item in enumerate(briefs):
+        html += f"""<div class="brief"><div class="num">{i+1:02d}</div><div>
+<strong>{item.get('title','')}</strong><br>
+{item.get('summary','')} <a href="{item.get('link','#')}" target="_blank">[{item.get('source','')}]</a>
+</div></div>"""
 
-    for i, a in enumerate(articles):
-        imp = max(1, min(5, int(a.get("importance") or 3)))
-        stars = "★" * imp
-        tags = "".join(f'<span class="tag">{esc(t)}</span>' for t in (a.get("tags") or []))
-        p.append(f"""<article class="card">
-<div class="rank">{i+1:02d}</div>
-<div>
-<div class="topline"><span class="badge">{esc(a.get('category','综合'))}</span><span class="stars"><span class="lbl">影响</span>{stars}</span></div>
-<h3>{esc(a.get('title',''))}</h3>
-<p class="sum">{esc(a.get('summary',''))}<span class="why">为何重要：{esc(a.get('why',''))}</span></p>
-<p class="land"><span class="land-lbl">落地启发：</span>关注该动态对业务或技术栈的潜在影响。</p>
-<div class="src"><span>来源：</span><a href="{esc(a['link'])}" target="_blank" rel="noopener">{esc(a.get('source',''))}</a></div>
-<div style="margin-top:8px;">{tags}</div>
-</div></article>""")
-
-    p.append("</main>")
-    return "\n".join(p)
+    html += '<div class="sec-head"><span class="num">03</span><h2>今日趋势点评</h2></div><div class="trend">'
+    for t in trends:
+        html += f"""<div class="angle"><div class="h">{t.get('heading','')}</div><p>{t.get('content','')}</p></div>"""
+    html += '</div></main></body></html>'
+    return html
 
 
 def main():
     now = dt.datetime.now(dt.timezone(dt.timedelta(hours=8)))
     feeds = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8"))["feeds"]
-    store = load_json(DATA_PATH, {})
 
-    fresh = [x for x in fetch_articles(feeds) if x["id"] not in store]
-    print(f"[info] 新增 {len(fresh)} 条")
+    # 1. 获取当前 RSS 源里所有的新闻（不再过滤历史数据）
+    all_articles = fetch_articles(feeds)
+    print(f"[info] 总共抓取 {len(all_articles)} 条")
 
-    if fresh:
-        for aid, s in summarize(fresh).items():
-            for x in fresh:
-                if x["id"] == aid:
-                    x.update({k: s.get(k) for k in ("summary","importance","tags","why")})
-                    break
+    if not all_articles:
+        print("[warn] 今天没有抓取到新闻，跳过生成。")
+        return
 
-    for x in fresh:
-        store[x["id"]] = x
+    # 2. 调用 AI 进行主编级筛选与深度总结（返回的是 must_read / briefs / trends）
+    summary_data = summarize(all_articles)
 
-    cutoff = (now - dt.timedelta(days=KEEP_DAYS)).isoformat()
-    store = {k: v for k, v in store.items() if v.get("published","") >= cutoff}
-
-    save_json(DATA_PATH, store)
+    # 3. 直接生成 HTML 并写入 docs 文件夹
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT_PATH.write_text(render(list(store.values()), now), encoding="utf-8")
-    print(f"[done] 输出 {len(store)} 条")
+    OUTPUT_PATH.write_text(render(summary_data, now), encoding="utf-8")
+    print(f"[done] 生成完毕，写入 {OUTPUT_PATH}")
 
 
 if __name__ == "__main__":
