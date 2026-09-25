@@ -305,8 +305,9 @@ main{{padding:30px 0;}}
 
     html += '<div class="sec-head"><span class="num">03</span><h2>今日趋势点评</h2></div><div class="trend">'
     for t in trends:
-        html += f"""<div class="angle"><div class="h">{t.get('heading','')}</div><p>{t.get('content','')}</p></div>"""
-        html += '</div></main></body></html>'
+        content = t.get('content', '').replace('&lt;strong&gt;', '<strong>').replace('&lt;/strong&gt;', '</strong>').replace('&lt;mark&gt;', '<mark>').replace('&lt;/mark&gt;', '</mark>')
+        html += f"""<div class="angle"><div class="h">{t.get('heading','')}</div><p>{content}</p></div>"""
+    html += '</div></main></body></html>'
     return html
 
 
