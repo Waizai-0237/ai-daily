@@ -3104,5 +3104,113 @@
       "隐私争议"
     ],
     "why": "巨头下架批评视频，内容审查与隐私争议升温"
+  },
+  "38b21b5ae9870cb8": {
+    "id": "38b21b5ae9870cb8",
+    "title": "别人忙着卷Code，Kimi抽身反打浏览器插件：网页操作一秒变Skill",
+    "link": "https://www.qbitai.com/2026/09/497075.html",
+    "source": "量子位",
+    "category": "中文",
+    "raw": "Agent的手越伸越长",
+    "published": "2026-09-25T06:20:56+00:00",
+    "summary": "Kimi推出浏览器插件，可将网页操作一键转化为可复用的Skill，与当前主流厂商扎堆卷代码生成形成差异化路线。此举意味着Agent能力从代码场景向通用网页交互延伸，降低自动化门槛，或推动浏览器成为AI Agent落地的重要入口。",
+    "importance": 3,
+    "tags": [
+      "Kimi",
+      "浏览器插件",
+      "AI Agent",
+      "Skill"
+    ],
+    "why": "Agent能力向通用网页操作延伸，入口价值值得关注"
+  },
+  "c52f67b34d71384f": {
+    "id": "c52f67b34d71384f",
+    "title": "华为大模型双子星联手创业，要找物理世界的Scaling Law",
+    "link": "https://www.qbitai.com/2026/09/497070.html",
+    "source": "量子位",
+    "category": "中文",
+    "raw": "一场物理世界的基模实验",
+    "published": "2026-09-25T06:14:07+00:00",
+    "summary": "两位华为大模型核心成员联手创业，目标探索物理世界的Scaling Law，试图将大模型能力从数字世界拓展到物理世界。该方向若取得突破，可能为具身智能与机器人基础模型提供新的方法论和训练范式。",
+    "importance": 4,
+    "tags": [
+      "华为",
+      "大模型",
+      "物理世界",
+      "Scaling Law"
+    ],
+    "why": "顶尖团队探索物理世界基模，方向具前瞻性"
+  },
+  "70b0b42ed6ad36a8": {
+    "id": "70b0b42ed6ad36a8",
+    "title": "呃…小扎「自研Manus」刚成Meta太子，就塌房了",
+    "link": "https://www.qbitai.com/2026/09/497060.html",
+    "source": "量子位",
+    "category": "中文",
+    "raw": "人工外包团队",
+    "published": "2026-09-25T06:11:10+00:00",
+    "summary": "Meta被曝其自研Manus项目依赖人工外包团队，刚被捧为内部明星项目便陷入争议。事件暴露部分AI产品演示效果与实际技术能力之间的落差，也引发外界对大厂AI项目真实成熟度与宣传口径的质疑。",
+    "importance": 3,
+    "tags": [
+      "Meta",
+      "Manus",
+      "人工外包",
+      "AI产品"
+    ],
+    "why": "揭示AI产品宣传与技术现实间的落差"
+  },
+  "450f5a59f249c483": {
+    "id": "450f5a59f249c483",
+    "title": "给机器人当老师，还能赚外快？“中国版Index”觅蜂派来了",
+    "link": "https://www.qbitai.com/2026/09/497012.html",
+    "source": "量子位",
+    "category": "中文",
+    "raw": "",
+    "published": "2026-09-25T05:52:18+00:00",
+    "summary": "觅蜂推出被称“中国版Index”的数据平台，让普通人通过给机器人当老师赚取外快，为具身智能采集真实操作数据。该模式有望缓解机器人训练数据稀缺问题，同时探索数据众包与商业化变现的新路径。",
+    "importance": 3,
+    "tags": [
+      "具身智能",
+      "数据采集",
+      "机器人",
+      "众包"
+    ],
+    "why": "机器人数据众包模式，缓解训练数据稀缺"
+  },
+  "1ae931d167434f71": {
+    "id": "1ae931d167434f71",
+    "title": "Tutoring company tells parents to save their money and 'use AI instead'",
+    "link": "https://www.afr.com/policy/health-and-education/tutoring-company-tell-parents-to-save-their-money-and-use-ai-instead-20260923-p60z0r",
+    "source": "Hacker News AI (英文社区)",
+    "category": "社区",
+    "raw": "<p>Article URL: <a href=\"https://www.afr.com/policy/health-and-education/tutoring-company-tell-parents-to-save-their-money-and-use-ai-instead-20260923-p60z0r\">https://www.afr.com/policy/health-and-education/tutoring-company-tell-parents-to-save-their-money-and-use-ai-instead-20260923-p60z0r</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=49831690\">https://news.ycombinator.com/item?id=49831690</a></p>\n<p>Points: 112</p>\n<p># Comments: 175</p>",
+    "published": "2026-09-24T15:09:38+00:00",
+    "summary": "一家辅导机构公开建议家长省钱、改用AI替代付费辅导，引发社区热议。这反映生成式AI正冲击传统教育服务商业模式，机构主动转型或自我否定，也凸显AI对教育行业就业与消费结构的深层影响。",
+    "importance": 3,
+    "tags": [
+      "AI教育",
+      "辅导机构",
+      "商业模式",
+      "生成式AI"
+    ],
+    "why": "AI冲击传统教育服务，行业转型信号明显"
+  },
+  "56a7f60305519bdf": {
+    "id": "56a7f60305519bdf",
+    "title": "AI safety is mostly a sex cult in Berkeley",
+    "link": "https://www.verysane.ai/p/ai-safety-is-mostly-a-sex-cult-in",
+    "source": "Hacker News AI (英文社区)",
+    "category": "社区",
+    "raw": "<p>Article URL: <a href=\"https://www.verysane.ai/p/ai-safety-is-mostly-a-sex-cult-in\">https://www.verysane.ai/p/ai-safety-is-mostly-a-sex-cult-in</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=49831269\">https://news.ycombinator.com/item?id=49831269</a></p>\n<p>Points: 115</p>\n<p># Comments: 29</p>",
+    "published": "2026-09-24T14:38:31+00:00",
+    "summary": "一篇争议文章称AI安全领域在伯克利“更像邪教”，在Hacker News引发激烈讨论。该文折射出外界对AI安全社群文化、话语权与资源分配的批评，也反映AI安全议题在技术圈内日益政治化和分裂的现状。",
+    "importance": 2,
+    "tags": [
+      "AI安全",
+      "伯克利",
+      "社区文化",
+      "争议"
+    ],
+    "why": "折射AI安全社群文化争议与内部分裂"
   }
 }
