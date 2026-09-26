@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """AI 行业新闻摘要生成器"""
-import os, json, hashlib, datetime as dt
+import os, json, hashlib, datetime as dt, re
 from pathlib import Path
 import feedparser, yaml
 from openai import OpenAI
@@ -56,12 +56,13 @@ PROMPT = """你是 AI 行业的主编。下面是今天抓取到的所有新闻�
 }
 
 筛选与合并规则（最高优先级！请严格执行）：
-1. 必须执行“去重与聚类”：请仔细阅读全部新闻。如果发现 2 条或 2 条以上新闻讲的是同一事件，请**必须**将它们合并为一条！合并后，标题采用最准确的一条，摘要要综合所有报道的信息，并在 `sources` 数组中列出这些新闻的所有来源和链接（格式：`[{"name":"来源名称","url":"原文链接"}]`）。
-2. **绝对禁止编造链接**：你在 `sources` 数组或 `link` 字段中填写的 URL，**必须严格使用输入数据中提供的 `link` 字段，一字不差地复制过去，绝对不允许自行修改、拼接或猜测任何 URL！** 如果某条新闻没有链接，请不要把它放进 sources 里。
-3. must_read：合并后，再从列表里挑出 5 条最重要的事件（优先 importance 4-5 的新闻），每条都要有深度分析。
-4. briefs：从剩余列表里挑出 5-8 条有代表性的新闻，只需要一句话摘要。同样必须执行合并，并附带真实链接。
-5. trends：根据今日所有新闻，提炼出 2-3 个核心趋势角度，进行深度点评。
-6. 务必确保 JSON 格式合法，不要在 JSON 外面加任何解释文字。
+1. 输入数据已经按“事件”做了预聚类。每个 cluster_id 代表一个新闻事件分组，分组内可能包含 1 条或多条来自不同来源的新闻。
+2. **你必须为每个 cluster_id 只生成一条新闻条目**。如果某个 cluster 里有 3 条新闻，请把它们合并成 1 条，并在 `sources` 数组中列出这 3 条新闻的所有来源和链接。
+3. **绝对禁止编造链接**：`sources` 数组中的 url 必须严格使用输入数据中提供的 `link` 字段，一字不差地复制。如果某条新闻没有链接，不要把它放进 sources。
+4. must_read：从所有 cluster 中挑出 5 条最重要的事件（优先 importance 4-5），每条都要有深度分析。
+5. briefs：从剩余 cluster 中挑出 5-8 条有代表性的新闻，只需要一句话摘要。
+6. trends：根据今日所有新闻，提炼出 2-3 个核心趋势角度，进行深度点评。
+7. 务必确保 JSON 格式合法，不要在 JSON 外面加任何解释文字。
 
 新闻列表如下：
 """
@@ -124,13 +125,53 @@ def fetch_articles(feeds):
         print(f"[ok] {name}: {n}")
     return items
 
+def extract_keywords(text):
+    """提取中文和英文关键词，用于简单聚类"""
+    text = text.lower()
+    words = re.findall(r'[a-z0-9]+|[\u4e00-\u9fff]', text)
+    stopwords = {'the','a','an','of','to','and','in','for','on','is','are','was',
+                 'it','its','this','that','with','by','from','as','at','be','has',
+                 '的','了','在','是','和','与','及','等','对','为','从','到','中'}
+    return set(w for w in words if w not in stopwords and len(w) > 1)
+
+def cluster_articles(articles, threshold=0.4):
+    """基于标题关键词做简单聚类，把可能相关的新闻分到一组"""
+    clusters = []
+    for article in articles:
+        kw = extract_keywords(article.get('title', '') + ' ' + article.get('raw', '')[:200])
+        placed = False
+        for cluster in clusters:
+            overlap = len(kw & cluster['keywords'])
+            union = len(kw | cluster['keywords'])
+            if union > 0 and overlap / union > threshold:
+                cluster['articles'].append(article)
+                cluster['keywords'] |= kw
+                placed = True
+                break
+        if not placed:
+            clusters.append({'keywords': kw, 'articles': [article]})
+    return clusters
 
 def summarize(items):
     if not items:
         return {}
         
-    # 限制最多发给 AI 80 条，防止 token 溢出
-    payload = [{"id": x["id"], "title": x["title"], "source": x["source"], "link": x["link"], "content": x["raw"][:150]} for x in items[:80]]
+    # 1. 先做预聚类（取前150条，避免过多）
+    clusters = cluster_articles(items[:150])
+    
+    # 2. 把聚类结果打包发给 AI
+    payload = []
+    for idx, cluster in enumerate(clusters):
+        group = []
+        for x in cluster['articles']:
+            group.append({
+                "id": x["id"],
+                "title": x["title"],
+                "source": x["source"],
+                "link": x["link"],
+                "content": x["raw"][:200]
+            })
+        payload.append({"cluster_id": idx, "articles": group})
     
     try:
         r = client.chat.completions.create(
