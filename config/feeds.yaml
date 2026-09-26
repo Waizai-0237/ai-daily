@@ -17,3 +17,15 @@ feeds:
   - name: Hacker News AI (英文社区)
     url: https://hnrss.org/newest?q=AI+OR+LLM+OR+GPT&points=100
     category: 社区
+  - name: TechCrunch AI
+    url: https://techcrunch.com/category/artificial-intelligence/feed/
+    category: 产业
+  - name: The Verge AI
+    url: https://www.theverge.com/rss/ai-artificial-intelligence/index.xml
+    category: 产业
+  - name: 机器之心
+    url: https://www.jiqizhixin.com/rss
+    category: 中文
+  - name: 财联社
+    url: https://www.cls.cn/telegraph
+    category: 中文
