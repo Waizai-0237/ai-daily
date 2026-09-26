@@ -222,12 +222,7 @@ def render(summary_data, now):
     
     headline = summary_data.get("headline", "今日无重要动态")
 
-    must_read = summary_data.get("must_read", [])
-    briefs = summary_data.get("briefs", [])
-    trends = summary_data.get("trends", [])
-    headline = summary_data.get("headline", "今日无重要动态")
-
-    # 统计星级数量
+    # 统计星级数量（从这里继续往下，不要出现重复的 must_read = ... 赋值）
     star5 = sum(1 for x in must_read if x.get("importance") == 5)
     star4 = sum(1 for x in must_read if x.get("importance") == 4)
     star3 = len(briefs)
@@ -259,6 +254,7 @@ main{{padding:30px 0;}}
 .card h3{{font-size:1.15rem;margin:0 0 8px;}}
 .card .land{{margin:10px 0;font-size:0.9rem;color:var(--accent);background:#f0f3ff;border-left:3px solid var(--accent);padding:8px 12px;}}
 .card .src{{font-size:0.8rem;color:var(--muted);border-top:1px dashed var(--rule);padding-top:8px;margin-top:10px;}}
+.stars{{color:#f5a623 !important;font-size:1.1rem;font-weight:bold;letter-spacing:2px;margin-left:auto;white-space:nowrap;}}
 .brief{{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:14px;margin-bottom:10px;display:flex;gap:12px;}}
 .brief .num{{font-weight:800;color:var(--accent);width:26px;}}
 .trend{{background:linear-gradient(135deg,#1a2040 0%,#222a52 100%);color:#eef0fa;border-radius:12px;padding:26px;margin-top:20px;}}
@@ -293,14 +289,14 @@ main{{padding:30px 0;}}
         <p>{item.get('summary','')}</p>
         <p><strong>为何重要：</strong>{item.get('why','')}</p>
         <p class="land"><strong>落地启发：</strong>{item.get('actionable_insight','')}</p>
-        <div class="src">来源：<a href="{item.get('link','#')}" target="_blank">{item.get('source','')}</a> | 影响：{stars}</div>
+        <div class="src">来源：{' '.join([f'<a href="{s.get("url","#")}" target="_blank">{s.get("name","")}</a>' for s in item.get("sources", [])]) if isinstance(item.get("sources"), list) else f'<a href="{item.get("link","#")}" target="_blank">{item.get("source","")}</a>'} | 影响：<span class="stars">{stars}</span></div>
         </div></article>"""
 
     html += '<div class="sec-head"><span class="num">02</span><h2>今日简报</h2></div>'
     for i, item in enumerate(briefs):
         html += f"""<div class="brief"><div class="num">{i+1:02d}</div><div>
         <strong>{item.get('title','')}</strong><br>
-        {item.get('summary','')} <a href="{item.get('link','#')}" target="_blank">[{item.get('source','')}]</a>
+        {item.get('summary','')} {' '.join([f'<a href="{s.get("url","#")}" target="_blank">[{s.get("name","")}]</a>' for s in item.get("sources", [])]) if isinstance(item.get("sources"), list) else f'<a href="{item.get("link","#")}" target="_blank">[{item.get("source","")}]</a>'}
         </div></div>"""
 
     html += '<div class="sec-head"><span class="num">03</span><h2>今日趋势点评</h2></div><div class="trend">'
