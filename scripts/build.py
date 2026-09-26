@@ -10,8 +10,8 @@ CONFIG_PATH = ROOT / "config" / "feeds.yaml"
 DATA_PATH   = ROOT / "data" / "articles.json"
 OUTPUT_PATH = ROOT / "docs" / "index.html"
 
-LOOKBACK_HOURS = int(os.environ.get("LOOKBACK_HOURS") or 36)
-MAX_PER_FEED   = int(os.environ.get("MAX_PER_FEED") or 8)
+LOOKBACK_HOURS = int(os.environ.get("LOOKBACK_HOURS") or 48)
+MAX_PER_FEED   = int(os.environ.get("MAX_PER_FEED") or 15)
 KEEP_DAYS      = int(os.environ.get("KEEP_DAYS") or 14)
 
 client = OpenAI(
@@ -55,11 +55,12 @@ PROMPT = """你是 AI 行业的主编。下面是今天抓取到的所有新闻�
   ]
 }
 
-筛选规则：
-1. must_read：从列表里挑出 5 条最重要的事件（优先 importance 4-5 的新闻），每条都要有深度分析。
-2. briefs：从剩余列表里挑出 5-8 条有代表性的新闻，只需要一句话摘要。
-3. trends：根据今日所有新闻，提炼出 2-3 个核心趋势角度，进行深度点评。
-4. 务必确保 JSON 格式合法，不要在 JSON 外面加任何解释文字。
+筛选与合并规则（最高优先级！请严格执行）：
+1. 必须执行“去重与聚类”：请仔细阅读全部新闻。如果发现 2 条或 2 条以上新闻讲的是同一事件（例如不同媒体对同一笔融资的报道，或者同时报道某家大模型的新动作），请**必须**将它们合并为一条！合并后，标题采用最准确的一条，摘要要综合所有报道的信息，并在 `sources` 数组中列出这些新闻的所有来源和链接。
+2. must_read：合并后，再从列表里挑出 5 条最重要的事件（优先 importance 4-5 的新闻），每条都要有深度分析。
+3. briefs：从剩余列表里挑出 5-8 条有代表性的新闻，只需要一句话摘要。同样必须执行合并。
+4. trends：根据今日所有新闻，提炼出 2-3 个核心趋势角度，进行深度点评。
+5. 务必确保 JSON 格式合法，不要在 JSON 外面加任何解释文字。
 
 新闻列表如下：
 """
@@ -127,8 +128,8 @@ def summarize(items):
     if not items:
         return {}
         
-    # 每次最多传给 AI 40 条新闻，避免超出 Token 限制（如果今天抓了 200 条，会分批处理然后合并）
-    payload = [{"id": x["id"], "title": x["title"], "source": x["source"], "content": x["raw"][:300]} for x in items[:40]]
+    # 限制最多发给 AI 80 条，防止 token 溢出
+    payload = [{"id": x["id"], "title": x["title"], "source": x["source"], "content": x["raw"][:150]} for x in items[:80]]
     
     try:
         r = client.chat.completions.create(
