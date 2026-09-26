@@ -27,24 +27,21 @@ PROMPT = """你是 AI 行业的主编。下面是今天抓取到的所有新闻�
   "headline": "今日 AI 行业的一句话核心总结，不超过 80 字",
   "must_read": [
     {
+      "cluster_id": 0,
       "title": "新闻标题",
       "category": "分类（如融资并购/产品发布/政策标准等）",
       "importance": 5,
       "summary": "80-120字的中文摘要，讲清主体、事实、影响",
       "why": "为何重要（30字以内）",
-      "actionable_insight": "落地启发（30字以内，说明对业务/技术的潜在影响）",
-      "source": "来源名称",
-      "link": "原文链接",
-      "tags": ["标签1", "标签2"]
+      "actionable_insight": "落地启发（30字以内，说明对业务/技术的潜在影响）"
     }
   ],
   "briefs": [
     {
+      "cluster_id": 1,
       "title": "新闻标题",
       "category": "分类",
-      "summary": "一句话简要描述",
-      "source": "来源名称",
-      "link": "原文链接"
+      "summary": "一句话简要描述"
     }
   ],
   "trends": [
@@ -57,7 +54,7 @@ PROMPT = """你是 AI 行业的主编。下面是今天抓取到的所有新闻�
 
 筛选与合并规则（最高优先级！请严格执行）：
 1. 输入数据已经按“事件”做了预聚类。每个 cluster_id 代表一个新闻事件分组，分组内可能包含 1 条或多条来自不同来源的新闻。
-2. **你必须为每个 cluster_id 只生成一条新闻条目**。如果某个 cluster 里有 3 条新闻，请把它们合并成 1 条，并在 `sources` 数组中列出这 3 条新闻的所有来源和链接。
+2. **你只需要输出 cluster_id，不需要输出 sources 数组**。系统会根据 cluster_id 自动填充该事件的所有来源和链接。
 3. **绝对禁止编造链接**：`sources` 数组中的 url 必须严格使用输入数据中提供的 `link` 字段，一字不差地复制。如果某条新闻没有链接，不要把它放进 sources。
 4. must_read：从所有 cluster 中挑出 5 条最重要的事件（优先 importance 4-5），每条都要有深度分析。
 5. briefs：从剩余 cluster 中挑出 5-8 条有代表性的新闻，只需要一句话摘要。
@@ -208,6 +205,18 @@ def summarize(items):
             response_format={"type": "json_object"},
         )
         data = json.loads(r.choices[0].message.content)
+        
+        # === 后处理：根据 cluster_id 强制填充真实的 sources ===
+        for key in ("must_read", "briefs"):
+            for item in data.get(key, []):
+                cid = item.get("cluster_id")
+                if cid is None or not isinstance(cid, int) or cid >= len(clusters):
+                    continue
+                cluster = clusters[cid]
+                item["sources"] = [
+                    {"name": a.get("source", ""), "url": a.get("link", "")}
+                    for a in cluster["articles"]
+                ]
         return data
     except Exception as e:
         print(f"[warn] LLM summarize error: {e}")
