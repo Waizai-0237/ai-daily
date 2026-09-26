@@ -142,7 +142,7 @@ def extract_keywords(title, body=""):
     return title_kw, body_kw
 
 
-def cluster_articles(articles, threshold=0.12):
+def cluster_articles(articles, threshold=0.08):
     """基于标题为主、正文为辅做聚类"""
     clusters = []
     for article in articles:
