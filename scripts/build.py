@@ -125,31 +125,48 @@ def fetch_articles(feeds):
         print(f"[ok] {name}: {n}")
     return items
 
-def extract_keywords(text):
-    """提取中文和英文关键词，用于简单聚类"""
-    text = text.lower()
-    words = re.findall(r'[a-z0-9]+|[\u4e00-\u9fff]', text)
-    stopwords = {'the','a','an','of','to','and','in','for','on','is','are','was',
-                 'it','its','this','that','with','by','from','as','at','be','has',
-                 '的','了','在','是','和','与','及','等','对','为','从','到','中'}
-    return set(w for w in words if w not in stopwords and len(w) > 1)
+def extract_keywords(title, body=""):
+    """分别提取标题和正文关键词，标题权重更高"""
+    def tokenize(text):
+        text = text.lower()
+        en = re.findall(r'[a-z][a-z0-9]{1,}', text)  # 英文单词
+        cn_chars = re.findall(r'[\u4e00-\u9fff]', text)
+        # 中文用二元组（bigram），比单字匹配准得多
+        cn = [cn_chars[i] + cn_chars[i+1] for i in range(len(cn_chars)-1)] if len(cn_chars) > 1 else cn_chars
+        return set(en + cn)
 
-def cluster_articles(articles, threshold=0.4):
-    """基于标题关键词做简单聚类，把可能相关的新闻分到一组"""
+    stopwords = {'the','and','for','with','that','this','from','are','was','has',
+                 '的','了','在','是','和','与','及','等','对','为','从','到','中','以','并','将'}
+    title_kw = {w for w in tokenize(title) if w not in stopwords and len(w) >= 2}
+    body_kw = {w for w in tokenize(body) if w not in stopwords and len(w) >= 3}
+    return title_kw, body_kw
+
+
+def cluster_articles(articles, threshold=0.12):
+    """基于标题为主、正文为辅做聚类"""
     clusters = []
     for article in articles:
-        kw = extract_keywords(article.get('title', '') + ' ' + article.get('raw', '')[:200])
+        t_kw, b_kw = extract_keywords(
+            article.get('title', ''),
+            article.get('raw', '')[:300]
+        )
         placed = False
         for cluster in clusters:
-            overlap = len(kw & cluster['keywords'])
-            union = len(kw | cluster['keywords'])
+            # 标题关键词加权（权重 3），正文关键词权重 1
+            overlap = 3 * len(t_kw & cluster['title_kw']) + len(b_kw & cluster['body_kw'])
+            union = 3 * len(t_kw | cluster['title_kw']) + len(b_kw | cluster['body_kw'])
             if union > 0 and overlap / union > threshold:
                 cluster['articles'].append(article)
-                cluster['keywords'] |= kw
+                cluster['title_kw'] |= t_kw
+                cluster['body_kw'] |= b_kw
                 placed = True
                 break
         if not placed:
-            clusters.append({'keywords': kw, 'articles': [article]})
+            clusters.append({
+                'title_kw': t_kw,
+                'body_kw': b_kw,
+                'articles': [article]
+            })
     return clusters
 
 def summarize(items):
@@ -172,6 +189,13 @@ def summarize(items):
                 "content": x["raw"][:200]
             })
         payload.append({"cluster_id": idx, "articles": group})
+    
+    # === 新增：打印聚类统计，方便排查 ===
+    multi = sum(1 for c in clusters if len(c['articles']) > 1)
+    print(f"[cluster] 总共 {len(clusters)} 个簇，其中 {multi} 个簇包含多条新闻")
+    for idx, c in enumerate(clusters):
+        if len(c['articles']) > 1:
+            print(f"  cluster {idx}: {len(c['articles'])} 条 -> {[a['source'] for a in c['articles']]}")
     
     try:
         r = client.chat.completions.create(
