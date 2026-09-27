@@ -24,7 +24,7 @@ PROMPT = """你是 AI 行业的主编。下面是今天抓取到的所有新闻�
 
 请你按照以下要求输出严格的 JSON 格式，不要输出任何其他内容：
 {
-  "headline": "今日 AI 行业综述，300-400 字。必须按以下结构撰写：①第一句点明今日整体基调（如'AI安全与商业化并行加速'）；②然后按重要性顺序，用2-3句话概括今日所有 importance=5 的事件（包含主体、核心动作、关键数字）；③最后用1句话点出这些事件共同指向的行业趋势。要求语言精炼、信息密度高，不要空话。",
+  "headline": "今日 AI 行业深度综述，300-400 字。必须按以下结构撰写：① 用一句话点明今日整体态势；② 选取 2-3 个最重要的 5 星事件，用 1-2 句话概括核心事实；③ **重点分析**这些事件背后的共同驱动因素（如资本流向、技术突破、监管压力等），并提炼出对行业未来 1-3 个月的可能影响；④ 最后用一句话给出你对今日动态的整体判断。要求有观点、有洞察，不能只是罗列事件。",
   "must_read": [
     {
       "cluster_id": 0,
@@ -60,7 +60,7 @@ PROMPT = """你是 AI 行业的主编。下面是今天抓取到的所有新闻�
 5. briefs：从剩余 cluster 中挑出 5-8 条有代表性的新闻，只需要一句话摘要。
 6. trends：根据今日所有新闻，提炼出 2-3 个核心趋势角度，进行深度点评。
 7. 务必确保 JSON 格式合法，不要在 JSON 外面加任何解释文字。
-8. headline 必须覆盖所有 5 星事件。如果今日有 3 个 5 星事件，headline 必须逐一提到它们，不能用其中一个代替整体。
+8. headline 必须包含对今日事件背后驱动因素的分析。如果今日有多个 5 星事件，请比较它们的异同，指出它们共同指向的行业趋势，并给出你的判断（如“资本正从模型层转向基础设施层”）。
 
 新闻列表如下：
 """
@@ -214,10 +214,16 @@ def summarize(items):
                 if cid is None or not isinstance(cid, int) or cid >= len(clusters):
                     continue
                 cluster = clusters[cid]
-                item["sources"] = [
-                    {"name": a.get("source", ""), "url": a.get("link", "")}
-                    for a in cluster["articles"]
-                ]
+                # 按 (来源名, 链接) 去重
+                seen = set()
+                sources = []
+                for a in cluster["articles"]:
+                    k = (a.get("source", ""), a.get("link", ""))
+                    if k in seen:
+                        continue
+                    seen.add(k)
+                    sources.append({"name": a.get("source", ""), "url": a.get("link", "")})
+                item["sources"] = sources
         return data
     except Exception as e:
         print(f"[warn] LLM summarize error: {e}")
