@@ -24,7 +24,7 @@ PROMPT = """你是 AI 行业的主编。下面是今天抓取到的所有新闻�
 
 请你按照以下要求输出严格的 JSON 格式，不要输出任何其他内容：
 {
-  "headline": "今日 AI 行业的一句话核心总结，不超过 80 字",
+  "headline": "今日 AI 行业综述，300-400 字。必须按以下结构撰写：①第一句点明今日整体基调（如'AI安全与商业化并行加速'）；②然后按重要性顺序，用2-3句话概括今日所有 importance=5 的事件（包含主体、核心动作、关键数字）；③最后用1句话点出这些事件共同指向的行业趋势。要求语言精炼、信息密度高，不要空话。",
   "must_read": [
     {
       "cluster_id": 0,
@@ -60,6 +60,7 @@ PROMPT = """你是 AI 行业的主编。下面是今天抓取到的所有新闻�
 5. briefs：从剩余 cluster 中挑出 5-8 条有代表性的新闻，只需要一句话摘要。
 6. trends：根据今日所有新闻，提炼出 2-3 个核心趋势角度，进行深度点评。
 7. 务必确保 JSON 格式合法，不要在 JSON 外面加任何解释文字。
+8. headline 必须覆盖所有 5 星事件。如果今日有 3 个 5 星事件，headline 必须逐一提到它们，不能用其中一个代替整体。
 
 新闻列表如下：
 """
@@ -365,14 +366,14 @@ main{{padding:30px 0;}}
         <p>{item.get('summary','')}</p>
         <p><strong>为何重要：</strong>{item.get('why','')}</p>
         <p class="land"><strong>落地启发：</strong>{item.get('actionable_insight','')}</p>
-        <div class="src">来源：{' '.join([f'<a href="{s.get("url","#")}" target="_blank">{s.get("name","")}</a>' for s in item.get("sources", [])]) if isinstance(item.get("sources"), list) else f'<a href="{item.get("link","#")}" target="_blank">{item.get("source","")}</a>'} | 影响：<span class="stars">{stars}</span></div>
+        <div class="src">来源：{' / '.join([f'<a href="{s.get("url","#")}" target="_blank">{s.get("name","")}</a>' for s in item.get("sources", [])]) if isinstance(item.get("sources"), list) else f'<a href="{item.get("link","#")}" target="_blank">{item.get("source","")}</a>'} | 影响：<span class="stars">{stars}</span></div>
         </div></article>"""
 
     html += '<div class="sec-head"><span class="num">02</span><h2>今日简报</h2></div>'
     for i, item in enumerate(briefs):
         html += f"""<div class="brief"><div class="num">{i+1:02d}</div><div>
         <strong>{item.get('title','')}</strong><br>
-        {item.get('summary','')} {' '.join([f'<a href="{s.get("url","#")}" target="_blank">[{s.get("name","")}]</a>' for s in item.get("sources", [])]) if isinstance(item.get("sources"), list) else f'<a href="{item.get("link","#")}" target="_blank">[{item.get("source","")}]</a>'}
+        {item.get('summary','')} {' / '.join([f'<a href="{s.get("url","#")}" target="_blank">[{s.get("name","")}]</a>' for s in item.get("sources", [])]) if isinstance(item.get("sources"), list) else f'<a href="{item.get("link","#")}" target="_blank">[{item.get("source","")}]</a>'}
         </div></div>"""
 
     html += '<div class="sec-head"><span class="num">03</span><h2>今日趋势点评</h2></div><div class="trend">'
