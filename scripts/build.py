@@ -212,17 +212,17 @@ def summarize(items):
             for item in data.get(key, []):
                 cid = item.get("cluster_id")
                 if cid is None or not isinstance(cid, int) or cid >= len(clusters):
+                    print(f"[debug] 跳过 cluster_id={cid} (type={type(cid).__name__})")
                     continue
                 cluster = clusters[cid]
-                # 按 (来源名, 链接) 去重
                 seen = set()
                 sources = []
                 for a in cluster["articles"]:
-                    k = (a.get("source", ""), a.get("link", ""))
-                    if k in seen:
+                    src = a.get("source", "")
+                    if src in seen:
                         continue
-                    seen.add(k)
-                    sources.append({"name": a.get("source", ""), "url": a.get("link", "")})
+                    seen.add(src)
+                    sources.append({"name": src, "url": a.get("link", "")})
                 item["sources"] = sources
         return data
     except Exception as e:
