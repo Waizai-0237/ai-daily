@@ -28,7 +28,7 @@ PROMPT = """你是 AI 行业的主编。下面是今天抓取到的所有新闻�
   "must_read": [
     {
       "cluster_id": 0,
-      "title": "新闻标题",
+      "title": "中文新闻标题。如果原始标题是英文，请翻译成准确、流畅的中文，专业术语保留英文原名（如 GPT、MoE、IPO 等）",
       "category": "分类（如融资并购/产品发布/政策标准等）",
       "importance": 5,
       "summary": "80-120字的中文摘要，讲清主体、事实、影响",
@@ -39,7 +39,7 @@ PROMPT = """你是 AI 行业的主编。下面是今天抓取到的所有新闻�
   "briefs": [
     {
       "cluster_id": 1,
-      "title": "新闻标题",
+      "title": "中文新闻标题。如果原始标题是英文，请翻译成准确、流畅的中文",
       "category": "分类",
       "summary": "一句话简要描述"
     }
@@ -61,6 +61,7 @@ PROMPT = """你是 AI 行业的主编。下面是今天抓取到的所有新闻�
 6. trends：根据今日所有新闻，提炼出 2-3 个核心趋势角度，进行深度点评。
 7. 务必确保 JSON 格式合法，不要在 JSON 外面加任何解释文字。
 8. headline 必须包含对今日事件背后驱动因素的分析。如果今日有多个 5 星事件，请比较它们的异同，指出它们共同指向的行业趋势，并给出你的判断（如“资本正从模型层转向基础设施层”）。
+9. 标题一律输出中文。若原标题为英文，请翻译为通顺的中文，专业术语（如 GPT、AI、IPO、GPU）保留英文；若原标题为中文，保持原样。
 
 新闻列表如下：
 """
@@ -123,6 +124,24 @@ def fetch_articles(feeds):
         print(f"[ok] {name}: {n}")
     return items
 
+def balance_sources(items, per_source=6):
+    """对新闻按来源分组，每个源最多保留 per_source 条，避免高频源淹没低频源"""
+    from collections import defaultdict
+    grouped = defaultdict(list)
+    for item in items:
+        grouped[item.get("source", "未知")].append(item)
+    
+    balanced = []
+    for source, articles in grouped.items():
+        # 按发布时间倒序（如果时间可用），保证取的是最新
+        articles.sort(key=lambda x: x.get("published", ""), reverse=True)
+        balanced.extend(articles[:per_source])
+    
+    print(f"[balance] 原始 {len(items)} 条 -> 均衡后 {len(balanced)} 条")
+    for source, articles in sorted(grouped.items()):
+        print(f"  {source}: {len(articles)} 条 -> 取 {min(len(articles), per_source)} 条")
+    return balanced
+
 def extract_keywords(title, body=""):
     """分别提取标题和正文关键词，标题权重更高"""
     def tokenize(text):
@@ -170,7 +189,10 @@ def cluster_articles(articles, threshold=0.08):
 def summarize(items):
     if not items:
         return {}
-        
+
+    # 0. 来源配额：每个源最多贡献 6 条
+    items = balance_sources(items, per_source=6)
+    
     # 1. 先做预聚类（取前150条，避免过多）
     clusters = cluster_articles(items[:150])
     
