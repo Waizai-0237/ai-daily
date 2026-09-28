@@ -23,3 +23,30 @@ feeds:
   - name: Engadget AI
     url: https://www.engadget.com/rss.xml
     category: 产业
+  - name: DeepMind Blog
+    url: https://deepmind.google/blog/rss.xml
+    category: 大厂
+  - name: Meta AI Blog
+    url: https://ai.meta.com/blog/rss/
+    category: 大厂
+  - name: Microsoft AI Blog
+    url: https://blogs.microsoft.com/ai/feed/
+    category: 大厂
+  - name: The Decoder
+    url: https://the-decoder.com/feed/
+    category: 产业
+  - name: AI News
+    url: https://www.artificialintelligence-news.com/feed/
+    category: 产业
+  - name: Ars Technica AI
+    url: https://feeds.arstechnica.com/arstechnica/technology-lab
+    category: 产业
+  - name: Wired AI
+    url: https://www.wired.com/feed/tag/ai/latest/rss
+    category: 产业
+  - name: 新智元
+    url: https://www.ailab.cn/rss
+    category: 中文
+  - name: AI 科技评论
+    url: https://www.leiphone.com/feed
+    category: 中文
