@@ -311,6 +311,28 @@ document.querySelectorAll('.filters button').forEach(b=>{
 });
 </script></body></html>"""
 
+def get_badge_class(category):
+    """根据分类返回对应的颜色徽章 class"""
+    cat = str(category)
+    if '融资' in cat or '并购' in cat or 'IPO' in cat or '投资' in cat:
+        return 'b-fund'
+    if '政策' in cat or '标准' in cat or '监管' in cat or '安全' in cat:
+        return 'b-policy'
+    if '开源' in cat:
+        return 'b-open'
+    if '论文' in cat or '学术' in cat or '研究' in cat:
+        return 'b-paper'
+    if '大厂' in cat:
+        return 'b-bigtech'
+    if '产业' in cat:
+        return 'b-industry'
+    if '社区' in cat:
+        return 'b-community'
+    if '中文' in cat:
+        return 'b-cn'
+    if '产品' in cat or '发布' in cat:
+        return 'b-product'
+    return 'b-product'  # 默认蓝色
 
 def render(summary_data, now):
     if not isinstance(summary_data, dict):
@@ -359,6 +381,19 @@ main{{padding:30px 0;}}
 .card h3{{font-size:1.15rem;margin:0 0 8px;}}
 .card .land{{margin:10px 0;font-size:0.9rem;color:var(--accent);background:#f0f3ff;border-left:3px solid var(--accent);padding:8px 12px;}}
 .card .src{{font-size:0.8rem;color:var(--muted);border-top:1px dashed var(--rule);padding-top:8px;margin-top:10px;}}
+.badge{{font-size:0.72rem;font-weight:700;padding:2px 10px;border-radius:20px;letter-spacing:0.02em;color:#fff;white-space:nowrap;}}
+.b-fund{{background:#0e7d6b;}}
+.b-product{{background:#1d39c4;}}
+.b-paper{{background:#6d28d9;}}
+.b-open{{background:#c2410c;}}
+.b-policy{{background:#b42318;}}
+.b-bigtech{{background:#1a2040;}}
+.b-industry{{background:#0369a1;}}
+.b-community{{background:#525252;}}
+.b-cn{{background:#a21caf;}}
+.stars{{color:#f5a623 !important;font-size:1.1rem;font-weight:bold;letter-spacing:2px;margin-left:auto;white-space:nowrap;}}
+.stars .lbl{{color:var(--muted);font-size:0.72rem;margin-right:4px;font-weight:normal;letter-spacing:normal;}}
+.topline{{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:8px;}}
 .stars{{color:#f5a623 !important;font-size:1.1rem;font-weight:bold;letter-spacing:2px;margin-left:auto;white-space:nowrap;}}
 .brief{{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:14px;margin-bottom:10px;display:flex;gap:12px;}}
 .brief .num{{font-weight:800;color:var(--accent);width:26px;}}
@@ -389,12 +424,16 @@ main{{padding:30px 0;}}
             imp = 3
         stars = "★" * max(1, min(5, imp))
         
+        badge_cls = get_badge_class(item.get('category', '综合'))
+        category = item.get('category', '综合')
+        
         html += f"""<article class="card"><div class="rank">{i+1:02d}</div><div>
+        <div class="topline"><span class="badge {badge_cls}">{category}</span><span class="stars"><span class="lbl">影响</span>{stars}</span></div>
         <h3>{item.get('title','')}</h3>
         <p>{item.get('summary','')}</p>
         <p><strong>为何重要：</strong>{item.get('why','')}</p>
         <p class="land"><strong>落地启发：</strong>{item.get('actionable_insight','')}</p>
-        <div class="src">来源：{' / '.join([f'<a href="{s.get("url","#")}" target="_blank">{s.get("name","")}</a>' for s in item.get("sources", [])]) if isinstance(item.get("sources"), list) else f'<a href="{item.get("link","#")}" target="_blank">{item.get("source","")}</a>'} | 影响：<span class="stars">{stars}</span></div>
+        <div class="src">来源：{' / '.join([f'<a href="{s.get("url","#")}" target="_blank">{s.get("name","")}</a>' for s in item.get("sources", [])]) if isinstance(item.get("sources"), list) else f'<a href="{item.get("link","#")}" target="_blank">{item.get("source","")}</a>'}</div>
         </div></article>"""
 
     html += '<div class="sec-head"><span class="num">02</span><h2>今日简报</h2></div>'
