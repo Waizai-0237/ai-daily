@@ -6,6 +6,7 @@ import feedparser, yaml
 from openai import OpenAI
 
 ROOT = Path(__file__).resolve().parent.parent
+ARCHIVE_DIR = ROOT / "docs" / "archive"
 CONFIG_PATH = ROOT / "config" / "feeds.yaml"
 DATA_PATH   = ROOT / "data" / "articles.json"
 OUTPUT_PATH = ROOT / "docs" / "index.html"
@@ -367,6 +368,12 @@ header.masthead::after{{content:"";position:absolute;left:0;bottom:0;height:4px;
 .masthead h1{{font-size:2rem;margin:0 0 10px;font-weight:800;}}
 .masthead .meta{{font-size:0.95rem;color:#c7cde6;display:flex;gap:12px;flex-wrap:wrap;}}
 .masthead .lede{{margin-top:15px;font-size:0.98rem;color:#d7dcf0;border-left:3px solid var(--accent2);padding-left:14px;}}
+.toolbar{{display:flex;gap:12px;margin-top:16px;align-items:center;}}
+.toolbar input{{flex:1;padding:10px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:0.9rem;outline:none;transition:border-color .2s;}}
+.toolbar input::placeholder{{color:#8a92b2;}}
+.toolbar input:focus{{border-color:var(--accent);}}
+.archive-link{{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}}
+.archive-link:hover{{color:#fff;border-color:var(--accent);}}
 main{{padding:30px 0;}}
 .strip{{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}}
 .strip .cell{{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:18px;text-align:center;}}
@@ -407,6 +414,10 @@ main{{padding:30px 0;}}
 <h1>AI 行业每日简报 · {now.strftime('%Y-%m-%d')}</h1>
 <div class="meta"><span>{now.strftime('%Y年%m月%d日')}</span><span>·</span><span>{['星期一','星期二','星期三','星期四','星期五','星期六','星期日'][now.weekday()]}</span></div>
 <p class="lede">{headline}</p>
+<div class="toolbar">
+<input id="search" type="text" placeholder="🔍 搜索标题、摘要或来源..." />
+<a href="archive/index.html" class="archive-link">📁 历史归档</a>
+</div>
 </div></header>
 <main class="wrap">
 <div class="strip">
@@ -447,9 +458,71 @@ main{{padding:30px 0;}}
     for t in trends:
         content = t.get('content', '').replace('&lt;strong&gt;', '<strong>').replace('&lt;/strong&gt;', '</strong>').replace('&lt;mark&gt;', '<mark>').replace('&lt;/mark&gt;', '</mark>')
         html += f"""<div class="angle"><div class="h">{t.get('heading','')}</div><p>{content}</p></div>"""
-    html += '</div></main></body></html>'
+    html += '''</div></main>
+<script>
+(function(){
+  // 搜索过滤
+  const input = document.getElementById('search');
+  if (input) {
+    input.addEventListener('input', function(e) {
+      const q = e.target.value.toLowerCase().trim();
+      document.querySelectorAll('.card, .brief').forEach(function(el) {
+        const match = !q || el.innerText.toLowerCase().includes(q);
+        el.style.display = match ? '' : 'none';
+      });
+    });
+  }
+  
+  // 归档页面动态调整返回链接
+  document.querySelectorAll('.archive-link').forEach(function(el) {
+    if (window.location.pathname.indexOf('/archive/') !== -1) {
+      el.href = 'index.html';
+      el.textContent = '📁 归档目录';
+    }
+  });
+})();
+</script>
+</body></html>'''
     return html
 
+def render_archive_index():
+    """生成历史归档索引页"""
+    ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
+    dates = sorted([f.stem for f in ARCHIVE_DIR.glob("*.html") if f.stem != "index"], reverse=True)
+    
+    if dates:
+        items = "\n".join(
+            f'<li><a href="{d}.html"><span class="date">{d}</span><span class="arrow">→</span></a></li>'
+            for d in dates
+        )
+    else:
+        items = '<li class="empty">暂无归档</li>'
+    
+    html = f"""<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业日报 · 历史归档</title>
+<style>
+body{{margin:0;background:#f5f6f8;color:#14182b;font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75;}}
+.wrap{{max-width:880px;margin:0 auto;padding:40px 20px;}}
+h1{{color:#1a2040;font-size:1.8rem;border-bottom:3px solid #1d39c4;padding-bottom:14px;margin-bottom:24px;}}
+.back{{display:inline-block;margin-bottom:20px;color:#1d39c4;text-decoration:none;font-weight:600;}}
+.back:hover{{text-decoration:underline;}}
+ul{{list-style:none;padding:0;margin:0;}}
+li{{background:#fff;border:1px solid #e4e7ee;border-radius:10px;margin-bottom:10px;transition:all .2s;}}
+li:hover{{box-shadow:0 6px 20px rgba(20,24,43,0.08);transform:translateY(-2px);}}
+li a{{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;color:#1d39c4;text-decoration:none;font-weight:700;font-size:1.05rem;}}
+li a:hover{{color:#cf1322;}}
+.date{{font-family:ui-monospace,SFMono-Regular,monospace;}}
+.arrow{{color:#8a90a6;font-weight:normal;}}
+li.empty{{padding:16px 20px;color:#8a90a6;text-align:center;}}
+</style></head><body><div class="wrap">
+<a class="back" href="../index.html">← 返回今日日报</a>
+<h1>📁 历史归档</h1>
+<ul>{items}</ul>
+</div></body></html>"""
+    
+    (ARCHIVE_DIR / "index.html").write_text(html, encoding="utf-8")
+    print(f"[archive] 索引页已更新，共 {len(dates)} 期")
 
 def main():
     now = dt.datetime.now(dt.timezone(dt.timedelta(hours=8)))
@@ -466,10 +539,20 @@ def main():
     # 2. 调用 AI 进行主编级筛选与深度总结（返回的是 must_read / briefs / trends）
     summary_data = summarize(all_articles)
 
-    # 3. 直接生成 HTML 并写入 docs 文件夹
+    # 3. 生成今日日报 HTML
+    html_content = render(summary_data, now)
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT_PATH.write_text(render(summary_data, now), encoding="utf-8")
-    print(f"[done] 生成完毕，写入 {OUTPUT_PATH}")
+    OUTPUT_PATH.write_text(html_content, encoding="utf-8")
+    
+    # 4. 归档副本
+    ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
+    archive_path = ARCHIVE_DIR / f"{now.strftime('%Y-%m-%d')}.html"
+    archive_path.write_text(html_content, encoding="utf-8")
+    print(f"[archive] 已归档 {archive_path.name}")
+    
+    # 5. 更新归档索引
+    render_archive_index()
+    print(f"[done] 生成完毕")
 
 
 if __name__ == "__main__":
