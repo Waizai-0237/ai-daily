@@ -6,6 +6,7 @@ import feedparser, yaml
 from openai import OpenAI
 
 ROOT = Path(__file__).resolve().parent.parent
+VERSION = "1.5"  # 每次有新功能时手动 +0.1
 ARCHIVE_DIR = ROOT / "docs" / "archive"
 CONFIG_PATH = ROOT / "config" / "feeds.yaml"
 DATA_PATH   = ROOT / "data" / "articles.json"
@@ -48,7 +49,9 @@ PROMPT = """你是 AI 行业的主编。下面是今天抓取到的所有新闻�
   "trends": [
     {
       "heading": "趋势角度（如：行业大势 / 落地应用启发 / 对国内中小企业的影响）",
-      "content": "200字左右的深度点评，分析今日事件与近期动态的关联，用 <strong> 和 <mark> 标签标注重点句子。"
+      "judgment": "核心判断（一句话，20-30字，用 <strong> 标注关键判断词）",
+      "evidence": "证据（2-3句话，引用今日具体事件，用 <mark> 标注关键数据或事件名）",
+      "action": "可执行建议（1-2句话，面向企业/开发者/投资者）"
     }
   ]
 }
@@ -63,6 +66,7 @@ PROMPT = """你是 AI 行业的主编。下面是今天抓取到的所有新闻�
 7. 务必确保 JSON 格式合法，不要在 JSON 外面加任何解释文字。
 8. headline 必须包含对今日事件背后驱动因素的分析。如果今日有多个 5 星事件，请比较它们的异同，指出它们共同指向的行业趋势，并给出你的判断（如“资本正从模型层转向基础设施层”）。
 9. 标题一律输出中文。若原标题为英文，请翻译为通顺的中文，专业术语（如 GPT、AI、IPO、GPU）保留英文；若原标题为中文，保持原样。
+10. trends 必须结构化输出为三个字段：judgment（核心判断）、evidence（证据）、action（建议）。不要写成大段散文，每一段必须言之有据，避免空话套话。
 
 新闻列表如下：
 """
@@ -368,12 +372,15 @@ header.masthead::after{{content:"";position:absolute;left:0;bottom:0;height:4px;
 .masthead h1{{font-size:2rem;margin:0 0 10px;font-weight:800;}}
 .masthead .meta{{font-size:0.95rem;color:#c7cde6;display:flex;gap:12px;flex-wrap:wrap;}}
 .masthead .lede{{margin-top:15px;font-size:0.98rem;color:#d7dcf0;border-left:3px solid var(--accent2);padding-left:14px;}}
+.version{{font-family:ui-monospace,SFMono-Regular,monospace;font-size:0.78rem;color:#8a92b2;background:rgba(255,255,255,0.06);padding:1px 8px;border-radius:4px;letter-spacing:0.05em;}}
 .toolbar{{display:flex;gap:12px;margin-top:16px;align-items:center;}}
 .toolbar input{{flex:1;padding:10px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:0.9rem;outline:none;transition:border-color .2s;}}
 .toolbar input::placeholder{{color:#8a92b2;}}
 .toolbar input:focus{{border-color:var(--accent);}}
 .archive-link{{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}}
 .archive-link:hover{{color:#fff;border-color:var(--accent);}}
+.weekly-link{{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}}
+.weekly-link:hover{{color:#fff;border-color:var(--accent);}}
 main{{padding:30px 0;}}
 .strip{{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}}
 .strip .cell{{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:18px;text-align:center;}}
@@ -401,22 +408,25 @@ main{{padding:30px 0;}}
 .stars{{color:#f5a623 !important;font-size:1.1rem;font-weight:bold;letter-spacing:2px;margin-left:auto;white-space:nowrap;}}
 .stars .lbl{{color:var(--muted);font-size:0.72rem;margin-right:4px;font-weight:normal;letter-spacing:normal;}}
 .topline{{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:8px;}}
-.stars{{color:#f5a623 !important;font-size:1.1rem;font-weight:bold;letter-spacing:2px;margin-left:auto;white-space:nowrap;}}
 .brief{{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:14px;margin-bottom:10px;display:flex;gap:12px;}}
 .brief .num{{font-weight:800;color:var(--accent);width:26px;}}
 .trend{{background:linear-gradient(135deg,#1a2040 0%,#222a52 100%);color:#eef0fa;border-radius:12px;padding:26px;margin-top:20px;}}
 .trend h3{{color:#fff;margin:0 0 14px;}}
 .trend .angle{{margin-bottom:16px;}}
 .trend .angle .h{{font-size:0.8rem;color:#8ea0e8;font-weight:700;margin-bottom:6px;}}
+.trend .angle .judgment{{color:#fff;font-size:1.05rem;font-weight:600;margin:8px 0;}}
+.trend .angle .evidence{{color:#d7dcf0;font-size:0.95rem;margin:6px 0;}}
+.trend .angle .action{{color:#a7f3d0;font-size:0.9rem;margin:6px 0;padding:8px 12px;background:rgba(16,185,129,0.08);border-radius:6px;}}
 @media(max-width:640px){{.strip{{grid-template-columns:repeat(2,1fr);}}.card{{grid-template-columns:1fr;}}.rank{{text-align:left;}}}}
 </style></head><body>
 <header class="masthead"><div class="wrap">
 <h1>AI 行业每日简报 · {now.strftime('%Y-%m-%d')}</h1>
-<div class="meta"><span>{now.strftime('%Y年%m月%d日')}</span><span>·</span><span>{['星期一','星期二','星期三','星期四','星期五','星期六','星期日'][now.weekday()]}</span></div>
+<div class="meta"><span>{now.strftime('%Y年%m月%d日')}</span><span>·</span><span>{['星期一','星期二','星期三','星期四','星期五','星期六','星期日'][now.weekday()]}</span><span>·</span><span class="version">V{VERSION}</span></div>
 <p class="lede">{headline}</p>
 <div class="toolbar">
 <input id="search" type="text" placeholder="🔍 搜索标题、摘要或来源..." />
 <a href="archive/index.html" class="archive-link">📁 历史归档</a>
+<a href="weekly/index.html" class="weekly-link">📅 本周回顾</a>
 </div>
 </div></header>
 <main class="wrap">
@@ -456,8 +466,15 @@ main{{padding:30px 0;}}
 
     html += '<div class="sec-head"><span class="num">03</span><h2>今日趋势点评</h2></div><div class="trend">'
     for t in trends:
-        content = t.get('content', '').replace('&lt;strong&gt;', '<strong>').replace('&lt;/strong&gt;', '</strong>').replace('&lt;mark&gt;', '<mark>').replace('&lt;/mark&gt;', '</mark>')
-        html += f"""<div class="angle"><div class="h">{t.get('heading','')}</div><p>{content}</p></div>"""
+        judgment = t.get('judgment', '').replace('&lt;strong&gt;', '<strong>').replace('&lt;/strong&gt;', '</strong>').replace('&lt;mark&gt;', '<mark>').replace('&lt;/mark&gt;', '</mark>')
+        evidence = t.get('evidence', '').replace('&lt;strong&gt;', '<strong>').replace('&lt;/strong&gt;', '</strong>').replace('&lt;mark&gt;', '<mark>').replace('&lt;/mark&gt;', '</mark>')
+        action = t.get('action', '').replace('&lt;strong&gt;', '<strong>').replace('&lt;/strong&gt;', '</strong>').replace('&lt;mark&gt;', '<mark>').replace('&lt;/mark&gt;', '</mark>')
+        html += f"""<div class="angle">
+        <div class="h">{t.get('heading','')}</div>
+        <p class="judgment">{judgment}</p>
+        <p class="evidence">{evidence}</p>
+        <p class="action"><strong>💡 建议：</strong>{action}</p>
+        </div>"""
     html += '''</div></main>
 <script>
 (function(){
@@ -524,6 +541,67 @@ li.empty{{padding:16px 20px;color:#8a90a6;text-align:center;}}
     (ARCHIVE_DIR / "index.html").write_text(html, encoding="utf-8")
     print(f"[archive] 索引页已更新，共 {len(dates)} 期")
 
+def render_weekly_index():
+    """生成最近 7 天的周报回顾页面"""
+    WEEKLY_DIR = ROOT / "docs" / "weekly"
+    WEEKLY_DIR.mkdir(parents=True, exist_ok=True)
+    
+    # 扫描归档目录，取最近 7 天
+    archive_dir = ROOT / "docs" / "archive"
+    if not archive_dir.exists():
+        return
+    
+    date_files = sorted([f for f in archive_dir.glob("*.html") if f.stem != "index"], reverse=True)[:7]
+    
+    if not date_files:
+        return
+    
+    # 从每天的 HTML 里提取 headline
+    daily_items = []
+    for f in date_files:
+        try:
+            content = f.read_text(encoding="utf-8")
+            # 提取 lede 段落里的 headline
+            m = re.search(r'class="lede">(.+?)</p>', content, re.DOTALL)
+            headline = m.group(1).strip() if m else "（无摘要）"
+            # 提取标题里的日期
+            date_str = f.stem
+            daily_items.append({"date": date_str, "headline": headline})
+        except Exception as e:
+            print(f"[warn] weekly: {f.name} 解析失败 {e}")
+    
+    if not daily_items:
+        return
+    
+    items_html = "\n".join(
+        f'<div class="day-item"><div class="day-date">{item["date"]}</div><p>{item["headline"]}</p></div>'
+        for item in daily_items
+    )
+    
+    html = f"""<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业周报 · 最近 7 天回顾</title>
+<style>
+body{{margin:0;background:#f5f6f8;color:#14182b;font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75;}}
+.wrap{{max-width:880px;margin:0 auto;padding:40px 20px;}}
+h1{{color:#1a2040;font-size:1.8rem;border-bottom:3px solid #1d39c4;padding-bottom:14px;margin-bottom:24px;}}
+.back{{display:inline-block;margin-bottom:20px;color:#1d39c4;text-decoration:none;font-weight:600;}}
+.back:hover{{text-decoration:underline;}}
+.day-item{{background:#fff;border:1px solid #e4e7ee;border-radius:10px;padding:18px 22px;margin-bottom:14px;transition:all .2s;}}
+.day-item:hover{{box-shadow:0 6px 20px rgba(20,24,43,0.08);transform:translateY(-2px);}}
+.day-date{{font-family:ui-monospace,SFMono-Regular,monospace;color:#1d39c4;font-weight:800;font-size:1rem;margin-bottom:6px;}}
+.day-item p{{margin:0;color:#2b3147;font-size:0.95rem;}}
+.note{{color:#8a90a6;font-size:0.82rem;margin-top:20px;text-align:center;}}
+</style></head><body><div class="wrap">
+<a class="back" href="../index.html">← 返回今日日报</a>
+<h1>📅 最近 7 天回顾</h1>
+{items_html}
+<p class="note">共回顾 {len(daily_items)} 天 · 当前模板版本 V{VERSION}</p>
+</div></body></html>"""
+    
+    (WEEKLY_DIR / "index.html").write_text(html, encoding="utf-8")
+    print(f"[weekly] 周报已更新，共 {len(daily_items)} 天")
+
 def main():
     now = dt.datetime.now(dt.timezone(dt.timedelta(hours=8)))
     feeds = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8"))["feeds"]
@@ -552,6 +630,7 @@ def main():
     
     # 5. 更新归档索引
     render_archive_index()
+    render_weekly_index()
     print(f"[done] 生成完毕")
 
 
