@@ -626,18 +626,21 @@ h1{{color:#1a2040;font-size:1.8rem;border-bottom:3px solid #1d39c4;padding-botto
     print(f"[weekly] 周报已更新，共 {len(daily_items)} 天")
 import urllib.request
 
+import smtplib
+from email.mime.text import MIMEText
+from email.header import Header
+
 def send_email(summary_data, now):
-    """通过 Resend API 发送日报摘要邮件"""
-    api_key = os.environ.get("RESEND_API_KEY")
-    mail_from = os.environ.get("MAIL_FROM", "onboarding@resend.dev")
+    """通过 QQ 邮箱 SMTP 发送日报摘要邮件"""
+    user = os.environ.get("QQ_EMAIL_USER")
+    auth_code = os.environ.get("QQ_EMAIL_AUTH_CODE")
     mail_to = os.environ.get("MAIL_TO")
     
-    if not api_key or not mail_to:
-        print("[mail] 未配置 RESEND_API_KEY 或 MAIL_TO，跳过邮件发送")
+    if not user or not auth_code or not mail_to:
+        print("[mail] 未配置 QQ_EMAIL_USER / QQ_EMAIL_AUTH_CODE / MAIL_TO，跳过邮件发送")
         return
     
-    # 强制打印，方便对比
-    print(f"[mail] key 前 10 位: {api_key[:10]}... 长度: {len(api_key)} 收件人: {mail_to}")
+    print(f"[mail] 发件人: {user} 收件人: {mail_to}")
     
     headline = summary_data.get("headline", "今日无重要动态")
     must_read = summary_data.get("must_read", [])
@@ -671,25 +674,19 @@ def send_email(summary_data, now):
     </div>
     """
     
-    payload = {
-        "from": mail_from,
-        "to": [mail_to],
-        "subject": f"AI 日报 · {now.strftime('%m-%d')} · {headline[:30]}...",
-        "html": html_body
-    }
+    # 构造邮件
+    msg = MIMEText(html_body, "html", "utf-8")
+    msg["Subject"] = Header(f"AI 日报 · {now.strftime('%m-%d')} · {headline[:30]}...", "utf-8")
+    msg["From"] = user
+    msg["To"] = mail_to
     
     try:
-        req = urllib.request.Request(
-            "https://api.resend.com/emails",
-            data=json.dumps(payload).encode("utf-8"),
-            headers={
-                "Authorization": f"Bearer {api_key}",
-                "Content-Type": "application/json"
-            },
-            method="POST"
-        )
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            print(f"[mail] 发送成功 status={resp.status}")
+        # QQ 邮箱 SMTP 服务器
+        server = smtplib.SMTP_SSL("smtp.qq.com", 465, timeout=30)
+        server.login(user, auth_code)
+        server.sendmail(user, [mail_to], msg.as_string())
+        server.quit()
+        print(f"[mail] 发送成功 → {mail_to}")
     except Exception as e:
         print(f"[mail] 发送失败 {e}")
 
