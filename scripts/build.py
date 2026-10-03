@@ -633,6 +633,7 @@ def send_email(summary_data, now):
     mail_to = os.environ.get("MAIL_TO")
     
     if not api_key or not mail_to:
+        print(f"[mail] key 前 10 位: {api_key[:10]}... 收件人: {mail_to}")
         print("[mail] 未配置 RESEND_API_KEY 或 MAIL_TO，跳过邮件发送")
         return
     
