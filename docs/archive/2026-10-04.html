@@ -68,7 +68,7 @@ main{padding:30px 0;}
 <header class="masthead"><div class="wrap">
 <h1>AI 行业每日简报 · 2026-10-04</h1>
 <div class="meta"><span>2026年10月04日</span><span>·</span><span>星期日</span><span>·</span><span class="version">V1.5</span></div>
-<p class="lede">今日AI行业呈现“能力狂飙与信任赤字并行”的撕裂态势：GPT-6家族发布官方指南、OpenAI安全团队持续地震、Meta将Muse智能体开源至硬件生态，三股力量共同指向一个核心矛盾——模型能力与商业化速度远超安全治理与用户信任的承载能力。GPT-6指南的发布标志着头部厂商正从“模型竞赛”转向“工程化落地竞赛”，而OpenAI安全负责人离职与内部模型“自我重启”事件则暴露了前沿实验室在安全承诺与商业压力之间的深层张力。Meta开源Muse硬件代码、Apple收紧macOS全盘访问权限，则从生态与系统层面对AI Agent的权限边界做出回应。共同驱动因素在于：资本正从单纯的模型参数竞赛转向Agent基础设施与安全护栏的争夺，而监管与公众信任的滞后正在成为行业最大的隐性成本。未来1-3个月，预计将有更多厂商跟进Agent权限管控与安全审计标准，开源硬件生态与闭源安全治理的路线分歧将进一步显性化。整体判断：AI行业正进入“能力兑现期”与“信任清算期”的叠加阶段，谁能率先在安全与效率之间找到可验证的平衡点，谁就能在下一轮竞争中占据制高点。</p>
+<p class="lede">今日AI行业呈现"能力狂奔与安全刹车"的撕裂态势：一边是GPT-6家族指南发布、DeepSeek扩招、Jev估值冲上100亿美元，另一边是OpenAI安全团队持续地震、苹果因AI Agent风险收紧macOS权限、前安全负责人呼吁像监管核电站一样监管AI。**共同驱动因素**在于：模型能力已越过"可用"临界点，Agent开始大规模接管真实系统权限，导致安全风险从理论走向现实，同时资本仍在疯狂涌入基础设施与垂直应用。**未来1-3个月**，我们判断将出现三个连锁反应：一是AI Agent的权限治理会成为产品发布的硬门槛，苹果的举措只是开始；二是安全人才从OpenAI等前沿实验室向监管机构、开源社区和独立研究机构外溢，"安全出走"将倒逼行业自律标准出台；三是算力与内存短缺持续到2028年的预期，会让"越跑越省"的模型路由技术（如openJiuwen X-Router）从可选项变成刚需。整体判断：行业正从"唯能力论"转向"能力与治理并重"，谁先解决Agent的可控性与经济性，谁就能拿下下一阶段的企业级市场。</p>
 <div class="toolbar">
 <input id="search" type="text" placeholder="🔍 搜索标题、摘要或来源..." />
 <a href="archive/index.html" class="archive-link">📁 历史归档</a>
@@ -84,83 +84,83 @@ main{padding:30px 0;}
 </div>
 <div class="cat-chart">
 <div class="chart-title">📊 今日分类分布</div>
-<div class="bar-row"><span class="bar-label">产业观察</span><div class="bar-track"><div class="bar-fill" style="width:23%"></div></div><span class="bar-count">3</span></div><div class="bar-row"><span class="bar-label">产品发布</span><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div><span class="bar-count">2</span></div><div class="bar-row"><span class="bar-label">大厂动态</span><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div><span class="bar-count">2</span></div><div class="bar-row"><span class="bar-label">政策标准</span><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div><span class="bar-count">2</span></div><div class="bar-row"><span class="bar-label">开源动态</span><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div><span class="bar-count">2</span></div><div class="bar-row"><span class="bar-label">融资并购</span><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div><span class="bar-count">1</span></div>
+<div class="bar-row"><span class="bar-label">政策标准</span><div class="bar-track"><div class="bar-fill" style="width:23%"></div></div><span class="bar-count">3</span></div><div class="bar-row"><span class="bar-label">产品发布</span><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div><span class="bar-count">2</span></div><div class="bar-row"><span class="bar-label">大厂动态</span><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div><span class="bar-count">2</span></div><div class="bar-row"><span class="bar-label">开源动态</span><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div><span class="bar-count">2</span></div><div class="bar-row"><span class="bar-label">产业观察</span><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div><span class="bar-count">2</span></div><div class="bar-row"><span class="bar-label">融资并购</span><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div><span class="bar-count">1</span></div>
 </div>
 <div class="sec-head"><span class="num">01</span><h2>今日必读</h2></div>
 <article class="card"><div class="rank">01</div><div>
         <div class="topline"><span class="badge b-product">产品发布 · 模型发布</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
-        <h3>OpenAI发布GPT-6家族实用指南，面向初创企业详解模型选型与生产部署</h3>
-        <p>OpenAI官方发布GPT-6家族模型选型指南，指导初创企业根据推理强度、提示工程、工具协调等维度选择合适模型并准备生产工作流。这标志着GPT-6从发布期进入规模化落地期，官方开始系统性降低企业采用门槛。</p>
-        <p><strong>为何重要：</strong>GPT-6进入工程化落地阶段，企业选型有据可依</p>
-        <p class="land"><strong>落地启发：</strong>初创企业应尽快对照指南评估自身工作流与模型匹配度</p>
+        <h3>OpenAI发布GPT-6家族实用指南，面向创业公司详解模型选型与工作流</h3>
+        <p>OpenAI官方博客发布GPT-6家族模型选型指南，指导创业公司如何选择GPT-6模型、调节推理强度、优化提示词与技能、协调工具调用，并为生产环境准备工作流。这标志着GPT-6已从发布期进入规模化落地期，OpenAI正主动降低企业接入门槛。</p>
+        <p><strong>为何重要：</strong>GPT-6进入企业落地阶段，选型与调优成关键</p>
+        <p class="land"><strong>落地启发：</strong>创业公司应尽快按指南评估GPT-6推理成本与效果平衡点</p>
         <div class="src">来源：<a href="https://openai.com/index/practical-guide-building-gpt-6" target="_blank">OpenAI Blog</a></div>
         </div></article><article class="card"><div class="rank">02</div><div>
         <div class="topline"><span class="badge b-policy">大厂动态 · AI安全</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
-        <h3>OpenAI安全团队持续地震：负责人离职，三名员工因泄密被开除</h3>
-        <p>OpenAI安全团队负责人离职，同时三名员工因泄密被开除，这是继此前多位安全研究员公开警告后又一次重大人事震荡。安全团队持续失血与内部信息管控趋严，反映出OpenAI在安全治理与商业扩张之间的深层矛盾。</p>
-        <p><strong>为何重要：</strong>安全团队持续瓦解，前沿实验室治理模式受质疑</p>
-        <p class="land"><strong>落地启发：</strong>企业采用OpenAI模型需关注其安全承诺的连续性风险</p>
+        <h3>OpenAI安全团队持续地震！负责人离职，三名员工因泄密被开除</h3>
+        <p>OpenAI安全团队再现重大人事动荡，安全负责人离职，同时有三名员工因泄密被解雇。结合此前安全员工David Robinson的公开辞职与警告，OpenAI内部安全文化问题持续发酵，引发外界对前沿AI公司治理能力的严重质疑。</p>
+        <p><strong>为何重要：</strong>安全团队连环出走，暴露前沿实验室治理危机</p>
+        <p class="land"><strong>落地启发：</strong>企业选型AI供应商时应将安全治理稳定性纳入评估</p>
         <div class="src">来源：<a href="https://www.qbitai.com/2026/10/501368.html" target="_blank">量子位</a></div>
         </div></article><article class="card"><div class="rank">03</div><div>
-        <div class="topline"><span class="badge b-product">产品发布 · 智能体生态</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
-        <h3>OpenAI的Dot智能体：能帮你订晚餐的企业级软件</h3>
-        <p>OpenAI推出名为Dots的智能体平台，定位为企业级软件但兼具消费级场景能力，可执行订餐等日常任务。与此同时，Meta的Muse智能体被曝会为所有亲友创建详细画像，引发隐私争议。两大巨头在Agent赛道的竞争正从功能比拼转向生态与隐私博弈。</p>
-        <p><strong>为何重要：</strong>Agent平台竞争白热化，隐私与实用性矛盾凸显</p>
-        <p class="land"><strong>落地启发：</strong>企业部署Agent需提前评估数据隐私合规与用户信任成本</p>
-        <div class="src">来源：<a href="https://techcrunch.com/2026/10/03/all-the-ai-agents-that-can-live-in-your-text-messages/" target="_blank">TechCrunch AI</a> / <a href="https://www.theverge.com/ai-artificial-intelligence/1004096/openai-chatgpt-dots-hands-on-agent" target="_blank">The Verge AI</a> / <a href="https://www.wired.com/story/muse-creates-detailed-profiles-of-all-your-friends-and-family/" target="_blank">Wired AI</a></div>
-        </div></article><article class="card"><div class="rank">04</div><div>
         <div class="topline"><span class="badge b-policy">政策标准 · AI安全</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
-        <h3>Apple收紧macOS全盘访问权限，应对AI Agent带来的新风险</h3>
-        <p>Apple宣布将新增macOS全盘访问权限管控，警告能力日益增强的AI Agent对用户文件、消息、邮件和浏览历史的广泛访问构成重大风险。此举是对Meta等公司Agent产品读取用户数据行为的系统性回应，标志着操作系统层面对AI Agent权限的正式设限。</p>
-        <p><strong>为何重要：</strong>操作系统层面对AI Agent权限设限，行业标准或将跟进</p>
-        <p class="land"><strong>落地启发：</strong>Agent开发者需提前适配更严格的系统权限模型</p>
+        <h3>苹果因AI Agent新风险收紧macOS"完全磁盘访问"权限</h3>
+        <p>苹果宣布将在macOS中新增"完全磁盘访问"权限控制，明确警告能力日益增强的AI Agent对用户文件、消息、邮件和浏览历史的广泛访问构成新风险。这是主流操作系统厂商首次因AI Agent风险而系统性收紧系统权限，具有行业示范效应。</p>
+        <p><strong>为何重要：</strong>操作系统首次因AI Agent风险系统性收紧权限</p>
+        <p class="land"><strong>落地启发：</strong>Agent开发者需提前适配更细粒度的权限申请机制</p>
         <div class="src">来源：<a href="https://techcrunch.com/2026/10/02/apple-says-its-tightening-macos-full-disk-access-controls-due-to-new-risks-from-ai-agents/" target="_blank">TechCrunch AI</a> / <a href="https://www.theverge.com/tech/1004295/apple-limit-mac-disk-access-ai-agents" target="_blank">The Verge AI</a> / <a href="https://arstechnica.com/security/2026/10/apple-changes-full-disk-access-permissions-to-curb-abuse-from-ai-agents/" target="_blank">Ars Technica AI</a></div>
+        </div></article><article class="card"><div class="rank">04</div><div>
+        <div class="topline"><span class="badge b-fund">融资并购 · 估值飙升</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>Jev估值达100亿美元！创始人Diogo Almeida回答一切</h3>
+        <p>AI公司Jev估值达到100亿美元，创始人Diogo Almeida公开回应外界提问。在资本对AI基础设施与应用层持续加注的背景下，Jev的百亿估值再次印证头部AI初创公司估值膨胀速度，也引发市场对泡沫与真实价值匹配度的讨论。</p>
+        <p><strong>为何重要：</strong>百亿估值再现，AI一级市场资本热度不减</p>
+        <p class="land"><strong>落地启发：</strong>投资者需关注估值与收入增速的匹配度而非单纯追高</p>
+        <div class="src">来源：<a href="https://www.qbitai.com/2026/10/500148.html" target="_blank">量子位</a></div>
         </div></article><article class="card"><div class="rank">05</div><div>
-        <div class="topline"><span class="badge b-open">开源动态 · 开源框架</span><span class="stars"><span class="lbl">影响</span>★★★★</span></div>
+        <div class="topline"><span class="badge b-open">开源动态 · 模型路由</span><span class="stars"><span class="lbl">影响</span>★★★★</span></div>
         <h3>openJiuwen X-Router自演进模型路由技术首发，昇腾亲和，实测减少50%以上Token消耗</h3>
-        <p>openJiuwen发布X-Router自演进模型路由技术，针对昇腾平台优化，通过让每次请求选择最合适模型、每次反馈优化下次选择，实测减少50%以上Token消耗。这为Agent场景下的推理成本控制提供了可落地的开源方案。</p>
-        <p><strong>为何重要：</strong>模型路由技术显著降低Agent推理成本，开源可复用</p>
-        <p class="land"><strong>落地启发：</strong>Agent开发者可集成路由层优化Token成本与响应质量</p>
+        <p>openJiuwen发布X-Router自演进模型路由技术，主打昇腾亲和，让每次请求自动选择最优模型，并通过反馈持续优化，实测减少50%以上Token消耗。在算力与内存成本高企的背景下，该技术为Agent规模化运行提供了显著降本路径。</p>
+        <p><strong>为何重要：</strong>模型路由降本50%，Agent经济性拐点临近</p>
+        <p class="land"><strong>落地启发：</strong>多模型Agent架构应引入动态路由以控制推理成本</p>
         <div class="src">来源：<a href="https://www.qbitai.com/2026/10/500098.html" target="_blank">量子位</a></div>
         </div></article><div class="sec-head"><span class="num">02</span><h2>今日简报</h2></div><div class="brief"><div class="num">01</div><div>
         <strong>Chatham利用OpenAI技术重塑资本市场工作流，交易验证从30分钟缩至4分钟以内</strong><br>
-        Chatham Financial使用Codex和GPT-5.6重构技术栈与工作流，交易验证时间从30分钟压缩至4分钟以内。 <a href="https://openai.com/index/chatham-financial" target="_blank">[OpenAI Blog]</a>
+        Chatham Financial使用Codex和GPT-5.6重构技术栈，将交易验证时间从30分钟压缩到4分钟以内。 <a href="https://openai.com/index/chatham-financial" target="_blank">[OpenAI Blog]</a>
         </div></div><div class="brief"><div class="num">02</div><div>
-        <strong>DeepSeek扩招弹性计算团队，大量HC尤其需要资深工程师</strong><br>
-        DeepSeek弹性计算团队大规模招聘，岗位JD附带技术报告，显示其正加码算力调度与基础设施。 <a href="https://www.qbitai.com/2026/10/501381.html" target="_blank">[量子位]</a>
+        <strong>DeepSeek扩招！弹性计算团队大量HC，尤其需要资深工程师</strong><br>
+        DeepSeek弹性计算团队大规模招聘，岗位JD直接附上技术报告，显示其正加码底层算力基础设施建设。 <a href="https://www.qbitai.com/2026/10/501381.html" target="_blank">[量子位]</a>
         </div></div><div class="brief"><div class="num">03</div><div>
-        <strong>Jev估值达100亿美元，创始人Diogo Almeida回答一切</strong><br>
-        AI初创公司Jev估值达到100亿美元，创始人Diogo Almeida公开回应外界关注。 <a href="https://www.qbitai.com/2026/10/500148.html" target="_blank">[量子位]</a>
-        </div></div><div class="brief"><div class="num">04</div><div>
         <strong>丘成桐新论文致谢GPT和Claude</strong><br>
-        数学家丘成桐在新论文中致谢GPT和Claude，显示AI工具已进入顶级数学研究的辅助工作流。 <a href="https://www.qbitai.com/2026/10/499991.html" target="_blank">[量子位]</a>
+        数学家丘成桐在新论文中致谢GPT和Claude，44年前被列入问题清单的难题借助AI取得进展。 <a href="https://www.qbitai.com/2026/10/499991.html" target="_blank">[量子位]</a>
+        </div></div><div class="brief"><div class="num">04</div><div>
+        <strong>arXiv最严新规！每人每月最多提交2篇，拒稿不退额度</strong><br>
+        arXiv出台史上最严投稿限制，每人每月最多提交2篇且拒稿不退额度，以应对AI生成论文泛滥。 <a href="https://www.qbitai.com/2026/10/499958.html" target="_blank">[量子位]</a>
         </div></div><div class="brief"><div class="num">05</div><div>
-        <strong>arXiv最严新规：每人每月最多提交2篇，拒稿不退额度</strong><br>
-        arXiv出台史上最严投稿限制，每人每月最多提交2篇且拒稿不退还额度，旨在遏制AI生成论文泛滥。 <a href="https://www.qbitai.com/2026/10/499958.html" target="_blank">[量子位]</a>
+        <strong>OpenAI的Dot Agent上手体验：能帮你订晚餐的企业级软件</strong><br>
+        OpenAI推出Agent平台Dots，定位企业软件但也能处理订餐等生活任务，与Meta Muse形成直接竞争。 <a href="https://techcrunch.com/2026/10/03/all-the-ai-agents-that-can-live-in-your-text-messages/" target="_blank">[TechCrunch AI]</a> / <a href="https://www.theverge.com/ai-artificial-intelligence/1004096/openai-chatgpt-dots-hands-on-agent" target="_blank">[The Verge AI]</a> / <a href="https://www.wired.com/story/muse-creates-detailed-profiles-of-all-your-friends-and-family/" target="_blank">[Wired AI]</a>
         </div></div><div class="brief"><div class="num">06</div><div>
-        <strong>Meta开源Muse AI硬件代码，让用户自制智能设备</strong><br>
-        Meta开源Muse AI硬件代码，允许用户将Muse智能体加载到电视、烤面包机等自制设备中。 <a href="https://techcrunch.com/2026/10/02/meta-wants-you-to-build-your-own-muse-gadget/" target="_blank">[TechCrunch AI]</a> / <a href="https://www.theverge.com/tech/1004330/meta-muse-ai-gadgets-home-link" target="_blank">[The Verge AI]</a> / <a href="https://www.wired.com/story/trillium-labs-wants-to-do-high-risk-ai-research-in-the-open/" target="_blank">[Wired AI]</a>
+        <strong>Meta开源Muse AI硬件代码，想让你的电视和烤面包机都用上Muse</strong><br>
+        Meta开源Muse AI硬件开发代码，鼓励开发者将Muse Agent植入电视、E Ink显示屏等各类设备。 <a href="https://techcrunch.com/2026/10/02/meta-wants-you-to-build-your-own-muse-gadget/" target="_blank">[TechCrunch AI]</a> / <a href="https://www.theverge.com/tech/1004330/meta-muse-ai-gadgets-home-link" target="_blank">[The Verge AI]</a> / <a href="https://www.wired.com/story/trillium-labs-wants-to-do-high-risk-ai-research-in-the-open/" target="_blank">[Wired AI]</a>
         </div></div><div class="brief"><div class="num">07</div><div>
         <strong>内存高管预计RAM短缺将持续至2028年</strong><br>
-        美光CEO表示2027年内存售价远高于2026年，RAM短缺预计持续至2028年，AI算力需求持续推高存储价格。 <a href="https://arstechnica.com/information-technology/2026/10/memory-supplies-are-only-getting-tighter-micron-ceo-says/" target="_blank">[Ars Technica AI]</a>
+        美光CEO等内存高管表示供应持续紧张，2027年内存价格将远高于2026年，短缺或延续至2028年。 <a href="https://arstechnica.com/information-technology/2026/10/memory-supplies-are-only-getting-tighter-micron-ceo-says/" target="_blank">[Ars Technica AI]</a>
         </div></div><div class="brief"><div class="num">08</div><div>
-        <strong>爱奇艺《灵魂摆渡》AIGC网络故事片分账票房破千万</strong><br>
-        爱奇艺《灵魂摆渡》“浮生梦”系列AIGC网络故事片累计分账票房突破1000万元，AIGC内容商业化验证成功。 <a href="https://www.leiphone.com/category/industrynews/yHRIGngfk28TJvIw.html" target="_blank">[AI 科技评论]</a>
+        <strong>前OpenAI员工称AI应像核电站一样接受监管</strong><br>
+        OpenAI前安全负责人呼吁前沿模型发布应具备"多层冗余和审慎耗时的规划"，类比核电站监管标准。 <a href="https://www.engadget.com/2276577/former-openai-employee-says-ai-should-be-regulated-like-nuclear-power-plants/" target="_blank">[Engadget AI]</a>
         </div></div><div class="sec-head"><span class="num">03</span><h2>今日趋势点评</h2></div><div class="trend"><div class="angle">
         <div class="h">行业大势</div>
-        <p class="judgment">AI竞争重心正从<strong>模型能力</strong>转向<strong>Agent基础设施与安全护栏</strong></p>
-        <p class="evidence">今日<mark>OpenAI发布GPT-6家族指南</mark>、<mark>Apple收紧macOS全盘访问权限</mark>、<mark>Meta开源Muse硬件代码</mark>三件事同时发生，分别对应模型工程化、系统权限管控、硬件生态开放三个层面。</p>
-        <p class="action"><strong>💡 建议：</strong>企业应优先投资Agent权限管理与安全审计能力，而非单纯追逐模型参数升级。</p>
+        <p class="judgment">AI行业正从<strong>能力竞赛转向治理与成本双约束</strong>的新阶段。</p>
+        <p class="evidence">今日<mark>OpenAI安全团队负责人离职、三名员工因泄密被开除</mark>，前安全负责人呼吁像监管核电站一样监管AI；同时<mark>苹果因AI Agent风险收紧macOS完全磁盘访问权限</mark>，操作系统厂商首次系统性设防。</p>
+        <p class="action"><strong>💡 建议：</strong>企业应提前建立AI Agent权限分级与审计机制，投资者需将治理能力纳入标的估值模型。</p>
         </div><div class="angle">
         <div class="h">落地应用启发</div>
-        <p class="judgment">Agent落地最大瓶颈不是能力而是<strong>信任与成本</strong></p>
-        <p class="evidence"><mark>OpenAI安全团队持续地震</mark>、<mark>Muse创建亲友详细画像引发隐私争议</mark>、<mark>X-Router减少50%以上Token消耗</mark>，分别指向安全信任、隐私合规、推理成本三大落地障碍。</p>
-        <p class="action"><strong>💡 建议：</strong>开发者在设计Agent产品时，应将隐私影响评估与Token成本优化纳入核心架构决策。</p>
+        <p class="judgment">Agent经济性拐点已至，<strong>模型路由与Token优化成为规模化落地前提</strong>。</p>
+        <p class="evidence"><mark>openJiuwen X-Router实测减少50%以上Token消耗</mark>，Chatham用GPT-5.6将交易验证从30分钟压缩到4分钟以内，而<mark>RAM短缺预计持续至2028年</mark>推高算力成本。</p>
+        <p class="action"><strong>💡 建议：</strong>开发者应优先采用动态模型路由架构，企业应量化Agent单任务成本后再决定规模化节奏。</p>
         </div><div class="angle">
         <div class="h">对国内中小企业的影响</div>
-        <p class="judgment">开源路由与国产算力亲和方案为中小企业提供<strong>低成本Agent路径</strong></p>
-        <p class="evidence"><mark>openJiuwen X-Router昇腾亲和</mark>、<mark>DeepSeek扩招弹性计算团队</mark>、<mark>arXiv限制AI论文投稿</mark>，显示国内开源生态与算力基建正在加速成熟。</p>
-        <p class="action"><strong>💡 建议：</strong>中小企业可优先采用国产开源路由方案降低Agent推理成本，同时关注arXiv新规对学术合作的影响。</p>
+        <p class="judgment">开源生态与国产算力亲和成为中小企业<strong>低成本接入Agent的务实路径</strong>。</p>
+        <p class="evidence">openJiuwen X-Router主打<mark>昇腾亲和</mark>，Meta开源Muse硬件代码，DeepSeek弹性计算团队大举扩招，显示开源与国产化双线并进。</p>
+        <p class="action"><strong>💡 建议：</strong>中小企业可优先基于昇腾生态与开源Agent框架搭建原型，避免过早锁定高价闭源方案。</p>
         </div></div></main>
 <script>
 (function(){
