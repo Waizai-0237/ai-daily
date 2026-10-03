@@ -601,6 +601,71 @@ h1{{color:#1a2040;font-size:1.8rem;border-bottom:3px solid #1d39c4;padding-botto
     
     (WEEKLY_DIR / "index.html").write_text(html, encoding="utf-8")
     print(f"[weekly] 周报已更新，共 {len(daily_items)} 天")
+import urllib.request
+
+def send_email(summary_data, now):
+    """通过 Resend API 发送日报摘要邮件"""
+    api_key = os.environ.get("RESEND_API_KEY")
+    mail_from = os.environ.get("MAIL_FROM", "onboarding@resend.dev")
+    mail_to = os.environ.get("MAIL_TO")
+    
+    if not api_key or not mail_to:
+        print("[mail] 未配置 RESEND_API_KEY 或 MAIL_TO，跳过邮件发送")
+        return
+    
+    headline = summary_data.get("headline", "今日无重要动态")
+    must_read = summary_data.get("must_read", [])
+    
+    # 组装邮件 HTML
+    items_html = ""
+    for i, item in enumerate(must_read[:5]):
+        items_html += f"""
+        <div style="margin-bottom:20px;padding:16px;background:#f8f9fc;border-radius:8px;border-left:3px solid #1d39c4;">
+          <h3 style="margin:0 0 8px;font-size:16px;color:#14182b;">{i+1:02d}. {item.get('title','')}</h3>
+          <p style="margin:0 0 8px;color:#2b3147;font-size:14px;line-height:1.6;">{item.get('summary','')}</p>
+          <p style="margin:0;color:#1d39c4;font-size:13px;"><strong>落地启发：</strong>{item.get('actionable_insight','')}</p>
+        </div>
+        """
+    
+    html_body = f"""
+    <div style="max-width:680px;margin:0 auto;font-family:'PingFang SC','Microsoft YaHei',sans-serif;">
+      <div style="background:linear-gradient(180deg,#101426 0%,#1a2040 100%);color:#fff;padding:32px 24px;border-radius:12px 12px 0 0;">
+        <h1 style="margin:0 0 10px;font-size:22px;">AI 行业每日简报 · {now.strftime('%Y-%m-%d')}</h1>
+        <p style="margin:0;color:#c7cde6;font-size:14px;">{now.strftime('%Y年%m月%d日')} · {['星期一','星期二','星期三','星期四','星期五','星期六','星期日'][now.weekday()]}</p>
+      </div>
+      <div style="background:#fff;padding:24px;border:1px solid #e4e7ee;border-top:none;">
+        <p style="color:#2b3147;font-size:14px;line-height:1.8;margin:0 0 24px;border-left:3px solid #cf1322;padding-left:14px;">{headline}</p>
+        <h2 style="font-size:16px;color:#1a2040;border-bottom:2px solid #e4e7ee;padding-bottom:8px;">📌 今日必读</h2>
+        {items_html}
+        <div style="text-align:center;margin-top:24px;">
+          <a href="https://waizai-0237.github.io/ai-daily/" style="display:inline-block;padding:12px 28px;background:#1d39c4;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;">查看完整日报 →</a>
+        </div>
+      </div>
+      <div style="text-align:center;padding:20px;color:#8a90a6;font-size:12px;">AI Industry Daily Briefing · V{VERSION}</div>
+    </div>
+    """
+    
+    payload = {
+        "from": mail_from,
+        "to": [mail_to],
+        "subject": f"AI 日报 · {now.strftime('%m-%d')} · {headline[:30]}...",
+        "html": html_body
+    }
+    
+    try:
+        req = urllib.request.Request(
+            "https://api.resend.com/emails",
+            data=json.dumps(payload).encode("utf-8"),
+            headers={
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json"
+            },
+            method="POST"
+        )
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            print(f"[mail] 发送成功 status={resp.status}")
+    except Exception as e:
+        print(f"[mail] 发送失败 {e}")
 
 def main():
     now = dt.datetime.now(dt.timezone(dt.timedelta(hours=8)))
@@ -631,6 +696,7 @@ def main():
     # 5. 更新归档索引
     render_archive_index()
     render_weekly_index()
+    send_email(summary_data, now)
     print(f"[done] 生成完毕")
 
 
