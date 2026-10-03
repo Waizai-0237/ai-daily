@@ -633,9 +633,11 @@ def send_email(summary_data, now):
     mail_to = os.environ.get("MAIL_TO")
     
     if not api_key or not mail_to:
-        print(f"[mail] key 前 10 位: {api_key[:10]}... 收件人: {mail_to}")
         print("[mail] 未配置 RESEND_API_KEY 或 MAIL_TO，跳过邮件发送")
         return
+    
+    # 强制打印，方便对比
+    print(f"[mail] key 前 10 位: {api_key[:10]}... 长度: {len(api_key)} 收件人: {mail_to}")
     
     headline = summary_data.get("headline", "今日无重要动态")
     must_read = summary_data.get("must_read", [])
