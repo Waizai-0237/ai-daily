@@ -358,6 +358,18 @@ def render(summary_data, now):
     star5 = sum(1 for x in must_read if x.get("importance") == 5)
     star4 = sum(1 for x in must_read if x.get("importance") == 4)
     star3 = len(briefs)
+    # 统计各分类的事件数量
+    from collections import Counter
+    cat_counter = Counter()
+    for item in must_read + briefs:
+        cat = item.get("category", "综合").split("·")[0].strip()
+        cat_counter[cat] += 1
+    total_events = sum(cat_counter.values()) or 1
+    top_cats = cat_counter.most_common(6)  # 最多显示 6 个分类
+    bar_html = ""
+    for cat, count in top_cats:
+        pct = count / total_events * 100
+        bar_html += f'<div class="bar-row"><span class="bar-label">{cat}</span><div class="bar-track"><div class="bar-fill" style="width:{pct:.0f}%"></div></div><span class="bar-count">{count}</span></div>'
 
     html = f"""<!DOCTYPE html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -387,6 +399,13 @@ main{{padding:30px 0;}}
 .strip .cell .n{{font-size:1.8rem;font-weight:800;color:var(--accent);}}
 .strip .cell .n.red{{color:var(--accent2);}}
 .strip .cell .n.gray{{color:var(--muted);}}
+.cat-chart{{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:18px 22px;margin-bottom:24px;}}
+.chart-title{{font-size:0.85rem;color:var(--muted);font-weight:700;margin-bottom:12px;letter-spacing:0.05em;}}
+.bar-row{{display:flex;align-items:center;gap:12px;margin-bottom:8px;}}
+.bar-label{{font-size:0.82rem;color:var(--ink);width:70px;text-align:right;flex-shrink:0;font-weight:600;}}
+.bar-track{{flex:1;height:8px;background:#eef1f8;border-radius:4px;overflow:hidden;}}
+.bar-fill{{height:100%;background:linear-gradient(90deg,#1d39c4,#8b5cf6);border-radius:4px;transition:width .5s;}}
+.bar-count{{font-size:0.8rem;color:var(--muted);font-family:ui-monospace,monospace;width:24px;text-align:right;flex-shrink:0;}}
 .sec-head{{display:flex;align-items:baseline;gap:12px;margin:34px 0 18px;}}
 .sec-head .num{{font-size:0.8rem;font-weight:700;color:#fff;background:var(--accent);padding:3px 10px;border-radius:3px;}}
 .sec-head h2{{font-size:1.4rem;margin:0;font-weight:800;}}
@@ -435,6 +454,10 @@ main{{padding:30px 0;}}
 <div class="cell"><div class="n">{star4}</div><div>4 星事件</div></div>
 <div class="cell"><div class="n">{star3}</div><div>3 星事件</div></div>
 <div class="cell"><div class="n gray">{len(must_read)+len(briefs)}</div><div>今日简报条数</div></div>
+</div>
+<div class="cat-chart">
+<div class="chart-title">📊 今日分类分布</div>
+{bar_html}
 </div>
 <div class="sec-head"><span class="num">01</span><h2>今日必读</h2></div>
 """
