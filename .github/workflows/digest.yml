@@ -27,8 +27,8 @@ jobs:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           LLM_BASE_URL: ${{ vars.LLM_BASE_URL }}
           LLM_MODEL: ${{ vars.LLM_MODEL }}
-          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-          MAIL_FROM: ${{ vars.MAIL_FROM }}
+          QQ_EMAIL_USER: ${{ vars.QQ_EMAIL_USER }}
+          QQ_EMAIL_AUTH_CODE: ${{ secrets.QQ_EMAIL_AUTH_CODE }}
           MAIL_TO: ${{ vars.MAIL_TO }}
         run: python scripts/build.py
       - name: Commit
