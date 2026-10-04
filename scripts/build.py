@@ -6,7 +6,7 @@ import feedparser, yaml
 from openai import OpenAI
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "1.5"  # 每次有新功能时手动 +0.1
+VERSION = "1.6"  # 每次有新功能时手动 +0.1
 ARCHIVE_DIR = ROOT / "docs" / "archive"
 CONFIG_PATH = ROOT / "config" / "feeds.yaml"
 DATA_PATH   = ROOT / "data" / "articles.json"
@@ -339,6 +339,47 @@ def get_badge_class(category):
         return 'b-product'
     return 'b-product'  # 默认蓝色
 
+import math
+
+def get_category_color(cat):
+    """根据分类返回颜色，与徽章颜色保持一致"""
+    colors = {
+        '融资并购': '#0e7d6b',
+        '产品发布': '#1d39c4',
+        '技术论文': '#6d28d9',
+        '开源动态': '#c2410c',
+        '政策标准': '#b42318',
+        '大厂动态': '#1a2040',
+        '产业观察': '#0369a1',
+        '社区热议': '#525252',
+        '中文': '#a21caf',
+    }
+    return colors.get(cat, '#6b7280')
+
+def build_donut_svg(top_cats, total_events):
+    """生成环形图 SVG"""
+    size = 160
+    center = size / 2
+    radius = 55
+    stroke = 22
+    C = 2 * math.pi * radius
+    
+    svg = f'<svg viewBox="0 0 {size} {size}" width="{size}" height="{size}" style="flex-shrink:0;">'
+    svg += f'<circle cx="{center}" cy="{center}" r="{radius}" fill="none" stroke="#eef1f8" stroke-width="{stroke}"/>'
+    
+    offset = 0
+    donut_svg = build_donut_svg(top_cats, total_events)
+    legend_html = ""
+    for cat, count in top_cats:
+        pct = count / total_events * 100
+        color = get_category_color(cat)
+        legend_html += f'<div class="legend-item"><span class="legend-dot" style="background:{color}"></span><span class="legend-name">{cat}</span><span class="legend-pct">{pct:.0f}%</span></div>'
+    
+    svg += f'<text x="{center}" y="{center - 2}" text-anchor="middle" font-size="24" font-weight="800" fill="#14182b">{total_events}</text>'
+    svg += f'<text x="{center}" y="{center + 16}" text-anchor="middle" font-size="11" fill="#5f6478">条动态</text>'
+    svg += '</svg>'
+    return svg
+
 def render(summary_data, now):
     if not isinstance(summary_data, dict):
         return "<h1>今天没有抓取到足够的信息，请稍后重试。</h1>"
@@ -399,13 +440,14 @@ main{{padding:30px 0;}}
 .strip .cell .n{{font-size:1.8rem;font-weight:800;color:var(--accent);}}
 .strip .cell .n.red{{color:var(--accent2);}}
 .strip .cell .n.gray{{color:var(--muted);}}
-.cat-chart{{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:18px 22px;margin-bottom:24px;}}
-.chart-title{{font-size:0.85rem;color:var(--muted);font-weight:700;margin-bottom:12px;letter-spacing:0.05em;}}
-.bar-row{{display:flex;align-items:center;gap:12px;margin-bottom:8px;}}
-.bar-label{{font-size:0.82rem;color:var(--ink);width:70px;text-align:right;flex-shrink:0;font-weight:600;}}
-.bar-track{{flex:1;height:8px;background:#eef1f8;border-radius:4px;overflow:hidden;}}
-.bar-fill{{height:100%;background:linear-gradient(90deg,#1d39c4,#8b5cf6);border-radius:4px;transition:width .5s;}}
-.bar-count{{font-size:0.8rem;color:var(--muted);font-family:ui-monospace,monospace;width:24px;text-align:right;flex-shrink:0;}}
+.cat-chart{{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px 22px;margin-bottom:24px;}}
+.chart-title{{font-size:0.85rem;color:var(--muted);font-weight:700;margin-bottom:16px;letter-spacing:0.05em;}}
+.chart-body{{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}}
+.legend{{flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 20px;min-width:220px;}}
+.legend-item{{display:flex;align-items:center;gap:8px;font-size:0.85rem;}}
+.legend-dot{{width:10px;height:10px;border-radius:3px;flex-shrink:0;}}
+.legend-name{{color:var(--ink);flex:1;}}
+.legend-pct{{color:var(--muted);font-family:ui-monospace,monospace;font-weight:600;}}
 .sec-head{{display:flex;align-items:baseline;gap:12px;margin:34px 0 18px;}}
 .sec-head .num{{font-size:0.8rem;font-weight:700;color:#fff;background:var(--accent);padding:3px 10px;border-radius:3px;}}
 .sec-head h2{{font-size:1.4rem;margin:0;font-weight:800;}}
@@ -457,7 +499,10 @@ main{{padding:30px 0;}}
 </div>
 <div class="cat-chart">
 <div class="chart-title">📊 今日分类分布</div>
-{bar_html}
+<div class="chart-body">
+{donut_svg}
+<div class="legend">{legend_html}</div>
+</div>
 </div>
 <div class="sec-head"><span class="num">01</span><h2>今日必读</h2></div>
 """
