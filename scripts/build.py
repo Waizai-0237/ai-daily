@@ -368,12 +368,12 @@ def build_donut_svg(top_cats, total_events):
     svg += f'<circle cx="{center}" cy="{center}" r="{radius}" fill="none" stroke="#eef1f8" stroke-width="{stroke}"/>'
     
     offset = 0
-    donut_svg = build_donut_svg(top_cats, total_events)
-    legend_html = ""
     for cat, count in top_cats:
-        pct = count / total_events * 100
+        pct = count / total_events
+        arc = pct * C
         color = get_category_color(cat)
-        legend_html += f'<div class="legend-item"><span class="legend-dot" style="background:{color}"></span><span class="legend-name">{cat}</span><span class="legend-pct">{pct:.0f}%</span></div>'
+        svg += f'<circle cx="{center}" cy="{center}" r="{radius}" fill="none" stroke="{color}" stroke-width="{stroke}" stroke-dasharray="{arc:.2f} {C-arc:.2f}" stroke-dashoffset="{-offset:.2f}" transform="rotate(-90 {center} {center})"/>'
+        offset += arc
     
     svg += f'<text x="{center}" y="{center - 2}" text-anchor="middle" font-size="24" font-weight="800" fill="#14182b">{total_events}</text>'
     svg += f'<text x="{center}" y="{center + 16}" text-anchor="middle" font-size="11" fill="#5f6478">条动态</text>'
@@ -407,10 +407,12 @@ def render(summary_data, now):
         cat_counter[cat] += 1
     total_events = sum(cat_counter.values()) or 1
     top_cats = cat_counter.most_common(6)  # 最多显示 6 个分类
-    bar_html = ""
+    donut_svg = build_donut_svg(top_cats, total_events)
+    legend_html = ""
     for cat, count in top_cats:
         pct = count / total_events * 100
-        bar_html += f'<div class="bar-row"><span class="bar-label">{cat}</span><div class="bar-track"><div class="bar-fill" style="width:{pct:.0f}%"></div></div><span class="bar-count">{count}</span></div>'
+        color = get_category_color(cat)
+        legend_html += f'<div class="legend-item"><span class="legend-dot" style="background:{color}"></span><span class="legend-name">{cat}</span><span class="legend-pct">{pct:.0f}%</span></div>'
 
     html = f"""<!DOCTYPE html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
