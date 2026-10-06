@@ -1,0 +1,69 @@
+# 游戏行业日报信息源
+# trust 定义：
+#   3 = 权威 B2B / 官方，事实源，优先采用
+#   2 = 玩家向 / 深度报道，有观点，可信度良好
+#   1 = 爆料 / 争议向，仅作参考，需交叉验证
+
+feeds:
+  # ===== Trust 3：权威 B2B / 行业媒体 =====
+  - name: GamesIndustry.biz
+    url: https://www.gamesindustry.biz/feed
+    category: 行业B2B
+    trust: 3
+
+  - name: Game Developer
+    url: https://www.gamedeveloper.com/rss.xml
+    category: 开发者
+    trust: 3
+
+  - name: GameLook
+    url: http://www.gamelook.com.cn/feed
+    category: 行业B2B
+    trust: 3
+
+  - name: 游戏葡萄
+    url: https://youxiputao.com/feed
+    category: 行业B2B
+    trust: 3
+
+  - name: 游戏陀螺
+    url: https://www.youxituoluo.com/feed
+    category: 行业B2B
+    trust: 3
+
+  # ===== Trust 2：玩家向 / 深度报道 =====
+  - name: 游研社
+    url: https://www.yystv.cn/rss/feed
+    category: 玩家向
+    trust: 2
+
+  - name: 机核网
+    url: https://www.gcores.com/rss
+    category: 玩家向
+    trust: 2
+
+  - name: Polygon
+    url: https://www.polygon.com/rss/index.xml
+    category: 玩家向
+    trust: 2
+
+  - name: Eurogamer
+    url: https://www.eurogamer.net/feed
+    category: 玩家向
+    trust: 2
+
+  - name: PC Gamer
+    url: https://www.pcgamer.com/rss/
+    category: 玩家向
+    trust: 2
+
+  # ===== Trust 1：爆料 / 争议向，降权处理 =====
+  - name: IGN
+    url: https://feeds.feedburner.com/ign/games-all
+    category: 爆料
+    trust: 1
+
+  - name: Rock Paper Shotgun
+    url: https://www.rockpapershotgun.com/feed
+    category: 独立游戏
+    trust: 1
