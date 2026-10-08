@@ -1,5 +1,11 @@
 # 版本记录
 
+## V1.7 (2026-10-08) · 待验证
+- 新增 `data/daily/` 目录，每日运行自动保存结构化 JSON
+- 新增周报生成链路：PROMPT_WEEKLY + summarize_weekly + render_weekly_html
+- 新增周一自动触发逻辑（`render_weekly_summary`）
+- 周报将在 2026-10-12 首次生成（覆盖 4 天数据），10-19 起为完整 7 天
+
 ## V1.6 (2026-10-04)
 - 新增分类环形图可视化
 - 新增版本号显示
