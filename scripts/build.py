@@ -380,6 +380,178 @@ def build_donut_svg(top_cats, total_events):
     svg += '</svg>'
     return svg
 
+PROMPT_WEEKLY = """你是资深行业分析师。下面是一整周（7天）的 AI 行业每日简报数据，请你生成一份**周维度深度分析报告**。
+
+输出严格的 JSON 格式：
+{
+  "title": "本周主题标题（10-15字，概括本周核心主线）",
+  "overview": "本周综述，400-500字。必须包含：① 本周最核心的 1 条主线；② 与上周对比的变化（加速/放缓/转向）；③ 本周对行业格局的影响判断。",
+  "key_themes": [
+    {"theme": "主题名称（如'模型价格战'、'安全监管收紧'）", "summary": "100-150字，解释这个主题本周的演进脉络", "evidence": "引用本周具体事件作为证据（含日期）"}
+  ],
+  "top_events": [
+    {"date": "2026-10-XX", "title": "事件标题", "why": "为什么是本周最重要的事件之一（30字）", "importance": 5}
+  ],
+  "trends": [
+    {"heading": "趋势判断（如'资本流向'、'监管节奏'）", "judgment": "核心判断（30字内，用 <strong> 标注关键判断）", "evidence": "用本周事件作为证据（2-3句话，用 <mark> 标注关键数据）", "outlook": "对下周的预判（30字内）"}
+  ],
+  "stats": {
+    "total_events": 0,
+    "star5_count": 0,
+    "top_categories": [{"name": "融资并购", "count": 0}]
+  }
+}
+
+生成规则：
+1. key_themes：提炼 3-5 个贯穿本周的核心主题，不是简单的事件罗列，而是找出事件之间的联系。
+2. top_events：从本周所有 5 星事件中，挑出最重要的 3-5 个，按时间顺序排列。
+3. trends：提炼 2-3 个趋势判断，每个都要有本周证据支撑，并给出对下周的预判。
+4. stats：统计本周的所有关键数字。
+5. overview 必须体现"周"的视角——不是日汇总，而是跨天的趋势判断。
+
+本周数据如下：
+"""
+
+
+def summarize_weekly(daily_data):
+    """调用 AI 生成周报分析"""
+    payload = []
+    for item in daily_data:
+        d = item["data"]
+        payload.append({
+            "date": item["date"],
+            "headline": d.get("headline", ""),
+            "must_read": [
+                {"title": x.get("title", ""), "summary": x.get("summary", ""), 
+                 "importance": x.get("importance", 3), "category": x.get("category", "")}
+                for x in d.get("must_read", [])
+            ],
+            "trends": [{"heading": t.get("heading", ""), "judgment": t.get("judgment", "")} 
+                       for t in d.get("trends", [])]
+        })
+    
+    try:
+        r = client.chat.completions.create(
+            model=MODEL,
+            messages=[
+                {"role": "system", "content": "你是资深行业分析师，只输出合法 JSON。"},
+                {"role": "user", "content": PROMPT_WEEKLY + json.dumps(payload, ensure_ascii=False)},
+            ],
+            temperature=0.3,
+            response_format={"type": "json_object"},
+        )
+        return json.loads(r.choices[0].message.content)
+    except Exception as e:
+        print(f"[weekly-summary] AI 调用失败: {e}")
+        return {}
+
+def render_weekly_html(w, start_date, end_date, week_num):
+    """生成周报 HTML"""
+    title = w.get("title", "本周回顾")
+    overview = w.get("overview", "")
+    themes = w.get("key_themes", [])
+    top_events = w.get("top_events", [])
+    trends = w.get("trends", [])
+    stats = w.get("stats", {})
+    
+    themes_html = ""
+    for t in themes:
+        themes_html += f"""<div class="theme-item">
+        <div class="theme-name">🎯 {t.get('theme','')}</div>
+        <p class="theme-sum">{t.get('summary','')}</p>
+        <p class="theme-ev"><strong>证据：</strong>{t.get('evidence','')}</p>
+        </div>"""
+    
+    events_html = ""
+    for e in top_events:
+        events_html += f"""<div class="event-item">
+        <div class="event-date">{e.get('date','')}</div>
+        <div class="event-body">
+        <strong>{e.get('title','')}</strong>
+        <p>{e.get('why','')}</p>
+        </div></div>"""
+    
+    trends_html = ""
+    for t in trends:
+        j = t.get('judgment', '').replace('&lt;strong&gt;', '<strong>').replace('&lt;/strong&gt;', '</strong>')
+        ev = t.get('evidence', '').replace('&lt;mark&gt;', '<mark>').replace('&lt;/mark&gt;', '</mark>')
+        trends_html += f"""<div class="trend-item">
+        <div class="trend-h">{t.get('heading','')}</div>
+        <p class="trend-j">{j}</p>
+        <p class="trend-e">{ev}</p>
+        <p class="trend-o">🔮 下周预判：{t.get('outlook','')}</p>
+        </div>"""
+    
+    cats_html = ""
+    for c in stats.get("top_categories", [])[:6]:
+        cats_html += f'<span class="cat-pill">{c.get("name","")} · {c.get("count",0)}</span>'
+    
+    html = f"""<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业周报 · {start_date} ~ {end_date}</title>
+<style>
+body{{margin:0;background:#f5f6f8;color:#14182b;font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75;}}
+.wrap{{max-width:880px;margin:0 auto;padding:0 20px;}}
+header.masthead{{background:linear-gradient(180deg,#1a0b2e 0%,#2d1b4e 100%);color:#fff;padding:44px 0 40px;position:relative;}}
+header.masthead::after{{content:"";position:absolute;left:0;bottom:0;height:4px;width:100%;background:linear-gradient(90deg,#8b5cf6,#f59e0b);}}
+.masthead .kicker{{font-size:0.78rem;letter-spacing:0.28em;color:#a78bfa;font-weight:600;margin-bottom:12px;}}
+.masthead h1{{font-size:2rem;margin:0 0 10px;font-weight:800;}}
+.masthead .meta{{font-size:0.95rem;color:#c7cde6;}}
+.masthead .lede{{margin-top:18px;font-size:1rem;color:#e9d5ff;border-left:3px solid #f59e0b;padding-left:14px;}}
+.back{{display:inline-block;margin:24px 0 0;color:#8b5cf6;text-decoration:none;font-weight:600;font-size:0.9rem;}}
+main{{padding:30px 0 60px;}}
+.sec-title{{font-size:1.3rem;color:#1a0b2e;font-weight:800;margin:36px 0 18px;padding-left:14px;border-left:4px solid #8b5cf6;}}
+.stats-strip{{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;}}
+.stat-cell{{background:#fff;border:1px solid #e4e7ee;border-radius:10px;padding:18px;text-align:center;}}
+.stat-num{{font-size:1.8rem;font-weight:800;color:#8b5cf6;}}
+.stat-label{{font-size:0.8rem;color:#5f6478;margin-top:4px;}}
+.cat-pill{{display:inline-block;background:#f3e8ff;color:#6d28d9;border-radius:20px;padding:4px 12px;font-size:0.82rem;margin:4px 6px 0 0;}}
+.theme-item{{background:#fff;border:1px solid #e4e7ee;border-radius:10px;padding:20px 24px;margin-bottom:14px;border-left:4px solid #8b5cf6;}}
+.theme-name{{font-size:1.05rem;font-weight:800;color:#1a0b2e;margin-bottom:8px;}}
+.theme-sum{{color:#2b3147;font-size:0.95rem;margin:0 0 10px;}}
+.theme-ev{{color:#5f6478;font-size:0.85rem;margin:0;background:#f8f9fc;padding:10px 14px;border-radius:6px;}}
+.event-item{{display:flex;gap:16px;background:#fff;border:1px solid #e4e7ee;border-radius:10px;padding:16px 20px;margin-bottom:10px;}}
+.event-date{{color:#8b5cf6;font-weight:800;font-family:ui-monospace,monospace;font-size:0.85rem;flex-shrink:0;width:90px;}}
+.event-body strong{{display:block;color:#14182b;margin-bottom:4px;}}
+.event-body p{{margin:0;color:#5f6478;font-size:0.85rem;}}
+.trend-item{{background:linear-gradient(135deg,#1a0b2e 0%,#2d1b4e 100%);color:#eef0fa;border-radius:12px;padding:22px 26px;margin-bottom:14px;}}
+.trend-h{{color:#a78bfa;font-weight:700;font-size:0.82rem;letter-spacing:0.1em;margin-bottom:8px;}}
+.trend-j{{color:#fff;font-size:1.05rem;font-weight:600;margin:6px 0;}}
+.trend-e{{color:#d7dcf0;font-size:0.92rem;margin:6px 0;}}
+.trend-e mark{{background:none;color:#fbbf24;font-weight:600;}}
+.trend-o{{color:#a7f3d0;font-size:0.88rem;margin:8px 0 0;padding:8px 12px;background:rgba(16,185,129,0.08);border-radius:6px;}}
+@media(max-width:640px){{.stats-strip{{grid-template-columns:1fr;}}.event-item{{flex-direction:column;gap:4px;}}.event-date{{width:auto;}}}}
+</style></head><body>
+<header class="masthead"><div class="wrap">
+<div class="kicker">AI INDUSTRY WEEKLY</div>
+<h1>AI 行业周报 · W{week_num}</h1>
+<div class="meta">{start_date} 至 {end_date} · 共 7 天</div>
+<p class="lede">{title}</p>
+</div></header>
+<main class="wrap">
+<a class="back" href="index.html">← 返回周报列表</a>
+
+<div class="stats-strip" style="margin-top:24px;">
+<div class="stat-cell"><div class="stat-num">{stats.get('total_events',0)}</div><div class="stat-label">本周收录事件</div></div>
+<div class="stat-cell"><div class="stat-num">{stats.get('star5_count',0)}</div><div class="stat-label">5 星重大事件</div></div>
+<div class="stat-cell"><div class="stat-num">{len(themes)}</div><div class="stat-label">核心主题</div></div>
+</div>
+<div style="text-align:center;margin-bottom:10px;">{cats_html}</div>
+
+<div class="sec-title">📖 本周综述</div>
+<p style="color:#2b3147;font-size:0.98rem;background:#fff;border:1px solid #e4e7ee;border-radius:10px;padding:22px 26px;">{overview}</p>
+
+<div class="sec-title">🎯 核心主题</div>
+{themes_html}
+
+<div class="sec-title">📅 本周大事记</div>
+{events_html}
+
+<div class="sec-title">📈 趋势判断</div>
+{trends_html}
+</main></body></html>"""
+    return html
+
 def render(summary_data, now):
     if not isinstance(summary_data, dict):
         return "<h1>今天没有抓取到足够的信息，请稍后重试。</h1>"
@@ -737,6 +909,43 @@ def send_email(summary_data, now):
     except Exception as e:
         print(f"[mail] 发送失败 {e}")
 
+def render_weekly_summary(now):
+    """每周一生成上周的深度周报"""
+    if now.weekday() != 0:
+        print("[weekly-summary] 今天不是周一，跳过")
+        return
+    
+    last_monday = now - dt.timedelta(days=7)
+    week_dates = [(last_monday + dt.timedelta(days=i)).strftime('%Y-%m-%d') for i in range(7)]
+    week_number = last_monday.isocalendar()[1]
+    
+    daily_dir = ROOT / "data" / "daily"
+    daily_data = []
+    for d in week_dates:
+        f = daily_dir / f"{d}.json"
+        if f.exists():
+            daily_data.append({
+                "date": d,
+                "data": json.loads(f.read_text(encoding="utf-8"))
+            })
+    
+    if len(daily_data) < 4:
+        print(f"[weekly-summary] 只有 {len(daily_data)} 天数据，不足 4 天，跳过")
+        return
+    
+    print(f"[weekly-summary] 汇总 {len(daily_data)} 天数据，生成 W{week_number} 周报")
+    
+    weekly_data = summarize_weekly(daily_data)
+    if not weekly_data:
+        print("[weekly-summary] AI 分析失败，跳过")
+        return
+    
+    html = render_weekly_html(weekly_data, week_dates[0], week_dates[-1], week_number)
+    weekly_dir = ROOT / "docs" / "weekly"
+    weekly_dir.mkdir(parents=True, exist_ok=True)
+    (weekly_dir / f"W{week_number}.html").write_text(html, encoding="utf-8")
+    print(f"[weekly-summary] 已生成 W{week_number}.html")
+
 def main():
     now = dt.datetime.now(dt.timezone(dt.timedelta(hours=8)))
     feeds = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8"))["feeds"]
@@ -766,6 +975,17 @@ def main():
     # 5. 更新归档索引
     render_archive_index()
     render_weekly_index()
+
+    # 6. 保存每日结构化数据（供周报使用）
+    DAILY_DATA_DIR = ROOT / "data" / "daily"
+    DAILY_DATA_DIR.mkdir(parents=True, exist_ok=True)
+    daily_path = DAILY_DATA_DIR / f"{now.strftime('%Y-%m-%d')}.json"
+    daily_path.write_text(json.dumps(summary_data, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"[data] 已保存每日数据 {daily_path.name}")
+    
+    # 7. 生成周报（仅周一触发）
+    render_weekly_summary(now)
+    
     send_email(summary_data, now)
     print(f"[done] 生成完毕")
 
