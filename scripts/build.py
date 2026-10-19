@@ -449,7 +449,9 @@ def render_weekly_html(w, start_date, end_date, week_num):
     """生成周报 HTML"""
     title = w.get("title", "本周回顾")
     # 将 \n 替换为 <br><br>，如果 AI 返回的是 \\n 也一并处理
-    overview = w.get("overview", "").replace('\\n', '<br><br>').replace('\n', '<br><br>')
+    overview_raw = w.get("overview", "").replace('\\n', '\n')
+    paragraphs = [p.strip() for p in overview_raw.split('\n') if p.strip()]
+    overview_html = "".join([f"<p>{p}</p>" for p in paragraphs])
     themes = w.get("key_themes", [])
     top_events = w.get("top_events", [])
     trends = w.get("trends", [])
@@ -524,7 +526,9 @@ main{{padding:30px 0 60px;}}
 .cat-pill{{display:inline-block;background:#f3e8ff;color:#6d28d9;border-radius:20px;padding:4px 12px;font-size:0.82rem;margin:4px 6px 0 0;}}
 
 /* 综述美化 */
-.overview-box{{color:#2b3147;font-size:0.98rem;background:#fff;border:1px solid #e4e7ee;border-radius:10px;padding:24px 28px;line-height:1.9;text-align:justify;}}
+.overview-box{{color:#2b3147;font-size:0.98rem;background:#fff;border:1px solid #e4e7ee;border-radius:10px;padding:24px 28px;line-height:1.8;text-align:justify;}}
+.overview-box p{{margin:0 0 14px 0;text-indent:2em;}}
+.overview-box p:last-child{{margin-bottom:0;}}
 
 /* 主题卡片 */
 .theme-item{{background:#fff;border:1px solid #e4e7ee;border-radius:10px;padding:20px 24px;margin-bottom:14px;border-left:4px solid #8b5cf6;}}
@@ -563,7 +567,7 @@ main{{padding:30px 0 60px;}}
 <div style="text-align:center;margin-bottom:10px;">{cats_html}</div>
 
 <div class="sec-title">📖 本周综述</div>
-<div class="overview-box">{overview}</div>
+<div class="overview-box">{overview_html}</div>
 
 <div class="sec-title">🎯 核心主题</div>
 {themes_html}
