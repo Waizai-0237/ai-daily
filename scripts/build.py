@@ -385,7 +385,7 @@ PROMPT_WEEKLY = """你是资深行业分析师。下面是一整周（7天）的
 输出严格的 JSON 格式：
 {
   "title": "本周主题标题（10-15字，概括本周核心主线）",
-  "overview": "本周综述，400-500字。必须包含：① 本周最核心的 1 条主线；② 与上周对比的变化（加速/放缓/转向）；③ 本周对行业格局的影响判断。",
+  "overview": "本周综述，400-500字。必须分为 2-3 个自然段，段落之间用 \\n\\n 分隔。内容必须包含：① 本周最核心的 1 条主线；② 与上周对比的变化（加速/放缓/转向）；③ 本周对行业格局的影响判断。",
   "key_themes": [
     {"theme": "主题名称（如'模型价格战'、'安全监管收紧'）", "summary": "100-150字，解释这个主题本周的演进脉络", "evidence": "引用本周具体事件作为证据（含日期）"}
   ],
@@ -448,20 +448,28 @@ def summarize_weekly(daily_data):
 def render_weekly_html(w, start_date, end_date, week_num):
     """生成周报 HTML"""
     title = w.get("title", "本周回顾")
-    overview = w.get("overview", "")
+    # 将 \n 替换为 <br><br>，如果 AI 返回的是 \\n 也一并处理
+    overview = w.get("overview", "").replace('\\n', '<br><br>').replace('\n', '<br><br>')
     themes = w.get("key_themes", [])
     top_events = w.get("top_events", [])
     trends = w.get("trends", [])
     stats = w.get("stats", {})
     
+    # 1. 核心主题：颜色与 Emoji 轮换
+    theme_colors = ['#8b5cf6', '#0e7d6b', '#1d39c4', '#c2410c', '#b42318']
+    theme_emojis = ['🚀', '⚖️', '💡', '🛡️', '💰', '🧠']
+    
     themes_html = ""
-    for t in themes:
-        themes_html += f"""<div class="theme-item">
-        <div class="theme-name">🎯 {t.get('theme','')}</div>
+    for i, t in enumerate(themes):
+        color = theme_colors[i % len(theme_colors)]
+        emoji = theme_emojis[i % len(theme_emojis)]
+        themes_html += f"""<div class="theme-item" style="border-left-color: {color};">
+        <div class="theme-name">{emoji} {t.get('theme','')}</div>
         <p class="theme-sum">{t.get('summary','')}</p>
         <p class="theme-ev"><strong>证据：</strong>{t.get('evidence','')}</p>
         </div>"""
     
+    # 2. 大事记
     events_html = ""
     for e in top_events:
         events_html += f"""<div class="event-item">
@@ -471,6 +479,7 @@ def render_weekly_html(w, start_date, end_date, week_num):
         <p>{e.get('why','')}</p>
         </div></div>"""
     
+    # 3. 趋势判断
     trends_html = ""
     for t in trends:
         j = t.get('judgment', '').replace('&lt;strong&gt;', '<strong>').replace('&lt;/strong&gt;', '</strong>')
@@ -482,10 +491,12 @@ def render_weekly_html(w, start_date, end_date, week_num):
         <p class="trend-o">🔮 下周预判：{t.get('outlook','')}</p>
         </div>"""
     
+    # 4. 分类标签
     cats_html = ""
     for c in stats.get("top_categories", [])[:6]:
         cats_html += f'<span class="cat-pill">{c.get("name","")} · {c.get("count",0)}</span>'
     
+    # 5. 输出 HTML
     html = f"""<!DOCTYPE html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI 行业周报 · {start_date} ~ {end_date}</title>
@@ -501,25 +512,38 @@ header.masthead::after{{content:"";position:absolute;left:0;bottom:0;height:4px;
 .back{{display:inline-block;margin:24px 0 0;color:#8b5cf6;text-decoration:none;font-weight:600;font-size:0.9rem;}}
 main{{padding:30px 0 60px;}}
 .sec-title{{font-size:1.3rem;color:#1a0b2e;font-weight:800;margin:36px 0 18px;padding-left:14px;border-left:4px solid #8b5cf6;}}
+
+/* 数据条：多色 */
 .stats-strip{{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;}}
 .stat-cell{{background:#fff;border:1px solid #e4e7ee;border-radius:10px;padding:18px;text-align:center;}}
 .stat-num{{font-size:1.8rem;font-weight:800;color:#8b5cf6;}}
+.stat-num.blue{{color:#1d39c4;}}
+.stat-num.red{{color:#cf1322;}}
 .stat-label{{font-size:0.8rem;color:#5f6478;margin-top:4px;}}
+
 .cat-pill{{display:inline-block;background:#f3e8ff;color:#6d28d9;border-radius:20px;padding:4px 12px;font-size:0.82rem;margin:4px 6px 0 0;}}
+
+/* 综述美化 */
+.overview-box{{color:#2b3147;font-size:0.98rem;background:#fff;border:1px solid #e4e7ee;border-radius:10px;padding:24px 28px;line-height:1.9;text-align:justify;}}
+
+/* 主题卡片 */
 .theme-item{{background:#fff;border:1px solid #e4e7ee;border-radius:10px;padding:20px 24px;margin-bottom:14px;border-left:4px solid #8b5cf6;}}
 .theme-name{{font-size:1.05rem;font-weight:800;color:#1a0b2e;margin-bottom:8px;}}
 .theme-sum{{color:#2b3147;font-size:0.95rem;margin:0 0 10px;}}
 .theme-ev{{color:#5f6478;font-size:0.85rem;margin:0;background:#f8f9fc;padding:10px 14px;border-radius:6px;}}
+
 .event-item{{display:flex;gap:16px;background:#fff;border:1px solid #e4e7ee;border-radius:10px;padding:16px 20px;margin-bottom:10px;}}
 .event-date{{color:#8b5cf6;font-weight:800;font-family:ui-monospace,monospace;font-size:0.85rem;flex-shrink:0;width:90px;}}
 .event-body strong{{display:block;color:#14182b;margin-bottom:4px;}}
 .event-body p{{margin:0;color:#5f6478;font-size:0.85rem;}}
+
 .trend-item{{background:linear-gradient(135deg,#1a0b2e 0%,#2d1b4e 100%);color:#eef0fa;border-radius:12px;padding:22px 26px;margin-bottom:14px;}}
 .trend-h{{color:#a78bfa;font-weight:700;font-size:0.82rem;letter-spacing:0.1em;margin-bottom:8px;}}
 .trend-j{{color:#fff;font-size:1.05rem;font-weight:600;margin:6px 0;}}
 .trend-e{{color:#d7dcf0;font-size:0.92rem;margin:6px 0;}}
 .trend-e mark{{background:none;color:#fbbf24;font-weight:600;}}
 .trend-o{{color:#a7f3d0;font-size:0.88rem;margin:8px 0 0;padding:8px 12px;background:rgba(16,185,129,0.08);border-radius:6px;}}
+
 @media(max-width:640px){{.stats-strip{{grid-template-columns:1fr;}}.event-item{{flex-direction:column;gap:4px;}}.event-date{{width:auto;}}}}
 </style></head><body>
 <header class="masthead"><div class="wrap">
@@ -533,13 +557,13 @@ main{{padding:30px 0 60px;}}
 
 <div class="stats-strip" style="margin-top:24px;">
 <div class="stat-cell"><div class="stat-num">{stats.get('total_events',0)}</div><div class="stat-label">本周收录事件</div></div>
-<div class="stat-cell"><div class="stat-num">{stats.get('star5_count',0)}</div><div class="stat-label">5 星重大事件</div></div>
-<div class="stat-cell"><div class="stat-num">{len(themes)}</div><div class="stat-label">核心主题</div></div>
+<div class="stat-cell"><div class="stat-num blue">{stats.get('star5_count',0)}</div><div class="stat-label">5 星重大事件</div></div>
+<div class="stat-cell"><div class="stat-num red">{len(themes)}</div><div class="stat-label">核心主题</div></div>
 </div>
 <div style="text-align:center;margin-bottom:10px;">{cats_html}</div>
 
 <div class="sec-title">📖 本周综述</div>
-<p style="color:#2b3147;font-size:0.98rem;background:#fff;border:1px solid #e4e7ee;border-radius:10px;padding:22px 26px;">{overview}</p>
+<div class="overview-box">{overview}</div>
 
 <div class="sec-title">🎯 核心主题</div>
 {themes_html}
