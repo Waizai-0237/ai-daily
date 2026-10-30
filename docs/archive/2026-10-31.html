@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业每日简报 · 2026-10-31</title>
+<style>
+:root{--bg:#f5f6f8;--bg2:#ffffff;--ink:#14182b;--muted:#5f6478;--rule:#e4e7ee;--accent:#1d39c4;--accent2:#cf1322;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75;}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px;}
+header.masthead{background:linear-gradient(180deg,#101426 0%,#1a2040 100%);color:#fff;padding:40px 0;position:relative;}
+header.masthead::after{content:"";position:absolute;left:0;bottom:0;height:4px;width:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+.masthead h1{font-size:2rem;margin:0 0 10px;font-weight:800;}
+.masthead .meta{font-size:0.95rem;color:#c7cde6;display:flex;gap:12px;flex-wrap:wrap;}
+.masthead .lede{margin-top:15px;font-size:0.98rem;color:#d7dcf0;border-left:3px solid var(--accent2);padding-left:14px;}
+.version{font-family:ui-monospace,SFMono-Regular,monospace;font-size:0.78rem;color:#8a92b2;background:rgba(255,255,255,0.06);padding:1px 8px;border-radius:4px;letter-spacing:0.05em;}
+.toolbar{display:flex;gap:12px;margin-top:16px;align-items:center;}
+.toolbar input{flex:1;padding:10px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:0.9rem;outline:none;transition:border-color .2s;}
+.toolbar input::placeholder{color:#8a92b2;}
+.toolbar input:focus{border-color:var(--accent);}
+.archive-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.archive-link:hover{color:#fff;border-color:var(--accent);}
+.weekly-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.weekly-link:hover{color:#fff;border-color:var(--accent);}
+main{padding:30px 0;}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}
+.strip .cell{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:18px;text-align:center;}
+.strip .cell .n{font-size:1.8rem;font-weight:800;color:var(--accent);}
+.strip .cell .n.red{color:var(--accent2);}
+.strip .cell .n.gray{color:var(--muted);}
+.cat-chart{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px 22px;margin-bottom:24px;}
+.chart-title{font-size:0.85rem;color:var(--muted);font-weight:700;margin-bottom:16px;letter-spacing:0.05em;}
+.chart-body{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+.legend{flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 20px;min-width:220px;}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;}
+.legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0;}
+.legend-name{color:var(--ink);flex:1;}
+.legend-pct{color:var(--muted);font-family:ui-monospace,monospace;font-weight:600;}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 18px;}
+.sec-head .num{font-size:0.8rem;font-weight:700;color:#fff;background:var(--accent);padding:3px 10px;border-radius:3px;}
+.sec-head h2{font-size:1.4rem;margin:0;font-weight:800;}
+.card{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px;margin-bottom:16px;display:grid;grid-template-columns:46px 1fr;gap:18px;}
+.rank{font-size:1.6rem;font-weight:800;color:var(--rule);text-align:center;}
+.card h3{font-size:1.15rem;margin:0 0 8px;}
+.card .land{margin:10px 0;font-size:0.9rem;color:var(--accent);background:#f0f3ff;border-left:3px solid var(--accent);padding:8px 12px;}
+.card .src{font-size:0.8rem;color:var(--muted);border-top:1px dashed var(--rule);padding-top:8px;margin-top:10px;}
+.badge{font-size:0.72rem;font-weight:700;padding:2px 10px;border-radius:20px;letter-spacing:0.02em;color:#fff;white-space:nowrap;}
+.b-fund{background:#0e7d6b;}
+.b-product{background:#1d39c4;}
+.b-paper{background:#6d28d9;}
+.b-open{background:#c2410c;}
+.b-policy{background:#b42318;}
+.b-bigtech{background:#1a2040;}
+.b-industry{background:#0369a1;}
+.b-community{background:#525252;}
+.b-cn{background:#a21caf;}
+.stars{color:#f5a623 !important;font-size:1.1rem;font-weight:bold;letter-spacing:2px;margin-left:auto;white-space:nowrap;}
+.stars .lbl{color:var(--muted);font-size:0.72rem;margin-right:4px;font-weight:normal;letter-spacing:normal;}
+.topline{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:8px;}
+.brief{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:14px;margin-bottom:10px;display:flex;gap:12px;}
+.brief .num{font-weight:800;color:var(--accent);width:26px;}
+.trend{background:linear-gradient(135deg,#1a2040 0%,#222a52 100%);color:#eef0fa;border-radius:12px;padding:26px;margin-top:20px;}
+.trend h3{color:#fff;margin:0 0 14px;}
+.trend .angle{margin-bottom:16px;}
+.trend .angle .h{font-size:0.8rem;color:#8ea0e8;font-weight:700;margin-bottom:6px;}
+.trend .angle .judgment{color:#fff;font-size:1.05rem;font-weight:600;margin:8px 0;}
+.trend .angle .evidence{color:#d7dcf0;font-size:0.95rem;margin:6px 0;}
+.trend .angle .action{color:#a7f3d0;font-size:0.9rem;margin:6px 0;padding:8px 12px;background:rgba(16,185,129,0.08);border-radius:6px;}
+@media(max-width:640px){.strip{grid-template-columns:repeat(2,1fr);}.card{grid-template-columns:1fr;}.rank{text-align:left;}}
+</style></head><body>
+<header class="masthead"><div class="wrap">
+<h1>AI 行业每日简报 · 2026-10-31</h1>
+<div class="meta"><span>2026年10月31日</span><span>·</span><span>星期六</span><span>·</span><span class="version">V1.6</span></div>
+<p class="lede">今日AI行业呈现“安全治理与资本焦虑”双主线：OpenAI联合谷歌、微软、Anthropic推出AI训练退出标准，同时OpenAI发布新版Model Spec并强化青少年保护；但美国科技股因AI成本担忧大跌，AI支出繁荣出现裂痕。这些事件共同指向行业从野蛮生长转向规则重塑与成本审视，资本正从模型层向基础设施和合规层转移。未来1-3个月，AI安全标准将加速成为竞争壁垒，而高昂的算力成本可能引发一轮估值回调与投资理性化。整体判断：AI行业进入“挤泡沫、立规矩”的关键阶段，企业需在创新与合规间寻找平衡。</p>
+<div class="toolbar">
+<input id="search" type="text" placeholder="🔍 搜索标题、摘要或来源..." />
+<a href="archive/index.html" class="archive-link">📁 历史归档</a>
+<a href="weekly/index.html" class="weekly-link">📅 本周回顾</a>
+</div>
+</div></header>
+<main class="wrap">
+<div class="strip">
+<div class="cell"><div class="n red">5</div><div>5 星事件</div></div>
+<div class="cell"><div class="n">0</div><div>4 星事件</div></div>
+<div class="cell"><div class="n">8</div><div>3 星事件</div></div>
+<div class="cell"><div class="n gray">13</div><div>今日简报条数</div></div>
+</div>
+<div class="cat-chart">
+<div class="chart-title">📊 今日分类分布</div>
+<div class="chart-body">
+<svg viewBox="0 0 160 160" width="160" height="160" style="flex-shrink:0;"><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#eef1f8" stroke-width="22"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#b42318" stroke-width="22" stroke-dasharray="79.75 265.83" stroke-dashoffset="0.00" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#0369a1" stroke-width="22" stroke-dasharray="79.75 265.83" stroke-dashoffset="-79.75" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#c2410c" stroke-width="22" stroke-dasharray="79.75 265.83" stroke-dashoffset="-159.50" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#6d28d9" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-239.24" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#1d39c4" stroke-width="22" stroke-dasharray="26.58 318.99" stroke-dashoffset="-292.41" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#1a2040" stroke-width="22" stroke-dasharray="26.58 318.99" stroke-dashoffset="-318.99" transform="rotate(-90 80.0 80.0)"/><text x="80.0" y="78.0" text-anchor="middle" font-size="24" font-weight="800" fill="#14182b">13</text><text x="80.0" y="96.0" text-anchor="middle" font-size="11" fill="#5f6478">条动态</text></svg>
+<div class="legend"><div class="legend-item"><span class="legend-dot" style="background:#b42318"></span><span class="legend-name">政策标准</span><span class="legend-pct">23%</span></div><div class="legend-item"><span class="legend-dot" style="background:#0369a1"></span><span class="legend-name">产业观察</span><span class="legend-pct">23%</span></div><div class="legend-item"><span class="legend-dot" style="background:#c2410c"></span><span class="legend-name">开源动态</span><span class="legend-pct">23%</span></div><div class="legend-item"><span class="legend-dot" style="background:#6d28d9"></span><span class="legend-name">技术论文</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#1d39c4"></span><span class="legend-name">产品发布</span><span class="legend-pct">8%</span></div><div class="legend-item"><span class="legend-dot" style="background:#1a2040"></span><span class="legend-name">大厂动态</span><span class="legend-pct">8%</span></div></div>
+</div>
+</div>
+<div class="sec-head"><span class="num">01</span><h2>今日必读</h2></div>
+<article class="card"><div class="rank">01</div><div>
+        <div class="topline"><span class="badge b-policy">政策标准 · 数据合规</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>OpenAI、谷歌、微软、Anthropic联合推出AI训练退出新标准</h3>
+        <p>OpenAI、谷歌、微软和Anthropic宣布将采用一种新的标准，允许网站通过robots.txt信号表达其内容不被用于AI训练的偏好。此举旨在缓解出版商对AI抓取的担忧，是行业自律的重要一步。</p>
+        <p><strong>为何重要：</strong>头部厂商联合制定数据使用规则，影响AI训练数据获取方式。</p>
+        <p class="land"><strong>落地启发：</strong>企业需关注数据合规，调整爬虫策略，避免法律风险。</p>
+        <div class="src">来源：<a href="https://openai.com/index/helping-websites-express-ai-training-preferences" target="_blank">OpenAI Blog</a> / <a href="https://newsletter.signoz.io/p/ai-isnt-replacing-sres-its-deskilling" target="_blank">Hacker News AI</a> / <a href="https://www.theverge.com/tech/1023763/openai-google-microsoft-ai-scraping-standard-opt-out" target="_blank">The Verge AI</a></div>
+        </div></article><article class="card"><div class="rank">02</div><div>
+        <div class="topline"><span class="badge b-industry">产业观察 · 资本泡沫</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>AI支出繁荣出现裂痕：债务攀升与现金流为负引发质疑</h3>
+        <p>大型科技公司正投入数十亿美元建设AI基础设施，但不断增加的债务、负现金流和投资者日益增长的怀疑，正引发对AI支出繁荣可持续性的质疑。</p>
+        <p><strong>为何重要：</strong>揭示AI投资过热风险，可能影响行业融资环境。</p>
+        <p class="land"><strong>落地启发：</strong>投资者应关注企业现金流，企业需优化AI投入产出比。</p>
+        <div class="src">来源：<a href="https://techcrunch.com/2026/10/30/cracks-are-emerging-in-the-ai-spending-boom/" target="_blank">TechCrunch AI</a></div>
+        </div></article><article class="card"><div class="rank">03</div><div>
+        <div class="topline"><span class="badge b-policy">政策标准 · AI安全</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>OpenAI发布更新版Model Spec，强调五大核心价值观</h3>
+        <p>OpenAI更新了Model Spec，概述了指导更强大AI的五大核心价值观：合理判断、人类自主性、忠实于人类意图等。该规范旨在确保AI行为符合人类期望。</p>
+        <p><strong>为何重要：</strong>为AI行为设定明确准则，推动行业安全标准形成。</p>
+        <p class="land"><strong>落地启发：</strong>开发者应参考该规范设计AI系统，提升可控性。</p>
+        <div class="src">来源：<a href="https://openai.com/index/updated-model-spec" target="_blank">OpenAI Blog</a></div>
+        </div></article><article class="card"><div class="rank">04</div><div>
+        <div class="topline"><span class="badge b-paper">技术论文 · 自主智能体</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>Claude模型自主选择基因疗法并操作小鼠大脑，全程无人类决策</h3>
+        <p>一个Claude模型在无人类决策的情况下，自主选择了一种基因疗法并对小鼠大脑进行了操作。这展示了AI在生物医学领域的自主能力，但也引发了对AI伦理和控制的担忧。</p>
+        <p><strong>为何重要：</strong>AI自主性达到新高度，凸显安全监管紧迫性。</p>
+        <p class="land"><strong>落地启发：</strong>生物医学AI应用需建立严格的人类监督机制。</p>
+        <div class="src">来源：<a href="https://the-decoder.com/a-claude-model-autonomously-chose-a-gene-therapy-and-operated-on-a-mouse-brain-with-no-human-decision-making/" target="_blank">The Decoder</a></div>
+        </div></article><article class="card"><div class="rank">05</div><div>
+        <div class="topline"><span class="badge b-policy">产业观察 · AI安全</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>国防承包商将个人AI代理接入五角大楼安全系统</h3>
+        <p>据WIRED报道，埃森哲一名员工的个人Claude代理在国防部网络上运行了两个月才被发现并修补漏洞。该事件暴露了AI代理在敏感环境中的安全风险。</p>
+        <p><strong>为何重要：</strong>AI代理滥用可能威胁国家安全，需加强管控。</p>
+        <p class="land"><strong>落地启发：</strong>企业需对AI代理访问敏感系统实施严格权限管理。</p>
+        <div class="src">来源：<a href="https://www.wired.com/story/uncanny-valley-podcast-how-a-contractors-claude-agent-got-into-the-pentagon/" target="_blank">Wired AI</a></div>
+        </div></article><div class="sec-head"><span class="num">02</span><h2>今日简报</h2></div><div class="brief"><div class="num">01</div><div>
+        <strong>OpenAI发布社区安全报告并加强对青少年的保护</strong><br>
+        OpenAI通过扩展保障措施、早期干预和新的公共安全报告承诺，加强ChatGPT中的暴力预防。 <a href="https://openai.com/index/community-safety-report-and-new-protections-for-teens" target="_blank">[OpenAI Blog]</a>
+        </div></div><div class="brief"><div class="num">02</div><div>
+        <strong>OpenAI如何检测前沿模型的不对齐行为</strong><br>
+        OpenAI采用分层监控来检测前沿模型的不对齐和未经授权的代理行为，以便在事件升级前进行干预。 <a href="https://openai.com/index/how-we-detect-frontier-model-misalignment" target="_blank">[OpenAI Blog]</a>
+        </div></div><div class="brief"><div class="num">03</div><div>
+        <strong>英伟达团队基于MiniMax H3开源视频增强方案，最高支持4K重生成</strong><br>
+        英伟达与麻省理工学院团队在Hugging Face发布了视频增强项目Open-H3-Regenerate-2K的模型权重。 <a href="https://www.qbitai.com/2026/10/506743.html" target="_blank">[量子位]</a>
+        </div></div><div class="brief"><div class="num">04</div><div>
+        <strong>国产开源模型登顶全球第一，1.3B OXR重塑OCR</strong><br>
+        国产开源OCR模型OXR以1.3B参数规模登顶全球第一，展示了中国在开源模型领域的竞争力。 <a href="https://www.qbitai.com/2026/10/506686.html" target="_blank">[量子位]</a>
+        </div></div><div class="brief"><div class="num">05</div><div>
+        <strong>Claude新模型曝光：新Fable、新Opus</strong><br>
+        Anthropic的Claude新模型信息曝光，包括新Fable和新Opus版本，预示模型能力将进一步升级。 <a href="https://www.qbitai.com/2026/10/506674.html" target="_blank">[量子位]</a>
+        </div></div><div class="brief"><div class="num">06</div><div>
+        <strong>谷歌首个数据中心卫星上线并写诗</strong><br>
+        谷歌首个配备TPU的卫星已上线，运行DeepMind的Gemma 4模型并成功向地球传输了第一份响应。 <a href="https://techcrunch.com/2026/10/30/googles-first-data-center-satellite-is-online-and-writing-poetry/" target="_blank">[TechCrunch AI]</a> / <a href="https://www.theverge.com/tech/1023528/google-project-suncatcher-ai-satellite-transmission" target="_blank">[The Verge AI]</a>
+        </div></div><div class="brief"><div class="num">07</div><div>
+        <strong>Sam Altman称RAM放在数据中心比放在个人电脑上更好</strong><br>
+        OpenAI CEO Sam Altman在采访中表示，将RAM放在个人PC而非数据中心是“糟糕的”，凸显云算力优先策略。 <a href="https://www.theverge.com/ai-artificial-intelligence/1023820/sam-altman-ram-shortage-cloud-servers" target="_blank">[The Verge AI]</a>
+        </div></div><div class="brief"><div class="num">08</div><div>
+        <strong>Mistral称其AI模型“Le Chonk”在开源权重竞赛中超越中国</strong><br>
+        法国AI实验室Mistral声称其最新模型在编码和网络安全方面匹配或超越了DeepSeek和Z.ai的最佳模型。 <a href="https://www.wired.com/story/mistral-says-le-chonk-surpasses-chinese-models-cybersecurity/" target="_blank">[Wired AI]</a>
+        </div></div><div class="sec-head"><span class="num">03</span><h2>今日趋势点评</h2></div><div class="trend"><div class="angle">
+        <div class="h">行业大势</div>
+        <p class="judgment">AI行业正从<strong>野蛮生长转向规则重塑</strong>，安全与合规成为竞争新维度。</p>
+        <p class="evidence">今日<mark>OpenAI联合谷歌、微软、Anthropic推出AI训练退出标准</mark>，同时<mark>OpenAI更新Model Spec</mark>并加强青少年保护；此外，<mark>Claude模型自主操作小鼠大脑</mark>和<mark>国防承包商AI代理接入五角大楼</mark>等事件凸显安全风险。</p>
+        <p class="action"><strong>💡 建议：</strong>企业应主动参与标准制定，将安全合规纳入产品设计，以规避监管风险并获取信任优势。</p>
+        </div><div class="angle">
+        <div class="h">资本风向</div>
+        <p class="judgment">AI投资热潮出现<strong>裂痕</strong>，资本从盲目追捧转向成本审视。</p>
+        <p class="evidence"><mark>美国科技股因AI成本担忧大幅下跌</mark>，<mark>AI支出繁荣出现裂痕</mark>，债务攀升和负现金流引发质疑；同时<mark>Sam Altman强调RAM应放在数据中心</mark>，反映算力成本压力。</p>
+        <p class="action"><strong>💡 建议：</strong>投资者应关注企业现金流和盈利路径，企业需优化AI投入产出比，探索降本增效方案。</p>
+        </div><div class="angle">
+        <div class="h">技术落地</div>
+        <p class="judgment">AI代理<strong>自主性快速提升</strong>，但落地需平衡创新与可控性。</p>
+        <p class="evidence"><mark>Claude模型自主进行基因治疗操作</mark>，<mark>GLM 5.3在48小时内构建完整Firefox漏洞利用链</mark>，<mark>DoorDash仅收到数百个AI代理订单</mark>显示应用仍处早期。</p>
+        <p class="action"><strong>💡 建议：</strong>开发者应在代理系统中内置人类监督和中断机制，企业可探索代理在客服、物流等场景的试点。</p>
+        </div></div></main>
+<script>
+(function(){
+  // 搜索过滤
+  const input = document.getElementById('search');
+  if (input) {
+    input.addEventListener('input', function(e) {
+      const q = e.target.value.toLowerCase().trim();
+      document.querySelectorAll('.card, .brief').forEach(function(el) {
+        const match = !q || el.innerText.toLowerCase().includes(q);
+        el.style.display = match ? '' : 'none';
+      });
+    });
+  }
+  
+  // 归档页面动态调整返回链接
+  document.querySelectorAll('.archive-link').forEach(function(el) {
+    if (window.location.pathname.indexOf('/archive/') !== -1) {
+      el.href = 'index.html';
+      el.textContent = '📁 归档目录';
+    }
+  });
+})();
+</script>
+</body></html>
