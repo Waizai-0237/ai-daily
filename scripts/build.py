@@ -448,17 +448,17 @@ def summarize_weekly(daily_data):
 def render_weekly_html(w, start_date, end_date, week_num):
     """生成周报 HTML"""
     title = w.get("title", "本周回顾")
-    # 将 \n 替换为 <br><br>，如果 AI 返回的是 \\n 也一并处理
     overview_raw = w.get("overview", "").replace('\\n', '\n')
     paragraphs = [p.strip() for p in overview_raw.split('\n') if p.strip()]
     overview_html = "".join([f"<p>{p}</p>" for p in paragraphs])
+    
     themes = w.get("key_themes", [])
     top_events = w.get("top_events", [])
     trends = w.get("trends", [])
     stats = w.get("stats", {})
     
-    # 1. 核心主题：颜色与 Emoji 轮换
-    theme_colors = ['#8b5cf6', '#0e7d6b', '#1d39c4', '#c2410c', '#b42318']
+    # 1. 核心主题：颜色与 Emoji 轮换（采用日报的分类颜色）
+    theme_colors = ['#0e7d6b', '#1d39c4', '#b42318', '#c2410c', '#6d28d9']
     theme_emojis = ['🚀', '⚖️', '💡', '🛡️', '💰', '🧠']
     
     themes_html = ""
@@ -498,32 +498,32 @@ def render_weekly_html(w, start_date, end_date, week_num):
     for c in stats.get("top_categories", [])[:6]:
         cats_html += f'<span class="cat-pill">{c.get("name","")} · {c.get("count",0)}</span>'
     
-    # 5. 输出 HTML
+    # 5. 输出 HTML (统一为深海军蓝配色)
     html = f"""<!DOCTYPE html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI 行业周报 · {start_date} ~ {end_date}</title>
 <style>
 body{{margin:0;background:#f5f6f8;color:#14182b;font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75;}}
 .wrap{{max-width:880px;margin:0 auto;padding:0 20px;}}
-header.masthead{{background:linear-gradient(180deg,#1a0b2e 0%,#2d1b4e 100%);color:#fff;padding:44px 0 40px;position:relative;}}
-header.masthead::after{{content:"";position:absolute;left:0;bottom:0;height:4px;width:100%;background:linear-gradient(90deg,#8b5cf6,#f59e0b);}}
-.masthead .kicker{{font-size:0.78rem;letter-spacing:0.28em;color:#a78bfa;font-weight:600;margin-bottom:12px;}}
+header.masthead{{background:linear-gradient(180deg,#101426 0%,#1a2040 100%);color:#fff;padding:44px 0 40px;position:relative;}}
+header.masthead::after{{content:"";position:absolute;left:0;bottom:0;height:4px;width:100%;background:linear-gradient(90deg,#1d39c4,#cf1322);}}
+.masthead .kicker{{font-size:0.78rem;letter-spacing:0.28em;color:#9aa3c7;font-weight:600;margin-bottom:12px;}}
 .masthead h1{{font-size:2rem;margin:0 0 10px;font-weight:800;}}
 .masthead .meta{{font-size:0.95rem;color:#c7cde6;}}
-.masthead .lede{{margin-top:18px;font-size:1rem;color:#e9d5ff;border-left:3px solid #f59e0b;padding-left:14px;}}
-.back{{display:inline-block;margin:24px 0 0;color:#8b5cf6;text-decoration:none;font-weight:600;font-size:0.9rem;}}
+.masthead .lede{{margin-top:18px;font-size:1rem;color:#e2e8f0;border-left:3px solid #cf1322;padding-left:14px;}}
+.back{{display:inline-block;margin:24px 0 0;color:#1d39c4;text-decoration:none;font-weight:600;font-size:0.9rem;}}
 main{{padding:30px 0 60px;}}
-.sec-title{{font-size:1.3rem;color:#1a0b2e;font-weight:800;margin:36px 0 18px;padding-left:14px;border-left:4px solid #8b5cf6;}}
+.sec-title{{font-size:1.3rem;color:#1a2040;font-weight:800;margin:36px 0 18px;padding-left:14px;border-left:4px solid #1d39c4;}}
 
 /* 数据条：多色 */
 .stats-strip{{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;}}
 .stat-cell{{background:#fff;border:1px solid #e4e7ee;border-radius:10px;padding:18px;text-align:center;}}
-.stat-num{{font-size:1.8rem;font-weight:800;color:#8b5cf6;}}
-.stat-num.blue{{color:#1d39c4;}}
+.stat-num{{font-size:1.8rem;font-weight:800;color:#1d39c4;}}
+.stat-num.green{{color:#0e7d6b;}}
 .stat-num.red{{color:#cf1322;}}
 .stat-label{{font-size:0.8rem;color:#5f6478;margin-top:4px;}}
 
-.cat-pill{{display:inline-block;background:#f3e8ff;color:#6d28d9;border-radius:20px;padding:4px 12px;font-size:0.82rem;margin:4px 6px 0 0;}}
+.cat-pill{{display:inline-block;background:#eef1f8;color:#5f6478;border-radius:20px;padding:4px 12px;font-size:0.82rem;margin:4px 6px 0 0;}}
 
 /* 综述美化 */
 .overview-box{{color:#2b3147;font-size:0.98rem;background:#fff;border:1px solid #e4e7ee;border-radius:10px;padding:24px 28px;line-height:1.8;text-align:justify;}}
@@ -531,18 +531,18 @@ main{{padding:30px 0 60px;}}
 .overview-box p:last-child{{margin-bottom:0;}}
 
 /* 主题卡片 */
-.theme-item{{background:#fff;border:1px solid #e4e7ee;border-radius:10px;padding:20px 24px;margin-bottom:14px;border-left:4px solid #8b5cf6;}}
-.theme-name{{font-size:1.05rem;font-weight:800;color:#1a0b2e;margin-bottom:8px;}}
+.theme-item{{background:#fff;border:1px solid #e4e7ee;border-radius:10px;padding:20px 24px;margin-bottom:14px;border-left:4px solid #1d39c4;}}
+.theme-name{{font-size:1.05rem;font-weight:800;color:#14182b;margin-bottom:8px;}}
 .theme-sum{{color:#2b3147;font-size:0.95rem;margin:0 0 10px;}}
 .theme-ev{{color:#5f6478;font-size:0.85rem;margin:0;background:#f8f9fc;padding:10px 14px;border-radius:6px;}}
 
 .event-item{{display:flex;gap:16px;background:#fff;border:1px solid #e4e7ee;border-radius:10px;padding:16px 20px;margin-bottom:10px;}}
-.event-date{{color:#8b5cf6;font-weight:800;font-family:ui-monospace,monospace;font-size:0.85rem;flex-shrink:0;width:90px;}}
+.event-date{{color:#1d39c4;font-weight:800;font-family:ui-monospace,monospace;font-size:0.85rem;flex-shrink:0;width:90px;}}
 .event-body strong{{display:block;color:#14182b;margin-bottom:4px;}}
 .event-body p{{margin:0;color:#5f6478;font-size:0.85rem;}}
 
-.trend-item{{background:linear-gradient(135deg,#1a0b2e 0%,#2d1b4e 100%);color:#eef0fa;border-radius:12px;padding:22px 26px;margin-bottom:14px;}}
-.trend-h{{color:#a78bfa;font-weight:700;font-size:0.82rem;letter-spacing:0.1em;margin-bottom:8px;}}
+.trend-item{{background:linear-gradient(135deg,#1a2040 0%,#222a52 100%);color:#eef0fa;border-radius:12px;padding:22px 26px;margin-bottom:14px;}}
+.trend-h{{color:#8ea0e8;font-weight:700;font-size:0.82rem;letter-spacing:0.1em;margin-bottom:8px;}}
 .trend-j{{color:#fff;font-size:1.05rem;font-weight:600;margin:6px 0;}}
 .trend-e{{color:#d7dcf0;font-size:0.92rem;margin:6px 0;}}
 .trend-e mark{{background:none;color:#fbbf24;font-weight:600;}}
@@ -561,7 +561,7 @@ main{{padding:30px 0 60px;}}
 
 <div class="stats-strip" style="margin-top:24px;">
 <div class="stat-cell"><div class="stat-num">{stats.get('total_events',0)}</div><div class="stat-label">本周收录事件</div></div>
-<div class="stat-cell"><div class="stat-num blue">{stats.get('star5_count',0)}</div><div class="stat-label">5 星重大事件</div></div>
+<div class="stat-cell"><div class="stat-num green">{stats.get('star5_count',0)}</div><div class="stat-label">5 星重大事件</div></div>
 <div class="stat-cell"><div class="stat-num red">{len(themes)}</div><div class="stat-label">核心主题</div></div>
 </div>
 <div style="text-align:center;margin-bottom:10px;">{cats_html}</div>
