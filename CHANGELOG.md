@@ -1,10 +1,18 @@
 # 版本记录
 
-## V1.7 (2026-10-08) · 待验证
-- 新增 `data/daily/` 目录，每日运行自动保存结构化 JSON
-- 新增周报生成链路：PROMPT_WEEKLY + summarize_weekly + render_weekly_html
+## V1.8 (2026-10-31)
+- 新增 `PROMPT_MONTHLY` 月报提示词，侧重于宏观趋势、资本流向与产业全景总结
+- 新增月报生成链路：`summarize_monthly` + `render_monthly_html`
+- 新增每月 1 号自动触发逻辑（`render_monthly_summary`）
+- 重构周报与月报的 CSS 样式，统一为深海军蓝科技风配色
+- 10 月月报已手动触发验证，11 月 1 日将自动生成首份完整月报
+
+## V1.7 (2026-10-08)
+- 新增 `data/daily/` 目录，每日运行自动保存结构化 JSON，解决 Actions 环境无状态的问题
+- 新增周报生成链路：`PROMPT_WEEKLY` + `summarize_weekly` + `render_weekly_html`
 - 新增周一自动触发逻辑（`render_weekly_summary`）
-- 周报将在 2026-10-12 首次生成（覆盖 4 天数据），10-19 起为完整 7 天
+- 每周一自动对上周（7 天）的数据进行深度趋势分析与复盘
+- 已成功跑通并验证 W42、W43 两份深度周报
 
 ## V1.6 (2026-10-04)
 - 新增分类环形图可视化
