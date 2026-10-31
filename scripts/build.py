@@ -1164,9 +1164,9 @@ def summarize_monthly(daily_data):
 def render_monthly_summary(now):
     """每月 1 日生成上个月的月报"""
     # 正常逻辑：只在每月1号运行
-    #if now.day != 1:
-    #    print("[monthly-summary] 今天不是 1 号，跳过")
-    #    return
+    if now.day != 1:
+        print("[monthly-summary] 今天不是 1 号，跳过")
+        return
     
     # 计算上个月的年份和月份（比如今天是 11 月 1 日，那上个月就是 10 月）
     last_month_date = now - dt.timedelta(days=1)
