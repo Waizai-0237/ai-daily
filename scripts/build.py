@@ -6,7 +6,7 @@ import feedparser, yaml
 from openai import OpenAI
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "1.6"  # 每次有新功能时手动 +0.1
+VERSION = "1.8"  # 每次有新功能时手动 +0.1
 ARCHIVE_DIR = ROOT / "docs" / "archive"
 CONFIG_PATH = ROOT / "config" / "feeds.yaml"
 DATA_PATH   = ROOT / "data" / "articles.json"
@@ -663,8 +663,49 @@ def render_monthly_html(w, month_str):
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI 行业月报 · {month_str}</title>
 <style>
-/* 这里完全复用周报的 CSS，为了排版紧凑我就不重复贴了，你直接拷贝 render_weekly_html 里 <style> 标签内的全部内容过来即可 */
-/* 如果你不想复制，可以直接把上面那个 f-string 里的 <style> ... </style> 原样搬过来 */
+body{{margin:0;background:#f5f6f8;color:#14182b;font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75;}}
+.wrap{{max-width:880px;margin:0 auto;padding:0 20px;}}
+header.masthead{{background:linear-gradient(180deg,#101426 0%,#1a2040 100%);color:#fff;padding:44px 0 40px;position:relative;}}
+header.masthead::after{{content:"";position:absolute;left:0;bottom:0;height:4px;width:100%;background:linear-gradient(90deg,#1d39c4,#cf1322);}}
+.masthead .kicker{{font-size:0.78rem;letter-spacing:0.28em;color:#9aa3c7;font-weight:600;margin-bottom:12px;}}
+.masthead h1{{font-size:2rem;margin:0 0 10px;font-weight:800;}}
+.masthead .meta{{font-size:0.95rem;color:#c7cde6;}}
+.masthead .lede{{margin-top:18px;font-size:1rem;color:#e2e8f0;border-left:3px solid #cf1322;padding-left:14px;}}
+.back{{display:inline-block;margin:24px 0 0;color:#1d39c4;text-decoration:none;font-weight:600;font-size:0.9rem;}}
+main{{padding:30px 0 60px;}}
+.sec-title{{font-size:1.3rem;color:#1a2040;font-weight:800;margin:36px 0 18px;padding-left:14px;border-left:4px solid #1d39c4;}}
+
+.stats-strip{{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;}}
+.stat-cell{{background:#fff;border:1px solid #e4e7ee;border-radius:10px;padding:18px;text-align:center;}}
+.stat-num{{font-size:1.8rem;font-weight:800;color:#1d39c4;}}
+.stat-num.green{{color:#0e7d6b;}}
+.stat-num.red{{color:#cf1322;}}
+.stat-label{{font-size:0.8rem;color:#5f6478;margin-top:4px;}}
+
+.cat-pill{{display:inline-block;background:#eef1f8;color:#5f6478;border-radius:20px;padding:4px 12px;font-size:0.82rem;margin:4px 6px 0 0;}}
+
+.overview-box{{color:#2b3147;font-size:0.98rem;background:#fff;border:1px solid #e4e7ee;border-radius:10px;padding:24px 28px;line-height:1.8;text-align:justify;}}
+.overview-box p{{margin:0 0 14px 0;text-indent:2em;}}
+.overview-box p:last-child{{margin-bottom:0;}}
+
+.theme-item{{background:#fff;border:1px solid #e4e7ee;border-radius:10px;padding:20px 24px;margin-bottom:14px;border-left:4px solid #1d39c4;}}
+.theme-name{{font-size:1.05rem;font-weight:800;color:#14182b;margin-bottom:8px;}}
+.theme-sum{{color:#2b3147;font-size:0.95rem;margin:0 0 10px;}}
+.theme-ev{{color:#5f6478;font-size:0.85rem;margin:0;background:#f8f9fc;padding:10px 14px;border-radius:6px;}}
+
+.event-item{{display:flex;gap:16px;background:#fff;border:1px solid #e4e7ee;border-radius:10px;padding:16px 20px;margin-bottom:10px;}}
+.event-date{{color:#1d39c4;font-weight:800;font-family:ui-monospace,monospace;font-size:0.85rem;flex-shrink:0;width:90px;}}
+.event-body strong{{display:block;color:#14182b;margin-bottom:4px;}}
+.event-body p{{margin:0;color:#5f6478;font-size:0.85rem;}}
+
+.trend-item{{background:linear-gradient(135deg,#1a2040 0%,#222a52 100%);color:#eef0fa;border-radius:12px;padding:22px 26px;margin-bottom:14px;}}
+.trend-h{{color:#8ea0e8;font-weight:700;font-size:0.82rem;letter-spacing:0.1em;margin-bottom:8px;}}
+.trend-j{{color:#fff;font-size:1.05rem;font-weight:600;margin:6px 0;}}
+.trend-e{{color:#d7dcf0;font-size:0.92rem;margin:6px 0;}}
+.trend-e mark{{background:none;color:#fbbf24;font-weight:600;}}
+.trend-o{{color:#a7f3d0;font-size:0.88rem;margin:8px 0 0;padding:8px 12px;background:rgba(16,185,129,0.08);border-radius:6px;}}
+
+@media(max-width:640px){{.stats-strip{{grid-template-columns:1fr;}}.event-item{{flex-direction:column;gap:4px;}}.event-date{{width:auto;}}}}
 </style></head><body>
 <header class="masthead"><div class="wrap">
 <div class="kicker">AI INDUSTRY MONTHLY</div>
