@@ -939,9 +939,9 @@ def send_email(summary_data, now):
 
 def render_weekly_summary(now):
     """每周一生成上周的深度周报"""
-    if now.weekday() != 0:
-        print("[weekly-summary] 今天不是周一，跳过")
-        return
+    #if now.weekday() != 0:
+    #    print("[weekly-summary] 今天不是周一，跳过")
+    #    return
     
     last_monday = now - dt.timedelta(days=7)
     week_dates = [(last_monday + dt.timedelta(days=i)).strftime('%Y-%m-%d') for i in range(7)]
