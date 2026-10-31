@@ -412,6 +412,36 @@ PROMPT_WEEKLY = """你是资深行业分析师。下面是一整周（7天）的
 本周数据如下：
 """
 
+PROMPT_MONTHLY = """你是首席行业分析师。下面是一整个月的 AI 行业每日简报数据，请你生成一份**月维度宏观趋势分析报告**。
+
+输出严格的 JSON 格式：
+{
+  "title": "本月主题标题（10-15字，高度概括本月核心主线）",
+  "overview": "本月宏观综述，500-600字。必须分为 3 个自然段，段落之间用 \\n\\n 分隔。内容包含：① 本月最核心的产业变化；② 资本与技术的双轮驱动关系；③ 对未来 1-3 个月的中长期影响预判。",
+  "key_themes": [
+    {"theme": "主题名称（如'资本并购潮'、'端侧AI爆发'）", "summary": "150字左右，解释这个主题本月的演进全貌", "evidence": "引用本月代表性事件作为证据"}
+  ],
+  "top_events": [
+    {"date": "2026-10-XX", "title": "事件标题", "why": "为什么是本月里程碑事件（30字）", "importance": 5}
+  ],
+  "trends": [
+    {"heading": "趋势判断（如'地缘政策'、'商业模式验证'）", "judgment": "核心判断（40字内，用 <strong> 标注关键判断）", "evidence": "用本月事件作为证据（3句话，用 <mark> 标注关键数据）", "outlook": "对下月/未来的预判（30字内）"}
+  ],
+  "stats": {
+    "total_events": 0,
+    "star5_count": 0,
+    "top_categories": [{"name": "融资并购", "count": 0}]
+  }
+}
+
+生成规则：
+1. key_themes：提炼 4-6 个贯穿本月的核心主题，必须是宏观维度的（如监管落地、IPO潮、开源模型反超等）。
+2. top_events：从本月数据中，挑出最具代表性的 5-8 个里程碑事件。
+3. overview 必须体现“月”的跨度，不能是周报的简单拼接。
+4. 务必确保 JSON 格式合法。
+
+本月数据如下：
+"""
 
 def summarize_weekly(daily_data):
     """调用 AI 生成周报分析"""
@@ -573,6 +603,92 @@ main{{padding:30px 0 60px;}}
 {themes_html}
 
 <div class="sec-title">📅 本周大事记</div>
+{events_html}
+
+<div class="sec-title">📈 趋势判断</div>
+{trends_html}
+</main></body></html>"""
+    return html
+
+def render_monthly_html(w, month_str):
+    """生成月报 HTML"""
+    title = w.get("title", "本月回顾")
+    overview_raw = w.get("overview", "").replace('\\n', '\n')
+    paragraphs = [p.strip() for p in overview_raw.split('\n') if p.strip()]
+    overview_html = "".join([f"<p>{p}</p>" for p in paragraphs])
+    
+    themes = w.get("key_themes", [])
+    top_events = w.get("top_events", [])
+    trends = w.get("trends", [])
+    stats = w.get("stats", {})
+    
+    theme_colors = ['#0e7d6b', '#1d39c4', '#b42318', '#c2410c', '#6d28d9']
+    theme_emojis = ['🌍', '⚖️', '💡', '🛡️', '💰', '🚀']
+    
+    themes_html = ""
+    for i, t in enumerate(themes):
+        color = theme_colors[i % len(theme_colors)]
+        emoji = theme_emojis[i % len(theme_emojis)]
+        themes_html += f"""<div class="theme-item" style="border-left-color: {color};">
+        <div class="theme-name">{emoji} {t.get('theme','')}</div>
+        <p class="theme-sum">{t.get('summary','')}</p>
+        <p class="theme-ev"><strong>证据：</strong>{t.get('evidence','')}</p>
+        </div>"""
+    
+    events_html = ""
+    for e in top_events:
+        events_html += f"""<div class="event-item">
+        <div class="event-date">{e.get('date','')}</div>
+        <div class="event-body">
+        <strong>{e.get('title','')}</strong>
+        <p>{e.get('why','')}</p>
+        </div></div>"""
+    
+    trends_html = ""
+    for t in trends:
+        j = t.get('judgment', '').replace('&lt;strong&gt;', '<strong>').replace('&lt;/strong&gt;', '</strong>')
+        ev = t.get('evidence', '').replace('&lt;mark&gt;', '<mark>').replace('&lt;/mark&gt;', '</mark>')
+        trends_html += f"""<div class="trend-item">
+        <div class="trend-h">{t.get('heading','')}</div>
+        <p class="trend-j">{j}</p>
+        <p class="trend-e">{ev}</p>
+        <p class="trend-o">🔮 未来预判：{t.get('outlook','')}</p>
+        </div>"""
+    
+    cats_html = ""
+    for c in stats.get("top_categories", [])[:6]:
+        cats_html += f'<span class="cat-pill">{c.get("name","")} · {c.get("count",0)}</span>'
+    
+    html = f"""<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业月报 · {month_str}</title>
+<style>
+/* 这里完全复用周报的 CSS，为了排版紧凑我就不重复贴了，你直接拷贝 render_weekly_html 里 <style> 标签内的全部内容过来即可 */
+/* 如果你不想复制，可以直接把上面那个 f-string 里的 <style> ... </style> 原样搬过来 */
+</style></head><body>
+<header class="masthead"><div class="wrap">
+<div class="kicker">AI INDUSTRY MONTHLY</div>
+<h1>AI 行业月报 · {month_str}</h1>
+<div class="meta">本月宏观趋势与产业全景复盘</div>
+<p class="lede">{title}</p>
+</div></header>
+<main class="wrap">
+<a class="back" href="index.html">← 返回列表</a>
+
+<div class="stats-strip" style="margin-top:24px;">
+<div class="stat-cell"><div class="stat-num">{stats.get('total_events',0)}</div><div class="stat-label">本月收录事件</div></div>
+<div class="stat-cell"><div class="stat-num green">{stats.get('star5_count',0)}</div><div class="stat-label">5 星重大事件</div></div>
+<div class="stat-cell"><div class="stat-num red">{len(themes)}</div><div class="stat-label">核心主题</div></div>
+</div>
+<div style="text-align:center;margin-bottom:10px;">{cats_html}</div>
+
+<div class="sec-title">📖 本月综述</div>
+<div class="overview-box">{overview_html}</div>
+
+<div class="sec-title">🎯 核心主题</div>
+{themes_html}
+
+<div class="sec-title">📅 本月大事记</div>
 {events_html}
 
 <div class="sec-title">📈 趋势判断</div>
@@ -939,9 +1055,9 @@ def send_email(summary_data, now):
 
 def render_weekly_summary(now):
     """每周一生成上周的深度周报"""
-    #if now.weekday() != 0:
-    #    print("[weekly-summary] 今天不是周一，跳过")
-    #    return
+    if now.weekday() != 0:
+        print("[weekly-summary] 今天不是周一，跳过")
+        return
     
     last_monday = now - dt.timedelta(days=7)
     week_dates = [(last_monday + dt.timedelta(days=i)).strftime('%Y-%m-%d') for i in range(7)]
@@ -973,6 +1089,75 @@ def render_weekly_summary(now):
     weekly_dir.mkdir(parents=True, exist_ok=True)
     (weekly_dir / f"W{week_number}.html").write_text(html, encoding="utf-8")
     print(f"[weekly-summary] 已生成 W{week_number}.html")
+
+def summarize_monthly(daily_data):
+    """调用 AI 生成月报分析"""
+    payload = []
+    for item in daily_data:
+        d = item["data"]
+        payload.append({
+            "date": item["date"],
+            "headline": d.get("headline", ""),
+            "must_read": [
+                {"title": x.get("title", ""), "summary": x.get("summary", ""), 
+                 "importance": x.get("importance", 3), "category": x.get("category", "")}
+                for x in d.get("must_read", [])
+            ]
+        })
+    
+    try:
+        r = client.chat.completions.create(
+            model=MODEL,
+            messages=[
+                {"role": "system", "content": "你是首席行业分析师，只输出合法 JSON。"},
+                {"role": "user", "content": PROMPT_MONTHLY + json.dumps(payload, ensure_ascii=False)},
+            ],
+            temperature=0.3,
+            response_format={"type": "json_object"},
+        )
+        return json.loads(r.choices[0].message.content)
+    except Exception as e:
+        print(f"[monthly-summary] AI 调用失败: {e}")
+        return {}
+
+def render_monthly_summary(now):
+    """每月 1 日生成上个月的月报"""
+    # 正常逻辑：只在每月1号运行
+    #if now.day != 1:
+    #    print("[monthly-summary] 今天不是 1 号，跳过")
+    #    return
+    
+    # 计算上个月的年份和月份（比如今天是 11 月 1 日，那上个月就是 10 月）
+    last_month_date = now - dt.timedelta(days=1)
+    last_month_str = last_month_date.strftime('%Y-%m')
+    
+    daily_dir = ROOT / "data" / "daily"
+    monthly_data = []
+    if daily_dir.exists():
+        # 读取上个月所有以 2026-10- 开头的 JSON 文件
+        for f in sorted(daily_dir.glob(f"{last_month_str}-*.json")):
+            monthly_data.append({
+                "date": f.stem,
+                "data": json.loads(f.read_text(encoding="utf-8"))
+            })
+    
+    if len(monthly_data) < 15:
+        print(f"[monthly-summary] 只有 {len(monthly_data)} 天数据，不足 15 天，跳过")
+        return
+    
+    print(f"[monthly-summary] 汇总 {len(monthly_data)} 天数据，生成 {last_month_str} 月报")
+    
+    monthly_data_res = summarize_monthly(monthly_data)
+    if not monthly_data_res:
+        print("[monthly-summary] AI 分析失败，跳过")
+        return
+    
+    html = render_monthly_html(monthly_data_res, last_month_str)
+    monthly_dir = ROOT / "docs" / "monthly"
+    monthly_dir.mkdir(parents=True, exist_ok=True)
+    (monthly_dir / f"{last_month_str}.html").write_text(html, encoding="utf-8")
+    print(f"[monthly-summary] 已生成 {last_month_str}.html")
+
 
 def main():
     now = dt.datetime.now(dt.timezone(dt.timedelta(hours=8)))
@@ -1013,6 +1198,7 @@ def main():
     
     # 7. 生成周报（仅周一触发）
     render_weekly_summary(now)
+    render_monthly_summary(now)
     
     send_email(summary_data, now)
     print(f"[done] 生成完毕")
