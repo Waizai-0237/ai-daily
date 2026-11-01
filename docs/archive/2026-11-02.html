@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业每日简报 · 2026-11-02</title>
+<style>
+:root{--bg:#f5f6f8;--bg2:#ffffff;--ink:#14182b;--muted:#5f6478;--rule:#e4e7ee;--accent:#1d39c4;--accent2:#cf1322;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75;}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px;}
+header.masthead{background:linear-gradient(180deg,#101426 0%,#1a2040 100%);color:#fff;padding:40px 0;position:relative;}
+header.masthead::after{content:"";position:absolute;left:0;bottom:0;height:4px;width:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+.masthead h1{font-size:2rem;margin:0 0 10px;font-weight:800;}
+.masthead .meta{font-size:0.95rem;color:#c7cde6;display:flex;gap:12px;flex-wrap:wrap;}
+.masthead .lede{margin-top:15px;font-size:0.98rem;color:#d7dcf0;border-left:3px solid var(--accent2);padding-left:14px;}
+.version{font-family:ui-monospace,SFMono-Regular,monospace;font-size:0.78rem;color:#8a92b2;background:rgba(255,255,255,0.06);padding:1px 8px;border-radius:4px;letter-spacing:0.05em;}
+.toolbar{display:flex;gap:12px;margin-top:16px;align-items:center;}
+.toolbar input{flex:1;padding:10px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:0.9rem;outline:none;transition:border-color .2s;}
+.toolbar input::placeholder{color:#8a92b2;}
+.toolbar input:focus{border-color:var(--accent);}
+.archive-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.archive-link:hover{color:#fff;border-color:var(--accent);}
+.weekly-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.weekly-link:hover{color:#fff;border-color:var(--accent);}
+main{padding:30px 0;}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}
+.strip .cell{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:18px;text-align:center;}
+.strip .cell .n{font-size:1.8rem;font-weight:800;color:var(--accent);}
+.strip .cell .n.red{color:var(--accent2);}
+.strip .cell .n.gray{color:var(--muted);}
+.cat-chart{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px 22px;margin-bottom:24px;}
+.chart-title{font-size:0.85rem;color:var(--muted);font-weight:700;margin-bottom:16px;letter-spacing:0.05em;}
+.chart-body{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+.legend{flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 20px;min-width:220px;}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;}
+.legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0;}
+.legend-name{color:var(--ink);flex:1;}
+.legend-pct{color:var(--muted);font-family:ui-monospace,monospace;font-weight:600;}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 18px;}
+.sec-head .num{font-size:0.8rem;font-weight:700;color:#fff;background:var(--accent);padding:3px 10px;border-radius:3px;}
+.sec-head h2{font-size:1.4rem;margin:0;font-weight:800;}
+.card{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px;margin-bottom:16px;display:grid;grid-template-columns:46px 1fr;gap:18px;}
+.rank{font-size:1.6rem;font-weight:800;color:var(--rule);text-align:center;}
+.card h3{font-size:1.15rem;margin:0 0 8px;}
+.card .land{margin:10px 0;font-size:0.9rem;color:var(--accent);background:#f0f3ff;border-left:3px solid var(--accent);padding:8px 12px;}
+.card .src{font-size:0.8rem;color:var(--muted);border-top:1px dashed var(--rule);padding-top:8px;margin-top:10px;}
+.badge{font-size:0.72rem;font-weight:700;padding:2px 10px;border-radius:20px;letter-spacing:0.02em;color:#fff;white-space:nowrap;}
+.b-fund{background:#0e7d6b;}
+.b-product{background:#1d39c4;}
+.b-paper{background:#6d28d9;}
+.b-open{background:#c2410c;}
+.b-policy{background:#b42318;}
+.b-bigtech{background:#1a2040;}
+.b-industry{background:#0369a1;}
+.b-community{background:#525252;}
+.b-cn{background:#a21caf;}
+.stars{color:#f5a623 !important;font-size:1.1rem;font-weight:bold;letter-spacing:2px;margin-left:auto;white-space:nowrap;}
+.stars .lbl{color:var(--muted);font-size:0.72rem;margin-right:4px;font-weight:normal;letter-spacing:normal;}
+.topline{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:8px;}
+.brief{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:14px;margin-bottom:10px;display:flex;gap:12px;}
+.brief .num{font-weight:800;color:var(--accent);width:26px;}
+.trend{background:linear-gradient(135deg,#1a2040 0%,#222a52 100%);color:#eef0fa;border-radius:12px;padding:26px;margin-top:20px;}
+.trend h3{color:#fff;margin:0 0 14px;}
+.trend .angle{margin-bottom:16px;}
+.trend .angle .h{font-size:0.8rem;color:#8ea0e8;font-weight:700;margin-bottom:6px;}
+.trend .angle .judgment{color:#fff;font-size:1.05rem;font-weight:600;margin:8px 0;}
+.trend .angle .evidence{color:#d7dcf0;font-size:0.95rem;margin:6px 0;}
+.trend .angle .action{color:#a7f3d0;font-size:0.9rem;margin:6px 0;padding:8px 12px;background:rgba(16,185,129,0.08);border-radius:6px;}
+@media(max-width:640px){.strip{grid-template-columns:repeat(2,1fr);}.card{grid-template-columns:1fr;}.rank{text-align:left;}}
+</style></head><body>
+<header class="masthead"><div class="wrap">
+<h1>AI 行业每日简报 · 2026-11-02</h1>
+<div class="meta"><span>2026年11月02日</span><span>·</span><span>星期一</span><span>·</span><span class="version">V1.8</span></div>
+<p class="lede">今日AI行业呈现“开源与安全并进、资本与监管博弈”的复杂态势。核心事件中，DeepSeek重磅开源Agent底座架构，推动智能体开发门槛进一步降低；西湖大学成立世界模型研究中心，标志着基础研究向世界模型加速布局；同时，Anthropic的VS Code扩展在Cursor上被植入后门近12小时，暴露了AI供应链安全的脆弱性。这些事件背后，共同驱动因素在于：技术层面，开源生态与智能体技术正从实验走向生产，但安全治理明显滞后；资本层面，OpenAI下调融资目标、Nvidia考虑为数据中心贷款增信，显示资本对AI基础设施的态度趋于谨慎，从模型层向算力层转移；监管层面，xAI因数据中心污染面临NAACP诉讼，AI环境与合规压力上升。未来1-3个月，我们预计开源智能体框架将引发一轮应用创新，但安全事件会促使企业加强AI供应链审计；资本将更青睐有明确落地场景和基础设施属性的项目，模型层融资难度加大。整体判断：AI行业正从“模型竞赛”转向“落地与治理”并重的新阶段，开源与安全将成为下一阶段的关键词。</p>
+<div class="toolbar">
+<input id="search" type="text" placeholder="🔍 搜索标题、摘要或来源..." />
+<a href="archive/index.html" class="archive-link">📁 历史归档</a>
+<a href="weekly/index.html" class="weekly-link">📅 本周回顾</a>
+</div>
+</div></header>
+<main class="wrap">
+<div class="strip">
+<div class="cell"><div class="n red">3</div><div>5 星事件</div></div>
+<div class="cell"><div class="n">2</div><div>4 星事件</div></div>
+<div class="cell"><div class="n">8</div><div>3 星事件</div></div>
+<div class="cell"><div class="n gray">13</div><div>今日简报条数</div></div>
+</div>
+<div class="cat-chart">
+<div class="chart-title">📊 今日分类分布</div>
+<div class="chart-body">
+<svg viewBox="0 0 160 160" width="160" height="160" style="flex-shrink:0;"><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#eef1f8" stroke-width="22"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#c2410c" stroke-width="22" stroke-dasharray="79.75 265.83" stroke-dashoffset="0.00" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#6d28d9" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-79.75" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#b42318" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-132.91" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#0e7d6b" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-186.08" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#1d39c4" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-239.24" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#1a2040" stroke-width="22" stroke-dasharray="26.58 318.99" stroke-dashoffset="-292.41" transform="rotate(-90 80.0 80.0)"/><text x="80.0" y="78.0" text-anchor="middle" font-size="24" font-weight="800" fill="#14182b">13</text><text x="80.0" y="96.0" text-anchor="middle" font-size="11" fill="#5f6478">条动态</text></svg>
+<div class="legend"><div class="legend-item"><span class="legend-dot" style="background:#c2410c"></span><span class="legend-name">开源动态</span><span class="legend-pct">23%</span></div><div class="legend-item"><span class="legend-dot" style="background:#6d28d9"></span><span class="legend-name">技术论文</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#b42318"></span><span class="legend-name">政策标准</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#0e7d6b"></span><span class="legend-name">融资并购</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#1d39c4"></span><span class="legend-name">产品发布</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#1a2040"></span><span class="legend-name">大厂动态</span><span class="legend-pct">8%</span></div></div>
+</div>
+</div>
+<div class="sec-head"><span class="num">01</span><h2>今日必读</h2></div>
+<article class="card"><div class="rank">01</div><div>
+        <div class="topline"><span class="badge b-open">开源动态 · 智能体生态</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>DeepSeek重磅开源：Agent底座架构</h3>
+        <p>DeepSeek开源了Agent底座架构，使AI能够自主发现Bug并提交PR，显著降低智能体开发门槛，推动AI从“对话”向“执行”演进。</p>
+        <p><strong>为何重要：</strong>开源Agent底座将加速智能体应用爆发</p>
+        <p class="land"><strong>落地启发：</strong>开发者可基于此快速构建自动化编程与运维Agent</p>
+        <div class="src">来源：<a href="https://www.qbitai.com/2026/10/506904.html" target="_blank">量子位</a></div>
+        </div></article><article class="card"><div class="rank">02</div><div>
+        <div class="topline"><span class="badge b-paper">技术论文 · 世界模型</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>西湖大学成立世界模型研究中心</h3>
+        <p>西湖大学成立世界模型研究中心，三年前布局今年爆火，标志着学术界对世界模型的研究投入加大，有望推动AI对物理世界的理解与模拟能力。</p>
+        <p><strong>为何重要：</strong>世界模型是通向通用人工智能的关键路径</p>
+        <p class="land"><strong>落地启发：</strong>关注世界模型在机器人、自动驾驶等领域的应用潜力</p>
+        <div class="src">来源：<a href="https://www.qbitai.com/2026/11/507076.html" target="_blank">量子位</a></div>
+        </div></article><article class="card"><div class="rank">03</div><div>
+        <div class="topline"><span class="badge b-policy">政策标准 · AI安全</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>Anthropic的VS Code扩展在Cursor上被植入后门近12小时</h3>
+        <p>Anthropic的VS Code扩展在Cursor平台上被植入后门长达近12小时，攻击者如何获取访问权限尚不清楚，凸显AI开发工具供应链安全风险。</p>
+        <p><strong>为何重要：</strong>AI工具链安全事件敲响警钟</p>
+        <p class="land"><strong>落地启发：</strong>企业需加强AI开发工具的供应链安全审计</p>
+        <div class="src">来源：<a href="https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-cursor-backdoored-for-nearly-12-hours/" target="_blank">Ars Technica AI</a></div>
+        </div></article><article class="card"><div class="rank">04</div><div>
+        <div class="topline"><span class="badge b-fund">融资并购 · 融资动态</span><span class="stars"><span class="lbl">影响</span>★★★★</span></div>
+        <h3>OpenAI据报下调新一轮融资目标</h3>
+        <p>OpenAI最新一轮融资似乎未达预期，公司已下调融资目标，反映资本市场对AI模型层的高估值态度趋于谨慎，可能影响其后续研发与扩张节奏。</p>
+        <p><strong>为何重要：</strong>头部AI公司融资遇冷预示资本转向</p>
+        <p class="land"><strong>落地启发：</strong>投资者应关注有明确商业化路径的AI项目</p>
+        <div class="src">来源：<a href="https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round/" target="_blank">TechCrunch AI</a></div>
+        </div></article><article class="card"><div class="rank">05</div><div>
+        <div class="topline"><span class="badge b-policy">政策标准 · 环境合规</span><span class="stars"><span class="lbl">影响</span>★★★★</span></div>
+        <h3>法官允许NAACP就xAI数据中心污染诉讼继续推进</h3>
+        <p>美国法官裁定NAACP针对xAI数据中心违反《清洁空气法》的诉讼可以继续，该诉讼聚焦xAI在孟菲斯南部的运营，AI基础设施的环境合规压力上升。</p>
+        <p><strong>为何重要：</strong>AI数据中心环境监管趋严</p>
+        <p class="land"><strong>落地启发：</strong>AI企业需提前评估数据中心的环境合规风险</p>
+        <div class="src">来源：<a href="https://techcrunch.com/2026/10/31/judge-allows-naacp-lawsuit-over-xai-data-center-pollution-to-move-forward/" target="_blank">TechCrunch AI</a> / <a href="https://www.engadget.com/2303462/judge-says-xai-must-face-naacp-lawsuit-on-data-center-pollution/" target="_blank">Engadget AI</a></div>
+        </div></article><div class="sec-head"><span class="num">02</span><h2>今日简报</h2></div><div class="brief"><div class="num">01</div><div>
+        <strong>Claude紧急叫停！暗改Harness禁止逆向游戏</strong><br>
+        Claude紧急修改Harness以禁止逆向游戏，引发对AI模型行为控制的讨论。 <a href="https://www.qbitai.com/2026/11/507038.html" target="_blank">[量子位]</a>
+        </div></div><div class="brief"><div class="num">02</div><div>
+        <strong>清华姚期智团队新作：代数世界模型，让AI像牛顿一样思考</strong><br>
+        姚期智团队提出代数世界模型，使AI能够像牛顿一样进行物理推理，推动AI科学发现能力。 <a href="https://www.qbitai.com/2026/11/507031.html" target="_blank">[量子位]</a>
+        </div></div><div class="brief"><div class="num">03</div><div>
+        <strong>Jev新成果，再次引爆开源</strong><br>
+        Jev发布新成果，以高性价比再次引爆开源社区，可能推动模型效率提升。 <a href="https://www.qbitai.com/2026/11/506922.html" target="_blank">[量子位]</a>
+        </div></div><div class="brief"><div class="num">04</div><div>
+        <strong>苹果CEO称公司“不想为AI而AI”；Apple Intelligence将于iOS 27.3登陆中国</strong><br>
+        苹果CEO强调不盲目跟风AI，同时宣布Apple Intelligence将随iOS 27.3进入中国市场。 <a href="https://techcrunch.com/2026/10/31/apple-ceo-says-the-company-doesnt-want-to-ship-ai-for-ais-sake/" target="_blank">[TechCrunch AI]</a> / <a href="https://www.theverge.com/tech/1023974/apple-intelligence-china-ios-27-3" target="_blank">[The Verge AI]</a>
+        </div></div><div class="brief"><div class="num">05</div><div>
+        <strong>Nvidia考虑为Nscale在西弗吉尼亚州的AI数据中心提供贷款增信</strong><br>
+        Nvidia考虑为Nscale的AI数据中心贷款提供增信，以缓解投资者对AI支出的担忧，凸显芯片厂商对算力基建的金融支持。 <a href="https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia/" target="_blank">[TechCrunch AI]</a>
+        </div></div><div class="brief"><div class="num">06</div><div>
+        <strong>Adobe测试AI智能体能否像Photoshop专家一样使用编辑工具</strong><br>
+        Adobe正在测试AI智能体使用Photoshop等编辑工具的能力，探索专业软件自动化。 <a href="https://the-decoder.com/adobe-is-testing-how-well-ai-agents-can-use-editing-tools-like-a-photoshop-professional-would/" target="_blank">[The Decoder]</a>
+        </div></div><div class="brief"><div class="num">07</div><div>
+        <strong>AI智能体向活体小鼠大脑注射药物；承包商Claude智能体进入五角大楼</strong><br>
+        AI智能体成功向活体小鼠大脑注射基因治疗药物，另有承包商Claude智能体进入五角大楼，展示智能体在生物医疗和国防领域的突破。 <a href="https://www.wired.com/story/an-ai-agent-did-brain-surgery-on-live-mouse/" target="_blank">[Wired AI]</a>
+        </div></div><div class="brief"><div class="num">08</div><div>
+        <strong>Pika基于MiniMax H3开源H3 Flex，六步实现音视频联合生成</strong><br>
+        Pika发布基于MiniMax H3的衍生模型Pika H3 Flex，开放适配器权重与推理代码，支持六步去噪联合生成画面和声音。 <a href="https://www.leiphone.com/category/industrynews/MK1z0js4sqcp1xca.html" target="_blank">[AI 科技评论]</a>
+        </div></div><div class="sec-head"><span class="num">03</span><h2>今日趋势点评</h2></div><div class="trend"><div class="angle">
+        <div class="h">行业大势</div>
+        <p class="judgment">AI行业正从<strong>模型竞赛</strong>转向<strong>落地与治理并重</strong>的新阶段。</p>
+        <p class="evidence">今日<mark>DeepSeek开源Agent底座架构</mark>推动智能体开发平民化，<mark>西湖大学成立世界模型研究中心</mark>加码基础研究，而<mark>Anthropic的VS Code扩展被植入后门</mark>暴露安全短板，显示技术落地与安全治理需同步推进。</p>
+        <p class="action"><strong>💡 建议：</strong>企业应平衡创新与安全投入，建立AI供应链安全审计机制；开发者可积极拥抱开源智能体框架，但需警惕工具链风险。</p>
+        </div><div class="angle">
+        <div class="h">资本流向</div>
+        <p class="judgment">资本正从<strong>模型层</strong>向<strong>基础设施层</strong>转移，融资环境趋紧。</p>
+        <p class="evidence"><mark>OpenAI下调新一轮融资目标</mark>，而<mark>Nvidia考虑为Nscale数据中心贷款增信</mark>，显示资本对模型层高估值趋于谨慎，更青睐有明确基础设施属性的项目。</p>
+        <p class="action"><strong>💡 建议：</strong>投资者应关注算力基建、数据中心等底层机会；AI初创公司需证明商业化能力以吸引融资。</p>
+        </div><div class="angle">
+        <div class="h">监管与合规</div>
+        <p class="judgment">AI环境与安全监管<strong>压力上升</strong>，合规成为新竞争力。</p>
+        <p class="evidence"><mark>NAACP诉xAI数据中心污染案</mark>获法官允许推进，<mark>Anthropic工具链后门事件</mark>引发安全担忧，监管机构对AI环境影响的关注度提高。</p>
+        <p class="action"><strong>💡 建议：</strong>AI企业需提前评估数据中心的环境合规风险，并加强AI系统的安全防护，将合规转化为竞争优势。</p>
+        </div></div></main>
+<script>
+(function(){
+  // 搜索过滤
+  const input = document.getElementById('search');
+  if (input) {
+    input.addEventListener('input', function(e) {
+      const q = e.target.value.toLowerCase().trim();
+      document.querySelectorAll('.card, .brief').forEach(function(el) {
+        const match = !q || el.innerText.toLowerCase().includes(q);
+        el.style.display = match ? '' : 'none';
+      });
+    });
+  }
+  
+  // 归档页面动态调整返回链接
+  document.querySelectorAll('.archive-link').forEach(function(el) {
+    if (window.location.pathname.indexOf('/archive/') !== -1) {
+      el.href = 'index.html';
+      el.textContent = '📁 归档目录';
+    }
+  });
+})();
+</script>
+</body></html>
