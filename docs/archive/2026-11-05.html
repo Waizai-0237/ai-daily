@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业每日简报 · 2026-11-05</title>
+<style>
+:root{--bg:#f5f6f8;--bg2:#ffffff;--ink:#14182b;--muted:#5f6478;--rule:#e4e7ee;--accent:#1d39c4;--accent2:#cf1322;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75;}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px;}
+header.masthead{background:linear-gradient(180deg,#101426 0%,#1a2040 100%);color:#fff;padding:40px 0;position:relative;}
+header.masthead::after{content:"";position:absolute;left:0;bottom:0;height:4px;width:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+.masthead h1{font-size:2rem;margin:0 0 10px;font-weight:800;}
+.masthead .meta{font-size:0.95rem;color:#c7cde6;display:flex;gap:12px;flex-wrap:wrap;}
+.masthead .lede{margin-top:15px;font-size:0.98rem;color:#d7dcf0;border-left:3px solid var(--accent2);padding-left:14px;}
+.version{font-family:ui-monospace,SFMono-Regular,monospace;font-size:0.78rem;color:#8a92b2;background:rgba(255,255,255,0.06);padding:1px 8px;border-radius:4px;letter-spacing:0.05em;}
+.toolbar{display:flex;gap:12px;margin-top:16px;align-items:center;}
+.toolbar input{flex:1;padding:10px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:0.9rem;outline:none;transition:border-color .2s;}
+.toolbar input::placeholder{color:#8a92b2;}
+.toolbar input:focus{border-color:var(--accent);}
+.archive-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.archive-link:hover{color:#fff;border-color:var(--accent);}
+.weekly-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.weekly-link:hover{color:#fff;border-color:var(--accent);}
+main{padding:30px 0;}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}
+.strip .cell{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:18px;text-align:center;}
+.strip .cell .n{font-size:1.8rem;font-weight:800;color:var(--accent);}
+.strip .cell .n.red{color:var(--accent2);}
+.strip .cell .n.gray{color:var(--muted);}
+.cat-chart{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px 22px;margin-bottom:24px;}
+.chart-title{font-size:0.85rem;color:var(--muted);font-weight:700;margin-bottom:16px;letter-spacing:0.05em;}
+.chart-body{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+.legend{flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 20px;min-width:220px;}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;}
+.legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0;}
+.legend-name{color:var(--ink);flex:1;}
+.legend-pct{color:var(--muted);font-family:ui-monospace,monospace;font-weight:600;}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 18px;}
+.sec-head .num{font-size:0.8rem;font-weight:700;color:#fff;background:var(--accent);padding:3px 10px;border-radius:3px;}
+.sec-head h2{font-size:1.4rem;margin:0;font-weight:800;}
+.card{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px;margin-bottom:16px;display:grid;grid-template-columns:46px 1fr;gap:18px;}
+.rank{font-size:1.6rem;font-weight:800;color:var(--rule);text-align:center;}
+.card h3{font-size:1.15rem;margin:0 0 8px;}
+.card .land{margin:10px 0;font-size:0.9rem;color:var(--accent);background:#f0f3ff;border-left:3px solid var(--accent);padding:8px 12px;}
+.card .src{font-size:0.8rem;color:var(--muted);border-top:1px dashed var(--rule);padding-top:8px;margin-top:10px;}
+.badge{font-size:0.72rem;font-weight:700;padding:2px 10px;border-radius:20px;letter-spacing:0.02em;color:#fff;white-space:nowrap;}
+.b-fund{background:#0e7d6b;}
+.b-product{background:#1d39c4;}
+.b-paper{background:#6d28d9;}
+.b-open{background:#c2410c;}
+.b-policy{background:#b42318;}
+.b-bigtech{background:#1a2040;}
+.b-industry{background:#0369a1;}
+.b-community{background:#525252;}
+.b-cn{background:#a21caf;}
+.stars{color:#f5a623 !important;font-size:1.1rem;font-weight:bold;letter-spacing:2px;margin-left:auto;white-space:nowrap;}
+.stars .lbl{color:var(--muted);font-size:0.72rem;margin-right:4px;font-weight:normal;letter-spacing:normal;}
+.topline{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:8px;}
+.brief{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:14px;margin-bottom:10px;display:flex;gap:12px;}
+.brief .num{font-weight:800;color:var(--accent);width:26px;}
+.trend{background:linear-gradient(135deg,#1a2040 0%,#222a52 100%);color:#eef0fa;border-radius:12px;padding:26px;margin-top:20px;}
+.trend h3{color:#fff;margin:0 0 14px;}
+.trend .angle{margin-bottom:16px;}
+.trend .angle .h{font-size:0.8rem;color:#8ea0e8;font-weight:700;margin-bottom:6px;}
+.trend .angle .judgment{color:#fff;font-size:1.05rem;font-weight:600;margin:8px 0;}
+.trend .angle .evidence{color:#d7dcf0;font-size:0.95rem;margin:6px 0;}
+.trend .angle .action{color:#a7f3d0;font-size:0.9rem;margin:6px 0;padding:8px 12px;background:rgba(16,185,129,0.08);border-radius:6px;}
+@media(max-width:640px){.strip{grid-template-columns:repeat(2,1fr);}.card{grid-template-columns:1fr;}.rank{text-align:left;}}
+</style></head><body>
+<header class="masthead"><div class="wrap">
+<h1>AI 行业每日简报 · 2026-11-05</h1>
+<div class="meta"><span>2026年11月05日</span><span>·</span><span>星期四</span><span>·</span><span class="version">V1.8</span></div>
+<p class="lede">今日AI行业呈现资本狂热与物理约束的激烈碰撞：一方面，OpenAI收购Pierre强化Codex工具链、GPT-6 Astra展示跨模型权重编程能力，技术突破持续加速；另一方面，美国科技巨头隐性AI债务半年激增90%至3.2万亿美元，数据中心在中期选举中遭遇选民全面抵制，电力与土地成为硬约束。**重点分析**：资本正从模型层向基础设施层和垂直应用层分流——Ballistic Ventures募资4.9亿美元押注AI安全，虎鲸文娱推出AI影视平台降本30%，而谷歌因捆绑AI与搜索面临反垄断 backlash。共同驱动因素在于：技术能力跃升（智能体、具身推理）与监管/物理瓶颈（能源、隐私、选举政治）的矛盾日益尖锐，迫使行业从“堆参数”转向“拼落地效率”。未来1-3个月，我们预计将看到更多AI公司通过并购补齐工具链、数据中心建设向海外或边缘迁移、以及智能体身份与安全标准加速出台。整体判断：AI行业正从“叙事驱动”进入“成本与合规驱动”的新阶段，能解决真实场景效率问题的玩家将胜出。</p>
+<div class="toolbar">
+<input id="search" type="text" placeholder="🔍 搜索标题、摘要或来源..." />
+<a href="archive/index.html" class="archive-link">📁 历史归档</a>
+<a href="weekly/index.html" class="weekly-link">📅 本周回顾</a>
+</div>
+</div></header>
+<main class="wrap">
+<div class="strip">
+<div class="cell"><div class="n red">4</div><div>5 星事件</div></div>
+<div class="cell"><div class="n">1</div><div>4 星事件</div></div>
+<div class="cell"><div class="n">8</div><div>3 星事件</div></div>
+<div class="cell"><div class="n gray">13</div><div>今日简报条数</div></div>
+</div>
+<div class="cat-chart">
+<div class="chart-title">📊 今日分类分布</div>
+<div class="chart-body">
+<svg viewBox="0 0 160 160" width="160" height="160" style="flex-shrink:0;"><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#eef1f8" stroke-width="22"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#b42318" stroke-width="22" stroke-dasharray="106.33 239.24" stroke-dashoffset="0.00" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#0e7d6b" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-106.33" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#6d28d9" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-159.50" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#0369a1" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-212.66" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#1d39c4" stroke-width="22" stroke-dasharray="26.58 318.99" stroke-dashoffset="-265.83" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#c2410c" stroke-width="22" stroke-dasharray="26.58 318.99" stroke-dashoffset="-292.41" transform="rotate(-90 80.0 80.0)"/><text x="80.0" y="78.0" text-anchor="middle" font-size="24" font-weight="800" fill="#14182b">13</text><text x="80.0" y="96.0" text-anchor="middle" font-size="11" fill="#5f6478">条动态</text></svg>
+<div class="legend"><div class="legend-item"><span class="legend-dot" style="background:#b42318"></span><span class="legend-name">政策标准</span><span class="legend-pct">31%</span></div><div class="legend-item"><span class="legend-dot" style="background:#0e7d6b"></span><span class="legend-name">融资并购</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#6d28d9"></span><span class="legend-name">技术论文</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#0369a1"></span><span class="legend-name">产业观察</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#1d39c4"></span><span class="legend-name">产品发布</span><span class="legend-pct">8%</span></div><div class="legend-item"><span class="legend-dot" style="background:#c2410c"></span><span class="legend-name">开源动态</span><span class="legend-pct">8%</span></div></div>
+</div>
+</div>
+<div class="sec-head"><span class="num">01</span><h2>今日必读</h2></div>
+<article class="card"><div class="rank">01</div><div>
+        <div class="topline"><span class="badge b-fund">融资并购 · 工具链整合</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>OpenAI收购Pierre Computer Company，扩展Codex代码工具链</h3>
+        <p>OpenAI宣布收购Pierre Computer Company，旨在增强Codex在代码构建、理解和审查方面的工具能力。此举表明OpenAI正从模型提供商向开发者工具生态延伸，通过并购补齐代码智能体短板，与GitHub Copilot等竞品争夺开发者入口。</p>
+        <p><strong>为何重要：</strong>OpenAI通过并购强化Codex生态，开发者工具竞争白热化。</p>
+        <p class="land"><strong>落地启发：</strong>开发者应关注Codex工具链升级，评估迁移或集成机会。</p>
+        <div class="src">来源：<a href="https://openai.com/index/openai-to-acquire-pierre" target="_blank">OpenAI Blog</a></div>
+        </div></article><article class="card"><div class="rank">02</div><div>
+        <div class="topline"><span class="badge b-paper">技术论文 · 模型能力</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>OpenAI称GPT-6 Astra在一周内从零设计出硬件设备</h3>
+        <p>OpenAI披露GPT-6 Astra能够在不到一周内从零设计出硬件设备，展示出强大的跨领域工程能力。同时，另一篇报道称Astra可直接通过权重编程其他AI模型，意味着模型具备元学习与自我改进潜力，引发对AI自主性的广泛讨论。</p>
+        <p><strong>为何重要：</strong>GPT-6展现跨领域设计与模型间编程能力，能力边界再突破。</p>
+        <p class="land"><strong>落地启发：</strong>企业需重新评估AI在硬件设计等复杂工程中的辅助角色。</p>
+        <div class="src">来源：<a href="https://techcrunch.com/2026/11/04/google-faces-backlash-for-plan-that-would-turn-off-search-for-schools-that-restrict-ai/" target="_blank">TechCrunch AI</a> / <a href="https://www.theverge.com/ai-artificial-intelligence/1024862/google-search-ai-overviews-alphabet-earnings-q3" target="_blank">The Verge AI</a> / <a href="https://the-decoder.com/schools-that-turn-off-googles-ai-will-lose-search-too-starting-in-2027/" target="_blank">The Decoder</a></div>
+        </div></article><article class="card"><div class="rank">03</div><div>
+        <div class="topline"><span class="badge b-industry">产业观察 · 算力金融</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>美国科技巨头隐性AI债务半年激增90%至3.2万亿美元</h3>
+        <p>据日经亚洲报道，美国科技巨头通过表外工具隐藏的AI相关债务在六个月内飙升90%，达到3.2万亿美元。这些债务主要用于数据中心和算力基础设施的激进扩张，引发对AI投资泡沫和金融风险的担忧，可能影响未来融资环境。</p>
+        <p><strong>为何重要：</strong>隐性债务激增揭示AI基建狂热的金融风险。</p>
+        <p class="land"><strong>落地启发：</strong>投资者应警惕AI相关资产估值回调，关注企业债务透明度。</p>
+        <div class="src">来源：<a href="https://openai.com/index/daybreak-red-aws-govcloud" target="_blank">OpenAI Blog</a> / <a href="https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability" target="_blank">Hacker News AI</a></div>
+        </div></article><article class="card"><div class="rank">04</div><div>
+        <div class="topline"><span class="badge b-policy">政策标准 · 算力基建</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>数据中心在中期选举中遭遇全面抵制，建设环境趋紧</h3>
+        <p>美国中期选举中，多地选民投票反对数据中心项目，俄亥俄州尤为明显。候选人支持暂停令和增加障碍，数据中心开发商将面临更严格的审批环境。同时，电力等待时间过长迫使数据中心转向老旧喷气发动机发电，凸显能源瓶颈。</p>
+        <p><strong>为何重要：</strong>选民抵制与能源短缺双重夹击，数据中心扩张受阻。</p>
+        <p class="land"><strong>落地启发：</strong>AI企业需提前布局边缘计算或海外算力，规避政策风险。</p>
+        <div class="src">来源：<a href="https://techcrunch.com/2026/11/03/data-centers-are-turning-to-old-jet-engines-as-the-wait-for-power-grows/" target="_blank">TechCrunch AI</a> / <a href="https://www.theverge.com/policy/1026365/data-centers-midterms-results" target="_blank">The Verge AI</a> / <a href="https://www.engadget.com/2306534/americans-overwhelmingly-voted-against-data-centers-in-the-midterms/" target="_blank">Engadget AI</a></div>
+        </div></article><article class="card"><div class="rank">05</div><div>
+        <div class="topline"><span class="badge b-policy">政策标准 · AI安全</span><span class="stars"><span class="lbl">影响</span>★★★★</span></div>
+        <h3>Anthropic开发FlashProve系统，可验证AI模型身份而不暴露权重</h3>
+        <p>Anthropic正在开发名为FlashProve的系统，允许任何人验证AI响应确实来自其声称的模型，而无需暴露模型权重。该技术有望解决模型身份伪造和内容溯源问题，为AI治理提供技术基础设施，推动行业信任体系建设。</p>
+        <p><strong>为何重要：</strong>模型身份验证技术为AI治理提供关键工具。</p>
+        <p class="land"><strong>落地启发：</strong>平台方应关注该技术进展，为合规溯源做准备。</p>
+        <div class="src">来源：<a href="https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/" target="_blank">TechCrunch AI</a> / <a href="https://www.theverge.com/games/1026085/nexus-mods-ai-disclosures" target="_blank">The Verge AI</a> / <a href="https://the-decoder.com/new-open-source-benchmark-reveals-reasoning-as-the-biggest-bottleneck-for-ai-in-cloud-operations/" target="_blank">The Decoder</a></div>
+        </div></article><div class="sec-head"><span class="num">02</span><h2>今日简报</h2></div><div class="brief"><div class="num">01</div><div>
+        <strong>招商局狮子山实验室发布具身推理模型“驭物™ Lion-ER-35B-A3B”</strong><br>
+        该模型仅激活3B参数，在十项基准上全线提升，不靠堆砌数据让机器人理解真实物理世界。 <a href="https://www.qbitai.com/2026/11/507586.html" target="_blank">[量子位]</a>
+        </div></div><div class="brief"><div class="num">02</div><div>
+        <strong>虎鲸文娱“鲸锐AI”平台上线，AI视频单分钟成本节省30%以上</strong><br>
+        行业首个AI影视制作与管理平台，集成50余个主流模型，支持百人实时协同，显著降低制作成本。 <a href="https://www.qbitai.com/2026/11/507567.html" target="_blank">[量子位]</a> / <a href="https://www.leiphone.com/category/industrynews/vxZxNvbxdDFhYp55.html" target="_blank">[AI 科技评论]</a>
+        </div></div><div class="brief"><div class="num">03</div><div>
+        <strong>openJiuwen Agent-Memory让Agent拥有视听双流记忆，长视频问答时延降97%</strong><br>
+        该技术使Agent能看懂长视频并精准记忆关键事件，问答时延最高降低97%，提升多模态理解能力。 <a href="https://www.qbitai.com/2026/11/507533.html" target="_blank">[量子位]</a>
+        </div></div><div class="brief"><div class="num">04</div><div>
+        <strong>Ballistic Ventures拟募资4.9亿美元，押注AI驱动网络安全热潮</strong><br>
+        该风投寻求3.6亿美元旗舰基金和1.3亿美元专项基金，反映AI安全领域投资热度持续上升。 <a href="https://techcrunch.com/2026/11/03/ted-schleins-ballistic-ventures-seeks-490m-for-new-funds-amid-ai-driven-cybersecurity-boom/" target="_blank">[TechCrunch AI]</a>
+        </div></div><div class="brief"><div class="num">05</div><div>
+        <strong>Uber上季度仅完成4单由AI智能体安排的出行</strong><br>
+        Uber财报披露第三方AI智能体仅促成4次出行，表明AI代理在真实交易场景中的渗透率仍极低。 <a href="https://www.theverge.com/transportation/1026306/uber-ai-agents-q3-earnings-disintermediation" target="_blank">[The Verge AI]</a>
+        </div></div><div class="brief"><div class="num">06</div><div>
+        <strong>智能体身份注册与解析平台在乌镇发布，蚂蚁参与首批建设</strong><br>
+        世界互联网大会发布智能体身份注册平台，推动智能体互信互联，蚂蚁等企业参与首批运行。 <a href="https://www.leiphone.com/category/industrynews/KStlwPyruE6hJ107.html" target="_blank">[AI 科技评论]</a>
+        </div></div><div class="brief"><div class="num">07</div><div>
+        <strong>360参与发起《智能体发展自律公约》，助力构建可信生态</strong><br>
+        中国信通院、360、华为等联合发布自律公约，规范智能体发展，强调安全与可信。 <a href="https://www.leiphone.com/category/industrynews/UB25ocDFu1ntNMtz.html" target="_blank">[AI 科技评论]</a>
+        </div></div><div class="brief"><div class="num">08</div><div>
+        <strong>Google Antigravity实现智能体化学信息学，加速药物发现</strong><br>
+        DeepMind展示Antigravity与化学信息学技能结合，可搜索化合物并提出新型大环分子，加速药物研发。 <a href="https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity/" target="_blank">[DeepMind Blog]</a>
+        </div></div><div class="sec-head"><span class="num">03</span><h2>今日趋势点评</h2></div><div class="trend"><div class="angle">
+        <div class="h">行业大势</div>
+        <p class="judgment">AI行业正从<strong>模型军备竞赛</strong>转向<strong>基础设施与落地效率</strong>的比拼。</p>
+        <p class="evidence">今日<mark>美国科技巨头隐性AI债务半年激增90%至3.2万亿美元</mark>，同时<mark>数据中心在中期选举中遭选民全面抵制</mark>，而<mark>OpenAI收购Pierre强化Codex工具链</mark>、<mark>虎鲸文娱AI视频平台降本30%</mark>，显示资本正从纯模型层流向工具链和垂直应用。</p>
+        <p class="action"><strong>💡 建议：</strong>企业应优先投资能直接降本增效的AI应用，投资者需警惕基础设施过度扩张的金融风险。</p>
+        </div><div class="angle">
+        <div class="h">落地应用启发</div>
+        <p class="judgment">智能体落地仍处早期，<strong>真实场景渗透率极低</strong>，但<strong>记忆与身份技术</strong>正快速成熟。</p>
+        <p class="evidence"><mark>Uber上季度仅4单由AI智能体安排</mark>，而<mark>openJiuwen Agent-Memory将长视频问答时延降低97%</mark>，<mark>Anthropic FlashProve可验证模型身份</mark>，<mark>乌镇发布智能体身份注册平台</mark>，表明技术准备度提升但商业闭环尚未形成。</p>
+        <p class="action"><strong>💡 建议：</strong>开发者应聚焦智能体在垂直场景的可靠性提升，企业可提前布局身份验证与记忆管理中间件。</p>
+        </div><div class="angle">
+        <div class="h">对国内中小企业的影响</div>
+        <p class="judgment">国内AI生态加速<strong>标准化与自律</strong>，中小企业需<strong>紧跟合规要求</strong>并借力开源生态。</p>
+        <p class="evidence">今日<mark>360参与发起《智能体发展自律公约》</mark>，<mark>蚂蚁灵光开放生态新增40项连接器</mark>，<mark>招商局发布高效具身推理模型Lion-ER-35B-A3B</mark>，显示国内正通过行业自律和开放平台降低AI应用门槛。</p>
+        <p class="action"><strong>💡 建议：</strong>中小企业应积极接入头部开放平台，同时关注智能体治理合规要求，避免政策风险。</p>
+        </div></div></main>
+<script>
+(function(){
+  // 搜索过滤
+  const input = document.getElementById('search');
+  if (input) {
+    input.addEventListener('input', function(e) {
+      const q = e.target.value.toLowerCase().trim();
+      document.querySelectorAll('.card, .brief').forEach(function(el) {
+        const match = !q || el.innerText.toLowerCase().includes(q);
+        el.style.display = match ? '' : 'none';
+      });
+    });
+  }
+  
+  // 归档页面动态调整返回链接
+  document.querySelectorAll('.archive-link').forEach(function(el) {
+    if (window.location.pathname.indexOf('/archive/') !== -1) {
+      el.href = 'index.html';
+      el.textContent = '📁 归档目录';
+    }
+  });
+})();
+</script>
+</body></html>
