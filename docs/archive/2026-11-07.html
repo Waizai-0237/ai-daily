@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业每日简报 · 2026-11-07</title>
+<style>
+:root{--bg:#f5f6f8;--bg2:#ffffff;--ink:#14182b;--muted:#5f6478;--rule:#e4e7ee;--accent:#1d39c4;--accent2:#cf1322;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75;}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px;}
+header.masthead{background:linear-gradient(180deg,#101426 0%,#1a2040 100%);color:#fff;padding:40px 0;position:relative;}
+header.masthead::after{content:"";position:absolute;left:0;bottom:0;height:4px;width:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+.masthead h1{font-size:2rem;margin:0 0 10px;font-weight:800;}
+.masthead .meta{font-size:0.95rem;color:#c7cde6;display:flex;gap:12px;flex-wrap:wrap;}
+.masthead .lede{margin-top:15px;font-size:0.98rem;color:#d7dcf0;border-left:3px solid var(--accent2);padding-left:14px;}
+.version{font-family:ui-monospace,SFMono-Regular,monospace;font-size:0.78rem;color:#8a92b2;background:rgba(255,255,255,0.06);padding:1px 8px;border-radius:4px;letter-spacing:0.05em;}
+.toolbar{display:flex;gap:12px;margin-top:16px;align-items:center;}
+.toolbar input{flex:1;padding:10px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:0.9rem;outline:none;transition:border-color .2s;}
+.toolbar input::placeholder{color:#8a92b2;}
+.toolbar input:focus{border-color:var(--accent);}
+.archive-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.archive-link:hover{color:#fff;border-color:var(--accent);}
+.weekly-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.weekly-link:hover{color:#fff;border-color:var(--accent);}
+main{padding:30px 0;}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}
+.strip .cell{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:18px;text-align:center;}
+.strip .cell .n{font-size:1.8rem;font-weight:800;color:var(--accent);}
+.strip .cell .n.red{color:var(--accent2);}
+.strip .cell .n.gray{color:var(--muted);}
+.cat-chart{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px 22px;margin-bottom:24px;}
+.chart-title{font-size:0.85rem;color:var(--muted);font-weight:700;margin-bottom:16px;letter-spacing:0.05em;}
+.chart-body{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+.legend{flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 20px;min-width:220px;}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;}
+.legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0;}
+.legend-name{color:var(--ink);flex:1;}
+.legend-pct{color:var(--muted);font-family:ui-monospace,monospace;font-weight:600;}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 18px;}
+.sec-head .num{font-size:0.8rem;font-weight:700;color:#fff;background:var(--accent);padding:3px 10px;border-radius:3px;}
+.sec-head h2{font-size:1.4rem;margin:0;font-weight:800;}
+.card{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px;margin-bottom:16px;display:grid;grid-template-columns:46px 1fr;gap:18px;}
+.rank{font-size:1.6rem;font-weight:800;color:var(--rule);text-align:center;}
+.card h3{font-size:1.15rem;margin:0 0 8px;}
+.card .land{margin:10px 0;font-size:0.9rem;color:var(--accent);background:#f0f3ff;border-left:3px solid var(--accent);padding:8px 12px;}
+.card .src{font-size:0.8rem;color:var(--muted);border-top:1px dashed var(--rule);padding-top:8px;margin-top:10px;}
+.badge{font-size:0.72rem;font-weight:700;padding:2px 10px;border-radius:20px;letter-spacing:0.02em;color:#fff;white-space:nowrap;}
+.b-fund{background:#0e7d6b;}
+.b-product{background:#1d39c4;}
+.b-paper{background:#6d28d9;}
+.b-open{background:#c2410c;}
+.b-policy{background:#b42318;}
+.b-bigtech{background:#1a2040;}
+.b-industry{background:#0369a1;}
+.b-community{background:#525252;}
+.b-cn{background:#a21caf;}
+.stars{color:#f5a623 !important;font-size:1.1rem;font-weight:bold;letter-spacing:2px;margin-left:auto;white-space:nowrap;}
+.stars .lbl{color:var(--muted);font-size:0.72rem;margin-right:4px;font-weight:normal;letter-spacing:normal;}
+.topline{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:8px;}
+.brief{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:14px;margin-bottom:10px;display:flex;gap:12px;}
+.brief .num{font-weight:800;color:var(--accent);width:26px;}
+.trend{background:linear-gradient(135deg,#1a2040 0%,#222a52 100%);color:#eef0fa;border-radius:12px;padding:26px;margin-top:20px;}
+.trend h3{color:#fff;margin:0 0 14px;}
+.trend .angle{margin-bottom:16px;}
+.trend .angle .h{font-size:0.8rem;color:#8ea0e8;font-weight:700;margin-bottom:6px;}
+.trend .angle .judgment{color:#fff;font-size:1.05rem;font-weight:600;margin:8px 0;}
+.trend .angle .evidence{color:#d7dcf0;font-size:0.95rem;margin:6px 0;}
+.trend .angle .action{color:#a7f3d0;font-size:0.9rem;margin:6px 0;padding:8px 12px;background:rgba(16,185,129,0.08);border-radius:6px;}
+@media(max-width:640px){.strip{grid-template-columns:repeat(2,1fr);}.card{grid-template-columns:1fr;}.rank{text-align:left;}}
+</style></head><body>
+<header class="masthead"><div class="wrap">
+<h1>AI 行业每日简报 · 2026-11-07</h1>
+<div class="meta"><span>2026年11月07日</span><span>·</span><span>星期六</span><span>·</span><span class="version">V1.8</span></div>
+<p class="lede">今日AI行业呈现「冰火两重天」：一边是OpenAI发布GPT-6 Cyber安全模型、DeepSeek带火稀疏计算推动国产芯片融资近10亿，另一边是纳斯达克因AI交易退潮暴跌5%、Anthropic的1.5万亿美元IPO遭遇估值阻力。**重点分析**：这些事件背后共同指向三个驱动因素——第一，资本正从模型层向基础设施层（芯片、算力、安全）转移，DeepSeek的稀疏计算路线获得资本认可，而Qualcomm发布150W AI加速卡也印证了硬件竞赛升温；第二，监管与安全压力陡增，OpenAI推出GPT-6 Cyber并主动限制NDA，同时AI安全世界杯纪录被中国团队刷新，表明安全能力正成为核心竞争力；第三，商业化落地进入深水区，Ramp数据显示AI支出停滞，但豆包取消额度限制、李佳琦卖Token等事件显示应用层仍在探索变现。未来1-3个月，我们预计：AI芯片与算力基础设施的融资并购将加速，安全合规将成为大模型厂商的准入门槛，而IPO市场对AI公司的估值将更趋理性。整体判断：行业正从「狂热扩张」转向「理性深耕」，基础设施与安全赛道将迎来结构性机会。</p>
+<div class="toolbar">
+<input id="search" type="text" placeholder="🔍 搜索标题、摘要或来源..." />
+<a href="archive/index.html" class="archive-link">📁 历史归档</a>
+<a href="weekly/index.html" class="weekly-link">📅 本周回顾</a>
+</div>
+</div></header>
+<main class="wrap">
+<div class="strip">
+<div class="cell"><div class="n red">4</div><div>5 星事件</div></div>
+<div class="cell"><div class="n">1</div><div>4 星事件</div></div>
+<div class="cell"><div class="n">8</div><div>3 星事件</div></div>
+<div class="cell"><div class="n gray">13</div><div>今日简报条数</div></div>
+</div>
+<div class="cat-chart">
+<div class="chart-title">📊 今日分类分布</div>
+<div class="chart-body">
+<svg viewBox="0 0 160 160" width="160" height="160" style="flex-shrink:0;"><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#eef1f8" stroke-width="22"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#1d39c4" stroke-width="22" stroke-dasharray="132.91 212.66" stroke-dashoffset="0.00" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#0e7d6b" stroke-width="22" stroke-dasharray="79.75 265.83" stroke-dashoffset="-132.91" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#6d28d9" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-212.66" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#1a2040" stroke-width="22" stroke-dasharray="26.58 318.99" stroke-dashoffset="-265.83" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#b42318" stroke-width="22" stroke-dasharray="26.58 318.99" stroke-dashoffset="-292.41" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#0369a1" stroke-width="22" stroke-dasharray="26.58 318.99" stroke-dashoffset="-318.99" transform="rotate(-90 80.0 80.0)"/><text x="80.0" y="78.0" text-anchor="middle" font-size="24" font-weight="800" fill="#14182b">13</text><text x="80.0" y="96.0" text-anchor="middle" font-size="11" fill="#5f6478">条动态</text></svg>
+<div class="legend"><div class="legend-item"><span class="legend-dot" style="background:#1d39c4"></span><span class="legend-name">产品发布</span><span class="legend-pct">38%</span></div><div class="legend-item"><span class="legend-dot" style="background:#0e7d6b"></span><span class="legend-name">融资并购</span><span class="legend-pct">23%</span></div><div class="legend-item"><span class="legend-dot" style="background:#6d28d9"></span><span class="legend-name">技术论文</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#1a2040"></span><span class="legend-name">大厂动态</span><span class="legend-pct">8%</span></div><div class="legend-item"><span class="legend-dot" style="background:#b42318"></span><span class="legend-name">政策标准</span><span class="legend-pct">8%</span></div><div class="legend-item"><span class="legend-dot" style="background:#0369a1"></span><span class="legend-name">产业观察</span><span class="legend-pct">8%</span></div></div>
+</div>
+</div>
+<div class="sec-head"><span class="num">01</span><h2>今日必读</h2></div>
+<article class="card"><div class="rank">01</div><div>
+        <div class="topline"><span class="badge b-policy">产品发布 · AI安全</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>OpenAI发布GPT-6 Cyber：可攻破系统并自动修复漏洞的安全智能体</h3>
+        <p>OpenAI推出GPT-6 Cyber网络安全模型，能发现可利用漏洞并开发修复方案，训练时强调在授权范围内行动。该模型兼具攻击与防御能力，标志着AI安全智能体进入实战阶段。</p>
+        <p><strong>为何重要：</strong>AI安全从被动防御转向主动攻防一体</p>
+        <p class="land"><strong>落地启发：</strong>企业应评估AI安全智能体的授权边界与审计机制</p>
+        <div class="src">来源：<a href="https://openai.com/index/introducing-gpt-6-cyber" target="_blank">OpenAI Blog</a> / <a href="https://the-decoder.com/openais-gpt-6-cyber-can-both-break-into-systems-and-propose-how-to-fix-them/" target="_blank">The Decoder</a></div>
+        </div></article><article class="card"><div class="rank">02</div><div>
+        <div class="topline"><span class="badge b-fund">融资并购 · IPO</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>Ramp数据显示AI支出停滞，Anthropic 1.5万亿美元IPO遭遇估值阻力</h3>
+        <p>Ramp数据显示AI使用量持续上升但支出停滞，降价和成本控制挑战了投资者对AI超高速增长的假设。同时Anthropic的1.5万亿美元IPO因估值过高遭遇投资者抵制，市场对AI公司估值趋于谨慎。</p>
+        <p><strong>为何重要：</strong>AI商业化变现能力受到资本市场质疑</p>
+        <p class="land"><strong>落地启发：</strong>投资者需重新评估AI公司的单位经济模型</p>
+        <div class="src">来源：<a href="https://techcrunch.com/2026/11/06/ramp-data-shows-ai-spending-stalling-just-as-anthropic-nears-its-ipo/" target="_blank">TechCrunch AI</a> / <a href="https://the-decoder.com/anthropics-1-5-trillion-ipo-hits-resistance-as-investors-balk-at-valuation/" target="_blank">The Decoder</a></div>
+        </div></article><article class="card"><div class="rank">03</div><div>
+        <div class="topline"><span class="badge b-fund">融资并购 · 芯片竞争</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>DeepSeek带火稀疏计算，国产芯片公司加速突围：这家公司又融近10亿</h3>
+        <p>DeepSeek的稀疏计算路线带动国产芯片公司加速突围，某公司Q3营收数倍增长并完成近10亿元融资。稀疏计算成为国产AI芯片差异化竞争的关键技术方向。</p>
+        <p><strong>为何重要：</strong>稀疏计算路线获资本认可，国产芯片找到突破口</p>
+        <p class="land"><strong>落地启发：</strong>关注稀疏计算生态的软件栈与工具链投资机会</p>
+        <div class="src">来源：<a href="https://www.qbitai.com/2026/11/508155.html" target="_blank">量子位</a></div>
+        </div></article><article class="card"><div class="rank">04</div><div>
+        <div class="topline"><span class="badge b-policy">技术论文 · AI安全</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>99.4%登顶全球第一！中国AI刷新「AI安全世界杯」CyberGym世界纪录</h3>
+        <p>中国AI团队在CyberGym安全基准上以99.4%的准确率登顶全球第一，刷新世界纪录。该成绩表明中国在AI安全评测领域已达到国际领先水平，安全能力成为大模型竞争新维度。</p>
+        <p><strong>为何重要：</strong>AI安全评测能力成为国际竞争新焦点</p>
+        <p class="land"><strong>落地启发：</strong>国内厂商应加强安全基准测试与红队建设</p>
+        <div class="src">来源：<a href="https://www.qbitai.com/2026/11/508107.html" target="_blank">量子位</a></div>
+        </div></article><article class="card"><div class="rank">05</div><div>
+        <div class="topline"><span class="badge b-fund">融资并购 · 智能体生态</span><span class="stars"><span class="lbl">影响</span>★★★★</span></div>
+        <h3>Palo Alto Networks拟以5亿美元收购AI智能体安全初创公司Clutch；Airbnb计划2027年上半年推出AI旅行代理</h3>
+        <p>Palo Alto Networks正谈判以5亿美元收购AI智能体安全公司Clutch，后者估值仅8500万美元。同时Airbnb宣布将于2027年上半年推出AI旅行代理，可规划行程、管理预订。智能体安全与垂直应用同步升温。</p>
+        <p><strong>为何重要：</strong>智能体安全成并购热点，垂直AI代理加速落地</p>
+        <p class="land"><strong>落地启发：</strong>安全厂商应布局智能体行为监控与权限管理</p>
+        <div class="src">来源：<a href="https://techcrunch.com/2026/11/05/palo-alto-networks-in-talks-to-buy-ai-agent-security-startup-clutch-for-500m/" target="_blank">TechCrunch AI</a> / <a href="https://www.theverge.com/tech/1028412/airbnb-ai-travel-agent-q3-2026-earnings" target="_blank">The Verge AI</a></div>
+        </div></article><div class="sec-head"><span class="num">02</span><h2>今日简报</h2></div><div class="brief"><div class="num">01</div><div>
+        <strong>Cult.fit利用Codex构建运营工具，加速跨部门协作</strong><br>
+        Cult.fit使用OpenAI Codex帮助各部门构建工具、提升效率，改变工作方式。 <a href="https://openai.com/index/cultfit-builds-with-codex" target="_blank">[OpenAI Blog]</a>
+        </div></div><div class="brief"><div class="num">02</div><div>
+        <strong>OpenAI发布负责任AI基础设施新标准，推出社区契约与算力校园政策蓝图</strong><br>
+        OpenAI提出国家社区契约和算力校园政策蓝图，旨在保护当地资源、创造就业并指导负责任AI基础设施建设。 <a href="https://openai.com/index/setting-new-standard-responsible-ai-infrastructure" target="_blank">[OpenAI Blog]</a> / <a href="https://www.engadget.com/2306413/samsung-galaxy-watch-ultra-2-review-2026/" target="_blank">[Engadget AI]</a>
+        </div></div><div class="brief"><div class="num">03</div><div>
+        <strong>亚马逊允许用户通过短信让Alexa帮助购物</strong><br>
+        亚马逊为Alexa购物助手新增短信功能，用户可发短信描述商品并下单，未来几周将向数百万用户推广。 <a href="https://techcrunch.com/2026/11/06/after-blocking-muse-amazon-now-lets-users-text-alexa-to-help-them-shop/" target="_blank">[TechCrunch AI]</a> / <a href="https://www.theverge.com/tech/1028587/amazon-alexa-shopping-ai-text-orders" target="_blank">[The Verge AI]</a>
+        </div></div><div class="brief"><div class="num">04</div><div>
+        <strong>Underdog展示32MB语音模型，可同时生成语音和音乐</strong><br>
+        Underdog发布仅32MB的语音模型，尽管体积小，却能生成语音和音乐，展示了端侧AI的潜力。 <a href="https://techcrunch.com/2026/11/06/underdog-shows-off-a-32mb-speech-model-in-new-demo/" target="_blank">[TechCrunch AI]</a>
+        </div></div><div class="brief"><div class="num">05</div><div>
+        <strong>抗议者闯入阿姆斯特丹微软数据中心工地；OpenAI放弃数据中心项目NDA</strong><br>
+        抗议者闯入微软阿姆斯特丹数据中心工地，同时OpenAI宣布放弃数据中心项目的保密协议，回应社区反对。 <a href="https://www.theverge.com/news/1028549/protesters-microsoft-data-center-site-amsterdam" target="_blank">[The Verge AI]</a>
+        </div></div><div class="brief"><div class="num">06</div><div>
+        <strong>Perplexity推出工作型AI智能体Teammates；METR发现Anthropic可能已越过AI加速警告阈值</strong><br>
+        Perplexity发布常驻AI智能体Teammates，可承担多种工作角色；METR报告称Anthropic可能在7月已越过自身AI加速警告阈值。 <a href="https://www.theverge.com/ai-artificial-intelligence/1028302/perplexity-teammates-ai-agents-work" target="_blank">[The Verge AI]</a> / <a href="https://the-decoder.com/metr-finds-anthropic-may-have-crossed-its-own-ai-acceleration-warning-threshold-back-in-july/" target="_blank">[The Decoder]</a>
+        </div></div><div class="brief"><div class="num">07</div><div>
+        <strong>Gemini Omni 1.2 Flash发布：快速、低成本，支持更长视频片段</strong><br>
+        DeepMind推出Gemini Omni 1.2 Flash，主打快速和成本效益，并支持生成更长的视频片段。 <a href="https://deepmind.google/blog/gemini-omni-12-flash-fast-and-cost-effective-with-longer-clips/" target="_blank">[DeepMind Blog]</a>
+        </div></div><div class="brief"><div class="num">08</div><div>
+        <strong>豆包工作个人版取消5小时额度限制</strong><br>
+        豆包工作个人版从11月6日起取消5小时短周期额度限制，用户可在周额度内灵活安排使用时间。 <a href="https://www.leiphone.com/category/industrynews/Ii6W43GghzJA7V1u.html" target="_blank">[AI 科技评论]</a>
+        </div></div><div class="sec-head"><span class="num">03</span><h2>今日趋势点评</h2></div><div class="trend"><div class="angle">
+        <div class="h">行业大势</div>
+        <p class="judgment">资本正从模型层向<strong>基础设施与安全层</strong>结构性转移。</p>
+        <p class="evidence">今日<mark>DeepSeek带火稀疏计算，国产芯片公司融资近10亿</mark>，同时<mark>Palo Alto Networks拟5亿美元收购AI智能体安全公司Clutch</mark>，而<mark>Anthropic的1.5万亿美元IPO遭遇估值阻力</mark>，显示资本更青睐底层硬科技与安全赛道。</p>
+        <p class="action"><strong>💡 建议：</strong>投资者应重点关注AI芯片、算力基础设施和智能体安全领域的早期项目；企业应提前布局安全合规能力。</p>
+        </div><div class="angle">
+        <div class="h">落地应用启发</div>
+        <p class="judgment">AI智能体正从通用助手向<strong>垂直场景深度渗透</strong>。</p>
+        <p class="evidence"><mark>Airbnb计划2027年推出AI旅行代理</mark>，<mark>Perplexity发布工作型智能体Teammates</mark>，<mark>亚马逊允许短信购物</mark>，表明智能体正嵌入具体业务流程。</p>
+        <p class="action"><strong>💡 建议：</strong>开发者应聚焦垂直行业的智能体工作流设计，企业可试点将重复性任务交给AI代理。</p>
+        </div><div class="angle">
+        <div class="h">对国内中小企业的影响</div>
+        <p class="judgment">国产AI生态<strong>加速自主创新</strong>，中小企业迎来低成本接入窗口。</p>
+        <p class="evidence"><mark>豆包取消5小时额度限制</mark>降低使用门槛，<mark>中国AI刷新AI安全世界杯纪录</mark>展示技术实力，<mark>DeepSeek稀疏计算路线</mark>为国产芯片提供差异化路径。</p>
+        <p class="action"><strong>💡 建议：</strong>中小企业可优先采用国产大模型与芯片方案，关注稀疏计算生态的软件工具，以降低成本并提升自主可控性。</p>
+        </div></div></main>
+<script>
+(function(){
+  // 搜索过滤
+  const input = document.getElementById('search');
+  if (input) {
+    input.addEventListener('input', function(e) {
+      const q = e.target.value.toLowerCase().trim();
+      document.querySelectorAll('.card, .brief').forEach(function(el) {
+        const match = !q || el.innerText.toLowerCase().includes(q);
+        el.style.display = match ? '' : 'none';
+      });
+    });
+  }
+  
+  // 归档页面动态调整返回链接
+  document.querySelectorAll('.archive-link').forEach(function(el) {
+    if (window.location.pathname.indexOf('/archive/') !== -1) {
+      el.href = 'index.html';
+      el.textContent = '📁 归档目录';
+    }
+  });
+})();
+</script>
+</body></html>
