@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业每日简报 · 2026-11-11</title>
+<style>
+:root{--bg:#f5f6f8;--bg2:#ffffff;--ink:#14182b;--muted:#5f6478;--rule:#e4e7ee;--accent:#1d39c4;--accent2:#cf1322;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75;}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px;}
+header.masthead{background:linear-gradient(180deg,#101426 0%,#1a2040 100%);color:#fff;padding:40px 0;position:relative;}
+header.masthead::after{content:"";position:absolute;left:0;bottom:0;height:4px;width:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+.masthead h1{font-size:2rem;margin:0 0 10px;font-weight:800;}
+.masthead .meta{font-size:0.95rem;color:#c7cde6;display:flex;gap:12px;flex-wrap:wrap;}
+.masthead .lede{margin-top:15px;font-size:0.98rem;color:#d7dcf0;border-left:3px solid var(--accent2);padding-left:14px;}
+.version{font-family:ui-monospace,SFMono-Regular,monospace;font-size:0.78rem;color:#8a92b2;background:rgba(255,255,255,0.06);padding:1px 8px;border-radius:4px;letter-spacing:0.05em;}
+.toolbar{display:flex;gap:12px;margin-top:16px;align-items:center;}
+.toolbar input{flex:1;padding:10px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:0.9rem;outline:none;transition:border-color .2s;}
+.toolbar input::placeholder{color:#8a92b2;}
+.toolbar input:focus{border-color:var(--accent);}
+.archive-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.archive-link:hover{color:#fff;border-color:var(--accent);}
+.weekly-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.weekly-link:hover{color:#fff;border-color:var(--accent);}
+main{padding:30px 0;}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}
+.strip .cell{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:18px;text-align:center;}
+.strip .cell .n{font-size:1.8rem;font-weight:800;color:var(--accent);}
+.strip .cell .n.red{color:var(--accent2);}
+.strip .cell .n.gray{color:var(--muted);}
+.cat-chart{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px 22px;margin-bottom:24px;}
+.chart-title{font-size:0.85rem;color:var(--muted);font-weight:700;margin-bottom:16px;letter-spacing:0.05em;}
+.chart-body{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+.legend{flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 20px;min-width:220px;}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;}
+.legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0;}
+.legend-name{color:var(--ink);flex:1;}
+.legend-pct{color:var(--muted);font-family:ui-monospace,monospace;font-weight:600;}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 18px;}
+.sec-head .num{font-size:0.8rem;font-weight:700;color:#fff;background:var(--accent);padding:3px 10px;border-radius:3px;}
+.sec-head h2{font-size:1.4rem;margin:0;font-weight:800;}
+.card{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px;margin-bottom:16px;display:grid;grid-template-columns:46px 1fr;gap:18px;}
+.rank{font-size:1.6rem;font-weight:800;color:var(--rule);text-align:center;}
+.card h3{font-size:1.15rem;margin:0 0 8px;}
+.card .land{margin:10px 0;font-size:0.9rem;color:var(--accent);background:#f0f3ff;border-left:3px solid var(--accent);padding:8px 12px;}
+.card .src{font-size:0.8rem;color:var(--muted);border-top:1px dashed var(--rule);padding-top:8px;margin-top:10px;}
+.badge{font-size:0.72rem;font-weight:700;padding:2px 10px;border-radius:20px;letter-spacing:0.02em;color:#fff;white-space:nowrap;}
+.b-fund{background:#0e7d6b;}
+.b-product{background:#1d39c4;}
+.b-paper{background:#6d28d9;}
+.b-open{background:#c2410c;}
+.b-policy{background:#b42318;}
+.b-bigtech{background:#1a2040;}
+.b-industry{background:#0369a1;}
+.b-community{background:#525252;}
+.b-cn{background:#a21caf;}
+.stars{color:#f5a623 !important;font-size:1.1rem;font-weight:bold;letter-spacing:2px;margin-left:auto;white-space:nowrap;}
+.stars .lbl{color:var(--muted);font-size:0.72rem;margin-right:4px;font-weight:normal;letter-spacing:normal;}
+.topline{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:8px;}
+.brief{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:14px;margin-bottom:10px;display:flex;gap:12px;}
+.brief .num{font-weight:800;color:var(--accent);width:26px;}
+.trend{background:linear-gradient(135deg,#1a2040 0%,#222a52 100%);color:#eef0fa;border-radius:12px;padding:26px;margin-top:20px;}
+.trend h3{color:#fff;margin:0 0 14px;}
+.trend .angle{margin-bottom:16px;}
+.trend .angle .h{font-size:0.8rem;color:#8ea0e8;font-weight:700;margin-bottom:6px;}
+.trend .angle .judgment{color:#fff;font-size:1.05rem;font-weight:600;margin:8px 0;}
+.trend .angle .evidence{color:#d7dcf0;font-size:0.95rem;margin:6px 0;}
+.trend .angle .action{color:#a7f3d0;font-size:0.9rem;margin:6px 0;padding:8px 12px;background:rgba(16,185,129,0.08);border-radius:6px;}
+@media(max-width:640px){.strip{grid-template-columns:repeat(2,1fr);}.card{grid-template-columns:1fr;}.rank{text-align:left;}}
+</style></head><body>
+<header class="masthead"><div class="wrap">
+<h1>AI 行业每日简报 · 2026-11-11</h1>
+<div class="meta"><span>2026年11月11日</span><span>·</span><span>星期三</span><span>·</span><span class="version">V1.8</span></div>
+<p class="lede">今日AI行业迎来历史性节点：Anthropic启动IPO路演，目标估值高达1.4万亿美元，同时发布Claude Fable 5.2以巩固技术领先；谷歌Gemini 4 Carbon全面开放，具备智能体集群功能；DeepMind的AlphaProof Code形式化验证Signal协议，实现软件安全突破。这三件事共同指向一个核心趋势：AI竞争已从模型性能比拼升级为资本、生态与安全可信度的多维较量。资本正加速向头部集中，Anthropic的IPO若成功将重塑行业估值体系，并引发连锁融资效应；技术突破则聚焦于智能体协作与形式化验证，标志着AI从生成内容走向可靠执行关键任务。未来1-3个月，我们预计将看到更多AI公司跟进上市，监管机构对智能体安全与数据隐私的关注度提升，以及企业级AI采购从试用转向规模化部署。整体判断：行业进入强者恒强阶段，但基础设施与安全能力将成为分水岭。</p>
+<div class="toolbar">
+<input id="search" type="text" placeholder="🔍 搜索标题、摘要或来源..." />
+<a href="archive/index.html" class="archive-link">📁 历史归档</a>
+<a href="weekly/index.html" class="weekly-link">📅 本周回顾</a>
+</div>
+</div></header>
+<main class="wrap">
+<div class="strip">
+<div class="cell"><div class="n red">3</div><div>5 星事件</div></div>
+<div class="cell"><div class="n">2</div><div>4 星事件</div></div>
+<div class="cell"><div class="n">8</div><div>3 星事件</div></div>
+<div class="cell"><div class="n gray">13</div><div>今日简报条数</div></div>
+</div>
+<div class="cat-chart">
+<div class="chart-title">📊 今日分类分布</div>
+<div class="chart-body">
+<svg viewBox="0 0 160 160" width="160" height="160" style="flex-shrink:0;"><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#eef1f8" stroke-width="22"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#0e7d6b" stroke-width="22" stroke-dasharray="79.75 265.83" stroke-dashoffset="0.00" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#0369a1" stroke-width="22" stroke-dasharray="79.75 265.83" stroke-dashoffset="-79.75" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#1d39c4" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-159.50" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#6d28d9" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-212.66" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#1a2040" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-265.83" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#c2410c" stroke-width="22" stroke-dasharray="26.58 318.99" stroke-dashoffset="-318.99" transform="rotate(-90 80.0 80.0)"/><text x="80.0" y="78.0" text-anchor="middle" font-size="24" font-weight="800" fill="#14182b">13</text><text x="80.0" y="96.0" text-anchor="middle" font-size="11" fill="#5f6478">条动态</text></svg>
+<div class="legend"><div class="legend-item"><span class="legend-dot" style="background:#0e7d6b"></span><span class="legend-name">融资并购</span><span class="legend-pct">23%</span></div><div class="legend-item"><span class="legend-dot" style="background:#0369a1"></span><span class="legend-name">产业观察</span><span class="legend-pct">23%</span></div><div class="legend-item"><span class="legend-dot" style="background:#1d39c4"></span><span class="legend-name">产品发布</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#6d28d9"></span><span class="legend-name">技术论文</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#1a2040"></span><span class="legend-name">大厂动态</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#c2410c"></span><span class="legend-name">开源动态</span><span class="legend-pct">8%</span></div></div>
+</div>
+</div>
+<div class="sec-head"><span class="num">01</span><h2>今日必读</h2></div>
+<article class="card"><div class="rank">01</div><div>
+        <div class="topline"><span class="badge b-fund">融资并购 · IPO</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>Anthropic启动IPO路演，每股70-78美元，目标估值1.4万亿美元</h3>
+        <p>Anthropic正式启动IPO路演，发行价区间70-78美元，完全稀释后估值最高达1.404万亿美元，有望成为史上最大IPO之一。此举将为其研发与算力扩张注入巨额资金，并可能引发AI公司上市潮。</p>
+        <p><strong>为何重要：</strong>AI头部公司IPO标志行业资本化进入新阶段。</p>
+        <p class="land"><strong>落地启发：</strong>关注AI独角兽上市节奏，提前布局相关供应链与生态伙伴。</p>
+        <div class="src">来源：<a href="https://techcrunch.com/2026/11/10/anthropic-sets-ipo-price-range-of-70-to-78-per-share-to-reach-an-implied-valuation-of-1-404-trillion/" target="_blank">TechCrunch AI</a> / <a href="https://www.theverge.com/ai-artificial-intelligence/1030703/anthropic-ipo-1-4-trillion" target="_blank">The Verge AI</a> / <a href="https://the-decoder.com/anthropic-kicks-off-ipo-roadshow-offering-shares-at-70-to-78-and-targeting-a-trillion-dollar-valuation/" target="_blank">The Decoder</a></div>
+        </div></article><article class="card"><div class="rank">02</div><div>
+        <div class="topline"><span class="badge b-product">产品发布 · 模型发布</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>谷歌Gemini 4 Carbon全面开放，新增智能体“集群”功能</h3>
+        <p>谷歌向公众开放Gemini 4 Carbon，该模型号称最强，并首次引入智能体集群功能，可协调多个AI智能体协同完成任务。此前仅限网络安全公司使用，现全面推广将加剧与OpenAI、Anthropic的竞争。</p>
+        <p><strong>为何重要：</strong>智能体集群是AI协作能力的重要突破。</p>
+        <p class="land"><strong>落地启发：</strong>开发者可探索多智能体编排，提升复杂任务自动化水平。</p>
+        <div class="src">来源：<a href="https://www.theverge.com/ai-artificial-intelligence/1030787/google-gemini-4-carbon-public-rollout" target="_blank">The Verge AI</a></div>
+        </div></article><article class="card"><div class="rank">03</div><div>
+        <div class="topline"><span class="badge b-paper">技术论文 · 形式化验证</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>DeepMind推出AlphaProof Code：复杂软件深度验证的突破</h3>
+        <p>DeepMind的AlphaProof Code智能体用Lean语言编写300万行证明，成功形式化验证Signal核心加密协议，证明其安全性。这标志着AI在软件形式化验证领域取得重大进展，有望提升关键系统的可靠性。</p>
+        <p><strong>为何重要：</strong>AI自动验证软件安全，开启可信AI新篇章。</p>
+        <p class="land"><strong>落地启发：</strong>安全关键行业可探索AI辅助形式化验证，降低漏洞风险。</p>
+        <div class="src">来源：<a href="https://deepmind.google/blog/introducing-alphaproof-code/" target="_blank">DeepMind Blog</a></div>
+        </div></article><article class="card"><div class="rank">04</div><div>
+        <div class="topline"><span class="badge b-industry">产业观察 · 劳动力影响</span><span class="stars"><span class="lbl">影响</span>★★★★</span></div>
+        <h3>Anthropic的Fable 5.2完成41%的真实自由职业工作，一年前仅2.5%</h3>
+        <p>Anthropic的Fable 5.2模型在真实自由职业任务中的完成率从一年前的2.5%跃升至41%，显示AI在专业任务上的能力大幅提升。同时，八国及顶级AI实验室签署巴黎宣言，同意建立关停机制。</p>
+        <p><strong>为何重要：</strong>AI替代人类工作的速度超预期，引发监管关注。</p>
+        <p class="land"><strong>落地启发：</strong>企业需重新评估人机协作模式，关注AI治理合规。</p>
+        <div class="src">来源：<a href="https://the-decoder.com/anthropics-fable-5-2-completes-41-percent-of-real-freelance-jobs-up-from-2-5-percent-a-year-ago/" target="_blank">The Decoder</a></div>
+        </div></article><article class="card"><div class="rank">05</div><div>
+        <div class="topline"><span class="badge b-fund">融资并购 · 芯片IPO</span><span class="stars"><span class="lbl">影响</span>★★★★</span></div>
+        <h3>阿里巴巴正式申请平头哥独立上市</h3>
+        <p>阿里巴巴向港交所提交申请，拟分拆旗下芯片公司平头哥独立上市。平头哥真武系列AI芯片累计出货56万片，独立上市有助于市场更清晰定价，并加速芯片业务发展。</p>
+        <p><strong>为何重要：</strong>芯片子公司独立上市，反映AI算力竞争白热化。</p>
+        <p class="land"><strong>落地启发：</strong>关注AI芯片产业链投资机会，尤其是国产替代方向。</p>
+        <div class="src">来源：<a href="https://www.leiphone.com/category/industrynews/dew7AYBxkGAYilZj.html" target="_blank">AI 科技评论</a></div>
+        </div></article><div class="sec-head"><span class="num">02</span><h2>今日简报</h2></div><div class="brief"><div class="num">01</div><div>
+        <strong>ChatGPT Enterprise上线AWS Marketplace</strong><br>
+        ChatGPT Enterprise现可通过AWS Marketplace采购，简化企业采购与计费流程。 <a href="https://openai.com/index/chatgpt-enterprise-aws-marketplace" target="_blank">[OpenAI Blog]</a> / <a href="https://www.engadget.com/2311855/gemini-4-carbon-now-available-worldwide/" target="_blank">[Engadget AI]</a> / <a href="https://deepmind.google/blog/gemini-4-carbon-is-now-available/" target="_blank">[DeepMind Blog]</a>
+        </div></div><div class="brief"><div class="num">02</div><div>
+        <strong>蚂蚁灵波开源触觉基础模型LingBot-Touch</strong><br>
+        蚂蚁灵波科技开源触觉基础模型LingBot-Touch，推动机器人触觉感知发展。 <a href="https://www.qbitai.com/2026/11/508996.html" target="_blank">[量子位]</a> / <a href="https://www.leiphone.com/category/industrynews/Qhv28gnFkgFPCbXV.html" target="_blank">[AI 科技评论]</a>
+        </div></div><div class="brief"><div class="num">03</div><div>
+        <strong>TensorWorld物原科技成立四个月融资过亿美金</strong><br>
+        物原科技一个月内获过亿美元融资，致力于“物理真实”路线。 <a href="https://www.qbitai.com/2026/11/508991.html" target="_blank">[量子位]</a>
+        </div></div><div class="brief"><div class="num">04</div><div>
+        <strong>谷歌推出两款专用AI芯片，扩展TPU产品线</strong><br>
+        谷歌发布两款新TPU，面向机密模型训练和更大内存容量，拓宽AI硬件组合。 <a href="https://techcrunch.com/2026/11/10/google-broadens-its-ai-hardware-portfolio-with-two-new-specialized-chips/" target="_blank">[TechCrunch AI]</a> / <a href="https://www.theverge.com/tech/1030653/adobe-max-2026-photoshop-premiere-removal-updates" target="_blank">[The Verge AI]</a>
+        </div></div><div class="brief"><div class="num">05</div><div>
+        <strong>eBay疑似封杀第三方AI智能体</strong><br>
+        eBay似乎已阻止包括Meta Muse在内的AI智能体浏览平台，智能体电商遇阻。 <a href="https://www.theverge.com/tech/1030838/ebay-ai-agents-meta-muse-agentic-shopping" target="_blank">[The Verge AI]</a>
+        </div></div><div class="brief"><div class="num">06</div><div>
+        <strong>数据中心反对声浪可能真正关乎电力</strong><br>
+        MIT科技评论指出，对数据中心的抵制可能更多源于电力消耗担忧。 <a href="https://www.technologyreview.com/2026/11/09/1148194/the-backlash-about-data-centers-might-really-just-be-about-electricity/" target="_blank">[MIT Tech Review AI]</a>
+        </div></div><div class="brief"><div class="num">07</div><div>
+        <strong>Gemini Robotics 2.5加速真实世界通用灵巧性</strong><br>
+        DeepMind发布最强大视觉-语言-动作模型，提升机器人灵巧性、可靠性和安全性。 <a href="https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/" target="_blank">[DeepMind Blog]</a>
+        </div></div><div class="brief"><div class="num">08</div><div>
+        <strong>黄仁勋的麻烦让AI行业不安</strong><br>
+        英伟达CEO黄仁勋因婚外情传闻涉及疑似中国间谍，可能危及公司及行业。 <a href="https://www.wired.com/story/jensen-huangs-troubles-leaves-the-ai-industry-reeling/" target="_blank">[Wired AI]</a>
+        </div></div><div class="sec-head"><span class="num">03</span><h2>今日趋势点评</h2></div><div class="trend"><div class="angle">
+        <div class="h">行业大势</div>
+        <p class="judgment">AI行业进入<strong>资本与技术双轮驱动</strong>的新阶段，头部效应加剧。</p>
+        <p class="evidence">Anthropic启动IPO目标估值1.4万亿美元，<mark>Fable 5.2完成41%自由职业任务</mark>；谷歌全面开放Gemini 4 Carbon；DeepMind用AI验证Signal协议。</p>
+        <p class="action"><strong>💡 建议：</strong>投资者应关注头部AI公司的上市进程及技术里程碑，企业需加快AI集成以保持竞争力。</p>
+        </div><div class="angle">
+        <div class="h">落地应用启发</div>
+        <p class="judgment">智能体从单点工具向<strong>集群协作</strong>演进，但生态壁垒开始显现。</p>
+        <p class="evidence">谷歌Gemini 4 Carbon推出智能体集群功能；<mark>eBay封杀第三方AI智能体</mark>；Adobe全面押注智能体AI。</p>
+        <p class="action"><strong>💡 建议：</strong>开发者应探索多智能体协同框架，同时关注平台方的开放政策，避免依赖单一生态。</p>
+        </div><div class="angle">
+        <div class="h">对国内中小企业的影响</div>
+        <p class="judgment">国产AI芯片与模型开源降低门槛，但<strong>算力成本与数据合规</strong>仍是挑战。</p>
+        <p class="evidence">阿里平头哥申请独立上市，真武芯片出货56万片；蚂蚁灵波开源触觉模型；<mark>数据中心电力争议</mark>凸显算力基建压力。</p>
+        <p class="action"><strong>💡 建议：</strong>中小企业可借助开源模型和国产芯片优化成本，同时提前布局数据合规体系。</p>
+        </div></div></main>
+<script>
+(function(){
+  // 搜索过滤
+  const input = document.getElementById('search');
+  if (input) {
+    input.addEventListener('input', function(e) {
+      const q = e.target.value.toLowerCase().trim();
+      document.querySelectorAll('.card, .brief').forEach(function(el) {
+        const match = !q || el.innerText.toLowerCase().includes(q);
+        el.style.display = match ? '' : 'none';
+      });
+    });
+  }
+  
+  // 归档页面动态调整返回链接
+  document.querySelectorAll('.archive-link').forEach(function(el) {
+    if (window.location.pathname.indexOf('/archive/') !== -1) {
+      el.href = 'index.html';
+      el.textContent = '📁 归档目录';
+    }
+  });
+})();
+</script>
+</body></html>
