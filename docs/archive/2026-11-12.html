@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业每日简报 · 2026-11-12</title>
+<style>
+:root{--bg:#f5f6f8;--bg2:#ffffff;--ink:#14182b;--muted:#5f6478;--rule:#e4e7ee;--accent:#1d39c4;--accent2:#cf1322;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75;}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px;}
+header.masthead{background:linear-gradient(180deg,#101426 0%,#1a2040 100%);color:#fff;padding:40px 0;position:relative;}
+header.masthead::after{content:"";position:absolute;left:0;bottom:0;height:4px;width:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+.masthead h1{font-size:2rem;margin:0 0 10px;font-weight:800;}
+.masthead .meta{font-size:0.95rem;color:#c7cde6;display:flex;gap:12px;flex-wrap:wrap;}
+.masthead .lede{margin-top:15px;font-size:0.98rem;color:#d7dcf0;border-left:3px solid var(--accent2);padding-left:14px;}
+.version{font-family:ui-monospace,SFMono-Regular,monospace;font-size:0.78rem;color:#8a92b2;background:rgba(255,255,255,0.06);padding:1px 8px;border-radius:4px;letter-spacing:0.05em;}
+.toolbar{display:flex;gap:12px;margin-top:16px;align-items:center;}
+.toolbar input{flex:1;padding:10px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:0.9rem;outline:none;transition:border-color .2s;}
+.toolbar input::placeholder{color:#8a92b2;}
+.toolbar input:focus{border-color:var(--accent);}
+.archive-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.archive-link:hover{color:#fff;border-color:var(--accent);}
+.weekly-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.weekly-link:hover{color:#fff;border-color:var(--accent);}
+main{padding:30px 0;}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}
+.strip .cell{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:18px;text-align:center;}
+.strip .cell .n{font-size:1.8rem;font-weight:800;color:var(--accent);}
+.strip .cell .n.red{color:var(--accent2);}
+.strip .cell .n.gray{color:var(--muted);}
+.cat-chart{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px 22px;margin-bottom:24px;}
+.chart-title{font-size:0.85rem;color:var(--muted);font-weight:700;margin-bottom:16px;letter-spacing:0.05em;}
+.chart-body{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+.legend{flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 20px;min-width:220px;}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;}
+.legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0;}
+.legend-name{color:var(--ink);flex:1;}
+.legend-pct{color:var(--muted);font-family:ui-monospace,monospace;font-weight:600;}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 18px;}
+.sec-head .num{font-size:0.8rem;font-weight:700;color:#fff;background:var(--accent);padding:3px 10px;border-radius:3px;}
+.sec-head h2{font-size:1.4rem;margin:0;font-weight:800;}
+.card{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px;margin-bottom:16px;display:grid;grid-template-columns:46px 1fr;gap:18px;}
+.rank{font-size:1.6rem;font-weight:800;color:var(--rule);text-align:center;}
+.card h3{font-size:1.15rem;margin:0 0 8px;}
+.card .land{margin:10px 0;font-size:0.9rem;color:var(--accent);background:#f0f3ff;border-left:3px solid var(--accent);padding:8px 12px;}
+.card .src{font-size:0.8rem;color:var(--muted);border-top:1px dashed var(--rule);padding-top:8px;margin-top:10px;}
+.badge{font-size:0.72rem;font-weight:700;padding:2px 10px;border-radius:20px;letter-spacing:0.02em;color:#fff;white-space:nowrap;}
+.b-fund{background:#0e7d6b;}
+.b-product{background:#1d39c4;}
+.b-paper{background:#6d28d9;}
+.b-open{background:#c2410c;}
+.b-policy{background:#b42318;}
+.b-bigtech{background:#1a2040;}
+.b-industry{background:#0369a1;}
+.b-community{background:#525252;}
+.b-cn{background:#a21caf;}
+.stars{color:#f5a623 !important;font-size:1.1rem;font-weight:bold;letter-spacing:2px;margin-left:auto;white-space:nowrap;}
+.stars .lbl{color:var(--muted);font-size:0.72rem;margin-right:4px;font-weight:normal;letter-spacing:normal;}
+.topline{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:8px;}
+.brief{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:14px;margin-bottom:10px;display:flex;gap:12px;}
+.brief .num{font-weight:800;color:var(--accent);width:26px;}
+.trend{background:linear-gradient(135deg,#1a2040 0%,#222a52 100%);color:#eef0fa;border-radius:12px;padding:26px;margin-top:20px;}
+.trend h3{color:#fff;margin:0 0 14px;}
+.trend .angle{margin-bottom:16px;}
+.trend .angle .h{font-size:0.8rem;color:#8ea0e8;font-weight:700;margin-bottom:6px;}
+.trend .angle .judgment{color:#fff;font-size:1.05rem;font-weight:600;margin:8px 0;}
+.trend .angle .evidence{color:#d7dcf0;font-size:0.95rem;margin:6px 0;}
+.trend .angle .action{color:#a7f3d0;font-size:0.9rem;margin:6px 0;padding:8px 12px;background:rgba(16,185,129,0.08);border-radius:6px;}
+@media(max-width:640px){.strip{grid-template-columns:repeat(2,1fr);}.card{grid-template-columns:1fr;}.rank{text-align:left;}}
+</style></head><body>
+<header class="masthead"><div class="wrap">
+<h1>AI 行业每日简报 · 2026-11-12</h1>
+<div class="meta"><span>2026年11月12日</span><span>·</span><span>星期四</span><span>·</span><span class="version">V1.8</span></div>
+<p class="lede">今日AI行业呈现“商业落地加速与风险暴露并存”的态势。OpenAI季度营收首破100亿美元、企业级销售成为主引擎，同时ChatGPT推出认证“商业智能体”并上线企业信息管理功能，标志着AI从工具向商业基础设施跃迁；但Grok Build编码智能体泄露3.5万个应用敏感数据、CoreWeave债券收益率飙升至16%暴露AI信用压力，以及英伟达CEO黄仁勋陷入地缘政治风波，共同指向高速扩张中的治理与安全短板。**重点分析**：资本正从模型层向应用层和基础设施层双向流动——OpenAI收购旅游初创公司Odessia、Databricks用AI智能体辅助CEO决策，显示企业级AI采购从“试水”转向“核心业务嵌入”；而CoreWeave的信用压力与Grok的数据泄露则揭示算力金融化与智能体安全治理的滞后。未来1-3个月，企业AI采购将更注重ROI验证与安全合规，智能体治理和算力金融风险管控或成监管焦点。整体判断：AI商业化进入“收入放量但风险定价”的新阶段，赢家将是那些能平衡增长与治理的企业。</p>
+<div class="toolbar">
+<input id="search" type="text" placeholder="🔍 搜索标题、摘要或来源..." />
+<a href="archive/index.html" class="archive-link">📁 历史归档</a>
+<a href="weekly/index.html" class="weekly-link">📅 本周回顾</a>
+</div>
+</div></header>
+<main class="wrap">
+<div class="strip">
+<div class="cell"><div class="n red">4</div><div>5 星事件</div></div>
+<div class="cell"><div class="n">1</div><div>4 星事件</div></div>
+<div class="cell"><div class="n">8</div><div>3 星事件</div></div>
+<div class="cell"><div class="n gray">13</div><div>今日简报条数</div></div>
+</div>
+<div class="cat-chart">
+<div class="chart-title">📊 今日分类分布</div>
+<div class="chart-body">
+<svg viewBox="0 0 160 160" width="160" height="160" style="flex-shrink:0;"><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#eef1f8" stroke-width="22"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#1d39c4" stroke-width="22" stroke-dasharray="79.75 265.83" stroke-dashoffset="0.00" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#6d28d9" stroke-width="22" stroke-dasharray="79.75 265.83" stroke-dashoffset="-79.75" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#1a2040" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-159.50" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#0369a1" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-212.66" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#0e7d6b" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-265.83" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#c2410c" stroke-width="22" stroke-dasharray="26.58 318.99" stroke-dashoffset="-318.99" transform="rotate(-90 80.0 80.0)"/><text x="80.0" y="78.0" text-anchor="middle" font-size="24" font-weight="800" fill="#14182b">13</text><text x="80.0" y="96.0" text-anchor="middle" font-size="11" fill="#5f6478">条动态</text></svg>
+<div class="legend"><div class="legend-item"><span class="legend-dot" style="background:#1d39c4"></span><span class="legend-name">产品发布</span><span class="legend-pct">23%</span></div><div class="legend-item"><span class="legend-dot" style="background:#6d28d9"></span><span class="legend-name">技术论文</span><span class="legend-pct">23%</span></div><div class="legend-item"><span class="legend-dot" style="background:#1a2040"></span><span class="legend-name">大厂动态</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#0369a1"></span><span class="legend-name">产业观察</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#0e7d6b"></span><span class="legend-name">融资并购</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#c2410c"></span><span class="legend-name">开源动态</span><span class="legend-pct">8%</span></div></div>
+</div>
+</div>
+<div class="sec-head"><span class="num">01</span><h2>今日必读</h2></div>
+<article class="card"><div class="rank">01</div><div>
+        <div class="topline"><span class="badge b-bigtech">大厂动态 · 营收突破</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>OpenAI季度营收首次突破100亿美元，企业级销售成主引擎</h3>
+        <p>OpenAI第三季度营收达100亿美元，较上季度67亿美元增长近50%，主要受企业级销售推动，但仍落后于Anthropic。这标志着OpenAI商业化进入新量级，企业市场成为增长核心。</p>
+        <p><strong>为何重要：</strong>验证AI企业级付费意愿，行业收入拐点显现。</p>
+        <p class="land"><strong>落地启发：</strong>企业应加速AI预算规划，关注ROI验证。</p>
+        <div class="src">来源：<a href="https://techcrunch.com/2026/11/11/openais-quarterly-revenue-reportedly-crosses-10b-for-the-first-time/" target="_blank">TechCrunch AI</a> / <a href="https://the-decoder.com/enterprise-sales-push-openais-quarterly-revenue-to-10-billion-though-it-still-trails-anthropic/" target="_blank">The Decoder</a></div>
+        </div></article><article class="card"><div class="rank">02</div><div>
+        <div class="topline"><span class="badge b-product">产品发布 · 智能体生态</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>ChatGPT推出认证“商业智能体”，品牌可入驻对话</h3>
+        <p>OpenAI为ChatGPT引入认证“商业智能体”，允许品牌在对话中提供比价、客服等服务，首批面向合规电商开放。同时推出企业信息管理功能，帮助商家洞察在ChatGPT中的展示效果。</p>
+        <p><strong>为何重要：</strong>AI助手成为商业流量新入口，重塑电商交互。</p>
+        <p class="land"><strong>落地启发：</strong>电商企业应提前布局智能体渠道，优化品牌数据。</p>
+        <div class="src">来源：<a href="https://openai.com/index/gilbert-tobin-sam-nickless" target="_blank">OpenAI Blog</a> / <a href="https://www.theverge.com/ai-artificial-intelligence/1030552/openai-chatgpt-business-agents-hub" target="_blank">The Verge AI</a></div>
+        </div></article><article class="card"><div class="rank">03</div><div>
+        <div class="topline"><span class="badge b-policy">产业观察 · AI安全</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>Grok Build编码智能体泄露大量机密信息，涉及SpaceXSI等客户</h3>
+        <p>研究人员发现3.5万个Grok Build应用存在安全漏洞，暴露患者数据、明文密码及SpaceXSI自身销售管道等敏感信息。该事件凸显AI编码智能体在权限控制和数据隔离上的重大缺陷。</p>
+        <p><strong>为何重要：</strong>智能体安全漏洞可能引发企业信任危机。</p>
+        <p class="land"><strong>落地启发：</strong>部署AI智能体前需强制安全审计与权限隔离。</p>
+        <div class="src">来源：<a href="https://arstechnica.com/security/2026/11/grok-build-coding-agent-leaks-oodles-of-confidential-info-some-belonging-to-spacexsi/" target="_blank">Ars Technica AI</a> / <a href="https://www.engadget.com/2313187/grok-build-leaked-sensitive-spacexsi-data/" target="_blank">Engadget AI</a> / <a href="https://the-decoder.com/grok-built-apps-exposed-patient-data-plaintext-passwords-and-spacexsis-own-sales-pipeline/" target="_blank">The Decoder</a></div>
+        </div></article><article class="card"><div class="rank">04</div><div>
+        <div class="topline"><span class="badge b-fund">融资并购 · 算力金融</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>CoreWeave债券收益率突破16%，AI信用压力上升</h3>
+        <p>AI云服务商CoreWeave的债券收益率飙升至16%以上，反映市场对AI基础设施高杠杆扩张的信用担忧。叠加“100% AI mandate”一年后代码库脆弱性的讨论，AI算力金融化风险开始显性化。</p>
+        <p><strong>为何重要：</strong>AI算力投资过热可能引发金融连锁反应。</p>
+        <p class="land"><strong>落地启发：</strong>投资者需警惕AI基础设施债务风险，分散布局。</p>
+        <div class="src">来源：<a href="https://www.cnbc.com/2026/11/06/coreweave-bond-yield-tops-16percent-as-ai-credit-stress-rises.html" target="_blank">Hacker News AI</a></div>
+        </div></article><article class="card"><div class="rank">05</div><div>
+        <div class="topline"><span class="badge b-paper">技术论文 · 生物计算</span><span class="stars"><span class="lbl">影响</span>★★★★</span></div>
+        <h3>Google DeepMind发布AlphaGenome 2，精准解码DNA与疾病关联</h3>
+        <p>DeepMind推出AlphaGenome 2模型，能预测DNA序列变异对特定细胞类型和疾病的影响，为遗传病研究提供更精细的工具。这是AI for Science在基因组学的重要突破。</p>
+        <p><strong>为何重要：</strong>AI加速生命科学发现，拓展行业边界。</p>
+        <p class="land"><strong>落地启发：</strong>生物医药企业可探索AI模型在靶点发现中的应用。</p>
+        <div class="src">来源：<a href="https://www.theverge.com/ai-artificial-intelligence/1031524/google-deepmind-alphagenome-2-genetic-ai-model" target="_blank">The Verge AI</a> / <a href="https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/" target="_blank">DeepMind Blog</a></div>
+        </div></article><div class="sec-head"><span class="num">02</span><h2>今日简报</h2></div><div class="brief"><div class="num">01</div><div>
+        <strong>OpenAI为退伍军人提供免费ChatGPT Plus，超2万人领取</strong><br>
+        OpenAI向退伍军人及过渡期服役人员提供一年免费ChatGPT Plus，已吸引超2万人领取，用于民用职业准备。 <a href="https://openai.com/index/chatgpt-plus-for-veterans" target="_blank">[OpenAI Blog]</a>
+        </div></div><div class="brief"><div class="num">02</div><div>
+        <strong>OpenAI收购旅游初创公司Odessia，由Sonder创始人创办</strong><br>
+        OpenAI收购旅游初创Odessia，未透露具体计划，但创始人Francis Davidson为旅游业知名人物，或指向AI旅行服务整合。 <a href="https://openai.com/index/singapore-airlines-travel-work" target="_blank">[OpenAI Blog]</a> / <a href="https://techcrunch.com/2026/11/10/openai-acquires-odessia-travel-startup-created-by-sonder-founder/" target="_blank">[TechCrunch AI]</a>
+        </div></div><div class="brief"><div class="num">03</div><div>
+        <strong>大模型厂商双11在天猫打5折，智谱、MiniMax等参与</strong><br>
+        智谱、MiniMax、千问办公、阿里云、Qoder等大模型厂商在天猫双11推出5折促销，AI模型价格战蔓延至电商节。 <a href="https://www.qbitai.com/2026/11/509085.html" target="_blank">[量子位]</a>
+        </div></div><div class="brief"><div class="num">04</div><div>
+        <strong>英伟达机器人开源撞上Fable 5.2发布，Jim Fan称“不是寒冬是夏天”</strong><br>
+        英伟达机器人开源项目与Fable 5.2发布同期，Jim Fan反驳AI寒冬论，称机器人领域正迎来夏天。 <a href="https://www.qbitai.com/2026/11/509032.html" target="_blank">[量子位]</a>
+        </div></div><div class="brief"><div class="num">05</div><div>
+        <strong>Google SWE智能体72小时发现未标注的玛雅金字塔</strong><br>
+        48个AI智能体协作分析NASA激光雷达数据，72小时内发现一座未标注的玛雅金字塔，展示AI在考古领域的潜力。 <a href="https://pietromiotti.com/latest/maya-site/?maya" target="_blank">[Hacker News AI]</a>
+        </div></div><div class="brief"><div class="num">06</div><div>
+        <strong>Gemini 4 Carbon正式发布，微软自动超分登陆ROG Xbox Ally X</strong><br>
+        DeepMind发布Gemini 4 Carbon模型，微软自动超分辨率技术正式支持ROG Xbox Ally X等Copilot+ PC。 <a href="https://www.engadget.com/2313202/microsoft-automatic-super-resolution-comes-to-rog-xbox-ally-x/" target="_blank">[Engadget AI]</a> / <a href="https://deepmind.google/blog/gemini-4-carbon-is-now-available/" target="_blank">[DeepMind Blog]</a>
+        </div></div><div class="brief"><div class="num">07</div><div>
+        <strong>DeepMind推出AlphaProof Code，验证Signal核心加密代码</strong><br>
+        AlphaProof Code智能体用Lean编写300万行证明，验证Signal核心加密协议，展示AI在软件形式化验证的突破。 <a href="https://deepmind.google/blog/introducing-alphaproof-code/" target="_blank">[DeepMind Blog]</a>
+        </div></div><div class="brief"><div class="num">08</div><div>
+        <strong>百度发布文心5.5 Flash Preview，总参数2800亿</strong><br>
+        百度推出文心5.5 Flash Preview，总参数2800亿，每Token激活140亿，支持100万Token上下文，编程与3D建模能力升级。 <a href="https://www.leiphone.com/category/industrynews/sqz0hf4DoTPX5mqI.html" target="_blank">[AI 科技评论]</a>
+        </div></div><div class="sec-head"><span class="num">03</span><h2>今日趋势点评</h2></div><div class="trend"><div class="angle">
+        <div class="h">行业大势</div>
+        <p class="judgment">AI商业化进入<strong>收入放量与风险定价并行</strong>的新阶段。</p>
+        <p class="evidence">OpenAI季度营收首破<mark>100亿美元</mark>，企业级销售驱动增长；但CoreWeave债券收益率飙升至<mark>16%</mark>，Grok智能体泄露<mark>3.5万应用</mark>数据，显示高速扩张中的金融与安全风险正在显性化。</p>
+        <p class="action"><strong>💡 建议：</strong>企业应建立AI项目的ROI评估与安全审计双轨机制，投资者需关注AI基础设施债务风险。</p>
+        </div><div class="angle">
+        <div class="h">落地应用启发</div>
+        <p class="judgment">AI智能体正从<strong>工具辅助</strong>转向<strong>商业基础设施</strong>。</p>
+        <p class="evidence">ChatGPT推出认证<mark>商业智能体</mark>，品牌可直接在对话中提供比价服务；Databricks用AI智能体辅助CEO决策；蚂蚁灵光2.0托管事务量突破<mark>300万项</mark>。</p>
+        <p class="action"><strong>💡 建议：</strong>企业应提前布局智能体渠道，将AI智能体嵌入核心业务流程，并建立人机协作治理框架。</p>
+        </div><div class="angle">
+        <div class="h">对国内中小企业的影响</div>
+        <p class="judgment">模型价格战与开源生态<strong>降低AI应用门槛</strong>，但安全合规成本上升。</p>
+        <p class="evidence">智谱、MiniMax等大模型厂商在天猫<mark>打5折</mark>促销；英伟达机器人开源与Fable 5.2发布推动生态；但Grok泄露事件警示智能体安全风险。</p>
+        <p class="action"><strong>💡 建议：</strong>中小企业可借价格战窗口低成本接入AI能力，但需优先选择通过安全认证的供应商，并加强数据隔离。</p>
+        </div></div></main>
+<script>
+(function(){
+  // 搜索过滤
+  const input = document.getElementById('search');
+  if (input) {
+    input.addEventListener('input', function(e) {
+      const q = e.target.value.toLowerCase().trim();
+      document.querySelectorAll('.card, .brief').forEach(function(el) {
+        const match = !q || el.innerText.toLowerCase().includes(q);
+        el.style.display = match ? '' : 'none';
+      });
+    });
+  }
+  
+  // 归档页面动态调整返回链接
+  document.querySelectorAll('.archive-link').forEach(function(el) {
+    if (window.location.pathname.indexOf('/archive/') !== -1) {
+      el.href = 'index.html';
+      el.textContent = '📁 归档目录';
+    }
+  });
+})();
+</script>
+</body></html>
