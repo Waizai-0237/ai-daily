@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业每日简报 · 2026-11-14</title>
+<style>
+:root{--bg:#f5f6f8;--bg2:#ffffff;--ink:#14182b;--muted:#5f6478;--rule:#e4e7ee;--accent:#1d39c4;--accent2:#cf1322;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75;}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px;}
+header.masthead{background:linear-gradient(180deg,#101426 0%,#1a2040 100%);color:#fff;padding:40px 0;position:relative;}
+header.masthead::after{content:"";position:absolute;left:0;bottom:0;height:4px;width:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+.masthead h1{font-size:2rem;margin:0 0 10px;font-weight:800;}
+.masthead .meta{font-size:0.95rem;color:#c7cde6;display:flex;gap:12px;flex-wrap:wrap;}
+.masthead .lede{margin-top:15px;font-size:0.98rem;color:#d7dcf0;border-left:3px solid var(--accent2);padding-left:14px;}
+.version{font-family:ui-monospace,SFMono-Regular,monospace;font-size:0.78rem;color:#8a92b2;background:rgba(255,255,255,0.06);padding:1px 8px;border-radius:4px;letter-spacing:0.05em;}
+.toolbar{display:flex;gap:12px;margin-top:16px;align-items:center;}
+.toolbar input{flex:1;padding:10px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:0.9rem;outline:none;transition:border-color .2s;}
+.toolbar input::placeholder{color:#8a92b2;}
+.toolbar input:focus{border-color:var(--accent);}
+.archive-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.archive-link:hover{color:#fff;border-color:var(--accent);}
+.weekly-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.weekly-link:hover{color:#fff;border-color:var(--accent);}
+main{padding:30px 0;}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}
+.strip .cell{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:18px;text-align:center;}
+.strip .cell .n{font-size:1.8rem;font-weight:800;color:var(--accent);}
+.strip .cell .n.red{color:var(--accent2);}
+.strip .cell .n.gray{color:var(--muted);}
+.cat-chart{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px 22px;margin-bottom:24px;}
+.chart-title{font-size:0.85rem;color:var(--muted);font-weight:700;margin-bottom:16px;letter-spacing:0.05em;}
+.chart-body{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+.legend{flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 20px;min-width:220px;}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;}
+.legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0;}
+.legend-name{color:var(--ink);flex:1;}
+.legend-pct{color:var(--muted);font-family:ui-monospace,monospace;font-weight:600;}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 18px;}
+.sec-head .num{font-size:0.8rem;font-weight:700;color:#fff;background:var(--accent);padding:3px 10px;border-radius:3px;}
+.sec-head h2{font-size:1.4rem;margin:0;font-weight:800;}
+.card{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px;margin-bottom:16px;display:grid;grid-template-columns:46px 1fr;gap:18px;}
+.rank{font-size:1.6rem;font-weight:800;color:var(--rule);text-align:center;}
+.card h3{font-size:1.15rem;margin:0 0 8px;}
+.card .land{margin:10px 0;font-size:0.9rem;color:var(--accent);background:#f0f3ff;border-left:3px solid var(--accent);padding:8px 12px;}
+.card .src{font-size:0.8rem;color:var(--muted);border-top:1px dashed var(--rule);padding-top:8px;margin-top:10px;}
+.badge{font-size:0.72rem;font-weight:700;padding:2px 10px;border-radius:20px;letter-spacing:0.02em;color:#fff;white-space:nowrap;}
+.b-fund{background:#0e7d6b;}
+.b-product{background:#1d39c4;}
+.b-paper{background:#6d28d9;}
+.b-open{background:#c2410c;}
+.b-policy{background:#b42318;}
+.b-bigtech{background:#1a2040;}
+.b-industry{background:#0369a1;}
+.b-community{background:#525252;}
+.b-cn{background:#a21caf;}
+.stars{color:#f5a623 !important;font-size:1.1rem;font-weight:bold;letter-spacing:2px;margin-left:auto;white-space:nowrap;}
+.stars .lbl{color:var(--muted);font-size:0.72rem;margin-right:4px;font-weight:normal;letter-spacing:normal;}
+.topline{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:8px;}
+.brief{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:14px;margin-bottom:10px;display:flex;gap:12px;}
+.brief .num{font-weight:800;color:var(--accent);width:26px;}
+.trend{background:linear-gradient(135deg,#1a2040 0%,#222a52 100%);color:#eef0fa;border-radius:12px;padding:26px;margin-top:20px;}
+.trend h3{color:#fff;margin:0 0 14px;}
+.trend .angle{margin-bottom:16px;}
+.trend .angle .h{font-size:0.8rem;color:#8ea0e8;font-weight:700;margin-bottom:6px;}
+.trend .angle .judgment{color:#fff;font-size:1.05rem;font-weight:600;margin:8px 0;}
+.trend .angle .evidence{color:#d7dcf0;font-size:0.95rem;margin:6px 0;}
+.trend .angle .action{color:#a7f3d0;font-size:0.9rem;margin:6px 0;padding:8px 12px;background:rgba(16,185,129,0.08);border-radius:6px;}
+@media(max-width:640px){.strip{grid-template-columns:repeat(2,1fr);}.card{grid-template-columns:1fr;}.rank{text-align:left;}}
+</style></head><body>
+<header class="masthead"><div class="wrap">
+<h1>AI 行业每日简报 · 2026-11-14</h1>
+<div class="meta"><span>2026年11月14日</span><span>·</span><span>星期六</span><span>·</span><span class="version">V1.8</span></div>
+<p class="lede">今日AI行业在震荡中加速分化：黄仁勋辞任英伟达CEO引发算力资本链重构，OpenAI推出ChatGPT Wallet将智能体推向交易闭环，而中国模型被曝依赖被禁英伟达芯片则凸显地缘技术博弈的深化。三件五星事件看似独立，实则共同指向一个核心驱动：AI竞争正从单纯的模型能力比拼，转向“算力供给—资本循环—商业落地”三位一体的生态卡位战。黄仁勋的离场不仅动摇英伟达对AI初创的资本输血模式，更可能触发芯片出口管制与算力金融化的连锁反应；ChatGPT Wallet则标志着智能体从“信息中介”升级为“交易执行者”，支付与电商成为大模型商业化的下一个必争之地；而芯片走私疑云与Anthropic IPO排除中港投资者，则显示监管压力正从技术出口向资本流动全面渗透。未来1-3个月，我们预计将看到：英伟达新管理层面临资本策略调整，AI初创融资估值承压；智能体支付赛道迅速拥挤，Google、Amazon跟进；中美芯片合规审查升级，倒逼国产算力替代提速。整体判断：AI行业正从“叙事驱动”进入“结构重组”阶段，资本与监管的双重外力将比技术突破更深刻地重塑竞争格局。</p>
+<div class="toolbar">
+<input id="search" type="text" placeholder="🔍 搜索标题、摘要或来源..." />
+<a href="archive/index.html" class="archive-link">📁 历史归档</a>
+<a href="weekly/index.html" class="weekly-link">📅 本周回顾</a>
+</div>
+</div></header>
+<main class="wrap">
+<div class="strip">
+<div class="cell"><div class="n red">3</div><div>5 星事件</div></div>
+<div class="cell"><div class="n">2</div><div>4 星事件</div></div>
+<div class="cell"><div class="n">8</div><div>3 星事件</div></div>
+<div class="cell"><div class="n gray">13</div><div>今日简报条数</div></div>
+</div>
+<div class="cat-chart">
+<div class="chart-title">📊 今日分类分布</div>
+<div class="chart-body">
+<svg viewBox="0 0 160 160" width="160" height="160" style="flex-shrink:0;"><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#eef1f8" stroke-width="22"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#1d39c4" stroke-width="22" stroke-dasharray="132.91 212.66" stroke-dashoffset="0.00" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#1a2040" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-132.91" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#b42318" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-186.08" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#0e7d6b" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-239.24" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#0369a1" stroke-width="22" stroke-dasharray="26.58 318.99" stroke-dashoffset="-292.41" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#6d28d9" stroke-width="22" stroke-dasharray="26.58 318.99" stroke-dashoffset="-318.99" transform="rotate(-90 80.0 80.0)"/><text x="80.0" y="78.0" text-anchor="middle" font-size="24" font-weight="800" fill="#14182b">13</text><text x="80.0" y="96.0" text-anchor="middle" font-size="11" fill="#5f6478">条动态</text></svg>
+<div class="legend"><div class="legend-item"><span class="legend-dot" style="background:#1d39c4"></span><span class="legend-name">产品发布</span><span class="legend-pct">38%</span></div><div class="legend-item"><span class="legend-dot" style="background:#1a2040"></span><span class="legend-name">大厂动态</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#b42318"></span><span class="legend-name">政策标准</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#0e7d6b"></span><span class="legend-name">融资并购</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#0369a1"></span><span class="legend-name">产业观察</span><span class="legend-pct">8%</span></div><div class="legend-item"><span class="legend-dot" style="background:#6d28d9"></span><span class="legend-name">技术论文</span><span class="legend-pct">8%</span></div></div>
+</div>
+</div>
+<div class="sec-head"><span class="num">01</span><h2>今日必读</h2></div>
+<article class="card"><div class="rank">01</div><div>
+        <div class="topline"><span class="badge b-bigtech">大厂动态 · 芯片变局</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>黄仁勋辞职，英伟达33年首换帅，市值蒸发超3万亿</h3>
+        <p>英伟达CEO黄仁勋因个人丑闻辞职，结束33年掌舵生涯，公司市值单日蒸发超3万亿元。作为AI算力霸主，其离任不仅引发管理层动荡，更可能动摇英伟达通过投资初创企业锁定GPU需求的资本循环模式，全球AI算力供应链面临重估。</p>
+        <p><strong>为何重要：</strong>算力霸主换帅，AI资本循环模式面临重构。</p>
+        <p class="land"><strong>落地启发：</strong>关注英伟达投资策略变化，警惕AI初创估值回调。</p>
+        <div class="src">来源：<a href="https://www.qbitai.com/2026/11/509995.html" target="_blank">量子位</a></div>
+        </div></article><article class="card"><div class="rank">02</div><div>
+        <div class="topline"><span class="badge b-product">产品发布 · 智能体支付</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>OpenAI推出ChatGPT Wallet，AI智能体可代用户购物结账</h3>
+        <p>OpenAI正式发布ChatGPT Wallet，允许ChatGPT Work、Codex和Dots中的AI智能体在用户授权下完成购买，首批面向美国Pro订阅用户。这标志着智能体从信息处理迈向交易执行，支付与电商成为大模型商业化的新战场。</p>
+        <p><strong>为何重要：</strong>智能体首次闭环交易，商业化迈出关键一步。</p>
+        <p class="land"><strong>落地启发：</strong>电商与支付企业需评估智能体接入策略与风控。</p>
+        <div class="src">来源：<a href="https://openai.com/index/introducing-chatgpt-wallet" target="_blank">OpenAI Blog</a> / <a href="https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/" target="_blank">TechCrunch AI</a> / <a href="https://www.theverge.com/ai-artificial-intelligence/1033425/openai-chatgpt-wallet" target="_blank">The Verge AI</a> / <a href="https://www.engadget.com/2316137/you-can-now-tempt-fate-and-give-your-banking-information-to-chatgpt/" target="_blank">Engadget AI</a> / <a href="https://the-decoder.com/openai-rebuilt-ai-shopping-from-scratch-with-chatgpt-wallet/" target="_blank">The Decoder</a></div>
+        </div></article><article class="card"><div class="rank">03</div><div>
+        <div class="topline"><span class="badge b-policy">政策标准 · 芯片合规</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>研究显示中国最强AI模型依赖被禁英伟达芯片训练</h3>
+        <p>新研究指出中国最先进的AI模型是在被美国出口禁令限制的英伟达芯片上训练的，引发对芯片走私和出口管制有效性的质疑。此事与黄仁勋辞职风波叠加，可能加剧美国对华技术封锁的审查力度，并推动中国国产算力替代加速。</p>
+        <p><strong>为何重要：</strong>暴露出口管制漏洞，地缘技术博弈升级。</p>
+        <p class="land"><strong>落地启发：</strong>国产芯片企业迎替代窗口，合规审查需前置。</p>
+        <div class="src">来源：<a href="https://techcrunch.com/2026/11/13/export-banned-nvidia-chips-are-behind-chinas-most-powerful-ai-models-uh-oh-jensen/" target="_blank">TechCrunch AI</a> / <a href="https://www.wired.com/story/jensen-huang-colette-kress-replacement-powerful-women-in-tech/" target="_blank">Wired AI</a></div>
+        </div></article><article class="card"><div class="rank">04</div><div>
+        <div class="topline"><span class="badge b-fund">融资并购 · 智能体生态</span><span class="stars"><span class="lbl">影响</span>★★★★</span></div>
+        <h3>AI智能体初创公司LangChain估值达30亿美元</h3>
+        <p>LangChain凭借其模型无关的智能体管理平台LangSmith，客户数达7000家，估值冲上30亿美元。这显示资本市场对智能体中间层和工具链的强烈信心，尽管英伟达资本收缩，但应用层创新仍受追捧。</p>
+        <p><strong>为何重要：</strong>智能体工具链成资本避风港，生态价值凸显。</p>
+        <p class="land"><strong>落地启发：</strong>开发者可关注LangSmith生态，企业评估智能体管理平台。</p>
+        <div class="src">来源：<a href="https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/" target="_blank">TechCrunch AI</a> / <a href="https://www.wired.com/story/black-roles-are-disappearing-in-hollywood-this-startup-is-using-ai-microdramas-to-fight-back/" target="_blank">Wired AI</a></div>
+        </div></article><article class="card"><div class="rank">05</div><div>
+        <div class="topline"><span class="badge b-product">产品发布 · 模型升级</span><span class="stars"><span class="lbl">影响</span>★★★★</span></div>
+        <h3>Google新Gemini模型更擅长理解复杂问题</h3>
+        <p>Google推出Gemini 4 Hydrogen模型，能更好地处理多部分问题、拼写错误和高度具体请求，并已集成至搜索AI模式。这显示Google正将大模型能力深度嵌入核心搜索产品，以应对OpenAI在消费端的攻势。</p>
+        <p><strong>为何重要：</strong>搜索AI化提速，模型能力直接赋能核心产品。</p>
+        <p class="land"><strong>落地启发：</strong>关注搜索流量格局变化，内容优化需适配AI问答。</p>
+        <div class="src">来源：<a href="https://www.theverge.com/ai-artificial-intelligence/1032505/google-search-ai-mode-gemini-4-hydrogen" target="_blank">The Verge AI</a></div>
+        </div></article><div class="sec-head"><span class="num">02</span><h2>今日简报</h2></div><div class="brief"><div class="num">01</div><div>
+        <strong>黄仁勋离任给AI初创融资留下巨大缺口，风投和创始人预计支票缩水</strong><br>
+        英伟达此前向AI初创投入数百亿美元，黄仁勋离任后，风投和创始人预计融资规模缩小、估值降低。 <a href="https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/" target="_blank">[TechCrunch AI]</a> / <a href="https://www.theverge.com/podcast/1032866/jensen-huang-nvidia-china-trump-vergecast" target="_blank">[The Verge AI]</a> / <a href="https://www.wired.com/story/uncanny-valley-podcast-jensen-huang-is-out-will-nvidias-rivals-cash-in/" target="_blank">[Wired AI]</a>
+        </div></div><div class="brief"><div class="num">02</div><div>
+        <strong>Google发布Gemini 4 Hydrogen模型</strong><br>
+        DeepMind发布Gemini 4 Hydrogen，重点提升复杂问题理解能力，已接入搜索AI模式。 <a href="https://deepmind.google/blog/introducing-gemini-4-hydrogen/" target="_blank">[DeepMind Blog]</a>
+        </div></div><div class="brief"><div class="num">03</div><div>
+        <strong>Google允许用户将Gemini连接至银行账户</strong><br>
+        Gemini新增银行账户连接功能，用于消费分析而非直接购买，金融AI应用边界拓宽。 <a href="https://www.engadget.com/2316384/google-now-lets-people-connect-gemini-to-their-bank-accounts/" target="_blank">[Engadget AI]</a>
+        </div></div><div class="brief"><div class="num">04</div><div>
+        <strong>英伟达私下确认可追踪芯片以打击走私，尽管行业公开质疑可行性</strong><br>
+        英伟达向国会议员表示技术上可实施芯片追踪反走私措施，但行业公开质疑其可行性。 <a href="https://www.technologyreview.com/2026/11/12/1148483/nvidia-chip-tracking/" target="_blank">[MIT Tech Review AI]</a>
+        </div></div><div class="brief"><div class="num">05</div><div>
+        <strong>ElevenLabs推出新应用，整合会议记录与听写功能</strong><br>
+        ElevenLabs发布ElevenAI，面向团队和企业提供会议记录和听写服务，语音AI向生产力工具延伸。 <a href="https://techcrunch.com/2026/11/13/elevenlabs-new-app-combines-meeting-note-taking-and-dictation-for-teams/" target="_blank">[TechCrunch AI]</a>
+        </div></div><div class="brief"><div class="num">06</div><div>
+        <strong>亚马逊计划索引全球在线购物数据</strong><br>
+        亚马逊拟建立全球商品数据图谱，即使非自营商品也纳入，通过AI搜索强化电商入口。 <a href="https://www.theverge.com/tech/1033697/amazon-world-product-graph-ai-search" target="_blank">[The Verge AI]</a>
+        </div></div><div class="brief"><div class="num">07</div><div>
+        <strong>中国AI突破复杂肺癌诊疗，中美医疗圈震动</strong><br>
+        中国AI在复杂肺癌诊疗上取得突破，250名三甲医院医生联合评测，医疗AI落地加速。 <a href="https://www.qbitai.com/2026/11/509796.html" target="_blank">[量子位]</a>
+        </div></div><div class="brief"><div class="num">08</div><div>
+        <strong>浙大彭思达：从元宇宙到具身智能，三维视觉研究者的八年</strong><br>
+        浙大研究员彭思达分享从元宇宙到具身智能的研究历程，反映三维视觉与具身智能的融合趋势。 <a href="https://www.leiphone.com/category/ai/lpK3LQWqmpZP8jcG.html" target="_blank">[AI 科技评论]</a>
+        </div></div><div class="sec-head"><span class="num">03</span><h2>今日趋势点评</h2></div><div class="trend"><div class="angle">
+        <div class="h">行业大势</div>
+        <p class="judgment">AI竞争进入<strong>算力资本与商业闭环双轮驱动</strong>的新阶段。</p>
+        <p class="evidence">黄仁勋离任可能削弱英伟达对AI初创的资本输血，<mark>市值蒸发超3万亿</mark>；同时OpenAI推出<mark>ChatGPT Wallet</mark>，将智能体推向交易执行，商业化闭环加速。</p>
+        <p class="action"><strong>💡 建议：</strong>投资者应重新评估算力依赖型初创的风险，企业需探索智能体在交易场景的落地路径。</p>
+        </div><div class="angle">
+        <div class="h">对国内中小企业的影响</div>
+        <p class="judgment">芯片合规风险倒逼<strong>国产算力替代提速</strong>，中小企业需提前布局。</p>
+        <p class="evidence">研究显示中国最强AI模型依赖<mark>被禁英伟达芯片</mark>训练，Anthropic IPO排除中港投资者，地缘技术博弈深化。</p>
+        <p class="action"><strong>💡 建议：</strong>中小企业应评估算力供应链合规性，优先测试国产芯片方案，关注政策补贴窗口。</p>
+        </div><div class="angle">
+        <div class="h">落地应用启发</div>
+        <p class="judgment">智能体从<strong>信息中介升级为交易执行者</strong>，支付与电商成新战场。</p>
+        <p class="evidence">OpenAI <mark>ChatGPT Wallet</mark>允许智能体代购，Google <mark>Gemini连接银行账户</mark>用于消费分析，亚马逊计划索引全球购物数据。</p>
+        <p class="action"><strong>💡 建议：</strong>电商和金融企业需设计智能体接入的授权与风控机制，开发者可探索智能体支付插件生态。</p>
+        </div></div></main>
+<script>
+(function(){
+  // 搜索过滤
+  const input = document.getElementById('search');
+  if (input) {
+    input.addEventListener('input', function(e) {
+      const q = e.target.value.toLowerCase().trim();
+      document.querySelectorAll('.card, .brief').forEach(function(el) {
+        const match = !q || el.innerText.toLowerCase().includes(q);
+        el.style.display = match ? '' : 'none';
+      });
+    });
+  }
+  
+  // 归档页面动态调整返回链接
+  document.querySelectorAll('.archive-link').forEach(function(el) {
+    if (window.location.pathname.indexOf('/archive/') !== -1) {
+      el.href = 'index.html';
+      el.textContent = '📁 归档目录';
+    }
+  });
+})();
+</script>
+</body></html>
