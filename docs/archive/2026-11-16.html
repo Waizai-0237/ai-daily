@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业每日简报 · 2026-11-16</title>
+<style>
+:root{--bg:#f5f6f8;--bg2:#ffffff;--ink:#14182b;--muted:#5f6478;--rule:#e4e7ee;--accent:#1d39c4;--accent2:#cf1322;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75;}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px;}
+header.masthead{background:linear-gradient(180deg,#101426 0%,#1a2040 100%);color:#fff;padding:40px 0;position:relative;}
+header.masthead::after{content:"";position:absolute;left:0;bottom:0;height:4px;width:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+.masthead h1{font-size:2rem;margin:0 0 10px;font-weight:800;}
+.masthead .meta{font-size:0.95rem;color:#c7cde6;display:flex;gap:12px;flex-wrap:wrap;}
+.masthead .lede{margin-top:15px;font-size:0.98rem;color:#d7dcf0;border-left:3px solid var(--accent2);padding-left:14px;}
+.version{font-family:ui-monospace,SFMono-Regular,monospace;font-size:0.78rem;color:#8a92b2;background:rgba(255,255,255,0.06);padding:1px 8px;border-radius:4px;letter-spacing:0.05em;}
+.toolbar{display:flex;gap:12px;margin-top:16px;align-items:center;}
+.toolbar input{flex:1;padding:10px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:0.9rem;outline:none;transition:border-color .2s;}
+.toolbar input::placeholder{color:#8a92b2;}
+.toolbar input:focus{border-color:var(--accent);}
+.archive-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.archive-link:hover{color:#fff;border-color:var(--accent);}
+.weekly-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.weekly-link:hover{color:#fff;border-color:var(--accent);}
+main{padding:30px 0;}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}
+.strip .cell{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:18px;text-align:center;}
+.strip .cell .n{font-size:1.8rem;font-weight:800;color:var(--accent);}
+.strip .cell .n.red{color:var(--accent2);}
+.strip .cell .n.gray{color:var(--muted);}
+.cat-chart{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px 22px;margin-bottom:24px;}
+.chart-title{font-size:0.85rem;color:var(--muted);font-weight:700;margin-bottom:16px;letter-spacing:0.05em;}
+.chart-body{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+.legend{flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 20px;min-width:220px;}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;}
+.legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0;}
+.legend-name{color:var(--ink);flex:1;}
+.legend-pct{color:var(--muted);font-family:ui-monospace,monospace;font-weight:600;}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 18px;}
+.sec-head .num{font-size:0.8rem;font-weight:700;color:#fff;background:var(--accent);padding:3px 10px;border-radius:3px;}
+.sec-head h2{font-size:1.4rem;margin:0;font-weight:800;}
+.card{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px;margin-bottom:16px;display:grid;grid-template-columns:46px 1fr;gap:18px;}
+.rank{font-size:1.6rem;font-weight:800;color:var(--rule);text-align:center;}
+.card h3{font-size:1.15rem;margin:0 0 8px;}
+.card .land{margin:10px 0;font-size:0.9rem;color:var(--accent);background:#f0f3ff;border-left:3px solid var(--accent);padding:8px 12px;}
+.card .src{font-size:0.8rem;color:var(--muted);border-top:1px dashed var(--rule);padding-top:8px;margin-top:10px;}
+.badge{font-size:0.72rem;font-weight:700;padding:2px 10px;border-radius:20px;letter-spacing:0.02em;color:#fff;white-space:nowrap;}
+.b-fund{background:#0e7d6b;}
+.b-product{background:#1d39c4;}
+.b-paper{background:#6d28d9;}
+.b-open{background:#c2410c;}
+.b-policy{background:#b42318;}
+.b-bigtech{background:#1a2040;}
+.b-industry{background:#0369a1;}
+.b-community{background:#525252;}
+.b-cn{background:#a21caf;}
+.stars{color:#f5a623 !important;font-size:1.1rem;font-weight:bold;letter-spacing:2px;margin-left:auto;white-space:nowrap;}
+.stars .lbl{color:var(--muted);font-size:0.72rem;margin-right:4px;font-weight:normal;letter-spacing:normal;}
+.topline{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:8px;}
+.brief{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:14px;margin-bottom:10px;display:flex;gap:12px;}
+.brief .num{font-weight:800;color:var(--accent);width:26px;}
+.trend{background:linear-gradient(135deg,#1a2040 0%,#222a52 100%);color:#eef0fa;border-radius:12px;padding:26px;margin-top:20px;}
+.trend h3{color:#fff;margin:0 0 14px;}
+.trend .angle{margin-bottom:16px;}
+.trend .angle .h{font-size:0.8rem;color:#8ea0e8;font-weight:700;margin-bottom:6px;}
+.trend .angle .judgment{color:#fff;font-size:1.05rem;font-weight:600;margin:8px 0;}
+.trend .angle .evidence{color:#d7dcf0;font-size:0.95rem;margin:6px 0;}
+.trend .angle .action{color:#a7f3d0;font-size:0.9rem;margin:6px 0;padding:8px 12px;background:rgba(16,185,129,0.08);border-radius:6px;}
+@media(max-width:640px){.strip{grid-template-columns:repeat(2,1fr);}.card{grid-template-columns:1fr;}.rank{text-align:left;}}
+</style></head><body>
+<header class="masthead"><div class="wrap">
+<h1>AI 行业每日简报 · 2026-11-16</h1>
+<div class="meta"><span>2026年11月16日</span><span>·</span><span>星期一</span><span>·</span><span class="version">V1.8</span></div>
+<p class="lede">今日 AI 行业的核心矛盾集中爆发在英伟达身上：CEO 黄仁勋因涉嫌关联对华芯片输送调查而辞职，引发 11.5 万人请愿、亚洲政府紧急确认供应、VC 预警初创融资缺口，一条围绕单一领袖与单一算力供给方建立起来的行业秩序正在被动摇。与此同时，产业底层正在发生三件实质性变化：联想以「绿电进 Token 出」把词元生产定义为可规模化、成本降 70% 的制造业，百度词元所首日涌入超 100 家供应商与 1000 家客户，DeepSeek 开放全家桶 API，三者共同指向「模型能力商品化、Token 成为标准计价单位」；美团发布 1.6 万亿参数 Agent 模型且全程未使用英伟达 GPU，则从硬件侧给出了替代路径的实证。共同驱动因素有三：一是资本从「押注领袖与叙事」转向「押注可计价的产能与成本曲线」，Anthropic 在创纪录 IPO 前夜承认「明年巨大不确定性」正是这一转向的注脚；二是供给端去单一化，算力与模型同时出现多源替代压力；三是治理与安全压力上升，OpenAI 董事 Helen Toner 公开表示「仍不能信任 AI CEO」，与英伟达治理危机形成呼应。未来 1-3 个月，预计将出现 AI 初创估值下修与融资节奏放缓、Token 计价与交易平台加速成型、非英伟达算力路线的验证性发布增多。整体判断：今日不是一次孤立的人事风波，而是 AI 行业从「领袖驱动的叙事溢价」切换到「产能与治理驱动的价值重估」的分水岭。</p>
+<div class="toolbar">
+<input id="search" type="text" placeholder="🔍 搜索标题、摘要或来源..." />
+<a href="archive/index.html" class="archive-link">📁 历史归档</a>
+<a href="weekly/index.html" class="weekly-link">📅 本周回顾</a>
+</div>
+</div></header>
+<main class="wrap">
+<div class="strip">
+<div class="cell"><div class="n red">3</div><div>5 星事件</div></div>
+<div class="cell"><div class="n">2</div><div>4 星事件</div></div>
+<div class="cell"><div class="n">8</div><div>3 星事件</div></div>
+<div class="cell"><div class="n gray">13</div><div>今日简报条数</div></div>
+</div>
+<div class="cat-chart">
+<div class="chart-title">📊 今日分类分布</div>
+<div class="chart-body">
+<svg viewBox="0 0 160 160" width="160" height="160" style="flex-shrink:0;"><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#eef1f8" stroke-width="22"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#0369a1" stroke-width="22" stroke-dasharray="106.33 239.24" stroke-dashoffset="0.00" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#0e7d6b" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-106.33" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#1a2040" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-159.50" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#1d39c4" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-212.66" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#6d28d9" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-265.83" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#525252" stroke-width="22" stroke-dasharray="26.58 318.99" stroke-dashoffset="-318.99" transform="rotate(-90 80.0 80.0)"/><text x="80.0" y="78.0" text-anchor="middle" font-size="24" font-weight="800" fill="#14182b">13</text><text x="80.0" y="96.0" text-anchor="middle" font-size="11" fill="#5f6478">条动态</text></svg>
+<div class="legend"><div class="legend-item"><span class="legend-dot" style="background:#0369a1"></span><span class="legend-name">产业观察</span><span class="legend-pct">31%</span></div><div class="legend-item"><span class="legend-dot" style="background:#0e7d6b"></span><span class="legend-name">融资并购</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#1a2040"></span><span class="legend-name">大厂动态</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#1d39c4"></span><span class="legend-name">产品发布</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#6d28d9"></span><span class="legend-name">技术论文</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#525252"></span><span class="legend-name">社区热议</span><span class="legend-pct">8%</span></div></div>
+</div>
+</div>
+<div class="sec-head"><span class="num">01</span><h2>今日必读</h2></div>
+<article class="card"><div class="rank">01</div><div>
+        <div class="topline"><span class="badge b-fund">融资并购 · 资本退潮</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>黄仁勋离职在 AI 初创融资中炸出巨大缺口，VC 与创始人集体预警</h3>
+        <p>TechCrunch 报道称，黄仁勋任内英伟达向 AI 初创投入数百亿美元，其离职后创始人与 VC 普遍预期支票更小、估值更低。The Verge 同步复盘其从「摇滚明星 CEO」到治理危机的全过程，认为「愿景型表演式创始人 CEO」时代正在退潮。</p>
+        <p><strong>为何重要：</strong>算力资本与初创融资的绑定关系被切断</p>
+        <p class="land"><strong>落地启发：</strong>重估对英伟达系资本依赖度高的项目估值</p>
+        <div class="src">来源：<a href="https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/" target="_blank">TechCrunch AI</a> / <a href="https://www.theverge.com/column/1033943/jensen-huang-nvidia-china-spying-scandal-resignation" target="_blank">The Verge AI</a></div>
+        </div></article><article class="card"><div class="rank">02</div><div>
+        <div class="topline"><span class="badge b-bigtech">大厂动态 · 公司治理</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>马斯克等科技高管联署请愿要求英伟达恢复黄仁勋职务，亚洲政府回应其离职</h3>
+        <p>请愿截至周六下午已获超 11.5 万人签名，马斯克等科技高管参与。亚洲多国政府紧急行动：部分确认芯片供应承诺，部分评估对本地项目影响并跟进调查。另有报道称与黄仁勋前伴侣关联的公司曾撮合近 120 亿美元对华英伟达芯片订单。</p>
+        <p><strong>为何重要：</strong>领袖危机已外溢为供应链与地缘政治风险</p>
+        <p class="land"><strong>落地启发：</strong>排查对华芯片供应链合规敞口与交付承诺</p>
+        <div class="src">来源：<a href="https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/" target="_blank">TechCrunch AI</a> / <a href="https://the-decoder.com/firm-linked-to-jensen-huangs-ex-lover-reportedly-brokered-nearly-12-billion-in-nvidia-chip-orders-for-china/" target="_blank">The Decoder</a></div>
+        </div></article><article class="card"><div class="rank">03</div><div>
+        <div class="topline"><span class="badge b-industry">产业观察 · 算力基建</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>绿电进 Token 出：联想重新定义「词元工厂」，年产 2000 万亿 Token、成本降 70%</h3>
+        <p>联想提出以绿电直接生产 Token 的「词元工厂」模式，宣称年产 2000 万亿 Token、成本下降 70%。这实质是把模型推理从「服务」重新定义为「制造业」，以能源与产能而非算法作为核心成本变量。</p>
+        <p><strong>为何重要：</strong>Token 生产被制造业化，成本曲线成竞争主轴</p>
+        <p class="land"><strong>落地启发：</strong>按 Token 单位成本重算自建与采购推理的边界</p>
+        <div class="src">来源：<a href="https://www.qbitai.com/2026/11/510094.html" target="_blank">量子位</a></div>
+        </div></article><article class="card"><div class="rank">04</div><div>
+        <div class="topline"><span class="badge b-product">产品发布 · 模型开放</span><span class="stars"><span class="lbl">影响</span>★★★★</span></div>
+        <h3>突发：DeepSeek 开放全家桶 API，官方 App 功能可自由组合调用</h3>
+        <p>DeepSeek 将官方 App 的全部功能以 API 形式开放，开发者可自由组合调用。这意味着其能力从封闭产品转为可编排的模块，直接降低上层 Agent 与应用开发的门槛，也加剧模型层的 API 价格与能力竞争。</p>
+        <p><strong>为何重要：</strong>模型能力进一步商品化，Agent 开发门槛下移</p>
+        <p class="land"><strong>落地启发：</strong>评估将现有 Agent 链路切换或混用 DeepSeek 模块</p>
+        <div class="src">来源：<a href="https://www.qbitai.com/2026/11/510003.html" target="_blank">量子位</a></div>
+        </div></article><article class="card"><div class="rank">05</div><div>
+        <div class="topline"><span class="badge b-paper">技术论文 · 模型评测</span><span class="stars"><span class="lbl">影响</span>★★★★</span></div>
+        <h3>Claude Fable 5.2 不生成图像而是「绘制」图像；Gemini 4 Carbon 夺 MathArena 榜首但成本为 GPT-6.1 Sol 的 15 倍</h3>
+        <p>Anthropic 的 Claude Fable 5.2 强调以「绘制」方式产出图像而非传统生成，指向过程可控的视觉生成路线。Gemini 4 Carbon 在 MathArena 登顶，但成本高达 GPT-6.1 Sol 的 15 倍，凸显能力领先与单位经济性之间的尖锐取舍。</p>
+        <p><strong>为何重要：</strong>能力榜单与成本效率出现明显背离</p>
+        <p class="land"><strong>落地启发：</strong>选型须以任务级性价比而非榜单排名为准</p>
+        <div class="src">来源：<a href="https://the-decoder.com/anthropics-claude-fable-5-2-doesnt-generate-images-it-paints-them/" target="_blank">The Decoder</a></div>
+        </div></article><div class="sec-head"><span class="num">02</span><h2>今日简报</h2></div><div class="brief"><div class="num">01</div><div>
+        <strong>百度词元所发布首日：供应商暴增超 100 家，客户新增超 1000 家</strong><br>
+        李彦宏所称「大模型的交易所」上线首日即涌入超 100 家供应商与超 1000 家客户，Token 交易平台化提速。 <a href="https://www.leiphone.com/category/industrynews/cqPXhF38rM4VcVa7.html" target="_blank">[AI 科技评论]</a>
+        </div></div><div class="brief"><div class="num">02</div><div>
+        <strong>AI Agent 初创 LangChain 估值达 30 亿美元</strong><br>
+        其模型与平台无关的 Agent 管理工具 LangSmith 已拥有 7000 家客户，Agent 中间层价值获资本确认。 <a href="https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/" target="_blank">[TechCrunch AI]</a>
+        </div></div><div class="brief"><div class="num">03</div><div>
+        <strong>ChatGPT Wallet 上线，OpenAI 的 Dots 智能体可代用户完成购买</strong><br>
+        面向美国 ChatGPT Pro 成年订阅用户推出钱包，Agent 从「建议」跨入「代付」，交易授权与风控成为新课题。 <a href="https://www.theverge.com/ai-artificial-intelligence/1033425/openai-chatgpt-wallet" target="_blank">[The Verge AI]</a>
+        </div></div><div class="brief"><div class="num">04</div><div>
+        <strong>所有 AI 生成的代码都应开源；英伟达被指通过资助 AI 初创购买自家 GPU 人为制造稀缺</strong><br>
+        HN 热议 AI 代码的开源义务，同时一则指控称英伟达以投资换采购、人为制造 GPU 稀缺，直指算力市场的结构性问题。 <a href="https://jakub.jankiewicz.org/blog/ai-code-open-source/" target="_blank">[Hacker News AI]</a>
+        </div></div><div class="brief"><div class="num">05</div><div>
+        <strong>英伟达的安全团队去哪了？</strong><br>
+        TechCrunch 指出英伟达安全负责人已于 8 月悄然离职，治理与内控缺口在 CEO 辞职事件中集中暴露。 <a href="https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/" target="_blank">[TechCrunch AI]</a>
+        </div></div><div class="brief"><div class="num">06</div><div>
+        <strong>AI 坟场：一份未能存活的 AI 项目与初创清单</strong><br>
+        从苹果屡次延期的 Siri AI 到 OpenAI 混乱的「超级应用」发布，系统梳理了关停或未达预期的 AI 项目。 <a href="https://techcrunch.com/2026/11/14/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/" target="_blank">[TechCrunch AI]</a>
+        </div></div><div class="brief"><div class="num">07</div><div>
+        <strong>「史上最严」湿实验预测基准发布：推理拉满、算力翻 5 倍也无济于事</strong><br>
+        斯坦福、哈佛、康奈尔等十余家团队联合推出湿实验预测基准，显示单纯堆推理与算力难以突破，科学发现仍是硬约束。 <a href="https://www.qbitai.com/2026/11/510232.html" target="_blank">[量子位]</a>
+        </div></div><div class="brief"><div class="num">08</div><div>
+        <strong>警惕新一轮由 AI 助推的勒索软件潮</strong><br>
+        全自动勒索软件尚未到来，但技术并不高明的攻击者已借 AI 工具造成实质破坏，攻击门槛显著下移。 <a href="https://www.wired.com/story/beware-the-new-ai-fueled-ransomware-boom/" target="_blank">[Wired AI]</a>
+        </div></div><div class="sec-head"><span class="num">03</span><h2>今日趋势点评</h2></div><div class="trend"><div class="angle">
+        <div class="h">行业大势</div>
+        <p class="judgment">AI 行业正从<strong>领袖叙事溢价</strong>切换到<strong>产能与治理定价</strong>。</p>
+        <p class="evidence"><mark>黄仁勋离职</mark>直接触发 VC 预警初创融资缺口与 <mark>11.5 万人请愿</mark>；同期 <mark>Anthropic 在创纪录 IPO 前夜承认明年巨大不确定性</mark>；<mark>联想词元工厂宣称成本降 70%</mark>、<mark>百度词元所首日超 100 家供应商</mark>，资本注意力正从故事转向可计价的产能。</p>
+        <p class="action"><strong>💡 建议：</strong>投资者应下调依赖单一领袖或单一算力供给方的标的权重，优先配置具备单位成本优势与治理透明度的基础设施与中间层公司。</p>
+        </div><div class="angle">
+        <div class="h">落地应用启发</div>
+        <p class="judgment">模型能力商品化后，<strong>竞争焦点转向编排与单位成本</strong>。</p>
+        <p class="evidence"><mark>DeepSeek 开放全家桶 API</mark>使官方能力可自由组合；<mark>LangChain 以 7000 家客户支撑 30 亿美元估值</mark>；<mark>Gemini 4 Carbon 登顶 MathArena 但成本为 GPT-6.1 Sol 的 15 倍</mark>，说明榜单领先不等于可用。</p>
+        <p class="action"><strong>💡 建议：</strong>开发团队应建立按任务粒度的模型路由与成本监控，用多模型混用替代单点绑定，把评测从「跑分」改为「单位任务成本与成功率」。</p>
+        </div><div class="angle">
+        <div class="h">对国内中小企业的影响</div>
+        <p class="judgment">算力多源化与 Token 交易化，<strong>降低中小企业用模门槛</strong>。</p>
+        <p class="evidence"><mark>美团发布 1.6 万亿参数 Agent 模型且全程未使用英伟达 GPU</mark>，验证非英伟达路线可行；<mark>百度词元所首日新增超 1000 家客户</mark>，Token 采购趋于标准化；同时 <mark>亚洲政府就芯片供应承诺作出回应</mark>，供给不确定性仍在。</p>
+        <p class="action"><strong>💡 建议：</strong>中小企业应优先通过 Token 交易平台按需采购并保留多供应商备份，同时关注国产与非英伟达算力路线的可用性验证，避免锁定单一供给。</p>
+        </div></div></main>
+<script>
+(function(){
+  // 搜索过滤
+  const input = document.getElementById('search');
+  if (input) {
+    input.addEventListener('input', function(e) {
+      const q = e.target.value.toLowerCase().trim();
+      document.querySelectorAll('.card, .brief').forEach(function(el) {
+        const match = !q || el.innerText.toLowerCase().includes(q);
+        el.style.display = match ? '' : 'none';
+      });
+    });
+  }
+  
+  // 归档页面动态调整返回链接
+  document.querySelectorAll('.archive-link').forEach(function(el) {
+    if (window.location.pathname.indexOf('/archive/') !== -1) {
+      el.href = 'index.html';
+      el.textContent = '📁 归档目录';
+    }
+  });
+})();
+</script>
+</body></html>

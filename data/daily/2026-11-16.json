@@ -1,0 +1,206 @@
+{
+  "headline": "今日 AI 行业的核心矛盾集中爆发在英伟达身上：CEO 黄仁勋因涉嫌关联对华芯片输送调查而辞职，引发 11.5 万人请愿、亚洲政府紧急确认供应、VC 预警初创融资缺口，一条围绕单一领袖与单一算力供给方建立起来的行业秩序正在被动摇。与此同时，产业底层正在发生三件实质性变化：联想以「绿电进 Token 出」把词元生产定义为可规模化、成本降 70% 的制造业，百度词元所首日涌入超 100 家供应商与 1000 家客户，DeepSeek 开放全家桶 API，三者共同指向「模型能力商品化、Token 成为标准计价单位」；美团发布 1.6 万亿参数 Agent 模型且全程未使用英伟达 GPU，则从硬件侧给出了替代路径的实证。共同驱动因素有三：一是资本从「押注领袖与叙事」转向「押注可计价的产能与成本曲线」，Anthropic 在创纪录 IPO 前夜承认「明年巨大不确定性」正是这一转向的注脚；二是供给端去单一化，算力与模型同时出现多源替代压力；三是治理与安全压力上升，OpenAI 董事 Helen Toner 公开表示「仍不能信任 AI CEO」，与英伟达治理危机形成呼应。未来 1-3 个月，预计将出现 AI 初创估值下修与融资节奏放缓、Token 计价与交易平台加速成型、非英伟达算力路线的验证性发布增多。整体判断：今日不是一次孤立的人事风波，而是 AI 行业从「领袖驱动的叙事溢价」切换到「产能与治理驱动的价值重估」的分水岭。",
+  "must_read": [
+    {
+      "cluster_id": 10,
+      "title": "黄仁勋离职在 AI 初创融资中炸出巨大缺口，VC 与创始人集体预警",
+      "category": "融资并购 · 资本退潮",
+      "importance": 5,
+      "summary": "TechCrunch 报道称，黄仁勋任内英伟达向 AI 初创投入数百亿美元，其离职后创始人与 VC 普遍预期支票更小、估值更低。The Verge 同步复盘其从「摇滚明星 CEO」到治理危机的全过程，认为「愿景型表演式创始人 CEO」时代正在退潮。",
+      "why": "算力资本与初创融资的绑定关系被切断",
+      "actionable_insight": "重估对英伟达系资本依赖度高的项目估值",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/"
+        },
+        {
+          "name": "The Verge AI",
+          "url": "https://www.theverge.com/column/1033943/jensen-huang-nvidia-china-spying-scandal-resignation"
+        }
+      ]
+    },
+    {
+      "cluster_id": 8,
+      "title": "马斯克等科技高管联署请愿要求英伟达恢复黄仁勋职务，亚洲政府回应其离职",
+      "category": "大厂动态 · 公司治理",
+      "importance": 5,
+      "summary": "请愿截至周六下午已获超 11.5 万人签名，马斯克等科技高管参与。亚洲多国政府紧急行动：部分确认芯片供应承诺，部分评估对本地项目影响并跟进调查。另有报道称与黄仁勋前伴侣关联的公司曾撮合近 120 亿美元对华英伟达芯片订单。",
+      "why": "领袖危机已外溢为供应链与地缘政治风险",
+      "actionable_insight": "排查对华芯片供应链合规敞口与交付承诺",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/"
+        },
+        {
+          "name": "The Decoder",
+          "url": "https://the-decoder.com/firm-linked-to-jensen-huangs-ex-lover-reportedly-brokered-nearly-12-billion-in-nvidia-chip-orders-for-china/"
+        }
+      ]
+    },
+    {
+      "cluster_id": 3,
+      "title": "绿电进 Token 出：联想重新定义「词元工厂」，年产 2000 万亿 Token、成本降 70%",
+      "category": "产业观察 · 算力基建",
+      "importance": 5,
+      "summary": "联想提出以绿电直接生产 Token 的「词元工厂」模式，宣称年产 2000 万亿 Token、成本下降 70%。这实质是把模型推理从「服务」重新定义为「制造业」，以能源与产能而非算法作为核心成本变量。",
+      "why": "Token 生产被制造业化，成本曲线成竞争主轴",
+      "actionable_insight": "按 Token 单位成本重算自建与采购推理的边界",
+      "sources": [
+        {
+          "name": "量子位",
+          "url": "https://www.qbitai.com/2026/11/510094.html"
+        }
+      ]
+    },
+    {
+      "cluster_id": 5,
+      "title": "突发：DeepSeek 开放全家桶 API，官方 App 功能可自由组合调用",
+      "category": "产品发布 · 模型开放",
+      "importance": 4,
+      "summary": "DeepSeek 将官方 App 的全部功能以 API 形式开放，开发者可自由组合调用。这意味着其能力从封闭产品转为可编排的模块，直接降低上层 Agent 与应用开发的门槛，也加剧模型层的 API 价格与能力竞争。",
+      "why": "模型能力进一步商品化，Agent 开发门槛下移",
+      "actionable_insight": "评估将现有 Agent 链路切换或混用 DeepSeek 模块",
+      "sources": [
+        {
+          "name": "量子位",
+          "url": "https://www.qbitai.com/2026/11/510003.html"
+        }
+      ]
+    },
+    {
+      "cluster_id": 20,
+      "title": "Claude Fable 5.2 不生成图像而是「绘制」图像；Gemini 4 Carbon 夺 MathArena 榜首但成本为 GPT-6.1 Sol 的 15 倍",
+      "category": "技术论文 · 模型评测",
+      "importance": 4,
+      "summary": "Anthropic 的 Claude Fable 5.2 强调以「绘制」方式产出图像而非传统生成，指向过程可控的视觉生成路线。Gemini 4 Carbon 在 MathArena 登顶，但成本高达 GPT-6.1 Sol 的 15 倍，凸显能力领先与单位经济性之间的尖锐取舍。",
+      "why": "能力榜单与成本效率出现明显背离",
+      "actionable_insight": "选型须以任务级性价比而非榜单排名为准",
+      "sources": [
+        {
+          "name": "The Decoder",
+          "url": "https://the-decoder.com/anthropics-claude-fable-5-2-doesnt-generate-images-it-paints-them/"
+        }
+      ]
+    }
+  ],
+  "briefs": [
+    {
+      "cluster_id": 26,
+      "title": "百度词元所发布首日：供应商暴增超 100 家，客户新增超 1000 家",
+      "category": "产业观察 · Token 交易",
+      "summary": "李彦宏所称「大模型的交易所」上线首日即涌入超 100 家供应商与超 1000 家客户，Token 交易平台化提速。",
+      "sources": [
+        {
+          "name": "AI 科技评论",
+          "url": "https://www.leiphone.com/category/industrynews/cqPXhF38rM4VcVa7.html"
+        }
+      ]
+    },
+    {
+      "cluster_id": 11,
+      "title": "AI Agent 初创 LangChain 估值达 30 亿美元",
+      "category": "融资并购 · 智能体生态",
+      "summary": "其模型与平台无关的 Agent 管理工具 LangSmith 已拥有 7000 家客户，Agent 中间层价值获资本确认。",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/"
+        }
+      ]
+    },
+    {
+      "cluster_id": 14,
+      "title": "ChatGPT Wallet 上线，OpenAI 的 Dots 智能体可代用户完成购买",
+      "category": "产品发布 · 智能体生态",
+      "summary": "面向美国 ChatGPT Pro 成年订阅用户推出钱包，Agent 从「建议」跨入「代付」，交易授权与风控成为新课题。",
+      "sources": [
+        {
+          "name": "The Verge AI",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1033425/openai-chatgpt-wallet"
+        }
+      ]
+    },
+    {
+      "cluster_id": 6,
+      "title": "所有 AI 生成的代码都应开源；英伟达被指通过资助 AI 初创购买自家 GPU 人为制造稀缺",
+      "category": "社区热议 · 开源治理",
+      "summary": "HN 热议 AI 代码的开源义务，同时一则指控称英伟达以投资换采购、人为制造 GPU 稀缺，直指算力市场的结构性问题。",
+      "sources": [
+        {
+          "name": "Hacker News AI",
+          "url": "https://jakub.jankiewicz.org/blog/ai-code-open-source/"
+        }
+      ]
+    },
+    {
+      "cluster_id": 7,
+      "title": "英伟达的安全团队去哪了？",
+      "category": "大厂动态 · 公司治理",
+      "summary": "TechCrunch 指出英伟达安全负责人已于 8 月悄然离职，治理与内控缺口在 CEO 辞职事件中集中暴露。",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/"
+        }
+      ]
+    },
+    {
+      "cluster_id": 9,
+      "title": "AI 坟场：一份未能存活的 AI 项目与初创清单",
+      "category": "产业观察 · 项目复盘",
+      "summary": "从苹果屡次延期的 Siri AI 到 OpenAI 混乱的「超级应用」发布，系统梳理了关停或未达预期的 AI 项目。",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/11/14/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/"
+        }
+      ]
+    },
+    {
+      "cluster_id": 1,
+      "title": "「史上最严」湿实验预测基准发布：推理拉满、算力翻 5 倍也无济于事",
+      "category": "技术论文 · 评测基准",
+      "summary": "斯坦福、哈佛、康奈尔等十余家团队联合推出湿实验预测基准，显示单纯堆推理与算力难以突破，科学发现仍是硬约束。",
+      "sources": [
+        {
+          "name": "量子位",
+          "url": "https://www.qbitai.com/2026/11/510232.html"
+        }
+      ]
+    },
+    {
+      "cluster_id": 23,
+      "title": "警惕新一轮由 AI 助推的勒索软件潮",
+      "category": "产业观察 · AI 安全",
+      "summary": "全自动勒索软件尚未到来，但技术并不高明的攻击者已借 AI 工具造成实质破坏，攻击门槛显著下移。",
+      "sources": [
+        {
+          "name": "Wired AI",
+          "url": "https://www.wired.com/story/beware-the-new-ai-fueled-ransomware-boom/"
+        }
+      ]
+    }
+  ],
+  "trends": [
+    {
+      "heading": "行业大势",
+      "judgment": "AI 行业正从<strong>领袖叙事溢价</strong>切换到<strong>产能与治理定价</strong>。",
+      "evidence": "<mark>黄仁勋离职</mark>直接触发 VC 预警初创融资缺口与 <mark>11.5 万人请愿</mark>；同期 <mark>Anthropic 在创纪录 IPO 前夜承认明年巨大不确定性</mark>；<mark>联想词元工厂宣称成本降 70%</mark>、<mark>百度词元所首日超 100 家供应商</mark>，资本注意力正从故事转向可计价的产能。",
+      "action": "投资者应下调依赖单一领袖或单一算力供给方的标的权重，优先配置具备单位成本优势与治理透明度的基础设施与中间层公司。"
+    },
+    {
+      "heading": "落地应用启发",
+      "judgment": "模型能力商品化后，<strong>竞争焦点转向编排与单位成本</strong>。",
+      "evidence": "<mark>DeepSeek 开放全家桶 API</mark>使官方能力可自由组合；<mark>LangChain 以 7000 家客户支撑 30 亿美元估值</mark>；<mark>Gemini 4 Carbon 登顶 MathArena 但成本为 GPT-6.1 Sol 的 15 倍</mark>，说明榜单领先不等于可用。",
+      "action": "开发团队应建立按任务粒度的模型路由与成本监控，用多模型混用替代单点绑定，把评测从「跑分」改为「单位任务成本与成功率」。"
+    },
+    {
+      "heading": "对国内中小企业的影响",
+      "judgment": "算力多源化与 Token 交易化，<strong>降低中小企业用模门槛</strong>。",
+      "evidence": "<mark>美团发布 1.6 万亿参数 Agent 模型且全程未使用英伟达 GPU</mark>，验证非英伟达路线可行；<mark>百度词元所首日新增超 1000 家客户</mark>，Token 采购趋于标准化；同时 <mark>亚洲政府就芯片供应承诺作出回应</mark>，供给不确定性仍在。",
+      "action": "中小企业应优先通过 Token 交易平台按需采购并保留多供应商备份，同时关注国产与非英伟达算力路线的可用性验证，避免锁定单一供给。"
+    }
+  ]
+}
