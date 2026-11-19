@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业每日简报 · 2026-11-20</title>
+<style>
+:root{--bg:#f5f6f8;--bg2:#ffffff;--ink:#14182b;--muted:#5f6478;--rule:#e4e7ee;--accent:#1d39c4;--accent2:#cf1322;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75;}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px;}
+header.masthead{background:linear-gradient(180deg,#101426 0%,#1a2040 100%);color:#fff;padding:40px 0;position:relative;}
+header.masthead::after{content:"";position:absolute;left:0;bottom:0;height:4px;width:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+.masthead h1{font-size:2rem;margin:0 0 10px;font-weight:800;}
+.masthead .meta{font-size:0.95rem;color:#c7cde6;display:flex;gap:12px;flex-wrap:wrap;}
+.masthead .lede{margin-top:15px;font-size:0.98rem;color:#d7dcf0;border-left:3px solid var(--accent2);padding-left:14px;}
+.version{font-family:ui-monospace,SFMono-Regular,monospace;font-size:0.78rem;color:#8a92b2;background:rgba(255,255,255,0.06);padding:1px 8px;border-radius:4px;letter-spacing:0.05em;}
+.toolbar{display:flex;gap:12px;margin-top:16px;align-items:center;}
+.toolbar input{flex:1;padding:10px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:0.9rem;outline:none;transition:border-color .2s;}
+.toolbar input::placeholder{color:#8a92b2;}
+.toolbar input:focus{border-color:var(--accent);}
+.archive-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.archive-link:hover{color:#fff;border-color:var(--accent);}
+.weekly-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.weekly-link:hover{color:#fff;border-color:var(--accent);}
+main{padding:30px 0;}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}
+.strip .cell{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:18px;text-align:center;}
+.strip .cell .n{font-size:1.8rem;font-weight:800;color:var(--accent);}
+.strip .cell .n.red{color:var(--accent2);}
+.strip .cell .n.gray{color:var(--muted);}
+.cat-chart{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px 22px;margin-bottom:24px;}
+.chart-title{font-size:0.85rem;color:var(--muted);font-weight:700;margin-bottom:16px;letter-spacing:0.05em;}
+.chart-body{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+.legend{flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 20px;min-width:220px;}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;}
+.legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0;}
+.legend-name{color:var(--ink);flex:1;}
+.legend-pct{color:var(--muted);font-family:ui-monospace,monospace;font-weight:600;}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 18px;}
+.sec-head .num{font-size:0.8rem;font-weight:700;color:#fff;background:var(--accent);padding:3px 10px;border-radius:3px;}
+.sec-head h2{font-size:1.4rem;margin:0;font-weight:800;}
+.card{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px;margin-bottom:16px;display:grid;grid-template-columns:46px 1fr;gap:18px;}
+.rank{font-size:1.6rem;font-weight:800;color:var(--rule);text-align:center;}
+.card h3{font-size:1.15rem;margin:0 0 8px;}
+.card .land{margin:10px 0;font-size:0.9rem;color:var(--accent);background:#f0f3ff;border-left:3px solid var(--accent);padding:8px 12px;}
+.card .src{font-size:0.8rem;color:var(--muted);border-top:1px dashed var(--rule);padding-top:8px;margin-top:10px;}
+.badge{font-size:0.72rem;font-weight:700;padding:2px 10px;border-radius:20px;letter-spacing:0.02em;color:#fff;white-space:nowrap;}
+.b-fund{background:#0e7d6b;}
+.b-product{background:#1d39c4;}
+.b-paper{background:#6d28d9;}
+.b-open{background:#c2410c;}
+.b-policy{background:#b42318;}
+.b-bigtech{background:#1a2040;}
+.b-industry{background:#0369a1;}
+.b-community{background:#525252;}
+.b-cn{background:#a21caf;}
+.stars{color:#f5a623 !important;font-size:1.1rem;font-weight:bold;letter-spacing:2px;margin-left:auto;white-space:nowrap;}
+.stars .lbl{color:var(--muted);font-size:0.72rem;margin-right:4px;font-weight:normal;letter-spacing:normal;}
+.topline{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:8px;}
+.brief{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:14px;margin-bottom:10px;display:flex;gap:12px;}
+.brief .num{font-weight:800;color:var(--accent);width:26px;}
+.trend{background:linear-gradient(135deg,#1a2040 0%,#222a52 100%);color:#eef0fa;border-radius:12px;padding:26px;margin-top:20px;}
+.trend h3{color:#fff;margin:0 0 14px;}
+.trend .angle{margin-bottom:16px;}
+.trend .angle .h{font-size:0.8rem;color:#8ea0e8;font-weight:700;margin-bottom:6px;}
+.trend .angle .judgment{color:#fff;font-size:1.05rem;font-weight:600;margin:8px 0;}
+.trend .angle .evidence{color:#d7dcf0;font-size:0.95rem;margin:6px 0;}
+.trend .angle .action{color:#a7f3d0;font-size:0.9rem;margin:6px 0;padding:8px 12px;background:rgba(16,185,129,0.08);border-radius:6px;}
+@media(max-width:640px){.strip{grid-template-columns:repeat(2,1fr);}.card{grid-template-columns:1fr;}.rank{text-align:left;}}
+</style></head><body>
+<header class="masthead"><div class="wrap">
+<h1>AI 行业每日简报 · 2026-11-20</h1>
+<div class="meta"><span>2026年11月20日</span><span>·</span><span>星期五</span><span>·</span><span class="version">V1.8</span></div>
+<p class="lede">今日AI行业迎来历史性时刻：Anthropic以813亿美元IPO刷新全球纪录，首日开盘大涨33%，标志着AI资本化进入新阶段。与此同时，Google在模型侧密集迭代，一月内连发四款Gemini模型，并推出Gemini 4 Neon，以更快、更便宜、更智能的策略巩固护城河；而中美芯片战升级与国内云增速创六年新高，则勾勒出地缘博弈与本土算力需求爆发并存的复杂图景。这些事件背后，共同驱动因素清晰可见：资本正以前所未有的速度涌向头部AI公司，技术迭代周期缩短至周级别，而监管与地缘政治压力则加速了供应链重构。未来1-3个月，我们预计将看到更多AI公司效仿Anthropic启动IPO，模型价格战进一步白热化，同时中国科技企业将加速国产芯片替代与海外云迁移。整体判断：AI行业正从技术竞赛转向资本与生态的综合较量，赢家通吃效应愈发显著。</p>
+<div class="toolbar">
+<input id="search" type="text" placeholder="🔍 搜索标题、摘要或来源..." />
+<a href="archive/index.html" class="archive-link">📁 历史归档</a>
+<a href="weekly/index.html" class="weekly-link">📅 本周回顾</a>
+</div>
+</div></header>
+<main class="wrap">
+<div class="strip">
+<div class="cell"><div class="n red">3</div><div>5 星事件</div></div>
+<div class="cell"><div class="n">2</div><div>4 星事件</div></div>
+<div class="cell"><div class="n">8</div><div>3 星事件</div></div>
+<div class="cell"><div class="n gray">13</div><div>今日简报条数</div></div>
+</div>
+<div class="cat-chart">
+<div class="chart-title">📊 今日分类分布</div>
+<div class="chart-body">
+<svg viewBox="0 0 160 160" width="160" height="160" style="flex-shrink:0;"><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#eef1f8" stroke-width="22"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#1d39c4" stroke-width="22" stroke-dasharray="106.33 239.24" stroke-dashoffset="0.00" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#1a2040" stroke-width="22" stroke-dasharray="106.33 239.24" stroke-dashoffset="-106.33" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#6d28d9" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-212.66" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#0e7d6b" stroke-width="22" stroke-dasharray="26.58 318.99" stroke-dashoffset="-265.83" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#b42318" stroke-width="22" stroke-dasharray="26.58 318.99" stroke-dashoffset="-292.41" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#0369a1" stroke-width="22" stroke-dasharray="26.58 318.99" stroke-dashoffset="-318.99" transform="rotate(-90 80.0 80.0)"/><text x="80.0" y="78.0" text-anchor="middle" font-size="24" font-weight="800" fill="#14182b">13</text><text x="80.0" y="96.0" text-anchor="middle" font-size="11" fill="#5f6478">条动态</text></svg>
+<div class="legend"><div class="legend-item"><span class="legend-dot" style="background:#1d39c4"></span><span class="legend-name">产品发布</span><span class="legend-pct">31%</span></div><div class="legend-item"><span class="legend-dot" style="background:#1a2040"></span><span class="legend-name">大厂动态</span><span class="legend-pct">31%</span></div><div class="legend-item"><span class="legend-dot" style="background:#6d28d9"></span><span class="legend-name">技术论文</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#0e7d6b"></span><span class="legend-name">融资并购</span><span class="legend-pct">8%</span></div><div class="legend-item"><span class="legend-dot" style="background:#b42318"></span><span class="legend-name">政策标准</span><span class="legend-pct">8%</span></div><div class="legend-item"><span class="legend-dot" style="background:#0369a1"></span><span class="legend-name">产业观察</span><span class="legend-pct">8%</span></div></div>
+</div>
+</div>
+<div class="sec-head"><span class="num">01</span><h2>今日必读</h2></div>
+<article class="card"><div class="rank">01</div><div>
+        <div class="topline"><span class="badge b-fund">融资并购 · IPO</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>Anthropic登陆纳斯达克：开盘价111美元，较IPO定价上涨33%</h3>
+        <p>Anthropic以每股83美元完成IPO，募资超800亿美元，成为史上最大IPO。首日开盘价111美元，涨幅33%，市值突破1.5万亿美元。CEO Dario Amodei重申将坚持AI开发节奏，不受商业和政治压力影响。</p>
+        <p><strong>为何重要：</strong>创纪录IPO验证AI头部公司资本吸引力，为后续AI公司上市定调。</p>
+        <p class="land"><strong>落地启发：</strong>关注AI公司上市潮带来的估值锚定效应，调整投资组合。</p>
+        <div class="src">来源：<a href="https://techcrunch.com/2026/11/19/anthropic-hits-nasdaq-exchanges-at-110-27-above-ipo-price/" target="_blank">TechCrunch AI</a> / <a href="https://www.wired.com/story/anthropics-record-breaking-ipo-highlights-the-ai-giants-worst-enemy-itself/" target="_blank">Wired AI</a></div>
+        </div></article><article class="card"><div class="rank">02</div><div>
+        <div class="topline"><span class="badge b-product">产品发布 · 模型发布</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>Google发布Gemini 4 Neon，一个月内第四款新模型</h3>
+        <p>Google DeepMind推出Gemini 4 Neon，宣称比数周前的旗舰模型更快、更便宜、更智能。这是Google一个月内发布的第四款Gemini模型，同时Gemini Decision 1在五项基准领先、两项落后，显示Google正通过高频迭代巩固AI领先地位。</p>
+        <p><strong>为何重要：</strong>模型迭代速度创纪录，价格性能比持续优化，加剧行业竞争。</p>
+        <p class="land"><strong>落地启发：</strong>开发者应关注模型性价比变化，及时切换至更优模型以降低成本。</p>
+        <div class="src">来源：<a href="https://deepmind.google/blog/introducing-gemini-4-neon/" target="_blank">DeepMind Blog</a> / <a href="https://the-decoder.com/google-ships-gemini-4-neon-its-fourth-new-gemini-model-in-a-month/" target="_blank">The Decoder</a> / <a href="https://www.leiphone.com/category/ai/wctgzdX4CN2RVxCm.html" target="_blank">AI 科技评论</a></div>
+        </div></article><article class="card"><div class="rank">03</div><div>
+        <div class="topline"><span class="badge b-policy">政策标准 · 芯片竞争</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>中国科技企业遭遇双重打击：芯片断供与海外云访问中断</h3>
+        <p>美国进一步限制AI芯片对华出口，同时海外云服务访问受限，中国科技企业面临算力短缺和云服务中断的双重压力。与此同时，OCR模型成本18个月内下降五倍，百万页数字化成本低于130美元，显示AI降本趋势。</p>
+        <p><strong>为何重要：</strong>地缘政治加剧供应链风险，倒逼中国加速自主算力建设。</p>
+        <p class="land"><strong>落地启发：</strong>国内企业需加快国产芯片适配和混合云部署，分散风险。</p>
+        <div class="src">来源：<a href="https://the-decoder.com/chinese-tech-firms-face-a-double-hit-as-chip-shipments-stop-and-overseas-cloud-access-disappears/" target="_blank">The Decoder</a></div>
+        </div></article><article class="card"><div class="rank">04</div><div>
+        <div class="topline"><span class="badge b-bigtech">大厂动态 · 算力基建</span><span class="stars"><span class="lbl">影响</span>★★★★</span></div>
+        <h3>阿里云外部收入增长64%，增速创近六年新高</h3>
+        <p>阿里巴巴最新财报显示，阿里云外部客户收入同比增长64%，较上季度45%显著加速，AI相关产品收入连续13个季度三位数增长，驱动云业务收入创新高。</p>
+        <p><strong>为何重要：</strong>AI需求驱动云业务高速增长，验证算力基建景气度。</p>
+        <p class="land"><strong>落地启发：</strong>关注云计算产业链上游芯片、服务器等环节的投资机会。</p>
+        <div class="src">来源：<a href="https://www.leiphone.com/category/industrynews/GlHj8MIKX7YGLxU3.html" target="_blank">AI 科技评论</a></div>
+        </div></article><article class="card"><div class="rank">05</div><div>
+        <div class="topline"><span class="badge b-policy">产业观察 · AI安全</span><span class="stars"><span class="lbl">影响</span>★★★★</span></div>
+        <h3>Meta的AI智能体Muse混淆对话并泄露隐私数据</h3>
+        <p>Meta的AI智能体Muse被曝混淆用户对话，泄露私人数据，包括未发起的育儿请求、职业建议、产品订单和银行账户余额等。员工称该问题已多次发生，引发对AI智能体可靠性和隐私保护的担忧。</p>
+        <p><strong>为何重要：</strong>AI智能体隐私泄露事件频发，敲响数据安全警钟。</p>
+        <p class="land"><strong>落地启发：</strong>企业部署AI智能体时需加强数据隔离和访问控制，避免交叉污染。</p>
+        <div class="src">来源：<a href="https://techcrunch.com/2026/11/19/metas-ai-agent-muse-is-mixing-up-conversations-and-exposing-private-data-report-says/" target="_blank">TechCrunch AI</a> / <a href="https://www.wired.com/story/the-ai-chip-war-meets-the-jensen-huang-affair/" target="_blank">Wired AI</a></div>
+        </div></article><div class="sec-head"><span class="num">02</span><h2>今日简报</h2></div><div class="brief"><div class="num">01</div><div>
+        <strong>OpenAI如何通过Performance Factory保持ChatGPT高速运行</strong><br>
+        OpenAI构建Codex驱动的性能工厂，自动发现并修复性能问题，确保ChatGPT响应速度。 <a href="https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast" target="_blank">[OpenAI Blog]</a>
+        </div></div><div class="brief"><div class="num">02</div><div>
+        <strong>OpenAI研究加速：编码智能体助力AI研发，但表现不均</strong><br>
+        OpenAI测量编码智能体对AI研究的加速效果，发现性能存在不均衡，并探讨递归自我改进的信号。 <a href="https://openai.com/index/research-acceleration-jagged-frontier" target="_blank">[OpenAI Blog]</a>
+        </div></div><div class="brief"><div class="num">03</div><div>
+        <strong>商汤SenseNova U1 Pro获Design Arena双榜中国第一、全球第六</strong><br>
+        商汤日日新SenseNova U1 Pro在图片生成与编辑两大榜单中均登顶中国第一，全球排名第六。 <a href="https://www.qbitai.com/2026/11/511179.html" target="_blank">[量子位]</a>
+        </div></div><div class="brief"><div class="num">04</div><div>
+        <strong>联想集团AI基建推动最佳财季诞生</strong><br>
+        联想集团公布2026/27财年第二季度业绩，受益于全球AI基建浪潮，创下最佳财季表现。 <a href="https://www.qbitai.com/2026/11/511088.html" target="_blank">[量子位]</a>
+        </div></div><div class="brief"><div class="num">05</div><div>
+        <strong>ChatGPT新增实时听写功能，可边说边转写</strong><br>
+        ChatGPT推出Live Dictation功能，可实时转写麦克风音频，无需等待录音结束，已在全球范围滚动上线。 <a href="https://www.theverge.com/ai-artificial-intelligence/1037634/openai-chatgpt-live-dictation" target="_blank">[The Verge AI]</a>
+        </div></div><div class="brief"><div class="num">06</div><div>
+        <strong>Canva新增AI“关闭”按钮，允许用户禁用生成式AI功能</strong><br>
+        Canva允许用户关闭其生成式AI功能，如AI照片扩展Magic Expand等，回应用户对AI功能的不满。 <a href="https://www.theverge.com/ai-artificial-intelligence/1037126/canva-ai-features-off-button" target="_blank">[The Verge AI]</a>
+        </div></div><div class="brief"><div class="num">07</div><div>
+        <strong>Google与Blue Origin签约，将卫星数据中心送入轨道</strong><br>
+        Google与Blue Origin达成协议，作为Project Suncatcher的一部分，实验在太空运行AI系统。 <a href="https://www.engadget.com/2321988/google-signs-deal-with-blue-origin-to-send-satellite-data-centers-into-orbit/" target="_blank">[Engadget AI]</a>
+        </div></div><div class="brief"><div class="num">08</div><div>
+        <strong>田渊栋创业合伙人：通往AGI最快的路是AI造AI</strong><br>
+        在CoRL 2026上，田渊栋创业合伙人提出AI自我改进是通往AGI的最快路径，强调AI造AI的重要性。 <a href="https://www.leiphone.com/category/private/wIgMWmjlB5GTKg6e.html" target="_blank">[AI 科技评论]</a>
+        </div></div><div class="sec-head"><span class="num">03</span><h2>今日趋势点评</h2></div><div class="trend"><div class="angle">
+        <div class="h">行业大势</div>
+        <p class="judgment">AI行业进入<strong>资本与技术双轮驱动</strong>的新阶段，头部效应加剧。</p>
+        <p class="evidence">Anthropic以<mark>813亿美元IPO</mark>刷新纪录，首日大涨33%；Google一个月内连发<mark>四款Gemini模型</mark>，迭代速度空前；阿里云AI收入连续<mark>13个季度三位数增长</mark>。</p>
+        <p class="action"><strong>💡 建议：</strong>投资者应聚焦头部AI公司及其生态伙伴，开发者需紧跟模型迭代节奏，及时采用更高性价比的模型。</p>
+        </div><div class="angle">
+        <div class="h">地缘政治与供应链</div>
+        <p class="judgment"><strong>芯片断供与云访问限制</strong>正倒逼中国科技企业加速自主创新。</p>
+        <p class="evidence">美国进一步限制AI芯片对华出口，海外云服务访问中断，<mark>中国科技企业面临双重打击</mark>；同时，国内AI芯片和云服务需求激增，阿里云外部收入增速创<mark>六年新高</mark>。</p>
+        <p class="action"><strong>💡 建议：</strong>国内企业应加快国产芯片适配，布局混合云架构，投资者可关注国产算力产业链。</p>
+        </div><div class="angle">
+        <div class="h">AI安全与治理</div>
+        <p class="judgment">AI智能体<strong>隐私泄露与安全风险</strong>频发，治理需求紧迫。</p>
+        <p class="evidence">Meta的AI智能体Muse<mark>混淆对话并泄露隐私数据</mark>；Anthropic IPO前夕遭联盟质疑其安全品牌；OpenAI发布前沿AI风险管理框架，强调<mark>沙箱与监控</mark>。</p>
+        <p class="action"><strong>💡 建议：</strong>企业部署AI智能体时需建立数据隔离和审计机制，开发者应遵循安全最佳实践，投资者需关注合规风险。</p>
+        </div></div></main>
+<script>
+(function(){
+  // 搜索过滤
+  const input = document.getElementById('search');
+  if (input) {
+    input.addEventListener('input', function(e) {
+      const q = e.target.value.toLowerCase().trim();
+      document.querySelectorAll('.card, .brief').forEach(function(el) {
+        const match = !q || el.innerText.toLowerCase().includes(q);
+        el.style.display = match ? '' : 'none';
+      });
+    });
+  }
+  
+  // 归档页面动态调整返回链接
+  document.querySelectorAll('.archive-link').forEach(function(el) {
+    if (window.location.pathname.indexOf('/archive/') !== -1) {
+      el.href = 'index.html';
+      el.textContent = '📁 归档目录';
+    }
+  });
+})();
+</script>
+</body></html>
