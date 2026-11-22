@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业每日简报 · 2026-11-23</title>
+<style>
+:root{--bg:#f5f6f8;--bg2:#ffffff;--ink:#14182b;--muted:#5f6478;--rule:#e4e7ee;--accent:#1d39c4;--accent2:#cf1322;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75;}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px;}
+header.masthead{background:linear-gradient(180deg,#101426 0%,#1a2040 100%);color:#fff;padding:40px 0;position:relative;}
+header.masthead::after{content:"";position:absolute;left:0;bottom:0;height:4px;width:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+.masthead h1{font-size:2rem;margin:0 0 10px;font-weight:800;}
+.masthead .meta{font-size:0.95rem;color:#c7cde6;display:flex;gap:12px;flex-wrap:wrap;}
+.masthead .lede{margin-top:15px;font-size:0.98rem;color:#d7dcf0;border-left:3px solid var(--accent2);padding-left:14px;}
+.version{font-family:ui-monospace,SFMono-Regular,monospace;font-size:0.78rem;color:#8a92b2;background:rgba(255,255,255,0.06);padding:1px 8px;border-radius:4px;letter-spacing:0.05em;}
+.toolbar{display:flex;gap:12px;margin-top:16px;align-items:center;}
+.toolbar input{flex:1;padding:10px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:0.9rem;outline:none;transition:border-color .2s;}
+.toolbar input::placeholder{color:#8a92b2;}
+.toolbar input:focus{border-color:var(--accent);}
+.archive-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.archive-link:hover{color:#fff;border-color:var(--accent);}
+.weekly-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.weekly-link:hover{color:#fff;border-color:var(--accent);}
+main{padding:30px 0;}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}
+.strip .cell{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:18px;text-align:center;}
+.strip .cell .n{font-size:1.8rem;font-weight:800;color:var(--accent);}
+.strip .cell .n.red{color:var(--accent2);}
+.strip .cell .n.gray{color:var(--muted);}
+.cat-chart{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px 22px;margin-bottom:24px;}
+.chart-title{font-size:0.85rem;color:var(--muted);font-weight:700;margin-bottom:16px;letter-spacing:0.05em;}
+.chart-body{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+.legend{flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 20px;min-width:220px;}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;}
+.legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0;}
+.legend-name{color:var(--ink);flex:1;}
+.legend-pct{color:var(--muted);font-family:ui-monospace,monospace;font-weight:600;}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 18px;}
+.sec-head .num{font-size:0.8rem;font-weight:700;color:#fff;background:var(--accent);padding:3px 10px;border-radius:3px;}
+.sec-head h2{font-size:1.4rem;margin:0;font-weight:800;}
+.card{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px;margin-bottom:16px;display:grid;grid-template-columns:46px 1fr;gap:18px;}
+.rank{font-size:1.6rem;font-weight:800;color:var(--rule);text-align:center;}
+.card h3{font-size:1.15rem;margin:0 0 8px;}
+.card .land{margin:10px 0;font-size:0.9rem;color:var(--accent);background:#f0f3ff;border-left:3px solid var(--accent);padding:8px 12px;}
+.card .src{font-size:0.8rem;color:var(--muted);border-top:1px dashed var(--rule);padding-top:8px;margin-top:10px;}
+.badge{font-size:0.72rem;font-weight:700;padding:2px 10px;border-radius:20px;letter-spacing:0.02em;color:#fff;white-space:nowrap;}
+.b-fund{background:#0e7d6b;}
+.b-product{background:#1d39c4;}
+.b-paper{background:#6d28d9;}
+.b-open{background:#c2410c;}
+.b-policy{background:#b42318;}
+.b-bigtech{background:#1a2040;}
+.b-industry{background:#0369a1;}
+.b-community{background:#525252;}
+.b-cn{background:#a21caf;}
+.stars{color:#f5a623 !important;font-size:1.1rem;font-weight:bold;letter-spacing:2px;margin-left:auto;white-space:nowrap;}
+.stars .lbl{color:var(--muted);font-size:0.72rem;margin-right:4px;font-weight:normal;letter-spacing:normal;}
+.topline{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:8px;}
+.brief{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:14px;margin-bottom:10px;display:flex;gap:12px;}
+.brief .num{font-weight:800;color:var(--accent);width:26px;}
+.trend{background:linear-gradient(135deg,#1a2040 0%,#222a52 100%);color:#eef0fa;border-radius:12px;padding:26px;margin-top:20px;}
+.trend h3{color:#fff;margin:0 0 14px;}
+.trend .angle{margin-bottom:16px;}
+.trend .angle .h{font-size:0.8rem;color:#8ea0e8;font-weight:700;margin-bottom:6px;}
+.trend .angle .judgment{color:#fff;font-size:1.05rem;font-weight:600;margin:8px 0;}
+.trend .angle .evidence{color:#d7dcf0;font-size:0.95rem;margin:6px 0;}
+.trend .angle .action{color:#a7f3d0;font-size:0.9rem;margin:6px 0;padding:8px 12px;background:rgba(16,185,129,0.08);border-radius:6px;}
+@media(max-width:640px){.strip{grid-template-columns:repeat(2,1fr);}.card{grid-template-columns:1fr;}.rank{text-align:left;}}
+</style></head><body>
+<header class="masthead"><div class="wrap">
+<h1>AI 行业每日简报 · 2026-11-23</h1>
+<div class="meta"><span>2026年11月23日</span><span>·</span><span>星期一</span><span>·</span><span class="version">V1.8</span></div>
+<p class="lede">今日AI行业呈现“能力跃升与治理滞后”的尖锐对立。一方面，AI在数学领域取得里程碑式突破：A社数学家用Claude证明另一千禧难题，并逼出12年940页纯人类手稿；同时，Lean社区正式确认Levent Alpöge对黎曼猜想的证明正确，AI与人类智慧在顶级数学问题上并驾齐驱。另一方面，安全与监管警报频传：METR警告AI能力提升速度已超专家可靠评估安全的能力，联合国未能就“杀手机器人”规则达成一致，研究更揭露廉价AI推理商窃取密钥、供应链泄露用户数据等隐私灾难。这些事件共同指向一个核心矛盾：**技术突破的加速度远超治理与安全体系的响应速度**。资本仍在涌入（DeepSeek千亿融资落地、英伟达Blackwell对华销售有条件放开），但行业焦点正从单纯追求能力转向能力与可控性的平衡。未来1-3个月，AI安全评估、供应链隐私保护、自主武器国际规则将成为政策与舆论的爆点，企业需提前布局合规与安全能力。整体判断：AI行业正进入“能力兑现”与“风险定价”并行的新阶段，安全不再是成本项而是竞争壁垒。</p>
+<div class="toolbar">
+<input id="search" type="text" placeholder="🔍 搜索标题、摘要或来源..." />
+<a href="archive/index.html" class="archive-link">📁 历史归档</a>
+<a href="weekly/index.html" class="weekly-link">📅 本周回顾</a>
+</div>
+</div></header>
+<main class="wrap">
+<div class="strip">
+<div class="cell"><div class="n red">5</div><div>5 星事件</div></div>
+<div class="cell"><div class="n">0</div><div>4 星事件</div></div>
+<div class="cell"><div class="n">8</div><div>3 星事件</div></div>
+<div class="cell"><div class="n gray">13</div><div>今日简报条数</div></div>
+</div>
+<div class="cat-chart">
+<div class="chart-title">📊 今日分类分布</div>
+<div class="chart-body">
+<svg viewBox="0 0 160 160" width="160" height="160" style="flex-shrink:0;"><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#eef1f8" stroke-width="22"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#b42318" stroke-width="22" stroke-dasharray="132.91 212.66" stroke-dashoffset="0.00" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#6d28d9" stroke-width="22" stroke-dasharray="79.75 265.83" stroke-dashoffset="-132.91" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#0369a1" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-212.66" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#1a2040" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-265.83" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#1d39c4" stroke-width="22" stroke-dasharray="26.58 318.99" stroke-dashoffset="-318.99" transform="rotate(-90 80.0 80.0)"/><text x="80.0" y="78.0" text-anchor="middle" font-size="24" font-weight="800" fill="#14182b">13</text><text x="80.0" y="96.0" text-anchor="middle" font-size="11" fill="#5f6478">条动态</text></svg>
+<div class="legend"><div class="legend-item"><span class="legend-dot" style="background:#b42318"></span><span class="legend-name">政策标准</span><span class="legend-pct">38%</span></div><div class="legend-item"><span class="legend-dot" style="background:#6d28d9"></span><span class="legend-name">技术论文</span><span class="legend-pct">23%</span></div><div class="legend-item"><span class="legend-dot" style="background:#0369a1"></span><span class="legend-name">产业观察</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#1a2040"></span><span class="legend-name">大厂动态</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#1d39c4"></span><span class="legend-name">产品发布</span><span class="legend-pct">8%</span></div></div>
+</div>
+</div>
+<div class="sec-head"><span class="num">01</span><h2>今日必读</h2></div>
+<article class="card"><div class="rank">01</div><div>
+        <div class="topline"><span class="badge b-paper">技术论文 · 数学突破</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>A社数学家用Claude又证明另一千禧难题，逼出一份写了12年的940页纯人类手稿</h3>
+        <p>Anthropic数学家利用Claude在另一千禧难题上取得证明，并促使人类数学家完成一份耗时12年、长达940页的手稿。这标志着AI在顶级数学推理上从辅助工具升级为共同发现者，可能重塑数学研究范式。</p>
+        <p><strong>为何重要：</strong>AI首次在千禧难题级别问题上与人类并驾齐驱，验证大模型深度推理能力。</p>
+        <p class="land"><strong>落地启发：</strong>关注AI for Science赛道，探索大模型在基础科研中的协作模式。</p>
+        <div class="src">来源：<a href="https://www.qbitai.com/2026/11/511870.html" target="_blank">量子位</a></div>
+        </div></article><article class="card"><div class="rank">02</div><div>
+        <div class="topline"><span class="badge b-industry">产业观察 · Agent落地</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>AI编码智能体在孤立测试中表现优异，但在模拟工作场所中完成的任务不足十分之一</h3>
+        <p>最新研究显示，AI编码智能体在标准化测试中表现优异，但在模拟真实工作场所的复杂任务中完成率不足10%。这揭示了当前Agent在长链条、多步骤、环境交互任务上的严重短板，距离可靠的生产力工具仍有巨大差距。</p>
+        <p><strong>为何重要：</strong>戳破Agent能力泡沫，为落地预期降温，指明真实场景的复杂性挑战。</p>
+        <p class="land"><strong>落地启发：</strong>企业部署Agent应聚焦窄场景闭环，避免高估通用自主能力。</p>
+        <div class="src">来源：<a href="https://the-decoder.com/ai-coding-agents-ace-isolated-tests-but-complete-fewer-than-one-in-ten-tasks-in-a-simulated-workplace/" target="_blank">The Decoder</a></div>
+        </div></article><article class="card"><div class="rank">03</div><div>
+        <div class="topline"><span class="badge b-policy">政策标准 · 数据合规</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>研究者向AI供应链植入200万个“金丝雀”，隐私灾难浮出水面</h3>
+        <p>安全研究者通过向AI供应链注入200万个唯一可追踪的“金丝雀”提示，证明用户数据在AI推理供应链中无法保持私密，存在大规模泄露风险。该实验暴露了从推理提供商到模型部署环节的系统性隐私漏洞。</p>
+        <p><strong>为何重要：</strong>首次量化AI供应链数据泄露规模，敲响企业采用第三方AI服务的警钟。</p>
+        <p class="land"><strong>落地启发：</strong>企业需审计AI供应商数据隔离措施，对敏感数据采用本地化推理。</p>
+        <div class="src">来源：<a href="https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/" target="_blank">Ars Technica AI</a></div>
+        </div></article><article class="card"><div class="rank">04</div><div>
+        <div class="topline"><span class="badge b-policy">政策标准 · AI安全</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>联合国未能就监管“杀手机器人”规则达成一致</h3>
+        <p>联合国日内瓦会议未能就自主武器系统（“杀手机器人”）的监管规则达成一致，各方在定义、范围和约束机制上分歧严重。这意味着一项关键的国际AI安全治理议程陷入停滞，自主武器的军备竞赛风险上升。</p>
+        <p><strong>为何重要：</strong>全球AI安全治理关键缺口，自主武器失控风险加剧。</p>
+        <p class="land"><strong>落地启发：</strong>国防与AI企业需关注各国自主武器政策动向，提前合规布局。</p>
+        <div class="src">来源：<a href="https://www.theverge.com/tech/1039554/un-regulations-killer-robots" target="_blank">The Verge AI</a></div>
+        </div></article><article class="card"><div class="rank">05</div><div>
+        <div class="topline"><span class="badge b-bigtech">大厂动态 · 芯片竞争</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>特朗普表态：英伟达Blackwell芯片可对华销售，但有个条件；OpenAI被曝入局智能手机赛道；DeepSeek第二轮千亿融资落地，31家出资方入局</h3>
+        <p>特朗普表示英伟达Blackwell芯片可对华销售但附有条件，同时OpenAI被曝进军智能手机赛道，DeepSeek完成第二轮千亿融资、31家投资方入局。这三件事分别从地缘政治、终端生态和资本流向勾勒出AI竞争新格局。</p>
+        <p><strong>为何重要：</strong>芯片出口政策松动与AI终端化、资本聚集，重塑行业竞争版图。</p>
+        <p class="land"><strong>落地启发：</strong>关注AI手机生态与国产算力链，把握政策窗口与资本动向。</p>
+        <div class="src">来源：<a href="https://www.leiphone.com/category/zaobao/qb1uol6hKvK6pRgF.html" target="_blank">AI 科技评论</a></div>
+        </div></article><div class="sec-head"><span class="num">02</span><h2>今日简报</h2></div><div class="brief"><div class="num">01</div><div>
+        <strong>AI宣称解决167年历史的黎曼猜想，人类也同时提交证明</strong><br>
+        AI与人类数学家同时宣称解决黎曼猜想，引发学界震动，后续Lean社区确认人类证明正确。 <a href="https://techcrunch.com/2026/11/20/ai-claimed-a-solution-to-the-167-year-old-riemann-hypothesis-and-a-human-did-too/" target="_blank">[TechCrunch AI]</a>
+        </div></div><div class="brief"><div class="num">02</div><div>
+        <strong>AI领域最被误解的图表迎来重大更新</strong><br>
+        METR报告更新AI能力增长曲线，显示部分能力仍指数级提升，但模型在复杂任务上表现不佳。 <a href="https://www.technologyreview.com/2026/11/20/1149399/the-most-misunderstood-graph-in-ai-just-got-a-major-update/" target="_blank">[MIT Tech Review AI]</a>
+        </div></div><div class="brief"><div class="num">03</div><div>
+        <strong>Perplexity新Monitor API将网页搜索从一次性查询变为持续监控</strong><br>
+        Perplexity推出Monitor API，可将搜索查询转为持续监控任务，拓展AI搜索的应用场景。 <a href="https://the-decoder.com/ai-coding-agents-ace-isolated-tests-but-complete-fewer-than-one-in-ten-tasks-in-a-simulated-workplace/" target="_blank">[The Decoder]</a>
+        </div></div><div class="brief"><div class="num">04</div><div>
+        <strong>METR警告：AI进步速度超过专家可靠评估其安全性的能力</strong><br>
+        METR指出AI能力提升过快，现有评估方法难以可靠判断新系统安全性，治理缺口扩大。 <a href="https://the-decoder.com/ai-coding-agents-ace-isolated-tests-but-complete-fewer-than-one-in-ten-tasks-in-a-simulated-workplace/" target="_blank">[The Decoder]</a>
+        </div></div><div class="brief"><div class="num">05</div><div>
+        <strong>安全研究者揭示廉价AI推理提供商如何窃取密钥并窥探用户</strong><br>
+        研究表明部分低价AI推理服务商存在窃取API密钥和监控用户数据的恶意行为，供应链信任危机。 <a href="https://the-decoder.com/ai-coding-agents-ace-isolated-tests-but-complete-fewer-than-one-in-ten-tasks-in-a-simulated-workplace/" target="_blank">[The Decoder]</a>
+        </div></div><div class="brief"><div class="num">06</div><div>
+        <strong>美国主要银行封杀第三方AI智能体登录用户账户</strong><br>
+        美国大型金融机构禁止第三方AI机器人登录用户账户，并警告机器人操作失误后果自负。 <a href="https://techcrunch.com/2026/11/21/all-the-ai-agents-that-can-live-in-your-text-messages/" target="_blank">[TechCrunch AI]</a> / <a href="https://www.engadget.com/2319388/how-to-test-usb-speed/" target="_blank">[Engadget AI]</a> / <a href="https://www.wired.com/story/banks-are-cracking-down-on-ai-agents/" target="_blank">[Wired AI]</a>
+        </div></div><div class="brief"><div class="num">07</div><div>
+        <strong>特朗普威胁对将AI数据中心建在美国之外的公司征收“巨额税”</strong><br>
+        特朗普承诺对在海外建设数据中心的企业征收重税，以推动AI基础设施留在美国。 <a href="https://www.theverge.com/policy/1038892/trump-foreign-data-centers-tax" target="_blank">[The Verge AI]</a>
+        </div></div><div class="brief"><div class="num">08</div><div>
+        <strong>两个英伟达的故事</strong><br>
+        英伟达最新财报与科技高管呼吁黄仁勋回归形成鲜明对比，折射公司内外矛盾。 <a href="https://techcrunch.com/2026/11/21/a-tale-of-two-nvidias/" target="_blank">[TechCrunch AI]</a>
+        </div></div><div class="sec-head"><span class="num">03</span><h2>今日趋势点评</h2></div><div class="trend"><div class="angle">
+        <div class="h">行业大势</div>
+        <p class="judgment">AI能力突破与安全治理的<strong>剪刀差持续扩大</strong>，治理滞后成为最大风险源。</p>
+        <p class="evidence">今日<mark>AI证明千禧难题</mark>与<mark>黎曼猜想被确认</mark>展示能力跃升，但<mark>联合国未能就杀手机器人达成规则</mark>、<mark>METR警告评估能力跟不上</mark>，治理端明显脱节。</p>
+        <p class="action"><strong>💡 建议：</strong>企业应将AI安全与合规纳入战略优先级，投资者可关注AI安全评估、隐私计算等治理科技赛道。</p>
+        </div><div class="angle">
+        <div class="h">落地应用启发</div>
+        <p class="judgment">Agent落地需<strong>从演示走向真实场景</strong>，当前能力被严重高估。</p>
+        <p class="evidence"><mark>AI编码智能体在模拟职场任务完成率不足10%</mark>，同时<mark>美国银行封杀第三方AI智能体</mark>，显示真实环境复杂性与信任缺失。</p>
+        <p class="action"><strong>💡 建议：</strong>开发者应聚焦窄场景、高确定性的Agent闭环，企业部署前需进行真实环境压力测试。</p>
+        </div><div class="angle">
+        <div class="h">对国内中小企业的影响</div>
+        <p class="judgment">芯片政策松动与资本聚集<strong>带来窗口期</strong>，但供应链安全成新门槛。</p>
+        <p class="evidence"><mark>特朗普有条件允许Blackwell对华销售</mark>，<mark>DeepSeek千亿融资落地</mark>，但<mark>AI供应链隐私泄露实验</mark>警示第三方服务风险。</p>
+        <p class="action"><strong>💡 建议：</strong>中小企业可借算力供给改善加速AI应用，但需严格审计供应商数据安全，优先选择可信推理服务。</p>
+        </div></div></main>
+<script>
+(function(){
+  // 搜索过滤
+  const input = document.getElementById('search');
+  if (input) {
+    input.addEventListener('input', function(e) {
+      const q = e.target.value.toLowerCase().trim();
+      document.querySelectorAll('.card, .brief').forEach(function(el) {
+        const match = !q || el.innerText.toLowerCase().includes(q);
+        el.style.display = match ? '' : 'none';
+      });
+    });
+  }
+  
+  // 归档页面动态调整返回链接
+  document.querySelectorAll('.archive-link').forEach(function(el) {
+    if (window.location.pathname.indexOf('/archive/') !== -1) {
+      el.href = 'index.html';
+      el.textContent = '📁 归档目录';
+    }
+  });
+})();
+</script>
+</body></html>
