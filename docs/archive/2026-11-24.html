@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业每日简报 · 2026-11-24</title>
+<style>
+:root{--bg:#f5f6f8;--bg2:#ffffff;--ink:#14182b;--muted:#5f6478;--rule:#e4e7ee;--accent:#1d39c4;--accent2:#cf1322;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75;}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px;}
+header.masthead{background:linear-gradient(180deg,#101426 0%,#1a2040 100%);color:#fff;padding:40px 0;position:relative;}
+header.masthead::after{content:"";position:absolute;left:0;bottom:0;height:4px;width:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+.masthead h1{font-size:2rem;margin:0 0 10px;font-weight:800;}
+.masthead .meta{font-size:0.95rem;color:#c7cde6;display:flex;gap:12px;flex-wrap:wrap;}
+.masthead .lede{margin-top:15px;font-size:0.98rem;color:#d7dcf0;border-left:3px solid var(--accent2);padding-left:14px;}
+.version{font-family:ui-monospace,SFMono-Regular,monospace;font-size:0.78rem;color:#8a92b2;background:rgba(255,255,255,0.06);padding:1px 8px;border-radius:4px;letter-spacing:0.05em;}
+.toolbar{display:flex;gap:12px;margin-top:16px;align-items:center;}
+.toolbar input{flex:1;padding:10px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:0.9rem;outline:none;transition:border-color .2s;}
+.toolbar input::placeholder{color:#8a92b2;}
+.toolbar input:focus{border-color:var(--accent);}
+.archive-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.archive-link:hover{color:#fff;border-color:var(--accent);}
+.weekly-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.weekly-link:hover{color:#fff;border-color:var(--accent);}
+main{padding:30px 0;}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}
+.strip .cell{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:18px;text-align:center;}
+.strip .cell .n{font-size:1.8rem;font-weight:800;color:var(--accent);}
+.strip .cell .n.red{color:var(--accent2);}
+.strip .cell .n.gray{color:var(--muted);}
+.cat-chart{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px 22px;margin-bottom:24px;}
+.chart-title{font-size:0.85rem;color:var(--muted);font-weight:700;margin-bottom:16px;letter-spacing:0.05em;}
+.chart-body{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+.legend{flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 20px;min-width:220px;}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;}
+.legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0;}
+.legend-name{color:var(--ink);flex:1;}
+.legend-pct{color:var(--muted);font-family:ui-monospace,monospace;font-weight:600;}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 18px;}
+.sec-head .num{font-size:0.8rem;font-weight:700;color:#fff;background:var(--accent);padding:3px 10px;border-radius:3px;}
+.sec-head h2{font-size:1.4rem;margin:0;font-weight:800;}
+.card{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px;margin-bottom:16px;display:grid;grid-template-columns:46px 1fr;gap:18px;}
+.rank{font-size:1.6rem;font-weight:800;color:var(--rule);text-align:center;}
+.card h3{font-size:1.15rem;margin:0 0 8px;}
+.card .land{margin:10px 0;font-size:0.9rem;color:var(--accent);background:#f0f3ff;border-left:3px solid var(--accent);padding:8px 12px;}
+.card .src{font-size:0.8rem;color:var(--muted);border-top:1px dashed var(--rule);padding-top:8px;margin-top:10px;}
+.badge{font-size:0.72rem;font-weight:700;padding:2px 10px;border-radius:20px;letter-spacing:0.02em;color:#fff;white-space:nowrap;}
+.b-fund{background:#0e7d6b;}
+.b-product{background:#1d39c4;}
+.b-paper{background:#6d28d9;}
+.b-open{background:#c2410c;}
+.b-policy{background:#b42318;}
+.b-bigtech{background:#1a2040;}
+.b-industry{background:#0369a1;}
+.b-community{background:#525252;}
+.b-cn{background:#a21caf;}
+.stars{color:#f5a623 !important;font-size:1.1rem;font-weight:bold;letter-spacing:2px;margin-left:auto;white-space:nowrap;}
+.stars .lbl{color:var(--muted);font-size:0.72rem;margin-right:4px;font-weight:normal;letter-spacing:normal;}
+.topline{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:8px;}
+.brief{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:14px;margin-bottom:10px;display:flex;gap:12px;}
+.brief .num{font-weight:800;color:var(--accent);width:26px;}
+.trend{background:linear-gradient(135deg,#1a2040 0%,#222a52 100%);color:#eef0fa;border-radius:12px;padding:26px;margin-top:20px;}
+.trend h3{color:#fff;margin:0 0 14px;}
+.trend .angle{margin-bottom:16px;}
+.trend .angle .h{font-size:0.8rem;color:#8ea0e8;font-weight:700;margin-bottom:6px;}
+.trend .angle .judgment{color:#fff;font-size:1.05rem;font-weight:600;margin:8px 0;}
+.trend .angle .evidence{color:#d7dcf0;font-size:0.95rem;margin:6px 0;}
+.trend .angle .action{color:#a7f3d0;font-size:0.9rem;margin:6px 0;padding:8px 12px;background:rgba(16,185,129,0.08);border-radius:6px;}
+@media(max-width:640px){.strip{grid-template-columns:repeat(2,1fr);}.card{grid-template-columns:1fr;}.rank{text-align:left;}}
+</style></head><body>
+<header class="masthead"><div class="wrap">
+<h1>AI 行业每日简报 · 2026-11-24</h1>
+<div class="meta"><span>2026年11月24日</span><span>·</span><span>星期二</span><span>·</span><span class="version">V1.8</span></div>
+<p class="lede">今日 AI 行业的主线是“算力与智能体双线并进，但治理风险同步抬升”。最值得关注的三件事：一是 Amazon 以约 75 亿美元收购 Decart 的 AI 优化技术与研究团队，为自家 Trainium 芯片外销铺路，标志云厂商开始把“模型效率”当作可交易的战略资产；二是 Anthropic 推出 Claude Ship，让模型自主审阅、修复并批准 PR，智能体正式进入软件交付主流程；三是英伟达 CEO 黄仁勋在因丑闻辞职约两周后被董事会复职，白宫公开承认特朗普“深度介入”，并将于 12 月 3 日赴参议院作证，公司治理与政治干预罕见地缠绕在一起。三者共同驱动因素清晰：资本正从“堆模型”转向“买效率、买交付能力”，而算力自主与供应链安全成为中美两侧同时加码的暗线；与此同时，AI 安全与内容合规压力（Grok 深度伪造诉讼、OpenAI 呼吁共享安全上限）正在把监管从“讨论”推向“诉讼与听证”。未来 1-3 个月，我判断：芯片与推理优化类并购会继续升温，智能体产品将从“演示”进入“计费交付”，而英伟达的治理风波可能演变为美国 AI 政策的不确定变量。整体看，今天是“技术加速、治理补课”并行的一天。</p>
+<div class="toolbar">
+<input id="search" type="text" placeholder="🔍 搜索标题、摘要或来源..." />
+<a href="archive/index.html" class="archive-link">📁 历史归档</a>
+<a href="weekly/index.html" class="weekly-link">📅 本周回顾</a>
+</div>
+</div></header>
+<main class="wrap">
+<div class="strip">
+<div class="cell"><div class="n red">3</div><div>5 星事件</div></div>
+<div class="cell"><div class="n">2</div><div>4 星事件</div></div>
+<div class="cell"><div class="n">8</div><div>3 星事件</div></div>
+<div class="cell"><div class="n gray">13</div><div>今日简报条数</div></div>
+</div>
+<div class="cat-chart">
+<div class="chart-title">📊 今日分类分布</div>
+<div class="chart-body">
+<svg viewBox="0 0 160 160" width="160" height="160" style="flex-shrink:0;"><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#eef1f8" stroke-width="22"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#b42318" stroke-width="22" stroke-dasharray="106.33 239.24" stroke-dashoffset="0.00" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#1a2040" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-106.33" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#6d28d9" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-159.50" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#0e7d6b" stroke-width="22" stroke-dasharray="26.58 318.99" stroke-dashoffset="-212.66" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#1d39c4" stroke-width="22" stroke-dasharray="26.58 318.99" stroke-dashoffset="-239.24" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#c2410c" stroke-width="22" stroke-dasharray="26.58 318.99" stroke-dashoffset="-265.83" transform="rotate(-90 80.0 80.0)"/><text x="80.0" y="78.0" text-anchor="middle" font-size="24" font-weight="800" fill="#14182b">13</text><text x="80.0" y="96.0" text-anchor="middle" font-size="11" fill="#5f6478">条动态</text></svg>
+<div class="legend"><div class="legend-item"><span class="legend-dot" style="background:#b42318"></span><span class="legend-name">政策标准</span><span class="legend-pct">31%</span></div><div class="legend-item"><span class="legend-dot" style="background:#1a2040"></span><span class="legend-name">大厂动态</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#6d28d9"></span><span class="legend-name">技术论文</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#0e7d6b"></span><span class="legend-name">融资并购</span><span class="legend-pct">8%</span></div><div class="legend-item"><span class="legend-dot" style="background:#1d39c4"></span><span class="legend-name">产品发布</span><span class="legend-pct">8%</span></div><div class="legend-item"><span class="legend-dot" style="background:#c2410c"></span><span class="legend-name">开源动态</span><span class="legend-pct">8%</span></div></div>
+</div>
+</div>
+<div class="sec-head"><span class="num">01</span><h2>今日必读</h2></div>
+<article class="card"><div class="rank">01</div><div>
+        <div class="topline"><span class="badge b-fund">融资并购 · 算力基建</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>Amazon 以 75 亿美元收购 Decart 的 AI 优化技术，为 Trainium 芯片外销铺路</h3>
+        <p>Amazon 宣布收购 Decart 的 AI 优化技术与研究团队，交易规模约 75 亿美元。此举被解读为 Amazon 在准备对外销售 Trainium 芯片前，先补齐推理效率与软件栈能力，强化与英伟达 GPU 生态的差异化竞争。</p>
+        <p><strong>为何重要：</strong>云厂商用并购买“效率”，算力竞争转向软硬一体</p>
+        <p class="land"><strong>落地启发：</strong>关注推理优化与芯片软件栈标的，自建算力需重估 TCO</p>
+        <div class="src">来源：<a href="https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/" target="_blank">TechCrunch AI</a></div>
+        </div></article><article class="card"><div class="rank">02</div><div>
+        <div class="topline"><span class="badge b-product">产品发布 · 智能体生态</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>Claude 可自主审阅 PR 并提交修复，Anthropic 推出 Claude Ship</h3>
+        <p>Anthropic 发布 Claude Ship 产品，Claude 现可审阅、修复并批准 pull request，直接参与代码交付流程。这标志智能体从辅助编码走向接管部分工程工作流，对 DevOps 工具链和代码评审环节影响直接。</p>
+        <p><strong>为何重要：</strong>智能体进入软件交付主流程，工程协作范式生变</p>
+        <p class="land"><strong>落地启发：</strong>评估将 PR 评审自动化纳入 CI/CD，先设人工兜底</p>
+        <div class="src">来源：<a href="https://techcrunch.com/2026/11/23/google-searchs-ai-mode-can-now-tap-into-drive-and-wallet-for-more-personalized-responses/" target="_blank">TechCrunch AI</a> / <a href="https://www.theverge.com/ai-artificial-intelligence/1040134/anthropic-claude-ship-ai-pull-requests" target="_blank">The Verge AI</a></div>
+        </div></article><article class="card"><div class="rank">03</div><div>
+        <div class="topline"><span class="badge b-bigtech">大厂动态 · 公司治理</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>黄仁勋回归英伟达 CEO 职位，员工如英雄般迎接</h3>
+        <p>黄仁勋在因多起绯闻指控辞职约两周后被董事会复职，返回总部时受到员工英雄式欢迎。他称“第二次会做个更好的 CEO”。事件牵动英伟达股价与 AI 芯片供应预期，治理争议尚未平息。</p>
+        <p><strong>为何重要：</strong>全球最重要 AI 芯片公司的掌舵人变动，牵动供应链</p>
+        <p class="land"><strong>落地启发：</strong>关注英伟达供应链与股价波动，评估客户集中风险</p>
+        <div class="src">来源：<a href="https://techcrunch.com/2026/11/23/nvidia-employees-greet-jensen-huang-like-a-hero-as-he-returns-to-companys-hq/" target="_blank">TechCrunch AI</a> / <a href="https://www.theverge.com/tech/1040428/nvidia-jensen-huang-ceo-return" target="_blank">The Verge AI</a> / <a href="https://www.wired.com/story/jensen-huang-is-back-as-nvidia-ceo/" target="_blank">Wired AI</a></div>
+        </div></article><article class="card"><div class="rank">04</div><div>
+        <div class="topline"><span class="badge b-policy">政策标准 · 政商关系</span><span class="stars"><span class="lbl">影响</span>★★★★</span></div>
+        <h3>白宫称特朗普“深度参与”黄仁勋复职</h3>
+        <p>白宫公开表示特朗普“完全参与”了黄仁勋复职过程，此前有报道称特朗普曾致电英伟达董事会为其说情。政治力量介入关键 AI 企业治理，引发对产业政策独立性的讨论，并叠加参议院听证压力。</p>
+        <p><strong>为何重要：</strong>政治干预企业治理，AI 政策不确定性上升</p>
+        <p class="land"><strong>落地启发：</strong>跟踪 12 月 3 日听证会，评估政策与出口管制风险</p>
+        <div class="src">来源：<a href="https://www.theverge.com/policy/1040096/trump-nvidia-jensen-huang-reinstated" target="_blank">The Verge AI</a></div>
+        </div></article><article class="card"><div class="rank">05</div><div>
+        <div class="topline"><span class="badge b-policy">政策标准 · AI 安全</span><span class="stars"><span class="lbl">影响</span>★★★★</span></div>
+        <h3>俄勒冈与弗吉尼亚州就 Grok 深度伪造起诉 SpaceX</h3>
+        <p>俄勒冈与弗吉尼亚两州总检察长分别起诉 SpaceX，指控其旗下 Grok 对真实人物（含儿童）生成性化图像、防护措施薄弱，违反州消费者保护法。这是州级监管对生成式 AI 内容安全的首批实质诉讼之一。</p>
+        <p><strong>为何重要：</strong>州级诉讼开启，深度伪造合规成本显性化</p>
+        <p class="land"><strong>落地启发：</strong>内容平台需前置人脸与未成年人防护与审计</p>
+        <div class="src">来源：<a href="https://www.theverge.com/ai-artificial-intelligence/1040255/x-grok-ai-deepfakes-oregon-virginia-lawsuit" target="_blank">The Verge AI</a> / <a href="https://www.wired.com/story/states-sue-spacex-over-grok-deepfakes/" target="_blank">Wired AI</a></div>
+        </div></article><div class="sec-head"><span class="num">02</span><h2>今日简报</h2></div><div class="brief"><div class="num">01</div><div>
+        <strong>实测：1450 亿参数塞进笔记本，每秒 80+ Token，国产端侧大模型爆发</strong><br>
+        国产端侧大模型实现 1450 亿参数本地运行、80+ Token/s，零 Token 成本且断网可用。 <a href="https://www.qbitai.com/2026/11/512195.html" target="_blank">[量子位]</a>
+        </div></div><div class="brief"><div class="num">02</div><div>
+        <strong>蚂蚁阿福同款大模型宣布开源，全球医生一台电脑即可解锁专业医疗 AI</strong><br>
+        蚂蚁开源医疗大模型并支持本地部署，降低专业医疗 AI 的使用门槛。 <a href="https://www.qbitai.com/2026/11/511998.html" target="_blank">[量子位]</a>
+        </div></div><div class="brief"><div class="num">03</div><div>
+        <strong>“Agent 版 arXiv”出现：936 个智能体 12 周发近千篇论文并完成同行评议</strong><br>
+        全 AI 科学家社会在 12 周内产出近千篇论文并自建评议流程，引发科研范式讨论。 <a href="https://www.qbitai.com/2026/11/512004.html" target="_blank">[量子位]</a>
+        </div></div><div class="brief"><div class="num">04</div><div>
+        <strong>算力周期更迭与数据复合增长：存储经济性对中国规模化 AI 至关重要</strong><br>
+        文章指出规模化 AI 依赖在全数据生命周期平衡性能、可靠性与成本的存储架构。 <a href="https://www.qbitai.com/2026/11/511989.html" target="_blank">[量子位]</a>
+        </div></div><div class="brief"><div class="num">05</div><div>
+        <strong>OpenAI 警告新一代 AI 系统可能超越安全检查，呼吁对手共商共享上限</strong><br>
+        OpenAI 称前沿系统迭代快于安全评估，倡议行业就能力上限达成共识。 <a href="https://the-decoder.com/openai-updates-chatgpt-to-handle-complex-everyday-questions-web-searches-and-images-more-reliably/" target="_blank">[The Decoder]</a>
+        </div></div><div class="brief"><div class="num">06</div><div>
+        <strong>Anthropic 放宽 Mythos 与 Fable 模型的数据保留政策</strong><br>
+        企业客户可将提示与响应保留在自有服务器，回应企业数据主权诉求。 <a href="https://www.engadget.com/2325684/anthropic-softens-its-data-retention-policy-for-mythos-and-fable-model-use/" target="_blank">[Engadget AI]</a>
+        </div></div><div class="brief"><div class="num">07</div><div>
+        <strong>DeepMind 用智能体与形式化验证寻找更快的量子算法</strong><br>
+        以智能体团队加形式化验证改进聚变与化学领域的量子算法。 <a href="https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/" target="_blank">[DeepMind Blog]</a>
+        </div></div><div class="brief"><div class="num">08</div><div>
+        <strong>英伟达开始为脑机接口提供算力</strong><br>
+        Paradromics 采用英伟达软硬件处理脑数据，算力版图延伸至脑机接口。 <a href="https://www.wired.com/story/nvidia-is-powering-brain-computer-interfaces-now/" target="_blank">[Wired AI]</a>
+        </div></div><div class="sec-head"><span class="num">03</span><h2>今日趋势点评</h2></div><div class="trend"><div class="angle">
+        <div class="h">行业大势</div>
+        <p class="judgment">资本正从“堆模型”转向<strong>买效率与买交付</strong>，算力竞争进入软硬一体阶段。</p>
+        <p class="evidence">Amazon 以约 <mark>75 亿美元</mark>收购 Decart 优化技术为 Trainium 外销铺路；Anthropic 推出 <mark>Claude Ship</mark> 让模型自主审阅并批准 PR；端侧 <mark>1450 亿参数</mark>模型实现本地 80+ Token/s。</p>
+        <p class="action"><strong>💡 建议：</strong>投资者关注推理优化与芯片软件栈标的；企业应重估自建算力的 TCO 与端侧部署可行性。</p>
+        </div><div class="angle">
+        <div class="h">对国内中小企业的影响</div>
+        <p class="judgment">开源与端侧部署把专业 AI 能力<strong>下沉到一台电脑</strong>，中小团队门槛显著降低。</p>
+        <p class="evidence">蚂蚁开源医疗大模型支持<mark>本地部署</mark>，全球医生一台电脑即可使用；国产端侧模型实现<mark>零 Token 成本</mark>、断网可用；存储经济性成为规模化 AI 的关键约束。</p>
+        <p class="action"><strong>💡 建议：</strong>中小企业可优先评估开源模型本地化方案，把数据主权与推理成本纳入架构选型。</p>
+        </div><div class="angle">
+        <div class="h">落地应用启发</div>
+        <p class="judgment">AI 安全与内容合规正从“讨论”走向<strong>诉讼与听证</strong>，合规成本显性化。</p>
+        <p class="evidence">俄勒冈与弗吉尼亚就 <mark>Grok 深度伪造</mark>起诉 SpaceX；OpenAI 警告系统可能<mark>超越安全检查</mark>并呼吁共享上限；黄仁勋将于 <mark>12 月 3 日</mark>赴参议院作证。</p>
+        <p class="action"><strong>💡 建议：</strong>内容平台需前置人脸与未成年人防护及审计日志；企业应跟踪听证会与州级立法动向。</p>
+        </div></div></main>
+<script>
+(function(){
+  // 搜索过滤
+  const input = document.getElementById('search');
+  if (input) {
+    input.addEventListener('input', function(e) {
+      const q = e.target.value.toLowerCase().trim();
+      document.querySelectorAll('.card, .brief').forEach(function(el) {
+        const match = !q || el.innerText.toLowerCase().includes(q);
+        el.style.display = match ? '' : 'none';
+      });
+    });
+  }
+  
+  // 归档页面动态调整返回链接
+  document.querySelectorAll('.archive-link').forEach(function(el) {
+    if (window.location.pathname.indexOf('/archive/') !== -1) {
+      el.href = 'index.html';
+      el.textContent = '📁 归档目录';
+    }
+  });
+})();
+</script>
+</body></html>
