@@ -1,33 +1,37 @@
 {
-  "headline": "今日 AI 行业的主线是“算力与智能体双线并进，但治理风险同步抬升”。最值得关注的三件事：一是 Amazon 以约 75 亿美元收购 Decart 的 AI 优化技术与研究团队，为自家 Trainium 芯片外销铺路，标志云厂商开始把“模型效率”当作可交易的战略资产；二是 Anthropic 推出 Claude Ship，让模型自主审阅、修复并批准 PR，智能体正式进入软件交付主流程；三是英伟达 CEO 黄仁勋在因丑闻辞职约两周后被董事会复职，白宫公开承认特朗普“深度介入”，并将于 12 月 3 日赴参议院作证，公司治理与政治干预罕见地缠绕在一起。三者共同驱动因素清晰：资本正从“堆模型”转向“买效率、买交付能力”，而算力自主与供应链安全成为中美两侧同时加码的暗线；与此同时，AI 安全与内容合规压力（Grok 深度伪造诉讼、OpenAI 呼吁共享安全上限）正在把监管从“讨论”推向“诉讼与听证”。未来 1-3 个月，我判断：芯片与推理优化类并购会继续升温，智能体产品将从“演示”进入“计费交付”，而英伟达的治理风波可能演变为美国 AI 政策的不确定变量。整体看，今天是“技术加速、治理补课”并行的一天。",
+  "headline": "今日AI行业呈现“基础设施竞赛与治理焦虑并行”的态势。核心事件有三：一是蚂蚁OceanBase发布湖库一体AI数据平台OceanLake并开源核心引擎，标志着数据底座成为大模型落地的关键战场；二是Anthropic推出Claude Ship，让AI智能体自主审查、修复并批准代码变更，将Agent能力从辅助编码推向代码治理闭环；三是智谱发布GLM-5.4全新架构模型，与Z.ai的750B旗舰模型形成国产大模型架构创新潮。这三者看似分属数据、应用、模型三层，但共同驱动因素清晰：资本正从单纯的模型参数竞赛转向“数据基础设施+智能体工作流”的落地效率比拼，同时开源与闭源边界加速模糊。未来1-3个月，企业AI预算将更集中流向能直接压缩交付周期的数据平台与Agent工具链，而模型层竞争将围绕架构效率而非规模展开。整体判断：行业正从“模型能力展示期”进入“工程化兑现期”，能打通数据、模型与工作流闭环的玩家将赢得下一阶段定价权。",
   "must_read": [
     {
-      "cluster_id": 10,
-      "title": "Amazon 以 75 亿美元收购 Decart 的 AI 优化技术，为 Trainium 芯片外销铺路",
-      "category": "融资并购 · 算力基建",
+      "cluster_id": 7,
+      "title": "蚂蚁OceanBase发布湖库一体AI数据平台OceanLake，并开源核心引擎OceanSeek",
+      "category": "产品发布 · 数据底座",
       "importance": 5,
-      "summary": "Amazon 宣布收购 Decart 的 AI 优化技术与研究团队，交易规模约 75 亿美元。此举被解读为 Amazon 在准备对外销售 Trainium 芯片前，先补齐推理效率与软件栈能力，强化与英伟达 GPU 生态的差异化竞争。",
-      "why": "云厂商用并购买“效率”，算力竞争转向软硬一体",
-      "actionable_insight": "关注推理优化与芯片软件栈标的，自建算力需重估 TCO",
+      "summary": "蚂蚁OceanBase发布湖库一体AI数据平台OceanLake，同时开源核心AI数据库引擎OceanSeek。CTO杨传辉指出，AI时代数据基础设施需具备湖库一体、在离线一体、Agent友好和多模混合搜索四大能力，为企业AI应用提供统一数据底座。",
+      "why": "数据底座成为大模型落地关键战场",
+      "actionable_insight": "企业应评估湖库一体架构对现有数据栈的替代价值",
       "sources": [
         {
-          "name": "TechCrunch AI",
-          "url": "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/"
+          "name": "量子位",
+          "url": "https://www.qbitai.com/2026/11/512383.html"
+        },
+        {
+          "name": "AI 科技评论",
+          "url": "https://www.leiphone.com/category/industrynews/HXbRi8ascVBkUsJP.html"
         }
       ]
     },
     {
-      "cluster_id": 9,
-      "title": "Claude 可自主审阅 PR 并提交修复，Anthropic 推出 Claude Ship",
+      "cluster_id": 10,
+      "title": "Anthropic推出Claude Ship，让AI智能体自主审查、修复并批准代码变更",
       "category": "产品发布 · 智能体生态",
       "importance": 5,
-      "summary": "Anthropic 发布 Claude Ship 产品，Claude 现可审阅、修复并批准 pull request，直接参与代码交付流程。这标志智能体从辅助编码走向接管部分工程工作流，对 DevOps 工具链和代码评审环节影响直接。",
-      "why": "智能体进入软件交付主流程，工程协作范式生变",
-      "actionable_insight": "评估将 PR 评审自动化纳入 CI/CD，先设人工兜底",
+      "summary": "Anthropic发布Claude Ship开发者工具，Claude可自主审查、修复并批准Pull Request，旨在解决AI生成代码堆积带来的审批瓶颈。该产品将Agent能力从编码辅助延伸至代码治理闭环，可能重塑软件工程协作流程。",
+      "why": "Agent从辅助编码走向代码治理闭环",
+      "actionable_insight": "研发团队应试点Agent审批流水线以压缩交付周期",
       "sources": [
         {
           "name": "TechCrunch AI",
-          "url": "https://techcrunch.com/2026/11/23/google-searchs-ai-mode-can-now-tap-into-drive-and-wallet-for-more-personalized-responses/"
+          "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/"
         },
         {
           "name": "The Verge AI",
@@ -36,141 +40,113 @@
       ]
     },
     {
-      "cluster_id": 8,
-      "title": "黄仁勋回归英伟达 CEO 职位，员工如英雄般迎接",
+      "cluster_id": 4,
+      "title": "智谱发布GLM-5.4，采用全新架构",
+      "category": "产品发布 · 模型发布",
+      "importance": 5,
+      "summary": "智谱发布GLM-5.4大模型，采用全新架构，网友反馈超出预期。同期Z.ai推出750B旗舰模型跟进循环Transformer路线，显示国产大模型正从规模竞赛转向架构效率创新。",
+      "why": "国产模型架构创新加速追赶",
+      "actionable_insight": "关注新架构在推理成本与长上下文上的实际收益",
+      "sources": [
+        {
+          "name": "量子位",
+          "url": "https://www.qbitai.com/2026/11/512423.html"
+        }
+      ]
+    },
+    {
+      "cluster_id": 12,
+      "title": "黄仁勋重返英伟达CEO岗位，公司股价应声上涨",
       "category": "大厂动态 · 公司治理",
       "importance": 5,
-      "summary": "黄仁勋在因多起绯闻指控辞职约两周后被董事会复职，返回总部时受到员工英雄式欢迎。他称“第二次会做个更好的 CEO”。事件牵动英伟达股价与 AI 芯片供应预期，治理争议尚未平息。",
-      "why": "全球最重要 AI 芯片公司的掌舵人变动，牵动供应链",
-      "actionable_insight": "关注英伟达供应链与股价波动，评估客户集中风险",
+      "summary": "英伟达董事会重新任命黄仁勋为CEO，距其因与直接下属存在不正当关系指控辞职仅一周多。马斯克等公开表示欢迎，公司股价随即上涨。事件背后涉及特朗普政府施压及Megaspeed公司可能被列入美国黑名单的复杂博弈。",
+      "why": "公司治理危机与地缘政治交织",
+      "actionable_insight": "投资者需关注英伟达管理层稳定性对供应链的扰动",
       "sources": [
         {
           "name": "TechCrunch AI",
-          "url": "https://techcrunch.com/2026/11/23/nvidia-employees-greet-jensen-huang-like-a-hero-as-he-returns-to-companys-hq/"
+          "url": "https://techcrunch.com/2026/11/23/elon-musk-and-others-rejoice-as-jensen-huang-is-reinstated-at-nvidia-amid-scandal/"
         },
         {
           "name": "The Verge AI",
-          "url": "https://www.theverge.com/tech/1040428/nvidia-jensen-huang-ceo-return"
-        },
-        {
-          "name": "Wired AI",
-          "url": "https://www.wired.com/story/jensen-huang-is-back-as-nvidia-ceo/"
-        }
-      ]
-    },
-    {
-      "cluster_id": 14,
-      "title": "白宫称特朗普“深度参与”黄仁勋复职",
-      "category": "政策标准 · 政商关系",
-      "importance": 4,
-      "summary": "白宫公开表示特朗普“完全参与”了黄仁勋复职过程，此前有报道称特朗普曾致电英伟达董事会为其说情。政治力量介入关键 AI 企业治理，引发对产业政策独立性的讨论，并叠加参议院听证压力。",
-      "why": "政治干预企业治理，AI 政策不确定性上升",
-      "actionable_insight": "跟踪 12 月 3 日听证会，评估政策与出口管制风险",
-      "sources": [
-        {
-          "name": "The Verge AI",
-          "url": "https://www.theverge.com/policy/1040096/trump-nvidia-jensen-huang-reinstated"
-        }
-      ]
-    },
-    {
-      "cluster_id": 13,
-      "title": "俄勒冈与弗吉尼亚州就 Grok 深度伪造起诉 SpaceX",
-      "category": "政策标准 · AI 安全",
-      "importance": 4,
-      "summary": "俄勒冈与弗吉尼亚两州总检察长分别起诉 SpaceX，指控其旗下 Grok 对真实人物（含儿童）生成性化图像、防护措施薄弱，违反州消费者保护法。这是州级监管对生成式 AI 内容安全的首批实质诉讼之一。",
-      "why": "州级诉讼开启，深度伪造合规成本显性化",
-      "actionable_insight": "内容平台需前置人脸与未成年人防护与审计",
-      "sources": [
-        {
-          "name": "The Verge AI",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/1040255/x-grok-ai-deepfakes-oregon-virginia-lawsuit"
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1030422/nvidia-jensen-huang-ai-china-alice-huang"
         },
         {
           "name": "Wired AI",
-          "url": "https://www.wired.com/story/states-sue-spacex-over-grok-deepfakes/"
-        }
-      ]
-    }
-  ],
-  "briefs": [
-    {
-      "cluster_id": 1,
-      "title": "实测：1450 亿参数塞进笔记本，每秒 80+ Token，国产端侧大模型爆发",
-      "category": "技术论文 · 端侧推理",
-      "summary": "国产端侧大模型实现 1450 亿参数本地运行、80+ Token/s，零 Token 成本且断网可用。",
-      "sources": [
-        {
-          "name": "量子位",
-          "url": "https://www.qbitai.com/2026/11/512195.html"
+          "url": "https://www.wired.com/story/jensens-back-stocks-up-what-the-hell-sure/"
         }
       ]
     },
     {
-      "cluster_id": 5,
-      "title": "蚂蚁阿福同款大模型宣布开源，全球医生一台电脑即可解锁专业医疗 AI",
-      "category": "开源动态 · 医疗模型",
-      "summary": "蚂蚁开源医疗大模型并支持本地部署，降低专业医疗 AI 的使用门槛。",
-      "sources": [
-        {
-          "name": "量子位",
-          "url": "https://www.qbitai.com/2026/11/511998.html"
-        }
-      ]
-    },
-    {
-      "cluster_id": 4,
-      "title": "“Agent 版 arXiv”出现：936 个智能体 12 周发近千篇论文并完成同行评议",
-      "category": "社区热议 · 智能体生态",
-      "summary": "全 AI 科学家社会在 12 周内产出近千篇论文并自建评议流程，引发科研范式讨论。",
-      "sources": [
-        {
-          "name": "量子位",
-          "url": "https://www.qbitai.com/2026/11/512004.html"
-        }
-      ]
-    },
-    {
-      "cluster_id": 6,
-      "title": "算力周期更迭与数据复合增长：存储经济性对中国规模化 AI 至关重要",
-      "category": "产业观察 · 存储架构",
-      "summary": "文章指出规模化 AI 依赖在全数据生命周期平衡性能、可靠性与成本的存储架构。",
-      "sources": [
-        {
-          "name": "量子位",
-          "url": "https://www.qbitai.com/2026/11/511989.html"
-        }
-      ]
-    },
-    {
-      "cluster_id": 22,
-      "title": "OpenAI 警告新一代 AI 系统可能超越安全检查，呼吁对手共商共享上限",
+      "cluster_id": 23,
+      "title": "OpenAI警告未来AI系统可能超出安全审查速度，呼吁竞争对手就共同限制达成一致",
       "category": "政策标准 · AI 安全",
-      "summary": "OpenAI 称前沿系统迭代快于安全评估，倡议行业就能力上限达成共识。",
+      "importance": 4,
+      "summary": "OpenAI警告即将推出的AI系统能力可能超越现有安全评估节奏，呼吁行业对手共同商定能力上限。同期ChatGPT更新以更可靠处理复杂日常问题、网络搜索和图像，显示能力提升与安全治理同步推进。",
+      "why": "前沿模型安全治理进入行业协同窗口",
+      "actionable_insight": "企业应提前建立模型能力红线与第三方审计机制",
       "sources": [
         {
           "name": "The Decoder",
           "url": "https://the-decoder.com/openai-updates-chatgpt-to-handle-complex-everyday-questions-web-searches-and-images-more-reliably/"
         }
       ]
-    },
+    }
+  ],
+  "briefs": [
     {
-      "cluster_id": 18,
-      "title": "Anthropic 放宽 Mythos 与 Fable 模型的数据保留政策",
-      "category": "政策标准 · 数据合规",
-      "summary": "企业客户可将提示与响应保留在自有服务器，回应企业数据主权诉求。",
+      "cluster_id": 0,
+      "title": "OpenAI与思科推出Shirudo：面向Linux的开源运行时",
+      "category": "开源动态 · 系统安全",
+      "summary": "OpenAI与思科联合发布开源Linux运行时Shirudo，帮助团队在打补丁期间保护运行中的系统。",
       "sources": [
         {
-          "name": "Engadget AI",
-          "url": "https://www.engadget.com/2325684/anthropic-softens-its-data-retention-policy-for-mythos-and-fable-model-use/"
+          "name": "OpenAI Blog",
+          "url": "https://openai.com/index/introducing-shirudo"
         }
       ]
     },
     {
-      "cluster_id": 21,
-      "title": "DeepMind 用智能体与形式化验证寻找更快的量子算法",
-      "category": "技术论文 · 科学智能",
-      "summary": "以智能体团队加形式化验证改进聚变与化学领域的量子算法。",
+      "cluster_id": 3,
+      "title": "蚂蚁开源医疗健康预测模型，基于睡眠数据可预测未来六年150种疾病风险",
+      "category": "开源动态 · 医疗AI",
+      "summary": "蚂蚁发布医疗健康模型全家桶，可根据睡眠数据预测未来六年150种疾病风险。",
+      "sources": [
+        {
+          "name": "量子位",
+          "url": "https://www.qbitai.com/2026/11/512451.html"
+        }
+      ]
+    },
+    {
+      "cluster_id": 11,
+      "title": "Supertake融资2000万美元，让AI智能体将市场预测转化为股票组合",
+      "category": "融资并购 · 智能投顾",
+      "summary": "Supertake获2000万美元融资，用户可借AI智能体将市场观点直接转化为股票投资组合。",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/11/23/supertake-raises-20m-to-let-ai-agents-turn-your-market-predictions-into-stock-portfolios/"
+        }
+      ]
+    },
+    {
+      "cluster_id": 13,
+      "title": "Google搜索AI模式接入Drive和Wallet，提供更个性化回答",
+      "category": "大厂动态 · 个性化搜索",
+      "summary": "Google将Personal Intelligence引入AI模式，打通Drive、Wallet和Gemini应用，利用生态内用户数据提升个性化。",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/11/23/google-searchs-ai-mode-can-now-tap-into-drive-and-wallet-for-more-personalized-responses/"
+        }
+      ]
+    },
+    {
+      "cluster_id": 22,
+      "title": "DeepMind利用智能体与形式化验证寻找更快的量子算法",
+      "category": "技术论文 · 量子计算",
+      "summary": "DeepMind通过智能体团队与形式化验证改进聚变和化学领域的量子算法。",
       "sources": [
         {
           "name": "DeepMind Blog",
@@ -179,14 +155,38 @@
       ]
     },
     {
-      "cluster_id": 23,
-      "title": "英伟达开始为脑机接口提供算力",
-      "category": "大厂动态 · 算力外延",
-      "summary": "Paradromics 采用英伟达软硬件处理脑数据，算力版图延伸至脑机接口。",
+      "cluster_id": 25,
+      "title": "AI解决数学最著名难题，人类却难以理解其1700万行证明",
+      "category": "技术论文 · 数学突破",
+      "summary": "Anthropic研究员用AI生成黎曼猜想的1700万行“外星”证明，数学家需数月才能理解。",
       "sources": [
         {
           "name": "Wired AI",
-          "url": "https://www.wired.com/story/nvidia-is-powering-brain-computer-interfaces-now/"
+          "url": "https://www.wired.com/story/ai-solved-maths-most-famous-problem/"
+        }
+      ]
+    },
+    {
+      "cluster_id": 28,
+      "title": "俄勒冈州和弗吉尼亚州就Grok深度伪造起诉SpaceX",
+      "category": "政策标准 · 深度伪造",
+      "summary": "两州总检察长起诉马斯克旗下公司，指控其对真实人物（含儿童）的性化图像防护不力。",
+      "sources": [
+        {
+          "name": "Wired AI",
+          "url": "https://www.wired.com/story/states-sue-spacex-over-grok-deepfakes/"
+        }
+      ]
+    },
+    {
+      "cluster_id": 32,
+      "title": "华金证券接入千问办公，73个AI技能重塑投研风控全流程",
+      "category": "产业观察 · 金融AI",
+      "summary": "华金证券接入千问办公打造投研投管投监AI工作台，盘前研究准备时间从2小时压缩至10分钟。",
+      "sources": [
+        {
+          "name": "AI 科技评论",
+          "url": "https://www.leiphone.com/category/industrynews/ubwFeDsrkrcQf1BB.html"
         }
       ]
     }
@@ -194,21 +194,21 @@
   "trends": [
     {
       "heading": "行业大势",
-      "judgment": "资本正从“堆模型”转向<strong>买效率与买交付</strong>，算力竞争进入软硬一体阶段。",
-      "evidence": "Amazon 以约 <mark>75 亿美元</mark>收购 Decart 优化技术为 Trainium 外销铺路；Anthropic 推出 <mark>Claude Ship</mark> 让模型自主审阅并批准 PR；端侧 <mark>1450 亿参数</mark>模型实现本地 80+ Token/s。",
-      "action": "投资者关注推理优化与芯片软件栈标的；企业应重估自建算力的 TCO 与端侧部署可行性。"
-    },
-    {
-      "heading": "对国内中小企业的影响",
-      "judgment": "开源与端侧部署把专业 AI 能力<strong>下沉到一台电脑</strong>，中小团队门槛显著降低。",
-      "evidence": "蚂蚁开源医疗大模型支持<mark>本地部署</mark>，全球医生一台电脑即可使用；国产端侧模型实现<mark>零 Token 成本</mark>、断网可用；存储经济性成为规模化 AI 的关键约束。",
-      "action": "中小企业可优先评估开源模型本地化方案，把数据主权与推理成本纳入架构选型。"
+      "judgment": "AI竞争焦点正从<strong>模型参数规模</strong>转向<strong>数据与工作流基础设施</strong>。",
+      "evidence": "今日<mark>蚂蚁OceanBase发布湖库一体平台OceanLake并开源OceanSeek</mark>，同时<mark>Anthropic推出Claude Ship让Agent自主审批代码</mark>，两者分别从数据底座和开发流程两端压缩AI落地成本。",
+      "action": "企业应优先投资能打通数据治理与Agent工作流的平台型工具，而非孤立的大模型API。"
     },
     {
       "heading": "落地应用启发",
-      "judgment": "AI 安全与内容合规正从“讨论”走向<strong>诉讼与听证</strong>，合规成本显性化。",
-      "evidence": "俄勒冈与弗吉尼亚就 <mark>Grok 深度伪造</mark>起诉 SpaceX；OpenAI 警告系统可能<mark>超越安全检查</mark>并呼吁共享上限；黄仁勋将于 <mark>12 月 3 日</mark>赴参议院作证。",
-      "action": "内容平台需前置人脸与未成年人防护及审计日志；企业应跟踪听证会与州级立法动向。"
+      "judgment": "智能体正从<strong>辅助工具</strong>升级为<strong>可独立闭环的业务执行者</strong>。",
+      "evidence": "<mark>Claude Ship可自主审查、修复并批准PR</mark>，<mark>华金证券73个AI技能将盘前准备从2小时压至10分钟</mark>，显示Agent在代码与金融场景已能承担端到端任务。",
+      "action": "开发者应设计“人类监督+Agent执行”的混合流程，优先在审批、监控等高频重复环节试点。"
+    },
+    {
+      "heading": "对国内中小企业的影响",
+      "judgment": "开源模型与数据平台降低AI门槛，但<strong>安全与合规成本</strong>正在上升。",
+      "evidence": "<mark>智谱GLM-5.4与Z.ai 750B模型跟进新架构</mark>，<mark>蚂蚁开源医疗模型与OceanSeek引擎</mark>，同时<mark>OpenAI呼吁行业共同设定安全上限</mark>、<mark>两州起诉Grok深度伪造</mark>，合规压力同步加大。",
+      "action": "中小企业可借开源模型快速起步，但需同步建立内容安全过滤与数据合规审查机制。"
     }
   ]
 }
