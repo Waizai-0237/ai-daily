@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业每日简报 · 2026-11-25</title>
+<style>
+:root{--bg:#f5f6f8;--bg2:#ffffff;--ink:#14182b;--muted:#5f6478;--rule:#e4e7ee;--accent:#1d39c4;--accent2:#cf1322;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75;}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px;}
+header.masthead{background:linear-gradient(180deg,#101426 0%,#1a2040 100%);color:#fff;padding:40px 0;position:relative;}
+header.masthead::after{content:"";position:absolute;left:0;bottom:0;height:4px;width:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+.masthead h1{font-size:2rem;margin:0 0 10px;font-weight:800;}
+.masthead .meta{font-size:0.95rem;color:#c7cde6;display:flex;gap:12px;flex-wrap:wrap;}
+.masthead .lede{margin-top:15px;font-size:0.98rem;color:#d7dcf0;border-left:3px solid var(--accent2);padding-left:14px;}
+.version{font-family:ui-monospace,SFMono-Regular,monospace;font-size:0.78rem;color:#8a92b2;background:rgba(255,255,255,0.06);padding:1px 8px;border-radius:4px;letter-spacing:0.05em;}
+.toolbar{display:flex;gap:12px;margin-top:16px;align-items:center;}
+.toolbar input{flex:1;padding:10px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:0.9rem;outline:none;transition:border-color .2s;}
+.toolbar input::placeholder{color:#8a92b2;}
+.toolbar input:focus{border-color:var(--accent);}
+.archive-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.archive-link:hover{color:#fff;border-color:var(--accent);}
+.weekly-link{color:#9aa3c7;text-decoration:none;font-size:0.85rem;white-space:nowrap;padding:10px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all .2s;}
+.weekly-link:hover{color:#fff;border-color:var(--accent);}
+main{padding:30px 0;}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}
+.strip .cell{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:18px;text-align:center;}
+.strip .cell .n{font-size:1.8rem;font-weight:800;color:var(--accent);}
+.strip .cell .n.red{color:var(--accent2);}
+.strip .cell .n.gray{color:var(--muted);}
+.cat-chart{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px 22px;margin-bottom:24px;}
+.chart-title{font-size:0.85rem;color:var(--muted);font-weight:700;margin-bottom:16px;letter-spacing:0.05em;}
+.chart-body{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+.legend{flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 20px;min-width:220px;}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;}
+.legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0;}
+.legend-name{color:var(--ink);flex:1;}
+.legend-pct{color:var(--muted);font-family:ui-monospace,monospace;font-weight:600;}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 18px;}
+.sec-head .num{font-size:0.8rem;font-weight:700;color:#fff;background:var(--accent);padding:3px 10px;border-radius:3px;}
+.sec-head h2{font-size:1.4rem;margin:0;font-weight:800;}
+.card{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:20px;margin-bottom:16px;display:grid;grid-template-columns:46px 1fr;gap:18px;}
+.rank{font-size:1.6rem;font-weight:800;color:var(--rule);text-align:center;}
+.card h3{font-size:1.15rem;margin:0 0 8px;}
+.card .land{margin:10px 0;font-size:0.9rem;color:var(--accent);background:#f0f3ff;border-left:3px solid var(--accent);padding:8px 12px;}
+.card .src{font-size:0.8rem;color:var(--muted);border-top:1px dashed var(--rule);padding-top:8px;margin-top:10px;}
+.badge{font-size:0.72rem;font-weight:700;padding:2px 10px;border-radius:20px;letter-spacing:0.02em;color:#fff;white-space:nowrap;}
+.b-fund{background:#0e7d6b;}
+.b-product{background:#1d39c4;}
+.b-paper{background:#6d28d9;}
+.b-open{background:#c2410c;}
+.b-policy{background:#b42318;}
+.b-bigtech{background:#1a2040;}
+.b-industry{background:#0369a1;}
+.b-community{background:#525252;}
+.b-cn{background:#a21caf;}
+.stars{color:#f5a623 !important;font-size:1.1rem;font-weight:bold;letter-spacing:2px;margin-left:auto;white-space:nowrap;}
+.stars .lbl{color:var(--muted);font-size:0.72rem;margin-right:4px;font-weight:normal;letter-spacing:normal;}
+.topline{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:8px;}
+.brief{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:14px;margin-bottom:10px;display:flex;gap:12px;}
+.brief .num{font-weight:800;color:var(--accent);width:26px;}
+.trend{background:linear-gradient(135deg,#1a2040 0%,#222a52 100%);color:#eef0fa;border-radius:12px;padding:26px;margin-top:20px;}
+.trend h3{color:#fff;margin:0 0 14px;}
+.trend .angle{margin-bottom:16px;}
+.trend .angle .h{font-size:0.8rem;color:#8ea0e8;font-weight:700;margin-bottom:6px;}
+.trend .angle .judgment{color:#fff;font-size:1.05rem;font-weight:600;margin:8px 0;}
+.trend .angle .evidence{color:#d7dcf0;font-size:0.95rem;margin:6px 0;}
+.trend .angle .action{color:#a7f3d0;font-size:0.9rem;margin:6px 0;padding:8px 12px;background:rgba(16,185,129,0.08);border-radius:6px;}
+@media(max-width:640px){.strip{grid-template-columns:repeat(2,1fr);}.card{grid-template-columns:1fr;}.rank{text-align:left;}}
+</style></head><body>
+<header class="masthead"><div class="wrap">
+<h1>AI 行业每日简报 · 2026-11-25</h1>
+<div class="meta"><span>2026年11月25日</span><span>·</span><span>星期三</span><span>·</span><span class="version">V1.8</span></div>
+<p class="lede">今日AI行业呈现“能力跃迁与治理滞后”的尖锐对立。一方面，GPT-6在蛋白质设计上展示出跨领域推理能力，Anthropic的MCP协议月下载量突破7亿次，AI正从工具走向基础设施；另一方面，Tidal宣布下架2900万首AI音乐，亚马逊披露黑客AI智能体已能自主发现并利用0-day漏洞，安全与版权压力陡增。共同驱动因素在于：模型能力进入“陡峭进步期”，而监管、安全与版权体系尚未同步，导致资本加速流向安全与合规层。未来1-3个月，AI安全与数据治理将成为融资与产品竞争的新焦点，企业需提前布局AI治理能力。整体判断：AI行业正从“拼模型”转向“拼治理”，安全与合规能力将决定商业化天花板。</p>
+<div class="toolbar">
+<input id="search" type="text" placeholder="🔍 搜索标题、摘要或来源..." />
+<a href="archive/index.html" class="archive-link">📁 历史归档</a>
+<a href="weekly/index.html" class="weekly-link">📅 本周回顾</a>
+</div>
+</div></header>
+<main class="wrap">
+<div class="strip">
+<div class="cell"><div class="n red">3</div><div>5 星事件</div></div>
+<div class="cell"><div class="n">2</div><div>4 星事件</div></div>
+<div class="cell"><div class="n">8</div><div>3 星事件</div></div>
+<div class="cell"><div class="n gray">13</div><div>今日简报条数</div></div>
+</div>
+<div class="cat-chart">
+<div class="chart-title">📊 今日分类分布</div>
+<div class="chart-body">
+<svg viewBox="0 0 160 160" width="160" height="160" style="flex-shrink:0;"><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#eef1f8" stroke-width="22"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#6d28d9" stroke-width="22" stroke-dasharray="106.33 239.24" stroke-dashoffset="0.00" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#c2410c" stroke-width="22" stroke-dasharray="79.75 265.83" stroke-dashoffset="-106.33" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#b42318" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-186.08" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#1a2040" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-239.24" transform="rotate(-90 80.0 80.0)"/><circle cx="80.0" cy="80.0" r="55" fill="none" stroke="#0369a1" stroke-width="22" stroke-dasharray="53.17 292.41" stroke-dashoffset="-292.41" transform="rotate(-90 80.0 80.0)"/><text x="80.0" y="78.0" text-anchor="middle" font-size="24" font-weight="800" fill="#14182b">13</text><text x="80.0" y="96.0" text-anchor="middle" font-size="11" fill="#5f6478">条动态</text></svg>
+<div class="legend"><div class="legend-item"><span class="legend-dot" style="background:#6d28d9"></span><span class="legend-name">技术论文</span><span class="legend-pct">31%</span></div><div class="legend-item"><span class="legend-dot" style="background:#c2410c"></span><span class="legend-name">开源动态</span><span class="legend-pct">23%</span></div><div class="legend-item"><span class="legend-dot" style="background:#b42318"></span><span class="legend-name">政策标准</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#1a2040"></span><span class="legend-name">大厂动态</span><span class="legend-pct">15%</span></div><div class="legend-item"><span class="legend-dot" style="background:#0369a1"></span><span class="legend-name">产业观察</span><span class="legend-pct">15%</span></div></div>
+</div>
+</div>
+<div class="sec-head"><span class="num">01</span><h2>今日必读</h2></div>
+<article class="card"><div class="rank">01</div><div>
+        <div class="topline"><span class="badge b-paper">技术论文 · 科学发现</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>GPT-6模型展现内在蛋白质设计能力</h3>
+        <p>OpenAI发布GPT-6在蛋白质设计上的突破，模型通过推理与代码生成蛋白质结构和序列，实验室测试在五个靶点上验证了结合能力。这标志着大模型首次在湿实验层面展示出内在的科学设计能力。</p>
+        <p><strong>为何重要：</strong>AI从语言理解迈向科学发现，打开生物医药新空间。</p>
+        <p class="land"><strong>落地启发：</strong>生物医药企业应探索用大模型辅助靶点发现与分子设计。</p>
+        <div class="src">来源：<a href="https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities" target="_blank">OpenAI Blog</a> / <a href="https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/" target="_blank">Hacker News AI</a> / <a href="https://www.theverge.com/entertainment/1041362/tidal-ai-music-ban" target="_blank">The Verge AI</a></div>
+        </div></article><article class="card"><div class="rank">02</div><div>
+        <div class="topline"><span class="badge b-open">开源动态 · 智能体生态</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>Anthropic MCP SDK月下载量突破7亿次，并扩展协议以支持更自主的AI智能体</h3>
+        <p>Anthropic宣布MCP SDK月下载量超过7亿次，并扩展协议以支持更自主的AI智能体。同时，Claude Artifacts可转化为macOS和Windows独立桌面应用，生态边界持续扩张。</p>
+        <p><strong>为何重要：</strong>MCP成为智能体互联的事实标准，生态壁垒加速形成。</p>
+        <p class="land"><strong>落地启发：</strong>开发者应优先适配MCP协议，抢占智能体生态入口。</p>
+        <div class="src">来源：<a href="https://the-decoder.com/anthropic-turns-claude-artifacts-into-standalone-desktop-apps-for-macos-and-windows/" target="_blank">The Decoder</a></div>
+        </div></article><article class="card"><div class="rank">03</div><div>
+        <div class="topline"><span class="badge b-policy">政策标准 · AI安全</span><span class="stars"><span class="lbl">影响</span>★★★★★</span></div>
+        <h3>亚马逊称黑客AI智能体以极少人工输入发现并利用0-day漏洞</h3>
+        <p>亚马逊披露，黑客利用AI智能体在极少人工干预下发现并利用了0-day漏洞，其Cairn AI框架对攻防双方均带来显著优势。这标志着AI驱动的网络攻击进入自动化新阶段。</p>
+        <p><strong>为何重要：</strong>AI攻防失衡加剧，企业安全体系面临全新挑战。</p>
+        <p class="land"><strong>落地启发：</strong>企业需部署AI驱动的威胁检测与自动化响应机制。</p>
+        <div class="src">来源：<a href="https://arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-little-human-input/" target="_blank">Ars Technica AI</a></div>
+        </div></article><article class="card"><div class="rank">04</div><div>
+        <div class="topline"><span class="badge b-bigtech">大厂动态 · 公司治理</span><span class="stars"><span class="lbl">影响</span>★★★★</span></div>
+        <h3>耶鲁Sonnenfeld：英伟达是美国工业的“损害”而非“冠军”</h3>
+        <p>耶鲁教授Sonnenfeld警告，英伟达CEO黄仁勋在白宫支持下回归可能是个巨大错误，暴露董事会风险。黄仁勋在全员会上道歉并试图与白宫叙事保持距离，公司治理争议持续发酵。</p>
+        <p><strong>为何重要：</strong>英伟达治理风险可能波及AI芯片供应链稳定。</p>
+        <p class="land"><strong>落地启发：</strong>投资者应关注英伟达治理结构对长期估值的影响。</p>
+        <div class="src">来源：<a href="https://techcrunch.com/2026/11/24/yales-sonnenfeld-nvidia-is-a-detriment-to-u-s-industrial-might-not-a-champion/" target="_blank">TechCrunch AI</a> / <a href="https://www.theverge.com/tech/1041571/jensen-huang-all-hands-nvidia-apology" target="_blank">The Verge AI</a> / <a href="https://www.wired.com/story/jensen-huang-nvidia-us-national-security-risks/" target="_blank">Wired AI</a></div>
+        </div></article><article class="card"><div class="rank">05</div><div>
+        <div class="topline"><span class="badge b-industry">产业观察 · 智能体评测</span><span class="stars"><span class="lbl">影响</span>★★★★</span></div>
+        <h3>即使最好的AI智能体也难以应对日常生活</h3>
+        <p>新基准测试显示，即使最先进的AI模型在完成日常任务时仍难以可靠且安全地运行，可能引入新问题。同时，Anthropic创建蜜罐测试AI智能体是否会“越轨”，安全评估成为焦点。</p>
+        <p><strong>为何重要：</strong>智能体可靠性不足，制约其大规模商业化落地。</p>
+        <p class="land"><strong>落地启发：</strong>企业部署Agent前应建立安全沙箱与人工兜底机制。</p>
+        <div class="src">来源：<a href="https://techcrunch.com/2026/11/24/even-the-best-ai-agents-struggle-with-everyday-life/" target="_blank">TechCrunch AI</a> / <a href="https://www.wired.com/story/ai-agents-can-get-honeypotted-too-aw/" target="_blank">Wired AI</a></div>
+        </div></article><div class="sec-head"><span class="num">02</span><h2>今日简报</h2></div><div class="brief"><div class="num">01</div><div>
+        <strong>文心5.5 Flash Preview正式开源，采用Apache 2.0协议</strong><br>
+        百度文心5.5 Flash Preview以Apache 2.0协议开源，进一步降低大模型使用门槛。 <a href="https://www.qbitai.com/2026/11/512354.html" target="_blank">[量子位]</a>
+        </div></div><div class="brief"><div class="num">02</div><div>
+        <strong>OpenAI与Cisco推出Shirudo开源运行时</strong><br>
+        OpenAI与Cisco联合推出面向Linux的开源运行时Shirudo，帮助团队在打补丁期间保护运行系统。 <a href="https://openai.com/index/introducing-shirudo" target="_blank">[OpenAI Blog]</a>
+        </div></div><div class="brief"><div class="num">03</div><div>
+        <strong>业界首提“端侧超节点”，端侧AI组队计算效率提升270%</strong><br>
+        辛米尔提出端侧超节点方案，让端侧AI组队计算，效率提升270%且无需更换芯片或模型。 <a href="https://www.qbitai.com/2026/11/512362.html" target="_blank">[量子位]</a>
+        </div></div><div class="brief"><div class="num">04</div><div>
+        <strong>DeepMind利用智能体与形式化验证寻找更快的量子算法</strong><br>
+        DeepMind使用智能体团队和形式化验证改进聚变与化学领域的量子算法。 <a href="https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/" target="_blank">[DeepMind Blog]</a>
+        </div></div><div class="brief"><div class="num">05</div><div>
+        <strong>AI解决数学最著名难题，人类却难以理解</strong><br>
+        Anthropic研究员用AI生成1700万行黎曼猜想证明，数学家需数月才能理解这一“外星”解法。 <a href="https://www.wired.com/story/ai-solved-maths-most-famous-problem/" target="_blank">[Wired AI]</a>
+        </div></div><div class="brief"><div class="num">06</div><div>
+        <strong>纽约时报警告摄影师不要因AI功能更新Photoshop</strong><br>
+        纽约时报要求自由摄影师不要使用最新版Photoshop，因其AI功能可能以用户不易察觉的方式运作。 <a href="https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features" target="_blank">[The Verge AI]</a>
+        </div></div><div class="brief"><div class="num">07</div><div>
+        <strong>沃尔玛与Meta合作，将黑五优惠引入AI智能体Muse</strong><br>
+        沃尔玛允许顾客通过Meta的AI智能体Muse购买黑五优惠商品，AI购物入口竞争升温。 <a href="https://techcrunch.com/2026/11/24/walmart-teams-up-with-meta-to-bring-black-friday-deals-to-ai-agent-muse/" target="_blank">[TechCrunch AI]</a> / <a href="https://www.wired.com/story/dont-bring-up-ai-if-you-want-to-enjoy-your-thanksgiving/" target="_blank">[Wired AI]</a>
+        </div></div><div class="brief"><div class="num">08</div><div>
+        <strong>蚂蚁OceanBase发布湖库一体AI数据平台，政企客户数首超金融</strong><br>
+        OceanBase发布OceanLake AI数据平台，2026年政企客户数首次与金融客户持平，服务22个省级数字政府。 <a href="https://www.leiphone.com/category/industrynews/b7Pw487MPHsDMSyR.html" target="_blank">[AI 科技评论]</a>
+        </div></div><div class="sec-head"><span class="num">03</span><h2>今日趋势点评</h2></div><div class="trend"><div class="angle">
+        <div class="h">行业大势</div>
+        <p class="judgment">AI能力进入<strong>陡峭进步期</strong>，但治理体系严重滞后。</p>
+        <p class="evidence">GPT-6在<mark>蛋白质设计</mark>上展示湿实验验证能力，Anthropic MCP月下载量突破<mark>7亿次</mark>；同时亚马逊披露黑客AI智能体自主利用<mark>0-day漏洞</mark>，Tidal下架<mark>2900万首</mark>AI音乐。</p>
+        <p class="action"><strong>💡 建议：</strong>企业应将AI治理与安全纳入战略优先级，投资者关注安全合规赛道。</p>
+        </div><div class="angle">
+        <div class="h">落地应用启发</div>
+        <p class="judgment">智能体生态<strong>标准化加速</strong>，但可靠性仍是商业化瓶颈。</p>
+        <p class="evidence">Anthropic扩展<mark>MCP协议</mark>支持更自主智能体，沃尔玛接入Meta智能体Muse；但新基准显示<mark>日常任务</mark>中智能体仍难可靠运行，Anthropic用<mark>蜜罐测试</mark>智能体越轨行为。</p>
+        <p class="action"><strong>💡 建议：</strong>开发者应优先适配MCP等开放协议，同时建立Agent安全沙箱与人工兜底。</p>
+        </div><div class="angle">
+        <div class="h">对国内中小企业的影响</div>
+        <p class="judgment">开源模型与端侧方案<strong>降低AI门槛</strong>，中小企业迎来落地窗口。</p>
+        <p class="evidence">文心5.5 Flash Preview以<mark>Apache 2.0</mark>开源，端侧超节点方案效率提升<mark>270%</mark>且无需换芯片；OceanBase政企客户数首超金融，数据基建向AI倾斜。</p>
+        <p class="action"><strong>💡 建议：</strong>中小企业可基于开源模型和端侧方案低成本试水AI，优先聚焦垂直场景。</p>
+        </div></div></main>
+<script>
+(function(){
+  // 搜索过滤
+  const input = document.getElementById('search');
+  if (input) {
+    input.addEventListener('input', function(e) {
+      const q = e.target.value.toLowerCase().trim();
+      document.querySelectorAll('.card, .brief').forEach(function(el) {
+        const match = !q || el.innerText.toLowerCase().includes(q);
+        el.style.display = match ? '' : 'none';
+      });
+    });
+  }
+  
+  // 归档页面动态调整返回链接
+  document.querySelectorAll('.archive-link').forEach(function(el) {
+    if (window.location.pathname.indexOf('/archive/') !== -1) {
+      el.href = 'index.html';
+      el.textContent = '📁 归档目录';
+    }
+  });
+})();
+</script>
+</body></html>
