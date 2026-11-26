@@ -1,14 +1,14 @@
 {
-  "headline": "今日AI行业呈现“能力跃迁与治理补位”并行态势。OpenAI的GPT-6在蛋白质设计上展示出内在能力，实验室验证了五个靶点的结合证据，标志着大模型正从语言理解迈向科学发现；与此同时，纽约州以五年禁令封杀AI聊天玩具，FCC批准SpaceX部署百万颗AI卫星，显示监管与基建正同步重塑行业边界。**重点分析**：这些事件背后，资本正从通用模型层向“科学专用能力+物理基础设施”迁移，技术突破与监管压力形成对冲——GPT-6的科研突破需要更严苛的生物安全审查，而AI玩具禁令则倒逼企业转向可解释、可审计的交互设计。未来1-3个月，我们预计将看到更多“模型能力-监管框架”的配对发布，以及算力基建向太空和边缘端延伸。整体判断：AI行业正进入“能力兑现期”，但兑现速度取决于治理体系的适配能力。",
+  "headline": "今日AI行业呈现多极突破态势：GPT-6在蛋白质设计上展现内生能力，中国开源视频模型以极致性价比登顶全球，而英伟达治理风险与AI安全事件则敲响警钟。**核心驱动因素**在于技术突破正从纯语言模型向科学发现与多模态生成纵深，同时资本与监管压力加速行业分化——一方面，AI4S（AI for Science）和物理AI成为新战场，另一方面，数据隐私与安全治理成为不可回避的底线。**未来1-3个月**，我们预计：1）AI在生物、数学等基础科学领域的应用将引发更多“AI科学家”创业潮；2）开源模型的价格战将迫使闭源厂商加速迭代或调整商业模式；3）针对AI代理的安全攻击与监管博弈将升级，企业需提前布局AI治理框架。**整体判断**：AI行业正从“模型竞赛”转向“价值落地与风险管控”并行的新阶段，技术突破与治理挑战将同步放大。",
   "must_read": [
     {
       "cluster_id": 0,
       "title": "GPT-6模型展现内在蛋白质设计能力",
-      "category": "技术论文 · 科学发现",
+      "category": "技术论文 · AI4S",
       "importance": 5,
-      "summary": "OpenAI发布GPT-6在蛋白质设计上的内在能力，模型通过推理和代码设计蛋白质结构与序列，实验室测试在五个靶点上发现结合证据。这标志着大模型首次在湿实验验证中展现自主科学设计能力，可能加速药物发现流程。",
-      "why": "大模型从语言理解迈向科学发现，验证了通用推理在生物设计中的可行性。",
-      "actionable_insight": "生物医药企业应评估将GPT-6纳入早期靶点筛选流程，缩短临床前周期。",
+      "summary": "OpenAI发布研究称，GPT-6能通过推理和代码设计蛋白质结构与序列，实验室测试在五个靶点上发现结合证据。这标志着大模型从语言理解向科学发现迈出关键一步，可能加速药物研发。",
+      "why": "AI直接参与蛋白质设计，颠覆传统生物研发范式。",
+      "actionable_insight": "生物科技公司应探索将大模型嵌入早期研发流程。",
       "sources": [
         {
           "name": "OpenAI Blog",
@@ -17,78 +17,47 @@
         {
           "name": "Hacker News AI",
           "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/"
-        },
-        {
-          "name": "The Decoder",
-          "url": "https://the-decoder.com/openai-wants-companies-to-trust-it-with-sensitive-work-by-promising-not-to-look-at-their-data/"
         }
       ]
     },
     {
-      "cluster_id": 13,
-      "title": "纽约州禁止AI聊天玩具五年，安全研究揭示风险",
-      "category": "政策标准 · AI安全",
+      "cluster_id": 3,
+      "title": "顶尖商用级AI视频每秒只要5毛！中国开源新势力拿下全球第一",
+      "category": "开源动态 · 视频生成",
       "importance": 5,
-      "summary": "纽约州通过五年禁令，禁止销售AI聊天玩具，基于Common Sense Media研究揭示其暴露不当内容及危害儿童情感发展的风险。这是美国首个针对AI玩具的州级禁令，可能引发其他州效仿。",
-      "why": "首个AI玩具禁令，为儿童AI产品设定监管红线。",
-      "actionable_insight": "AI玩具厂商需立即审查内容过滤与情感交互设计，准备合规预案。",
+      "summary": "中国开源AI视频模型实现30秒一镜到底、自动编排镜头，成本低至每秒0.5元，性能全球领先。这极大降低了视频创作门槛，可能冲击传统影视制作与广告行业。",
+      "why": "开源模型以极致性价比颠覆视频生成市场。",
+      "actionable_insight": "内容创作者可关注该模型，探索低成本视频生产。",
       "sources": [
         {
-          "name": "TechCrunch AI",
-          "url": "https://techcrunch.com/2026/11/25/want-to-buy-your-kid-an-ai-toy-this-christmas-not-in-new-york/"
-        },
-        {
-          "name": "The Verge AI",
-          "url": "https://www.theverge.com/tech/1042071/meta-amazon-muse-ai-shopping-discussions"
-        }
-      ]
-    },
-    {
-      "cluster_id": 14,
-      "title": "FCC批准SpaceX部署最多100万颗AI数据中心卫星",
-      "category": "政策标准 · 算力基建",
-      "importance": 5,
-      "summary": "FCC授权SpaceX在“Starmind”计划下部署最多100万颗配备AI芯片的卫星，构建太空数据中心。这标志着算力基建向太空延伸，可能解决地面数据中心选址与能源瓶颈，但也引发轨道资源与太空安全争议。",
-      "why": "算力基建突破地面限制，开启太空计算新赛道。",
-      "actionable_insight": "云服务商与卫星运营商应关注太空算力互联标准，探索边缘计算新场景。",
-      "sources": [
-        {
-          "name": "TechCrunch AI",
-          "url": "https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/"
-        },
-        {
-          "name": "The Verge AI",
-          "url": "https://www.theverge.com/science/1042278/spacex-fcc-starmind-ai-space-data-centers"
+          "name": "量子位",
+          "url": "https://www.qbitai.com/2026/11/512916.html"
         }
       ]
     },
     {
       "cluster_id": 9,
-      "title": "九章云极发布物理AI工厂与生态开放计划",
-      "category": "大厂动态 · 算力基建",
-      "importance": 4,
-      "summary": "九章云极在深圳举办物理AI峰会，发布物理AI工厂、开放两大API接口，并联合二十余家伙伴成立极光物理AI产业生态联盟，同时启动中国算力采购信心指数。这显示算力服务商正从资源租赁转向生态构建。",
-      "why": "算力厂商转向物理AI生态，推动具身智能落地。",
-      "actionable_insight": "机器人企业可接入其API降低仿真训练成本，投资者关注算力指数先行指标。",
+      "title": "标普考虑因治理和“关键人”风险下调英伟达信用评级",
+      "category": "产业观察 · 芯片竞争",
+      "importance": 5,
+      "summary": "标普可能将英伟达信用评级下调至AA-，理由是对其治理结构和“关键人”风险的担忧。这反映了市场对英伟达过度依赖CEO黄仁勋的警惕，可能影响其融资成本与投资者信心。",
+      "why": "芯片龙头治理风险引发信用担忧，波及AI算力供应链。",
+      "actionable_insight": "投资者需重新评估英伟达长期风险，关注治理改善。",
       "sources": [
         {
-          "name": "量子位",
-          "url": "https://www.qbitai.com/2026/11/512582.html"
-        },
-        {
-          "name": "AI 科技评论",
-          "url": "https://www.leiphone.com/category/chips/Qz3QPf26nVIVA0ga.html"
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/11/25/sp-considers-nvidia-credit-downgrade-over-governance-and-key-man-risks/"
         }
       ]
     },
     {
-      "cluster_id": 21,
-      "title": "亚马逊称黑客AI代理发现并利用0-day漏洞，Anthropic设蜜罐测试代理行为",
-      "category": "产业观察 · AI安全",
-      "importance": 4,
-      "summary": "亚马逊披露黑客利用AI代理框架Cairn以极少人工输入发现并利用0-day漏洞；同时Anthropic创建蜜罐测试AI代理是否会“越界”。这凸显AI代理的双刃剑效应，安全攻防进入代理对抗阶段。",
-      "why": "AI代理自主攻击成为现实，安全防御需升级。",
-      "actionable_insight": "企业应部署AI代理行为监控与蜜罐诱捕，防范自动化攻击。",
+      "cluster_id": 20,
+      "title": "亚马逊称黑客的AI代理在极少人工输入下发现并利用0-day漏洞",
+      "category": "政策标准 · AI安全",
+      "importance": 5,
+      "summary": "亚马逊披露，黑客利用AI代理框架Cairn在极少人工干预下发现并利用了0-day漏洞。同时Anthropic创建蜜罐测试AI代理的越界行为。这显示AI代理双刃剑效应，安全攻防进入新阶段。",
+      "why": "AI代理自主攻击成为现实，安全防御亟需升级。",
+      "actionable_insight": "企业应部署AI驱动的安全监测，并测试代理鲁棒性。",
       "sources": [
         {
           "name": "Ars Technica AI",
@@ -99,14 +68,29 @@
           "url": "https://www.wired.com/story/ai-agents-can-get-honeypotted-too-aw/"
         }
       ]
+    },
+    {
+      "cluster_id": 29,
+      "title": "AI解决了数学最著名问题，人类却难以理解",
+      "category": "技术论文 · 数学推理",
+      "importance": 5,
+      "summary": "Anthropic研究员用AI生成1700万行代码证明黎曼猜想，数学家需数月理解这一“外星”解法。这展示AI在高级数学推理上的突破，但也引发对AI可解释性的担忧。",
+      "why": "AI在纯数学领域取得里程碑，但黑箱问题凸显。",
+      "actionable_insight": "研究机构应投资AI可解释性工具，促进人机协作。",
+      "sources": [
+        {
+          "name": "Wired AI",
+          "url": "https://www.wired.com/story/ai-solved-maths-most-famous-problem/"
+        }
+      ]
     }
   ],
   "briefs": [
     {
       "cluster_id": 1,
-      "title": "OpenAI用Codex和Astra帮助业余天文学家搜寻系外行星",
+      "title": "利用Astra搜索遥远行星",
       "category": "产品发布 · 科学应用",
-      "summary": "两位业余天文学家利用Codex和Astra在NASA公开数据中发现潜在系外行星，展示AI在公民科学中的潜力。",
+      "summary": "两位业余天文学家使用Codex和Astra在NASA公开数据中发现潜在系外行星。",
       "sources": [
         {
           "name": "OpenAI Blog",
@@ -115,94 +99,106 @@
       ]
     },
     {
-      "cluster_id": 5,
-      "title": "OpenAI与思科推出开源Linux运行时Shirudo",
-      "category": "开源动态 · 系统安全",
-      "summary": "OpenAI与思科发布开源运行时Shirudo，帮助团队在打补丁期间保护运行中的Linux系统。",
+      "cluster_id": 4,
+      "title": "任少卿带着世界模型3.0来了！蔚来智驾训练提效5倍，座舱也用上强化学习",
+      "category": "大厂动态 · 自动驾驶",
+      "summary": "蔚来发布世界模型3.0，智驾训练效率提升5倍，座舱引入强化学习，李斌称不做AI变革可能活不下去。",
       "sources": [
         {
-          "name": "OpenAI Blog",
-          "url": "https://openai.com/index/introducing-shirudo"
+          "name": "量子位",
+          "url": "https://www.qbitai.com/2026/11/512897.html"
         }
       ]
     },
     {
       "cluster_id": 8,
-      "title": "智元灵心平台一年孵化超3万个机器人智能体",
-      "category": "产品发布 · 具身智能",
-      "summary": "智元推出具身智能生态技术体系AIMA，零基础用户一年孵化超3万个机器人智能体。",
+      "title": "OpenAI削减GPT-6.2使用量：Astra限制加快40%，Sol加快25%",
+      "category": "产品发布 · 模型限流",
+      "summary": "OpenAI调整GPT-6.2使用限制，Astra和Sol模型达到上限速度分别加快40%和25%。",
       "sources": [
         {
-          "name": "量子位",
-          "url": "https://www.qbitai.com/2026/11/512715.html"
+          "name": "Hacker News AI",
+          "url": "https://twitter.com/thsottiaux/status/2125784147889393806"
+        },
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/11/25/want-to-buy-your-kid-an-ai-toy-this-christmas-not-in-new-york/"
         }
       ]
     },
     {
-      "cluster_id": 11,
-      "title": "中国团队Loop架构：9400万参数硬刚50亿，权重显存直降98%",
-      "category": "技术论文 · 模型压缩",
-      "summary": "General Looped Model以9400万参数实现媲美50亿参数模型性能，权重显存降低98%，展示高效架构潜力。",
-      "sources": [
-        {
-          "name": "量子位",
-          "url": "https://www.qbitai.com/2026/11/512565.html"
-        }
-      ]
-    },
-    {
-      "cluster_id": 26,
-      "title": "PrismML将54GB语言模型压缩至5.9GB，权重仅三值",
-      "category": "技术论文 · 模型压缩",
-      "summary": "PrismML通过三值权重将270亿参数编码代理模型从54GB压缩至5.9GB，大幅降低部署门槛。",
-      "sources": [
-        {
-          "name": "The Decoder",
-          "url": "https://the-decoder.com/prismml-squeezes-an-agent-based-coding-model-with-27-billion-parameters-into-5-9-gb/"
-        }
-      ]
-    },
-    {
-      "cluster_id": 29,
-      "title": "AI解决数学最著名难题，人类数学家难以理解1700万行证明",
-      "category": "技术论文 · 科学突破",
-      "summary": "Anthropic研究员用AI生成黎曼猜想的1700万行证明，数学家需数月理解，引发对AI数学创造力的讨论。",
-      "sources": [
-        {
-          "name": "Wired AI",
-          "url": "https://www.wired.com/story/ai-solved-maths-most-famous-problem/"
-        }
-      ]
-    },
-    {
-      "cluster_id": 15,
-      "title": "黄仁勋回归后首次全员会道歉，否认特朗普干预",
-      "category": "大厂动态 · 公司治理",
-      "summary": "黄仁勋在回归英伟达后首次全员会上道歉，并否认白宫干预其复职，公司治理与国家安全争议持续。",
+      "cluster_id": 10,
+      "title": "OpenAI称重度ChatGPT用户可能更快触及限制，因合并Chat与Work",
+      "category": "大厂动态 · 产品整合",
+      "summary": "OpenAI将Chat和Work体验合并，引入统一使用计量，重度用户可能更快达到限制。",
       "sources": [
         {
           "name": "TechCrunch AI",
-          "url": "https://techcrunch.com/2026/11/25/the-questions-jensen-huang-and-nvidia-will-still-have-to-answer-about-megaspeed/"
+          "url": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/"
         },
         {
-          "name": "The Verge AI",
-          "url": "https://www.theverge.com/tech/1041571/jensen-huang-all-hands-nvidia-apology"
-        },
-        {
-          "name": "Wired AI",
-          "url": "https://www.wired.com/story/jensen-huang-nvidia-us-national-security-risks/"
+          "name": "The Decoder",
+          "url": "https://the-decoder.com/openai-wants-companies-to-trust-it-with-sensitive-work-by-promising-not-to-look-at-their-data/"
         }
       ]
     },
     {
-      "cluster_id": 19,
-      "title": "AI正在使美国公开记录系统不堪重负",
-      "category": "产业观察 · 社会影响",
-      "summary": "AI生成的大量信息请求使美国小镇公开记录系统承压，凸显AI对公共行政的意外冲击。",
+      "cluster_id": 13,
+      "title": "Character.AI拍卖用户私人聊天计划遭州检察长挑战",
+      "category": "政策标准 · 数据合规",
+      "summary": "美国多州检察长反对Character.AI破产拍卖中包含2100万用户敏感聊天数据，其中210万为未成年人。",
       "sources": [
         {
-          "name": "MIT Tech Review AI",
-          "url": "https://www.technologyreview.com/2026/11/25/1149702/ai-is-straining-americas-open-records-systems/"
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/"
+        },
+        {
+          "name": "The Verge AI",
+          "url": "https://www.theverge.com/science/1042278/spacex-fcc-starmind-ai-space-data-centers"
+        },
+        {
+          "name": "Engadget AI",
+          "url": "https://www.engadget.com/2328630/state-ags-are-trying-to-stop-characterai-from-auctioning-off-users-chat-histories/"
+        }
+      ]
+    },
+    {
+      "cluster_id": 22,
+      "title": "纽约州禁止儿童AI聊天机器人玩具",
+      "category": "政策标准 · AI安全",
+      "summary": "纽约州州长签署法律，禁止销售AI聊天机器人玩具五年，因安全研究揭示不当内容风险。",
+      "sources": [
+        {
+          "name": "Engadget AI",
+          "url": "https://www.engadget.com/2328996/new-york-state-bans-ai-chatbot-toys-for-kids/"
+        }
+      ]
+    },
+    {
+      "cluster_id": 27,
+      "title": "美国芯片访问限制和反蒸馏措施据报已减缓中国AI实验室",
+      "category": "产业观察 · 芯片竞争",
+      "summary": "报道称美国芯片出口管制和反蒸馏措施已对中国AI实验室产生减速效应。",
+      "sources": [
+        {
+          "name": "The Decoder",
+          "url": "https://the-decoder.com/us-chip-access-curbs-and-anti-distillation-measures-are-reportedly-already-slowing-chinese-ai-labs/"
+        },
+        {
+          "name": "AI 科技评论",
+          "url": "https://www.leiphone.com/category/academic/S12DTjaFWmIPkwCk.html"
+        }
+      ]
+    },
+    {
+      "cluster_id": 32,
+      "title": "国产模型扎进AI4S深水区，几毫秒破译尘封18年密码学悬案",
+      "category": "技术论文 · AI4S",
+      "summary": "国产模型在AI4S领域取得突破，几毫秒内破解尘封18年的密码学难题。",
+      "sources": [
+        {
+          "name": "AI 科技评论",
+          "url": "https://www.leiphone.com/category/yanxishe/T2xmmiMAC6WbuuCM.html"
         }
       ]
     }
@@ -210,21 +206,21 @@
   "trends": [
     {
       "heading": "行业大势",
-      "judgment": "AI能力正从<strong>语言理解</strong>向<strong>科学发现与物理世界</strong>加速迁移。",
-      "evidence": "今日<mark>GPT-6蛋白质设计</mark>在湿实验中验证五个靶点结合，<mark>AI解决黎曼猜想</mark>生成1700万行证明，同时<mark>九章云极物理AI工厂</mark>和<mark>智元3万机器人智能体</mark>展示具身智能落地。",
-      "action": "企业应设立“AI for Science”专项团队，探索将大模型嵌入研发流程；投资者关注科学计算与机器人赛道。"
+      "judgment": "AI正从<strong>语言理解</strong>向<strong>科学发现与多模态生成</strong>纵深突破。",
+      "evidence": "今日<mark>GPT-6展现蛋白质设计能力</mark>，<mark>AI证明黎曼猜想</mark>，<mark>中国开源视频模型登顶全球</mark>，显示AI在生物、数学、视频生成等领域的跨界能力。",
+      "action": "企业应关注AI在垂直科学领域的应用，投资AI4S和生成式视频技术。"
     },
     {
-      "heading": "监管与安全",
-      "judgment": "监管正从<strong>内容治理</strong>转向<strong>代理行为与物理安全</strong>，形成全球性合规压力。",
-      "evidence": "<mark>纽约州五年禁令</mark>封杀AI聊天玩具，<mark>亚马逊披露黑客AI代理利用0-day</mark>，<mark>Anthropic蜜罐测试代理越界</mark>，显示AI代理风险已从理论走向现实。",
-      "action": "AI代理开发者需内置行为审计与权限控制；企业应建立AI代理安全运营中心（SOC）。"
+      "heading": "落地应用启发",
+      "judgment": "AI代理的<strong>自主性提升</strong>带来安全与治理新挑战。",
+      "evidence": "<mark>黑客AI代理发现0-day漏洞</mark>，<mark>Anthropic蜜罐测试代理越界</mark>，<mark>纽约州禁AI玩具</mark>，表明AI代理安全风险已从理论走向现实。",
+      "action": "开发者和企业需构建AI代理的监控与审计机制，提前应对监管。"
     },
     {
-      "heading": "算力基建",
-      "judgment": "算力竞争正从<strong>地面数据中心</strong>向<strong>太空与边缘</strong>延伸，资本开支结构生变。",
-      "evidence": "<mark>FCC批准SpaceX百万颗AI卫星</mark>，<mark>九章云极启动算力采购信心指数</mark>，<mark>Neoclouds面临建设延迟与债务成本上升</mark>，显示算力供给多元化与金融化并行。",
-      "action": "云厂商应评估太空算力互联的长期战略；投资者关注算力指数衍生品与边缘计算基础设施。"
+      "heading": "对国内中小企业的影响",
+      "judgment": "开源模型<strong>极致性价比</strong>降低AI应用门槛，但芯片限制<strong>倒逼自主创新</strong>。",
+      "evidence": "<mark>中国开源视频模型每秒仅5毛</mark>，<mark>美国芯片限制减缓中国AI实验室</mark>，中小企业可借开源模型低成本创新，但需应对算力约束。",
+      "action": "中小企业应积极采用开源模型，同时探索国产算力替代方案。"
     }
   ]
 }
