@@ -1,0 +1,198 @@
+{
+  "headline": "今日AI行业呈现“硬科技突破与生态卡位并行”的态势。最值得关注的是：①<strong>商汤大装置获信通院Token工厂智算能力最高评级</strong>，标志算力服务标准化迈出关键一步；②<strong>英伟达暂停对东南亚的服务器出货</strong>，同时被禁Blackwell芯片现身上海数据中心，地缘博弈加剧；③<strong>首个带跨任务空间记忆的机器人原生基模开源</strong>，且能在端侧运行，为具身智能落地打开新路径。这些事件背后共同指向两大驱动因素：一是<strong>算力基础设施的合规化与地缘化</strong>，美国收紧出口管制倒逼算力供应链重组，而国内算力服务评级体系开始建立；二是<strong>模型能力向端侧和物理世界迁移</strong>，开源机器人基模与光互连芯片融资表明，技术突破正从云端大模型转向边缘智能与硬件协同。未来1-3个月，算力合规成本将上升，具备全栈服务能力的算力厂商优势凸显；端侧机器人基模有望催生一批开发者生态项目；同时，AI安全与数据隐私监管压力持续加大（如42州总检察长阻止Character.AI出售用户聊天记录）。整体判断：行业正从“模型军备竞赛”转向“基础设施与落地场景的深耕”，资本和监管的双重力量将加速行业分化。",
+  "must_read": [
+    {
+      "cluster_id": 1,
+      "title": "全国首批首家！商汤大装置获Token工厂智算能力最高评级",
+      "category": "政策标准 · 算力评级",
+      "importance": 5,
+      "summary": "商汤大装置Token工厂获得中国信通院Token工厂智算能力评估“全栈服务型·领先级”评级认证，成为全国首批首家获此最高评级的企业。这标志着智算服务标准化体系初步建立，为行业提供了可衡量的服务标杆，有助于推动算力市场从粗放走向规范。",
+      "why": "算力服务标准化提速，头部厂商优势强化。",
+      "actionable_insight": "企业选型算力服务时可参考评级，优先全栈能力厂商。",
+      "sources": [
+        {
+          "name": "量子位",
+          "url": "https://www.qbitai.com/2026/11/513346.html"
+        }
+      ]
+    },
+    {
+      "cluster_id": 7,
+      "title": "英伟达暂停对东南亚芯片出货，被禁Blackwell芯片现身上海数据中心",
+      "category": "产业观察 · 芯片竞争",
+      "importance": 5,
+      "summary": "英伟达应美国出口管制要求，暂停向马来西亚、新加坡、泰国和印尼的服务器出货；同时彭博社报道，被禁的Blackwell芯片出现在上海一个与Alice Huang有关的数据中心。这显示美国对华AI芯片封锁持续加码，但灰色渠道依然存在，地缘博弈进入新阶段。",
+      "why": "芯片管制升级，全球AI算力供应链面临重组。",
+      "actionable_insight": "企业需评估供应链合规风险，探索国产替代方案。",
+      "sources": [
+        {
+          "name": "TechCrunch AI",
+          "url": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/"
+        },
+        {
+          "name": "Engadget AI",
+          "url": "https://www.engadget.com/2329748/restricted-nvidia-chips-were-installed-at-a-chinese-data-center-linked-to-alice-huang/"
+        },
+        {
+          "name": "The Decoder",
+          "url": "https://the-decoder.com/banned-nvidia-blackwell-chips-turn-up-in-a-shanghai-data-center-linked-to-alice-huang-bloomberg-reports/"
+        }
+      ]
+    },
+    {
+      "cluster_id": 4,
+      "title": "首个带跨任务空间记忆的原生基模开源！机器人端侧就能跑",
+      "category": "开源动态 · 机器人基模",
+      "importance": 5,
+      "summary": "首个具备跨任务空间记忆能力的机器人原生基础模型宣布开源，且可在机器人端侧直接运行。该模型支持地图随时修正、记忆跨任务复用，显著提升机器人在复杂环境中的自主适应能力，为具身智能开发者提供了强大的开源底座。",
+      "why": "端侧机器人基模开源，降低具身智能开发门槛。",
+      "actionable_insight": "机器人开发者可基于此快速构建场景应用。",
+      "sources": [
+        {
+          "name": "量子位",
+          "url": "https://www.qbitai.com/2026/11/513227.html"
+        }
+      ]
+    },
+    {
+      "cluster_id": 18,
+      "title": "独家丨瞄准AI算力天花板，「闪科光联」完成数千万融资",
+      "category": "融资并购 · 光互连芯片",
+      "importance": 4,
+      "summary": "MicroLED高速光互连芯片与光引擎研发商「闪科光联」完成数千万元人民币天使轮融资，由商汤国香、长石资本、厚雪资本联合领投，险峰长青等跟投。公司瞄准AI算力成本从“计算”转向“连接”的趋势，致力于突破光互连瓶颈。",
+      "why": "光互连技术受资本关注，算力瓶颈转向连接。",
+      "actionable_insight": "关注光互连赛道，投资可布局早期技术团队。",
+      "sources": [
+        {
+          "name": "AI 科技评论",
+          "url": "https://www.leiphone.com/category/ai/ilqJyKclWkhaWIps.html"
+        }
+      ]
+    },
+    {
+      "cluster_id": 10,
+      "title": "42州总检察长试图阻止Character.AI出售用户聊天记录",
+      "category": "政策标准 · 数据合规",
+      "importance": 4,
+      "summary": "美国42个州的总检察长组成联盟，试图阻止Character.AI在破产程序中出售用户数据。此举凸显AI聊天机器人用户隐私保护面临严峻监管压力，可能为行业数据资产处置设立先例，影响AI公司破产时的数据处置方式。",
+      "why": "用户数据隐私监管收紧，AI公司数据资产处置受限。",
+      "actionable_insight": "AI企业需提前规划数据合规与用户授权机制。",
+      "sources": [
+        {
+          "name": "The Verge AI",
+          "url": "https://www.theverge.com/policy/1042620/character-ai-sale-state-ags-block-selling-users-chats"
+        }
+      ]
+    }
+  ],
+  "briefs": [
+    {
+      "cluster_id": 0,
+      "title": "人形机器人开发者集合！众擎开放大小脑，10亿产业级生态支持计划也来了",
+      "category": "大厂动态 · 机器人生态",
+      "summary": "众擎机器人开放“大小脑”技术平台，并推出10亿产业级生态支持计划，旨在吸引开发者共建人形机器人应用生态。",
+      "sources": [
+        {
+          "name": "量子位",
+          "url": "https://www.qbitai.com/2026/11/513352.html"
+        }
+      ]
+    },
+    {
+      "cluster_id": 3,
+      "title": "DeepSeek APP突然更新账单，网友：要收费了？",
+      "category": "产品发布 · 商业化",
+      "summary": "DeepSeek APP网页和移动端突然上线聊天账单功能，引发用户对即将收费的猜测，官方尚未回应。",
+      "sources": [
+        {
+          "name": "量子位",
+          "url": "https://www.qbitai.com/2026/11/513305.html"
+        }
+      ]
+    },
+    {
+      "cluster_id": 5,
+      "title": "钛动科技 × 腾讯云达成战略合作，用AI打开企业全球增长新空间",
+      "category": "大厂动态 · 云服务合作",
+      "summary": "钛动科技与腾讯云达成战略合作，双方将结合AI技术助力企业全球化增长，聚焦营销与云服务整合。",
+      "sources": [
+        {
+          "name": "量子位",
+          "url": "https://www.qbitai.com/2026/11/513194.html"
+        }
+      ]
+    },
+    {
+      "cluster_id": 14,
+      "title": "OpenAI反诉苹果窃取商业机密，指控其胁迫共享供应商",
+      "category": "大厂动态 · 法律纠纷",
+      "summary": "OpenAI对苹果提起反诉，指控苹果窃取商业机密并胁迫双方共享供应商，称苹果试图“以一切手段不公平竞争”。",
+      "sources": [
+        {
+          "name": "Engadget AI",
+          "url": "https://www.engadget.com/2329747/openai-countersues-apple-and-accuses-it-of-stealing-trade-secrets/"
+        },
+        {
+          "name": "The Decoder",
+          "url": "https://the-decoder.com/openai-countersues-apple-over-trade-secret-theft-and-alleged-coercion-of-shared-suppliers/"
+        }
+      ]
+    },
+    {
+      "cluster_id": 16,
+      "title": "新型芯片利用光波运行AI模型，能耗大幅降低",
+      "category": "技术论文 · 光子计算",
+      "summary": "德国公司Q.ANT研发光子芯片，利用光波执行最复杂计算，旨在降低AI模型运行的能耗，为绿色AI提供新思路。",
+      "sources": [
+        {
+          "name": "Wired AI",
+          "url": "https://www.wired.com/story/a-new-breed-of-chip-runs-ai-models-using-waves-of-light/"
+        }
+      ]
+    },
+    {
+      "cluster_id": 17,
+      "title": "Meta拒绝向英国金融监管机构共享Muse用于测试，FCA表达不满",
+      "category": "政策标准 · AI治理",
+      "summary": "英国金融行为监管局（FCA）抱怨Meta拒绝在推出个人智能体前共享Muse进行联合测试，警告AI代理可能带来“另一股攻击力量”。",
+      "sources": [
+        {
+          "name": "Wired AI",
+          "url": "https://www.wired.com/story/meta-refused-to-share-muse-for-testing-uk-financial-watchdog-complains/"
+        }
+      ]
+    },
+    {
+      "cluster_id": 22,
+      "title": "支付宝车载助手3.0发布，助力智能座舱打造下一代可靠可信生活服务",
+      "category": "产品发布 · 车载智能体",
+      "summary": "支付宝发布AI原生车载智能体“支付宝车载助手3.0”，打通停车缴费、加油充电等高频服务，实现“车内发起、车外交付”。",
+      "sources": [
+        {
+          "name": "AI 科技评论",
+          "url": "https://www.leiphone.com/category/industrynews/szJUnXEhChJQgJHZ.html"
+        }
+      ]
+    }
+  ],
+  "trends": [
+    {
+      "heading": "行业大势",
+      "judgment": "<strong>算力竞争从“堆算力”转向“算力效率与合规”</strong>，光互连与标准化成为新焦点。",
+      "evidence": "商汤大装置获信通院最高评级，标志算力服务标准化；<mark>闪科光联完成数千万融资</mark>，瞄准光互连降低算力连接成本；同时<mark>英伟达暂停对东南亚出货</mark>，地缘政治加剧算力供应链不确定性。",
+      "action": "企业应关注算力服务的合规评级与光互连技术进展，投资者可布局光芯片等底层创新。"
+    },
+    {
+      "heading": "落地应用启发",
+      "judgment": "<strong>端侧智能与具身智能加速落地</strong>，开源基模和车载智能体推动AI从云端走向物理世界。",
+      "evidence": "<mark>首个带跨任务空间记忆的机器人原生基模开源</mark>且端侧可跑，降低机器人开发门槛；<mark>支付宝车载助手3.0发布</mark>，实现车内发起车外交付的闭环服务；众擎开放大小脑并推出10亿生态计划。",
+      "action": "开发者可基于开源机器人基模快速构建场景应用；车企与软件商应探索车载智能体服务集成。"
+    },
+    {
+      "heading": "对国内中小企业的影响",
+      "judgment": "<strong>AI监管与数据合规成本上升</strong>，中小企业需提前构建隐私保护机制。",
+      "evidence": "<mark>42州总检察长阻止Character.AI出售用户聊天记录</mark>，凸显数据资产处置风险；<mark>Meta拒绝向英国FCA共享Muse测试</mark>，显示监管对AI代理的担忧加剧；国内算力评级体系建立，间接提高服务门槛。",
+      "action": "中小企业应优先采用合规算力服务，并在产品设计中嵌入用户授权与数据最小化原则。"
+    }
+  ]
+}
